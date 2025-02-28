@@ -27,13 +27,13 @@ def construct_prompt(system_prompt, user_prompt, shape_data):
 ```sparql
 """
 
-def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_switch):
+def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider):
     """Calls OpenAI's GPT model via the ChatGPT API or DeepSeek API."""
     
-    if llm_switch == "openai":
+    if llm_provider == "openai":
         client = OpenAI(api_key=api_key)
     
-    elif llm_switch == "deepseek":
+    elif llm_provider == "deepseek":
         client = OpenAI(
             api_key=api_key,
             base_url="https://api.deepseek.com/v1", 
@@ -91,7 +91,7 @@ def save_response(json_path, question_id, response):
     print(f"✅ Response saved for question ID {question_id} in {json_path}")
 
 
-def process_json_and_shapes(json_path, shape_dir, system_prompt_path, output_dir, api_key, model, max_tokens, temperature, llm_switch):
+def process_json_and_shapes(json_path, shape_dir, system_prompt_path, output_dir, api_key, model, max_tokens, temperature, llm_provider):
     """Iterates over JSON questions and shape files to generate SPARQL queries, ensuring only one LLM call per question."""
 
     # Load the JSON file with questions
@@ -139,7 +139,7 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, output_dir
         print(f"🔄 Generating SPARQL for question ID {question_id} with entities {entity_ids}...")
 
         # **Call the LLM only once for this question**
-        response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_switch)
+        response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
 
         # Save the response once per question ID
         save_response(json_path, question_id, response)
@@ -154,7 +154,7 @@ def main():
     parser.add_argument("--api_key", required=True, type=str, help="API key.")
     parser.add_argument("--max_tokens", default=512, type=int, help="Maximum number of tokens to generate.")
     parser.add_argument("--temperature", default=0.1, type=float, help="Sampling temperature.")
-    parser.add_argument("--llm_switch", type=str, default="openai", help="Define which llm to use.")
+    parser.add_argument("--llm_provider", type=str, default="openai", help="Define which llm to use.")
 
     args = parser.parse_args()
 
@@ -167,7 +167,7 @@ def main():
         model=args.model,
         max_tokens=args.max_tokens,
         temperature=args.temperature,
-        llm_switch=args.llm_switch
+        llm_provider=args.llm_provider
     )
 
 if __name__ == "__main__":

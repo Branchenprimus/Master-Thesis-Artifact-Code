@@ -44,8 +44,8 @@ python ./extract_entity_list.py \
   --output_file "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --api_key $API_KEY \
   --num_questions $NUM_QUESTIONS \
-  --model $MODEL \
-  --llm_switch $LLM_SWITCH \
+  --model $MODEL_ENTITY_EXTRACTION \
+  --llm_provider $LLM_PROVIDER \
   > "$LOG_DIR/extract_entity_list.out" 2> "$LOG_DIR/extract_entity_list.err"
 
 python generate_shape.py \
@@ -54,13 +54,13 @@ python generate_shape.py \
   > "$LOG_DIR/generate_shape.out" 2> "$LOG_DIR/generate_shape.err"
 
 python call_llm_api.py \
-  --model $MODEL \
+  --model $MODEL_SPARQL_GENERATION \
   --api_key $API_KEY \
   --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --system_prompt_path $SYSTEM_PROMPT_PATH \
   --shape_path "$TEMP_OUTPUT_DIR/shapes" \
   --output_dir "$TEMP_OUTPUT_DIR/llm_responses" \
-  --llm_switch $LLM_SWITCH \
+  --llm_provider $LLM_PROVIDER \
   > "$LOG_DIR/call_llm_api.out" 2> "$LOG_DIR/call_llm_api.err"
 
 python call_sparql_endpoint.py \
@@ -77,4 +77,3 @@ python process_results.py \
   --output_dir "$TEMP_OUTPUT_DIR/processed.txt" \
   > "$LOG_DIR/process_results.out" 2> "$LOG_DIR/process_results.err"
 
-  

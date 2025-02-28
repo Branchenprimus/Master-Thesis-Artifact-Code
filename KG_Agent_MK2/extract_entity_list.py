@@ -12,16 +12,16 @@ def extract_entities_from_sparql(sparql_query):
     clean_entities = {re.sub(r'.*Q', 'Q', e).replace(">", "") for e in entities}
     return sorted(clean_entities)  # Return as a sorted list
 
-def extract_entities_with_llm(nlq, api_key, model, llm_switch):
+def extract_entities_with_llm(nlq, api_key, model, llm_provider):
     """
     Uses an LLM to extract the most relevant entities from a natural language query.
     Returns a list of entities.
     """
     
-    if llm_switch == "openai":
+    if llm_provider == "openai":
         client = openai.OpenAI(api_key=api_key)
     
-    elif llm_switch == "deepseek":
+    elif llm_provider == "deepseek":
         client = openai.OpenAI(
         api_key=api_key,
         base_url="https://api.deepseek.com/v1", 
@@ -73,7 +73,7 @@ def get_wikidata_entities(entity_names):
 
     return wikidata_entities
 
-def transform_json(input_file, output_file, api_key, num_questions, model, llm_switch):
+def transform_json(input_file, output_file, api_key, num_questions, model, llm_provider):
     """
     Transforms the input JSON structure into a simplified list of question-answer pairs,
     including extracted entity IDs from SPARQL, LLM, and Wikidata SPARQL endpoint,
@@ -111,7 +111,7 @@ def transform_json(input_file, output_file, api_key, num_questions, model, llm_s
         entities_from_sparql = extract_entities_from_sparql(sparql_query)
 
         # Extract multiple entities from NLQ using LLM
-        llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_switch)
+        llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider)
 
         # Query Wikidata to get entity IDs for all extracted names
         wikidata_entities_resolved = get_wikidata_entities(llm_extracted_entities)
@@ -142,7 +142,7 @@ def main():
     parser.add_argument("--api_key", type=str, required=True, help="API key for entity extraction.")
     parser.add_argument("--num_questions", type=str, help="Number of questions to process. If omitted, all questions will be processed.")
     parser.add_argument("--model", type=str, default="gpt-4o-mini", help="Model used for entity extraction.")
-    parser.add_argument("--llm_switch", type=str, default="openai", help="Define which llm to use.")
+    parser.add_argument("--llm_provider", type=str, default="openai", help="Define which llm to use.")
 
     args = parser.parse_args()
     
@@ -159,7 +159,7 @@ def main():
     print(f"📌 Using num_questions: {args.num_questions}")
 
     # Call your processing function
-    transform_json(args.input_file, args.output_file, args.api_key, args.num_questions, args.model, args.llm_switch)
+    transform_json(args.input_file, args.output_file, args.api_key, args.num_questions, args.model, args.llm_provider)
 
 if __name__ == "__main__":
     main()

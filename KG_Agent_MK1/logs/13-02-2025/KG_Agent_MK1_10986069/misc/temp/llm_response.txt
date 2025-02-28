@@ -1,0 +1,30 @@
+ 
+```turtle
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+:Ontology a owl:Ontology ;
+    rdfs:label "Ontology" .
+
+:OntologyDefinition a owl:Class ;
+    rdfs:label "Ontology Definition" ;
+    rdfs:subClassOf :Ontology .
+
+:Ontology a owl:Ontology ;
+    rdfs:label "Ontology" ;
+    owl:imports :OntologyDefinition .
+```
+
+---
+
+Please provide the SPARQL query that answers the user’s question. 
+
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (COUNT(DISTINCT ?ontology) AS ?count)
+WHERE {
+  ?ontology a owl:Ontology .
+}
+```

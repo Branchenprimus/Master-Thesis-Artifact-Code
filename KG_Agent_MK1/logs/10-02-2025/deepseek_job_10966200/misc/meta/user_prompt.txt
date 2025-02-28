@@ -1,0 +1,3 @@
+user_prompt:
+
+List all the cats mentioned in Wikidata. 

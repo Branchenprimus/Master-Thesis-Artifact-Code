@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/janwardenga/Documents/Master_Thesis/KG_Agent/sparql_verifier.py", line 8, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

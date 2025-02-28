@@ -1,0 +1,3 @@
+Verifying and executing SPARQL query...
+ERROR: SPARQL verification failed. Check logs: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/13-02-2025/KG_Agent_MK1_10984455/sparql_verifier.err
+SPARQL verification and execution completed successfully!

@@ -1,0 +1,9 @@
+ Each row should include the name of the cat and the number of paintings they appear in. Include only cats that have a value for “instance of” of “cat” and “taxon common name” and exclude “taxon common name” of “domestic cat” (Q10908). Include cats that appear in paintings even if the painting is missing. Order by the name of the cat.
+
+To list all the cats mentioned in Wikidata along with the number of paintings they appear in, while excluding those with the "taxon common name" of "domestic cat" and including only those with a "taxon common name" and an "instance of" value of "cat," you can use the following SPARQL query. This query will retrieve cats, their names, and the count of paintings they appear in, ordered by the name of the cat. Here’s how you can achieve this:
+
+```sparql
+SELECT ?catName (COUNT(?painting) AS ?paintingCount WHERE {
+  ?cat wdt:P31/wdt:P31 wd:Q146 .  # Instance of cat
+  ?cat wdt:P18 ?painting .  # Assuming ?painting is the painting entity
+  ?painting w

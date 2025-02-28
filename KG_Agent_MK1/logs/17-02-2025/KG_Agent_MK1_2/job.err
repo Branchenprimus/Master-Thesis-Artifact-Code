@@ -1,0 +1,632 @@
++ echo 'Starting file tracking...'
++ tee -a logs/17-02-2025/KG_Agent_MK1_2/track_files.log
++ python track_files.py --root-dir ./ --output logs/17-02-2025/KG_Agent_MK1_2/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/17-02-2025/KG_Agent_MK1_2/track_files.log
++ python extract_shapes.py --turtle_input_path /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl --shape_output_path /p/project1/hai_kg-rag-thesis/challenge_text2sparql/shapes
++ SYSTEM_PROMPT_PATH=system_prompt.txt
+++ basename /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl .ttl
++ BASE_FILENAME=prod-inst
++ '[' shex == shacl ']'
++ '[' shex == shex ']'
++ SHAPE_PATH=/p/project1/hai_kg-rag-thesis/challenge_text2sparql/shapes/prod-inst.shex
++ '[' '!' -f /p/project1/hai_kg-rag-thesis/challenge_text2sparql/shapes/prod-inst.shex ']'
++ echo 'Calling LLM API...'
++ tee -a logs/17-02-2025/KG_Agent_MK1_2/call_llm_api.log
++ python call_llm_api.py --use_chatgpt --model gpt-4o-mini --openai_api_key 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 --user_prompt_path ./user_prompt.txt --system_prompt_path system_prompt.txt --shape_path /p/project1/hai_kg-rag-thesis/challenge_text2sparql/shapes/prod-inst.shex --output_dir logs/17-02-2025/KG_Agent_MK1_2/misc/temp --max_tokens 512 --temperature 0.1
+++ head -n 1 logs/17-02-2025/KG_Agent_MK1_2/call_llm_api.err
++ API_RESPONSE='❌ ERROR: API call to ChatGPT failed: Request timed out.'
++ '[' 0 -ne 0 ']'
++ echo '❌ ERROR: API call to ChatGPT failed: Request timed out.'
++ grep -qi error
++ echo 'ERROR: LLM API returned an error: ❌ ERROR: API call to ChatGPT failed: Request timed out.'
++ tee -a logs/17-02-2025/KG_Agent_MK1_2/call_llm_api.log
++ echo 'LLM API call completed successfully!'
++ tee -a logs/17-02-2025/KG_Agent_MK1_2/call_llm_api.log
++ echo 'Waiting for SPARQL query file: logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt'
++ SPARQL_VERIFIER_WAITED=0
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 0 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 2 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 4 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 6 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 8 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 10 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 12 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 14 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 16 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 18 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 20 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 22 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 24 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 26 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 28 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 30 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 32 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 34 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 36 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 38 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 40 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 42 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 44 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 46 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 48 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 50 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 52 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 54 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 56 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 58 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 60 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 62 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 64 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 66 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 68 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 70 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 72 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 74 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 76 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 78 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 80 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 82 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 84 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 86 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 88 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 90 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 92 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 94 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 96 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 98 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 100 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 102 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 104 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 106 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 108 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 110 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 112 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 114 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 116 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 118 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 120 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 122 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 124 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 126 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 128 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 130 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 132 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 134 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 136 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 138 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 140 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 142 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 144 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 146 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 148 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 150 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 152 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 154 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 156 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 158 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 160 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 162 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 164 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 166 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 168 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 170 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 172 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 174 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 176 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 178 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 180 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 182 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 184 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 186 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 188 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 190 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 192 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 194 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 196 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 198 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 200 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 202 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 204 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 206 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 208 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 210 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 212 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 214 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 216 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 218 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 220 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 222 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 224 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 226 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 228 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 230 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 232 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 234 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 236 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 238 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 240 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 242 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 244 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 246 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 248 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 250 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 252 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 254 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 256 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 258 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 260 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 262 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 264 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 266 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 268 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 270 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 272 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 274 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 276 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 278 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 280 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 282 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 284 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 286 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 288 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 290 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 292 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 294 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 296 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 298 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt ']'
++ '[' 300 -ge 300 ']'
++ echo 'ERROR: Timed out waiting for SPARQL query file: logs/17-02-2025/KG_Agent_MK1_2/misc/temp/llm_response.txt'
++ exit 1

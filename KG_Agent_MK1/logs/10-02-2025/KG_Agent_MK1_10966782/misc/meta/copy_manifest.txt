@@ -1,0 +1,27 @@
+File copy manifest created at 2025-02-10_17-48-03
+==================================================
+
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/system_prompt.txt
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/system_prompt.txt
+--------------------------------------------------
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/track_files.py
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/track_files.py
+--------------------------------------------------
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/user_prompt.txt
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/user_prompt.txt
+--------------------------------------------------
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/.env
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/.env
+--------------------------------------------------
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/call_llm_api.py
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/call_llm_api.py
+--------------------------------------------------
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/sparql_verifier.py
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/sparql_verifier.py
+--------------------------------------------------
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/KG_Agent_MK1.sh
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/KG_Agent_MK1.sh
+--------------------------------------------------
+Source: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/gpu_graph.py
+Destination: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966782/misc/meta/gpu_graph.py
+--------------------------------------------------

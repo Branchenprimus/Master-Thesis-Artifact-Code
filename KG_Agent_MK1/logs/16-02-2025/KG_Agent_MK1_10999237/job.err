@@ -1,0 +1,15 @@
++ echo 'Starting file tracking...'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999237/track_files.log
++ python track_files.py --root-dir ./ --output logs/16-02-2025/KG_Agent_MK1_10999237/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999237/track_files.log
++ python extract_shapes.py --turtle_input_path '' --shape_output_path ''
++ SYSTEM_PROMPT_PATH=system_prompt.txt
+++ basename '' .ttl
++ BASE_FILENAME=
++ '[' '' == shacl ']'
++ '[' '' == shex ']'
++ echo '❌ ERROR: USE_SHAPE must be either '\''shacl'\'' or '\''shex'\'''
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999237/call_llm_api.log
++ exit 1

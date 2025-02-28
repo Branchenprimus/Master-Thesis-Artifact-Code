@@ -1,0 +1,292 @@
++ export CUDA_VISIBLE_DEVICES=0,1,2,3
++ CUDA_VISIBLE_DEVICES=0,1,2,3
++ lsof -i :8000
++ apptainer exec --nv --pwd /app --bind /p/project1/hai_kg-rag-thesis/models:/models /p/project1/hai_kg-rag-thesis/llama_server.sif ./llama-server -m /p/project1/hai_kg-rag-thesis/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf --port 8000 --host 0.0.0.0 -n 512 -c 4096 --n-gpu-layers 35 --parallel 4 --cache-type-k q5_0 --mlock --rope-freq-base 1000000
++ SERVER_PID=2279
++ echo 'Server PID: 2279'
++ sleep 10
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/09-02-2025/deepseek_job_10959774/server.log
++ MAX_RETRIES=600
++ TRIES=0
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 0 -ge 600 ]]
++ echo 'Waiting... (1/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 1 -ge 600 ]]
++ echo 'Waiting... (2/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 2 -ge 600 ]]
++ echo 'Waiting... (3/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 3 -ge 600 ]]
++ echo 'Waiting... (4/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 4 -ge 600 ]]
++ echo 'Waiting... (5/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 5 -ge 600 ]]
++ echo 'Waiting... (6/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 6 -ge 600 ]]
++ echo 'Waiting... (7/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 7 -ge 600 ]]
++ echo 'Waiting... (8/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 8 -ge 600 ]]
++ echo 'Waiting... (9/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 9 -ge 600 ]]
++ echo 'Waiting... (10/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 10 -ge 600 ]]
++ echo 'Waiting... (11/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 11 -ge 600 ]]
++ echo 'Waiting... (12/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 12 -ge 600 ]]
++ echo 'Waiting... (13/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 13 -ge 600 ]]
++ echo 'Waiting... (14/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 14 -ge 600 ]]
++ echo 'Waiting... (15/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 15 -ge 600 ]]
++ echo 'Waiting... (16/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 16 -ge 600 ]]
++ echo 'Waiting... (17/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 17 -ge 600 ]]
++ echo 'Waiting... (18/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 18 -ge 600 ]]
++ echo 'Waiting... (19/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 19 -ge 600 ]]
++ echo 'Waiting... (20/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 20 -ge 600 ]]
++ echo 'Waiting... (21/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 21 -ge 600 ]]
++ echo 'Waiting... (22/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 22 -ge 600 ]]
++ echo 'Waiting... (23/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 23 -ge 600 ]]
++ echo 'Waiting... (24/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 24 -ge 600 ]]
++ echo 'Waiting... (25/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 25 -ge 600 ]]
++ echo 'Waiting... (26/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 26 -ge 600 ]]
++ echo 'Waiting... (27/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 27 -ge 600 ]]
++ echo 'Waiting... (28/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 28 -ge 600 ]]
++ echo 'Waiting... (29/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 29 -ge 600 ]]
++ echo 'Waiting... (30/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 30 -ge 600 ]]
++ echo 'Waiting... (31/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 31 -ge 600 ]]
++ echo 'Waiting... (32/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 32 -ge 600 ]]
++ echo 'Waiting... (33/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 33 -ge 600 ]]
++ echo 'Waiting... (34/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 34 -ge 600 ]]
++ echo 'Waiting... (35/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 35 -ge 600 ]]
++ echo 'Waiting... (36/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 36 -ge 600 ]]
++ echo 'Waiting... (37/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 37 -ge 600 ]]
++ echo 'Waiting... (38/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 38 -ge 600 ]]
++ echo 'Waiting... (39/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 39 -ge 600 ]]
++ echo 'Waiting... (40/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 40 -ge 600 ]]
++ echo 'Waiting... (41/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 41 -ge 600 ]]
++ echo 'Waiting... (42/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 42 -ge 600 ]]
++ echo 'Waiting... (43/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 43 -ge 600 ]]
++ echo 'Waiting... (44/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 44 -ge 600 ]]
++ echo 'Waiting... (45/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 45 -ge 600 ]]
++ echo 'Waiting... (46/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 46 -ge 600 ]]
++ echo 'Waiting... (47/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 47 -ge 600 ]]
++ echo 'Waiting... (48/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 48 -ge 600 ]]
++ echo 'Waiting... (49/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 49 -ge 600 ]]
++ echo 'Waiting... (50/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 50 -ge 600 ]]
++ echo 'Waiting... (51/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 51 -ge 600 ]]
++ echo 'Waiting... (52/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 52 -ge 600 ]]
++ echo 'Waiting... (53/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+curl: (22) The requested URL returned error: 503
++ [[ 53 -ge 600 ]]
++ echo 'Waiting... (54/600)'
++ sleep 2
++ curl -sSf http://0.0.0.0:8000/v1/models
+++ curl -s -X POST http://0.0.0.0:8000/v1/completions -H 'Content-Type: application/json' -d '{
+    "prompt": "<｜end▁of▁thinking｜>What is 1+1?<｜end▁of▁thinking｜>",
+    "max_tokens": 50,
+    "temperature": 0.3
+  }'
++ RESPONSE='{"choices":[{"text":"The sum of 1 and 1 is 2. In mathematical terms, 1 + 1 equals 2. This is a fundamental concept in arithmetic, representing the addition of two units to form a total of two units.","index":0,"logprobs":null,"finish_reason":"stop"}],"created":1739119727,"model":"gpt-3.5-turbo","system_fingerprint":"b4667-d2fe216f","object":"text_completion","usage":{"completion_tokens":48,"prompt_tokens":30,"total_tokens":78},"id":"chatcmpl-7YHABSEvkJuhI7DtdH7aOxv8c6vNkMyf","timings":{"prompt_n":30,"prompt_ms":34538.561,"prompt_per_token_ms":1151.2853666666667,"prompt_per_second":0.8685943806402356,"predicted_n":48,"predicted_ms":15072.066,"predicted_per_token_ms":314.001375,"predicted_per_second":3.184699430058228}}'
++ echo 'Server Response: {"choices":[{"text":"The sum of 1 and 1 is 2. In mathematical terms, 1 + 1 equals 2. This is a fundamental concept in arithmetic, representing the addition of two units to form a total of two units.","index":0,"logprobs":null,"finish_reason":"stop"}],"created":1739119727,"model":"gpt-3.5-turbo","system_fingerprint":"b4667-d2fe216f","object":"text_completion","usage":{"completion_tokens":48,"prompt_tokens":30,"total_tokens":78},"id":"chatcmpl-7YHABSEvkJuhI7DtdH7aOxv8c6vNkMyf","timings":{"prompt_n":30,"prompt_ms":34538.561,"prompt_per_token_ms":1151.2853666666667,"prompt_per_second":0.8685943806402356,"predicted_n":48,"predicted_ms":15072.066,"predicted_per_token_ms":314.001375,"predicted_per_second":3.184699430058228}}'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/09-02-2025/deepseek_job_10959774/response.log
++ '[' -z '{"choices":[{"text":"The sum of 1 and 1 is 2. In mathematical terms, 1 + 1 equals 2. This is a fundamental concept in arithmetic, representing the addition of two units to form a total of two units.","index":0,"logprobs":null,"finish_reason":"stop"}],"created":1739119727,"model":"gpt-3.5-turbo","system_fingerprint":"b4667-d2fe216f","object":"text_completion","usage":{"completion_tokens":48,"prompt_tokens":30,"total_tokens":78},"id":"chatcmpl-7YHABSEvkJuhI7DtdH7aOxv8c6vNkMyf","timings":{"prompt_n":30,"prompt_ms":34538.561,"prompt_per_token_ms":1151.2853666666667,"prompt_per_second":0.8685943806402356,"predicted_n":48,"predicted_ms":15072.066,"predicted_per_token_ms":314.001375,"predicted_per_second":3.184699430058228}}' ']'
++ echo '{"choices":[{"text":"The sum of 1 and 1 is 2. In mathematical terms, 1 + 1 equals 2. This is a fundamental concept in arithmetic, representing the addition of two units to form a total of two units.","index":0,"logprobs":null,"finish_reason":"stop"}],"created":1739119727,"model":"gpt-3.5-turbo","system_fingerprint":"b4667-d2fe216f","object":"text_completion","usage":{"completion_tokens":48,"prompt_tokens":30,"total_tokens":78},"id":"chatcmpl-7YHABSEvkJuhI7DtdH7aOxv8c6vNkMyf","timings":{"prompt_n":30,"prompt_ms":34538.561,"prompt_per_token_ms":1151.2853666666667,"prompt_per_second":0.8685943806402356,"predicted_n":48,"predicted_ms":15072.066,"predicted_per_token_ms":314.001375,"predicted_per_second":3.184699430058228}}'
++ grep -q error

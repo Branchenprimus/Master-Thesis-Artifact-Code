@@ -1,0 +1,504 @@
++ echo 'Starting file tracking...'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999235/track_files.log
++ python track_files.py --root-dir ./ --output logs/16-02-2025/KG_Agent_MK1_10999235/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999235/track_files.log
++ python extract_shapes.py --turtle_input_path '/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQLâ€™25/source/Corporate Knowledge (Small Knowledge Graph)/prod-inst.ttl' --shape_output_path $'/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQLâ\200\23125/shapes'
++ SYSTEM_PROMPT_PATH=system_prompt.txt
+++ basename '/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQLâ€™25/source/Corporate Knowledge (Small Knowledge Graph)/prod-inst.ttl' .ttl
++ BASE_FILENAME=prod-inst
++ '[' shex == shacl ']'
++ '[' shex == shex ']'
++ SHAPE_PATH=$'/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQLâ\200\23125/shapes/prod-inst.shex'
++ '[' '!' -f $'/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQLâ\200\23125/shapes/prod-inst.shex' ']'
++ echo 'Calling LLM API...'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999235/call_llm_api.log
++ python call_llm_api.py --use_chatgpt --model gpt-4o-mini --openai_api_key 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 --user_prompt_path user_prompt.txt --system_prompt_path system_prompt.txt --shape_path shape.shex --output_dir output/ --max_tokens 512 --temperature 0.1
+WARNING: Could not read file shape.shex: [Errno 2] No such file or directory: 'shape.shex'
+++ head -n 1 logs/16-02-2025/KG_Agent_MK1_10999235/call_llm_api.err
++ API_RESPONSE=
++ '[' 0 -ne 0 ']'
++ echo ''
++ grep -qi error
++ echo 'LLM API call completed successfully!'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999235/call_llm_api.log
++ echo 'Waiting for SPARQL query file: logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt'
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2
++ (( 0+=SPARQL_VERIFIER_SLEEP_INTERVAL ))
+./KG_Agent_MK1.sh: line 120: ((: 0+=SPARQL_VERIFIER_SLEEP_INTERVAL: attempted assignment to non-variable (error token is "+=SPARQL_VERIFIER_SLEEP_INTERVAL")
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999235/misc/temp/llm_response.txt ']'
++ '[' '' -ge 300 ']'
+./KG_Agent_MK1.sh: line 115: [: : integer expression expected
++ sleep 2

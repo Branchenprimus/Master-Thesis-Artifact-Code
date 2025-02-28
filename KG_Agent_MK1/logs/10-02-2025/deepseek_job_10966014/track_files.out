@@ -1,0 +1,6 @@
+Successfully copied Apptainer_parallel.sh to /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10966014/misc/meta/Apptainer_parallel.sh
+Successfully copied track_files.py to /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10966014/misc/meta/track_files.py
+Successfully copied .env to /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10966014/misc/meta/.env
+Successfully copied call_llm_api.py to /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10966014/misc/meta/call_llm_api.py
+Successfully copied llamacpp.py to /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10966014/misc/meta/llamacpp.py
+Successfully copied gpu_graph.py to /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10966014/misc/meta/gpu_graph.py

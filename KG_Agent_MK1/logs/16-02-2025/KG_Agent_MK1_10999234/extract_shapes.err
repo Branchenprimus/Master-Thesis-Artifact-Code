@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/janwardenga/Documents/Master_Thesis/KG_Agent/extract_shapes.py", line 5, in <module>
+    from shexer.shaper import Shaper
+  File "/Users/janwardenga/Documents/Master_Thesis/KG_Agent/kgvenv/lib/python3.12/site-packages/shexer/shaper.py", line 12, in <module>
+    from shexer.utils.factories.shape_serializer_factory import get_shape_serializer, get_uml_serializer
+  File "/Users/janwardenga/Documents/Master_Thesis/KG_Agent/kgvenv/lib/python3.12/site-packages/shexer/utils/factories/shape_serializer_factory.py", line 4, in <module>
+    from shexer.io.uml.uml_serializer import UMLSerializer
+  File "/Users/janwardenga/Documents/Master_Thesis/KG_Agent/kgvenv/lib/python3.12/site-packages/shexer/io/uml/uml_serializer.py", line 1, in <module>
+    from plantuml import PlantUML
+  File "/Users/janwardenga/Documents/Master_Thesis/KG_Agent/kgvenv/lib/python3.12/site-packages/plantuml.py", line 13, in <module>
+    import six
+ModuleNotFoundError: No module named 'six'

@@ -1,0 +1,20 @@
++ export CUDA_VISIBLE_DEVICES=0,1,2,3
++ CUDA_VISIBLE_DEVICES=0,1,2,3
++ lsof -i :8000
++ '[' '!' -f /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10964540/misc/gpu_usage.csv ']'
++ echo 'timestamp,index,name,utilization.gpu [%],memory.used [MiB],memory.total [MiB]'
++ GPU_MONITOR_PID=3643
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++++ realpath /var/spool/parastation/jobs/10964540
+++ dirname /var/spool/parastation/jobs/10964540
++ SCRIPT_ROOT_DIR=/var/spool/parastation/jobs
++ echo 'Detected script root directory: /var/spool/parastation/jobs'
++ echo 'Starting file tracking...'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10964540/track_files.log
++ python3 /var/spool/parastation/jobs/track_files.py --root-dir /var/spool/parastation/jobs --output /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10964540/misc/meta
++ sleep 5
++ '[' 2 -ne 0 ']'
++ echo 'ERROR: File tracking failed. Check logs: /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10964540/track_files.err'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10964540/track_files.log
++ exit 1

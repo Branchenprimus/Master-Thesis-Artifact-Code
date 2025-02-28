@@ -1,0 +1,8 @@
+ This is a query that could be used to find all the cats in Wikidata. The query could be extended to find cats in a specific language or other properties.
+
+```sparql
+SELECT ?cat ?catLabel WHERE {
+  ?cat wdt:P31 wd:Q146 . # instance of cat
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" .
+}
+```

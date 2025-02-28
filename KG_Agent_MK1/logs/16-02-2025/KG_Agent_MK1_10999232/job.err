@@ -1,0 +1,17 @@
++ echo 'Starting file tracking...'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999232/track_files.log
++ python track_files.py --root-dir ./ --output logs/16-02-2025/KG_Agent_MK1_10999232/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999232/track_files.log
++ python extract_shapes.py --turtle_input_path '/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQL‚Äô25/source/Corporate Knowledge (Small Knowledge Graph)/prod-inst.ttl' --shape_output_path $'/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQL‚\200\23125/shapes'
++ SYSTEM_PROMPT_PATH=system_prompt.txt
+++ basename '/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQL‚Äô25/source/Corporate Knowledge (Small Knowledge Graph)/prod-inst.ttl' .ttl
++ BASE_FILENAME=prod-inst
++ '[' shex == shacl ']'
++ '[' shex == shex ']'
++ SHAPE_PATH=$'/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQL‚\200\23125/shapes/prod-inst.shex'
++ '[' '!' -f $'/Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQL‚\200\23125/shapes/prod-inst.shex' ']'
++ echo '‚ùå ERROR: Shape file not found: /Users/janwardenga/Documents/Master_Thesis/TEXT2SPARQL‚Äô25/shapes/prod-inst.shex'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999232/call_llm_api.log
++ exit 1

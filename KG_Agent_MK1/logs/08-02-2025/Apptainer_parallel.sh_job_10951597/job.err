@@ -1,0 +1,28 @@
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 4 CUDA devices:
+  Device 0: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+  Device 1: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+  Device 2: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+  Device 3: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+warn: LLAMA_ARG_HOST environment variable is set, but will be overwritten by command line argument --host
+build: 4667 (d2fe216f) with cc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0 for x86_64-linux-gnu
+system info: n_threads = 48, n_threads_batch = 48, total_threads = 96
+
+system_info: n_threads = 48 (n_threads_batch = 48) / 96 | CUDA : ARCHS = 520,610,700,750 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | LLAMAFILE = 1 | OPENMP = 1 | AARCH64_REPACK = 1 | 
+
+main: HTTP server is listening, hostname: 0.0.0.0, port: 8000, http threads: 95
+main: loading model
+srv    load_model: loading model '/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_L-00001-of-00005.gguf'
+llama_model_load_from_file_impl: using device CUDA0 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+llama_model_load_from_file_impl: using device CUDA1 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+llama_model_load_from_file_impl: using device CUDA2 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+llama_model_load_from_file_impl: using device CUDA3 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+gguf_init_from_file: failed to open GGUF file '/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_L-00001-of-00005.gguf'
+llama_model_load: error loading model: llama_model_loader: failed to load model from /models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_L-00001-of-00005.gguf
+
+llama_model_load_from_file_impl: failed to load model
+common_init_from_params: failed to load model '/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_L-00001-of-00005.gguf'
+srv    load_model: failed to load model, '/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_L-00001-of-00005.gguf'
+main: exiting due to model loading error
+ERROR: LLaMA server did not start in time!

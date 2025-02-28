@@ -1,0 +1,16 @@
++ export CUDA_VISIBLE_DEVICES=0,1,2,3
++ CUDA_VISIBLE_DEVICES=0,1,2,3
++ SERVER_PID=29179
++ echo 'Server PID: 29179'
++ sleep 10
++ apptainer exec --nv --pwd /app --bind /p/project1/hai_kg-rag-thesis/models:/models ./llama-server -m --port --host -n 512 -c 4096 --n-gpu-layers --parallel --cache-type-k q5_0 --mlock --rope-freq-base 1000000
+FATAL:   While checking container encryption: could not open image /p/project1/hai_kg-rag-thesis/llama-server: failed to retrieve path for /p/project1/hai_kg-rag-thesis/llama-server: lstat /p/project1/hai_kg-rag-thesis/llama-server: no such file or directory
++ echo 'Waiting for LLM server to start on port ...'
++ i=1
++ '[' 1 -le '' ']'
+/var/spool/parastation/jobs/10959054: line 47: [: : integer expression expected
++ nc -z '' ''
+Ncat: You must specify a host to connect to. QUITTING.
++ echo 'ERROR: LLM server did not start after  seconds.'
++ pkill -f vllm.entrypoints.openai.api_server
++ exit 1

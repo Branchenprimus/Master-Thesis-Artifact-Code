@@ -1,0 +1,1035 @@
+Starting file tracking...
+File tracking completed successfully!
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 4 CUDA devices:
+  Device 0: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+  Device 1: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+  Device 2: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+  Device 3: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
+warn: LLAMA_ARG_HOST environment variable is set, but will be overwritten by command line argument --host
+build: 4667 (d2fe216f) with cc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0 for x86_64-linux-gnu
+system info: n_threads = 48, n_threads_batch = 48, total_threads = 96
+
+system_info: n_threads = 48 (n_threads_batch = 48) / 96 | CUDA : ARCHS = 520,610,700,750 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | LLAMAFILE = 1 | OPENMP = 1 | AARCH64_REPACK = 1 | 
+
+main: HTTP server is listening, hostname: 0.0.0.0, port: 8000, http threads: 95
+main: loading model
+srv    load_model: loading model '/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf'
+llama_model_load_from_file_impl: using device CUDA0 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+llama_model_load_from_file_impl: using device CUDA1 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+llama_model_load_from_file_impl: using device CUDA2 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+llama_model_load_from_file_impl: using device CUDA3 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
+llama_model_loader: additional 4 GGUFs metadata loaded.
+llama_model_loader: loaded meta data with 46 key-value pairs and 1025 tensors from /models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = deepseek2
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                               general.name str              = DeepSeek V3 BF16
+llama_model_loader: - kv   3:                         general.size_label str              = 256x20B
+llama_model_loader: - kv   4:                      deepseek2.block_count u32              = 61
+llama_model_loader: - kv   5:                   deepseek2.context_length u32              = 163840
+llama_model_loader: - kv   6:                 deepseek2.embedding_length u32              = 7168
+llama_model_loader: - kv   7:              deepseek2.feed_forward_length u32              = 18432
+llama_model_loader: - kv   8:             deepseek2.attention.head_count u32              = 128
+llama_model_loader: - kv   9:          deepseek2.attention.head_count_kv u32              = 128
+llama_model_loader: - kv  10:                   deepseek2.rope.freq_base f32              = 10000.000000
+llama_model_loader: - kv  11: deepseek2.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  12:                deepseek2.expert_used_count u32              = 8
+llama_model_loader: - kv  13:                          general.file_type u32              = 10
+llama_model_loader: - kv  14:        deepseek2.leading_dense_block_count u32              = 3
+llama_model_loader: - kv  15:                       deepseek2.vocab_size u32              = 129280
+llama_model_loader: - kv  16:            deepseek2.attention.q_lora_rank u32              = 1536
+llama_model_loader: - kv  17:           deepseek2.attention.kv_lora_rank u32              = 512
+llama_model_loader: - kv  18:             deepseek2.attention.key_length u32              = 192
+llama_model_loader: - kv  19:           deepseek2.attention.value_length u32              = 128
+llama_model_loader: - kv  20:       deepseek2.expert_feed_forward_length u32              = 2048
+llama_model_loader: - kv  21:                     deepseek2.expert_count u32              = 256
+llama_model_loader: - kv  22:              deepseek2.expert_shared_count u32              = 1
+llama_model_loader: - kv  23:             deepseek2.expert_weights_scale f32              = 2.500000
+llama_model_loader: - kv  24:              deepseek2.expert_weights_norm bool             = true
+llama_model_loader: - kv  25:               deepseek2.expert_gating_func u32              = 2
+llama_model_loader: - kv  26:             deepseek2.rope.dimension_count u32              = 64
+llama_model_loader: - kv  27:                deepseek2.rope.scaling.type str              = yarn
+llama_model_loader: - kv  28:              deepseek2.rope.scaling.factor f32              = 40.000000
+llama_model_loader: - kv  29: deepseek2.rope.scaling.original_context_length u32              = 4096
+llama_model_loader: - kv  30: deepseek2.rope.scaling.yarn_log_multiplier f32              = 0.100000
+llama_model_loader: - kv  31:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  32:                         tokenizer.ggml.pre str              = deepseek-v3
+llama_model_loader: - kv  33:                      tokenizer.ggml.tokens arr[str,129280]  = ["<｜begin▁of▁sentence｜>", "<�...
+llama_model_loader: - kv  34:                  tokenizer.ggml.token_type arr[i32,129280]  = [3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  35:                      tokenizer.ggml.merges arr[str,127741]  = ["Ġ t", "Ġ a", "i n", "Ġ Ġ", "h e...
+llama_model_loader: - kv  36:                tokenizer.ggml.bos_token_id u32              = 0
+llama_model_loader: - kv  37:                tokenizer.ggml.eos_token_id u32              = 1
+llama_model_loader: - kv  38:            tokenizer.ggml.padding_token_id u32              = 1
+llama_model_loader: - kv  39:               tokenizer.ggml.add_bos_token bool             = true
+llama_model_loader: - kv  40:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  41:                    tokenizer.chat_template str              = {% if not add_generation_prompt is de...
+llama_model_loader: - kv  42:               general.quantization_version u32              = 2
+llama_model_loader: - kv  43:                                   split.no u16              = 0
+llama_model_loader: - kv  44:                                split.count u16              = 5
+llama_model_loader: - kv  45:                        split.tensors.count i32              = 1025
+llama_model_loader: - type  f32:  361 tensors
+llama_model_loader: - type q2_K:  662 tensors
+llama_model_loader: - type q4_K:    1 tensors
+llama_model_loader: - type q6_K:    1 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q2_K - Medium
+print_info: file size   = 206.05 GiB (2.64 BPW) 
+init_tokenizer: initializing tokenizer for type 2
+load: control token: 128813 '<｜tool▁output▁end｜>' is not marked as EOG
+load: control token: 128812 '<｜tool▁output▁begin｜>' is not marked as EOG
+load: control token: 128811 '<｜tool▁outputs▁end｜>' is not marked as EOG
+load: control token: 128810 '<｜tool▁outputs▁begin｜>' is not marked as EOG
+load: control token: 128808 '<｜tool▁call▁begin｜>' is not marked as EOG
+load: control token: 128804 '<｜Assistant｜>' is not marked as EOG
+load: control token: 128803 '<｜User｜>' is not marked as EOG
+load: control token: 128798 '<｜place▁holder▁no▁798｜>' is not marked as EOG
+load: control token: 128795 '<｜place▁holder▁no▁795｜>' is not marked as EOG
+load: control token: 128793 '<｜place▁holder▁no▁793｜>' is not marked as EOG
+load: control token: 128790 '<｜place▁holder▁no▁790｜>' is not marked as EOG
+load: control token: 128788 '<｜place▁holder▁no▁788｜>' is not marked as EOG
+load: control token: 128786 '<｜place▁holder▁no▁786｜>' is not marked as EOG
+load: control token: 128785 '<｜place▁holder▁no▁785｜>' is not marked as EOG
+load: control token: 128784 '<｜place▁holder▁no▁784｜>' is not marked as EOG
+load: control token: 128783 '<｜place▁holder▁no▁783｜>' is not marked as EOG
+load: control token: 128781 '<｜place▁holder▁no▁781｜>' is not marked as EOG
+load: control token: 128777 '<｜place▁holder▁no▁777｜>' is not marked as EOG
+load: control token: 128776 '<｜place▁holder▁no▁776｜>' is not marked as EOG
+load: control token: 128774 '<｜place▁holder▁no▁774｜>' is not marked as EOG
+load: control token: 128769 '<｜place▁holder▁no▁769｜>' is not marked as EOG
+load: control token: 128768 '<｜place▁holder▁no▁768｜>' is not marked as EOG
+load: control token: 128765 '<｜place▁holder▁no▁765｜>' is not marked as EOG
+load: control token: 128764 '<｜place▁holder▁no▁764｜>' is not marked as EOG
+load: control token: 128762 '<｜place▁holder▁no▁762｜>' is not marked as EOG
+load: control token: 128758 '<｜place▁holder▁no▁758｜>' is not marked as EOG
+load: control token: 128757 '<｜place▁holder▁no▁757｜>' is not marked as EOG
+load: control token: 128755 '<｜place▁holder▁no▁755｜>' is not marked as EOG
+load: control token: 128753 '<｜place▁holder▁no▁753｜>' is not marked as EOG
+load: control token: 128750 '<｜place▁holder▁no▁750｜>' is not marked as EOG
+load: control token: 128746 '<｜place▁holder▁no▁746｜>' is not marked as EOG
+load: control token: 128742 '<｜place▁holder▁no▁742｜>' is not marked as EOG
+load: control token: 128740 '<｜place▁holder▁no▁740｜>' is not marked as EOG
+load: control token: 128738 '<｜place▁holder▁no▁738｜>' is not marked as EOG
+load: control token: 128737 '<｜place▁holder▁no▁737｜>' is not marked as EOG
+load: control token: 128736 '<｜place▁holder▁no▁736｜>' is not marked as EOG
+load: control token: 128735 '<｜place▁holder▁no▁735｜>' is not marked as EOG
+load: control token: 128734 '<｜place▁holder▁no▁734｜>' is not marked as EOG
+load: control token: 128732 '<｜place▁holder▁no▁732｜>' is not marked as EOG
+load: control token: 128731 '<｜place▁holder▁no▁731｜>' is not marked as EOG
+load: control token: 128730 '<｜place▁holder▁no▁730｜>' is not marked as EOG
+load: control token: 128725 '<｜place▁holder▁no▁725｜>' is not marked as EOG
+load: control token: 128722 '<｜place▁holder▁no▁722｜>' is not marked as EOG
+load: control token: 128719 '<｜place▁holder▁no▁719｜>' is not marked as EOG
+load: control token: 128712 '<｜place▁holder▁no▁712｜>' is not marked as EOG
+load: control token: 128710 '<｜place▁holder▁no▁710｜>' is not marked as EOG
+load: control token: 128709 '<｜place▁holder▁no▁709｜>' is not marked as EOG
+load: control token: 128708 '<｜place▁holder▁no▁708｜>' is not marked as EOG
+load: control token: 128707 '<｜place▁holder▁no▁707｜>' is not marked as EOG
+load: control token: 128701 '<｜place▁holder▁no▁701｜>' is not marked as EOG
+load: control token: 128698 '<｜place▁holder▁no▁698｜>' is not marked as EOG
+load: control token: 128697 '<｜place▁holder▁no▁697｜>' is not marked as EOG
+load: control token: 128694 '<｜place▁holder▁no▁694｜>' is not marked as EOG
+load: control token: 128693 '<｜place▁holder▁no▁693｜>' is not marked as EOG
+load: control token: 128692 '<｜place▁holder▁no▁692｜>' is not marked as EOG
+load: control token: 128691 '<｜place▁holder▁no▁691｜>' is not marked as EOG
+load: control token: 128689 '<｜place▁holder▁no▁689｜>' is not marked as EOG
+load: control token: 128684 '<｜place▁holder▁no▁684｜>' is not marked as EOG
+load: control token: 128683 '<｜place▁holder▁no▁683｜>' is not marked as EOG
+load: control token: 128679 '<｜place▁holder▁no▁679｜>' is not marked as EOG
+load: control token: 128675 '<｜place▁holder▁no▁675｜>' is not marked as EOG
+load: control token: 128674 '<｜place▁holder▁no▁674｜>' is not marked as EOG
+load: control token: 128672 '<｜place▁holder▁no▁672｜>' is not marked as EOG
+load: control token: 128671 '<｜place▁holder▁no▁671｜>' is not marked as EOG
+load: control token: 128668 '<｜place▁holder▁no▁668｜>' is not marked as EOG
+load: control token: 128666 '<｜place▁holder▁no▁666｜>' is not marked as EOG
+load: control token: 128663 '<｜place▁holder▁no▁663｜>' is not marked as EOG
+load: control token: 128662 '<｜place▁holder▁no▁662｜>' is not marked as EOG
+load: control token: 128661 '<｜place▁holder▁no▁661｜>' is not marked as EOG
+load: control token: 128656 '<｜place▁holder▁no▁656｜>' is not marked as EOG
+load: control token: 128649 '<｜place▁holder▁no▁649｜>' is not marked as EOG
+load: control token: 128648 '<｜place▁holder▁no▁648｜>' is not marked as EOG
+load: control token: 128647 '<｜place▁holder▁no▁647｜>' is not marked as EOG
+load: control token: 128646 '<｜place▁holder▁no▁646｜>' is not marked as EOG
+load: control token: 128645 '<｜place▁holder▁no▁645｜>' is not marked as EOG
+load: control token: 128643 '<｜place▁holder▁no▁643｜>' is not marked as EOG
+load: control token: 128641 '<｜place▁holder▁no▁641｜>' is not marked as EOG
+load: control token: 128638 '<｜place▁holder▁no▁638｜>' is not marked as EOG
+load: control token: 128637 '<｜place▁holder▁no▁637｜>' is not marked as EOG
+load: control token: 128636 '<｜place▁holder▁no▁636｜>' is not marked as EOG
+load: control token: 128635 '<｜place▁holder▁no▁635｜>' is not marked as EOG
+load: control token: 128634 '<｜place▁holder▁no▁634｜>' is not marked as EOG
+load: control token: 128633 '<｜place▁holder▁no▁633｜>' is not marked as EOG
+load: control token: 128632 '<｜place▁holder▁no▁632｜>' is not marked as EOG
+load: control token: 128631 '<｜place▁holder▁no▁631｜>' is not marked as EOG
+load: control token: 128630 '<｜place▁holder▁no▁630｜>' is not marked as EOG
+load: control token: 128629 '<｜place▁holder▁no▁629｜>' is not marked as EOG
+load: control token: 128628 '<｜place▁holder▁no▁628｜>' is not marked as EOG
+load: control token: 128624 '<｜place▁holder▁no▁624｜>' is not marked as EOG
+load: control token: 128623 '<｜place▁holder▁no▁623｜>' is not marked as EOG
+load: control token: 128618 '<｜place▁holder▁no▁618｜>' is not marked as EOG
+load: control token: 128613 '<｜place▁holder▁no▁613｜>' is not marked as EOG
+load: control token: 128612 '<｜place▁holder▁no▁612｜>' is not marked as EOG
+load: control token: 128611 '<｜place▁holder▁no▁611｜>' is not marked as EOG
+load: control token: 128609 '<｜place▁holder▁no▁609｜>' is not marked as EOG
+load: control token: 128608 '<｜place▁holder▁no▁608｜>' is not marked as EOG
+load: control token: 128607 '<｜place▁holder▁no▁607｜>' is not marked as EOG
+load: control token: 128606 '<｜place▁holder▁no▁606｜>' is not marked as EOG
+load: control token: 128605 '<｜place▁holder▁no▁605｜>' is not marked as EOG
+load: control token: 128603 '<｜place▁holder▁no▁603｜>' is not marked as EOG
+load: control token: 128601 '<｜place▁holder▁no▁601｜>' is not marked as EOG
+load: control token: 128597 '<｜place▁holder▁no▁597｜>' is not marked as EOG
+load: control token: 128596 '<｜place▁holder▁no▁596｜>' is not marked as EOG
+load: control token: 128595 '<｜place▁holder▁no▁595｜>' is not marked as EOG
+load: control token: 128594 '<｜place▁holder▁no▁594｜>' is not marked as EOG
+load: control token: 128592 '<｜place▁holder▁no▁592｜>' is not marked as EOG
+load: control token: 128591 '<｜place▁holder▁no▁591｜>' is not marked as EOG
+load: control token: 128590 '<｜place▁holder▁no▁590｜>' is not marked as EOG
+load: control token: 128589 '<｜place▁holder▁no▁589｜>' is not marked as EOG
+load: control token: 128588 '<｜place▁holder▁no▁588｜>' is not marked as EOG
+load: control token: 128585 '<｜place▁holder▁no▁585｜>' is not marked as EOG
+load: control token: 128583 '<｜place▁holder▁no▁583｜>' is not marked as EOG
+load: control token: 128579 '<｜place▁holder▁no▁579｜>' is not marked as EOG
+load: control token: 128575 '<｜place▁holder▁no▁575｜>' is not marked as EOG
+load: control token: 128573 '<｜place▁holder▁no▁573｜>' is not marked as EOG
+load: control token: 128571 '<｜place▁holder▁no▁571｜>' is not marked as EOG
+load: control token: 128570 '<｜place▁holder▁no▁570｜>' is not marked as EOG
+load: control token: 128569 '<｜place▁holder▁no▁569｜>' is not marked as EOG
+load: control token: 128568 '<｜place▁holder▁no▁568｜>' is not marked as EOG
+load: control token: 128567 '<｜place▁holder▁no▁567｜>' is not marked as EOG
+load: control token: 128566 '<｜place▁holder▁no▁566｜>' is not marked as EOG
+load: control token: 128563 '<｜place▁holder▁no▁563｜>' is not marked as EOG
+load: control token: 128723 '<｜place▁holder▁no▁723｜>' is not marked as EOG
+load: control token: 128562 '<｜place▁holder▁no▁562｜>' is not marked as EOG
+load: control token: 128559 '<｜place▁holder▁no▁559｜>' is not marked as EOG
+load: control token: 128558 '<｜place▁holder▁no▁558｜>' is not marked as EOG
+load: control token: 128557 '<｜place▁holder▁no▁557｜>' is not marked as EOG
+load: control token: 128555 '<｜place▁holder▁no▁555｜>' is not marked as EOG
+load: control token: 128553 '<｜place▁holder▁no▁553｜>' is not marked as EOG
+load: control token: 128552 '<｜place▁holder▁no▁552｜>' is not marked as EOG
+load: control token: 128549 '<｜place▁holder▁no▁549｜>' is not marked as EOG
+load: control token: 128544 '<｜place▁holder▁no▁544｜>' is not marked as EOG
+load: control token: 128539 '<｜place▁holder▁no▁539｜>' is not marked as EOG
+load: control token: 128534 '<｜place▁holder▁no▁534｜>' is not marked as EOG
+load: control token: 128532 '<｜place▁holder▁no▁532｜>' is not marked as EOG
+load: control token: 128531 '<｜place▁holder▁no▁531｜>' is not marked as EOG
+load: control token: 128527 '<｜place▁holder▁no▁527｜>' is not marked as EOG
+load: control token: 128525 '<｜place▁holder▁no▁525｜>' is not marked as EOG
+load: control token: 128524 '<｜place▁holder▁no▁524｜>' is not marked as EOG
+load: control token: 128523 '<｜place▁holder▁no▁523｜>' is not marked as EOG
+load: control token: 128522 '<｜place▁holder▁no▁522｜>' is not marked as EOG
+load: control token: 128518 '<｜place▁holder▁no▁518｜>' is not marked as EOG
+load: control token: 128517 '<｜place▁holder▁no▁517｜>' is not marked as EOG
+load: control token: 128516 '<｜place▁holder▁no▁516｜>' is not marked as EOG
+load: control token: 128515 '<｜place▁holder▁no▁515｜>' is not marked as EOG
+load: control token: 128514 '<｜place▁holder▁no▁514｜>' is not marked as EOG
+load: control token: 128510 '<｜place▁holder▁no▁510｜>' is not marked as EOG
+load: control token: 128509 '<｜place▁holder▁no▁509｜>' is not marked as EOG
+load: control token: 128504 '<｜place▁holder▁no▁504｜>' is not marked as EOG
+load: control token: 128503 '<｜place▁holder▁no▁503｜>' is not marked as EOG
+load: control token: 128502 '<｜place▁holder▁no▁502｜>' is not marked as EOG
+load: control token: 128500 '<｜place▁holder▁no▁500｜>' is not marked as EOG
+load: control token: 128499 '<｜place▁holder▁no▁499｜>' is not marked as EOG
+load: control token: 128495 '<｜place▁holder▁no▁495｜>' is not marked as EOG
+load: control token: 128494 '<｜place▁holder▁no▁494｜>' is not marked as EOG
+load: control token: 128493 '<｜place▁holder▁no▁493｜>' is not marked as EOG
+load: control token: 128492 '<｜place▁holder▁no▁492｜>' is not marked as EOG
+load: control token: 128490 '<｜place▁holder▁no▁490｜>' is not marked as EOG
+load: control token: 128487 '<｜place▁holder▁no▁487｜>' is not marked as EOG
+load: control token: 128484 '<｜place▁holder▁no▁484｜>' is not marked as EOG
+load: control token: 128483 '<｜place▁holder▁no▁483｜>' is not marked as EOG
+load: control token: 128481 '<｜place▁holder▁no▁481｜>' is not marked as EOG
+load: control token: 128480 '<｜place▁holder▁no▁480｜>' is not marked as EOG
+load: control token: 128479 '<｜place▁holder▁no▁479｜>' is not marked as EOG
+load: control token: 128475 '<｜place▁holder▁no▁475｜>' is not marked as EOG
+load: control token: 128474 '<｜place▁holder▁no▁474｜>' is not marked as EOG
+load: control token: 128472 '<｜place▁holder▁no▁472｜>' is not marked as EOG
+load: control token: 128471 '<｜place▁holder▁no▁471｜>' is not marked as EOG
+load: control token: 128470 '<｜place▁holder▁no▁470｜>' is not marked as EOG
+load: control token: 128466 '<｜place▁holder▁no▁466｜>' is not marked as EOG
+load: control token: 128463 '<｜place▁holder▁no▁463｜>' is not marked as EOG
+load: control token: 128462 '<｜place▁holder▁no▁462｜>' is not marked as EOG
+load: control token: 128461 '<｜place▁holder▁no▁461｜>' is not marked as EOG
+load: control token: 128460 '<｜place▁holder▁no▁460｜>' is not marked as EOG
+load: control token: 128457 '<｜place▁holder▁no▁457｜>' is not marked as EOG
+load: control token: 128456 '<｜place▁holder▁no▁456｜>' is not marked as EOG
+load: control token: 128454 '<｜place▁holder▁no▁454｜>' is not marked as EOG
+load: control token: 128453 '<｜place▁holder▁no▁453｜>' is not marked as EOG
+load: control token: 128449 '<｜place▁holder▁no▁449｜>' is not marked as EOG
+load: control token: 128448 '<｜place▁holder▁no▁448｜>' is not marked as EOG
+load: control token: 128447 '<｜place▁holder▁no▁447｜>' is not marked as EOG
+load: control token: 128446 '<｜place▁holder▁no▁446｜>' is not marked as EOG
+load: control token: 128445 '<｜place▁holder▁no▁445｜>' is not marked as EOG
+load: control token: 128441 '<｜place▁holder▁no▁441｜>' is not marked as EOG
+load: control token: 128440 '<｜place▁holder▁no▁440｜>' is not marked as EOG
+load: control token: 128435 '<｜place▁holder▁no▁435｜>' is not marked as EOG
+load: control token: 128434 '<｜place▁holder▁no▁434｜>' is not marked as EOG
+load: control token: 128433 '<｜place▁holder▁no▁433｜>' is not marked as EOG
+load: control token: 128431 '<｜place▁holder▁no▁431｜>' is not marked as EOG
+load: control token: 128429 '<｜place▁holder▁no▁429｜>' is not marked as EOG
+load: control token: 128428 '<｜place▁holder▁no▁428｜>' is not marked as EOG
+load: control token: 128426 '<｜place▁holder▁no▁426｜>' is not marked as EOG
+load: control token: 128425 '<｜place▁holder▁no▁425｜>' is not marked as EOG
+load: control token: 128424 '<｜place▁holder▁no▁424｜>' is not marked as EOG
+load: control token: 128423 '<｜place▁holder▁no▁423｜>' is not marked as EOG
+load: control token: 128422 '<｜place▁holder▁no▁422｜>' is not marked as EOG
+load: control token: 128419 '<｜place▁holder▁no▁419｜>' is not marked as EOG
+load: control token: 128415 '<｜place▁holder▁no▁415｜>' is not marked as EOG
+load: control token: 128414 '<｜place▁holder▁no▁414｜>' is not marked as EOG
+load: control token: 128413 '<｜place▁holder▁no▁413｜>' is not marked as EOG
+load: control token: 128411 '<｜place▁holder▁no▁411｜>' is not marked as EOG
+load: control token: 128403 '<｜place▁holder▁no▁403｜>' is not marked as EOG
+load: control token: 128402 '<｜place▁holder▁no▁402｜>' is not marked as EOG
+load: control token: 128401 '<｜place▁holder▁no▁401｜>' is not marked as EOG
+load: control token: 128400 '<｜place▁holder▁no▁400｜>' is not marked as EOG
+load: control token: 128399 '<｜place▁holder▁no▁399｜>' is not marked as EOG
+load: control token: 128398 '<｜place▁holder▁no▁398｜>' is not marked as EOG
+load: control token: 128395 '<｜place▁holder▁no▁395｜>' is not marked as EOG
+load: control token: 128394 '<｜place▁holder▁no▁394｜>' is not marked as EOG
+load: control token: 128392 '<｜place▁holder▁no▁392｜>' is not marked as EOG
+load: control token: 128391 '<｜place▁holder▁no▁391｜>' is not marked as EOG
+load: control token: 128386 '<｜place▁holder▁no▁386｜>' is not marked as EOG
+load: control token: 128385 '<｜place▁holder▁no▁385｜>' is not marked as EOG
+load: control token: 128384 '<｜place▁holder▁no▁384｜>' is not marked as EOG
+load: control token: 128380 '<｜place▁holder▁no▁380｜>' is not marked as EOG
+load: control token: 128377 '<｜place▁holder▁no▁377｜>' is not marked as EOG
+load: control token: 128375 '<｜place▁holder▁no▁375｜>' is not marked as EOG
+load: control token: 128372 '<｜place▁holder▁no▁372｜>' is not marked as EOG
+load: control token: 128371 '<｜place▁holder▁no▁371｜>' is not marked as EOG
+load: control token: 128368 '<｜place▁holder▁no▁368｜>' is not marked as EOG
+load: control token: 128367 '<｜place▁holder▁no▁367｜>' is not marked as EOG
+load: control token: 128361 '<｜place▁holder▁no▁361｜>' is not marked as EOG
+load: control token: 128357 '<｜place▁holder▁no▁357｜>' is not marked as EOG
+load: control token: 128356 '<｜place▁holder▁no▁356｜>' is not marked as EOG
+load: control token: 128352 '<｜place▁holder▁no▁352｜>' is not marked as EOG
+load: control token: 128349 '<｜place▁holder▁no▁349｜>' is not marked as EOG
+load: control token: 128347 '<｜place▁holder▁no▁347｜>' is not marked as EOG
+load: control token: 128346 '<｜place▁holder▁no▁346｜>' is not marked as EOG
+load: control token: 128343 '<｜place▁holder▁no▁343｜>' is not marked as EOG
+load: control token: 128342 '<｜place▁holder▁no▁342｜>' is not marked as EOG
+load: control token: 128340 '<｜place▁holder▁no▁340｜>' is not marked as EOG
+load: control token: 128339 '<｜place▁holder▁no▁339｜>' is not marked as EOG
+load: control token: 128337 '<｜place▁holder▁no▁337｜>' is not marked as EOG
+load: control token: 128336 '<｜place▁holder▁no▁336｜>' is not marked as EOG
+load: control token: 128335 '<｜place▁holder▁no▁335｜>' is not marked as EOG
+load: control token: 128332 '<｜place▁holder▁no▁332｜>' is not marked as EOG
+load: control token: 128331 '<｜place▁holder▁no▁331｜>' is not marked as EOG
+load: control token: 128330 '<｜place▁holder▁no▁330｜>' is not marked as EOG
+load: control token: 128327 '<｜place▁holder▁no▁327｜>' is not marked as EOG
+load: control token: 128326 '<｜place▁holder▁no▁326｜>' is not marked as EOG
+load: control token: 128325 '<｜place▁holder▁no▁325｜>' is not marked as EOG
+load: control token: 128324 '<｜place▁holder▁no▁324｜>' is not marked as EOG
+load: control token: 128323 '<｜place▁holder▁no▁323｜>' is not marked as EOG
+load: control token: 128320 '<｜place▁holder▁no▁320｜>' is not marked as EOG
+load: control token: 128317 '<｜place▁holder▁no▁317｜>' is not marked as EOG
+load: control token: 128315 '<｜place▁holder▁no▁315｜>' is not marked as EOG
+load: control token: 128307 '<｜place▁holder▁no▁307｜>' is not marked as EOG
+load: control token: 128306 '<｜place▁holder▁no▁306｜>' is not marked as EOG
+load: control token: 128303 '<｜place▁holder▁no▁303｜>' is not marked as EOG
+load: control token: 128302 '<｜place▁holder▁no▁302｜>' is not marked as EOG
+load: control token: 128301 '<｜place▁holder▁no▁301｜>' is not marked as EOG
+load: control token: 128296 '<｜place▁holder▁no▁296｜>' is not marked as EOG
+load: control token: 128295 '<｜place▁holder▁no▁295｜>' is not marked as EOG
+load: control token: 128291 '<｜place▁holder▁no▁291｜>' is not marked as EOG
+load: control token: 128290 '<｜place▁holder▁no▁290｜>' is not marked as EOG
+load: control token: 128288 '<｜place▁holder▁no▁288｜>' is not marked as EOG
+load: control token: 128285 '<｜place▁holder▁no▁285｜>' is not marked as EOG
+load: control token: 128283 '<｜place▁holder▁no▁283｜>' is not marked as EOG
+load: control token: 128279 '<｜place▁holder▁no▁279｜>' is not marked as EOG
+load: control token: 128278 '<｜place▁holder▁no▁278｜>' is not marked as EOG
+load: control token: 128276 '<｜place▁holder▁no▁276｜>' is not marked as EOG
+load: control token: 128275 '<｜place▁holder▁no▁275｜>' is not marked as EOG
+load: control token: 128270 '<｜place▁holder▁no▁270｜>' is not marked as EOG
+load: control token: 128269 '<｜place▁holder▁no▁269｜>' is not marked as EOG
+load: control token: 128265 '<｜place▁holder▁no▁265｜>' is not marked as EOG
+load: control token: 128264 '<｜place▁holder▁no▁264｜>' is not marked as EOG
+load: control token: 128263 '<｜place▁holder▁no▁263｜>' is not marked as EOG
+load: control token: 128260 '<｜place▁holder▁no▁260｜>' is not marked as EOG
+load: control token: 128258 '<｜place▁holder▁no▁258｜>' is not marked as EOG
+load: control token: 128257 '<｜place▁holder▁no▁257｜>' is not marked as EOG
+load: control token: 128254 '<｜place▁holder▁no▁254｜>' is not marked as EOG
+load: control token: 128253 '<｜place▁holder▁no▁253｜>' is not marked as EOG
+load: control token: 128252 '<｜place▁holder▁no▁252｜>' is not marked as EOG
+load: control token: 128251 '<｜place▁holder▁no▁251｜>' is not marked as EOG
+load: control token: 128250 '<｜place▁holder▁no▁250｜>' is not marked as EOG
+load: control token: 128248 '<｜place▁holder▁no▁248｜>' is not marked as EOG
+load: control token: 128247 '<｜place▁holder▁no▁247｜>' is not marked as EOG
+load: control token: 128245 '<｜place▁holder▁no▁245｜>' is not marked as EOG
+load: control token: 128242 '<｜place▁holder▁no▁242｜>' is not marked as EOG
+load: control token: 128240 '<｜place▁holder▁no▁240｜>' is not marked as EOG
+load: control token: 128239 '<｜place▁holder▁no▁239｜>' is not marked as EOG
+load: control token: 128238 '<｜place▁holder▁no▁238｜>' is not marked as EOG
+load: control token: 128233 '<｜place▁holder▁no▁233｜>' is not marked as EOG
+load: control token: 128232 '<｜place▁holder▁no▁232｜>' is not marked as EOG
+load: control token: 128229 '<｜place▁holder▁no▁229｜>' is not marked as EOG
+load: control token: 128228 '<｜place▁holder▁no▁228｜>' is not marked as EOG
+load: control token: 128222 '<｜place▁holder▁no▁222｜>' is not marked as EOG
+load: control token: 128221 '<｜place▁holder▁no▁221｜>' is not marked as EOG
+load: control token: 128218 '<｜place▁holder▁no▁218｜>' is not marked as EOG
+load: control token: 128213 '<｜place▁holder▁no▁213｜>' is not marked as EOG
+load: control token: 128212 '<｜place▁holder▁no▁212｜>' is not marked as EOG
+load: control token: 128209 '<｜place▁holder▁no▁209｜>' is not marked as EOG
+load: control token: 128207 '<｜place▁holder▁no▁207｜>' is not marked as EOG
+load: control token: 128200 '<｜place▁holder▁no▁200｜>' is not marked as EOG
+load: control token: 128199 '<｜place▁holder▁no▁199｜>' is not marked as EOG
+load: control token: 128197 '<｜place▁holder▁no▁197｜>' is not marked as EOG
+load: control token: 128196 '<｜place▁holder▁no▁196｜>' is not marked as EOG
+load: control token: 128195 '<｜place▁holder▁no▁195｜>' is not marked as EOG
+load: control token: 128193 '<｜place▁holder▁no▁193｜>' is not marked as EOG
+load: control token: 128191 '<｜place▁holder▁no▁191｜>' is not marked as EOG
+load: control token: 128188 '<｜place▁holder▁no▁188｜>' is not marked as EOG
+load: control token: 128187 '<｜place▁holder▁no▁187｜>' is not marked as EOG
+load: control token: 128183 '<｜place▁holder▁no▁183｜>' is not marked as EOG
+load: control token: 128182 '<｜place▁holder▁no▁182｜>' is not marked as EOG
+load: control token: 128173 '<｜place▁holder▁no▁173｜>' is not marked as EOG
+load: control token: 128172 '<｜place▁holder▁no▁172｜>' is not marked as EOG
+load: control token: 128171 '<｜place▁holder▁no▁171｜>' is not marked as EOG
+load: control token: 128168 '<｜place▁holder▁no▁168｜>' is not marked as EOG
+load: control token: 128167 '<｜place▁holder▁no▁167｜>' is not marked as EOG
+load: control token: 128164 '<｜place▁holder▁no▁164｜>' is not marked as EOG
+load: control token: 128163 '<｜place▁holder▁no▁163｜>' is not marked as EOG
+load: control token: 128162 '<｜place▁holder▁no▁162｜>' is not marked as EOG
+load: control token: 128161 '<｜place▁holder▁no▁161｜>' is not marked as EOG
+load: control token: 128160 '<｜place▁holder▁no▁160｜>' is not marked as EOG
+load: control token: 128159 '<｜place▁holder▁no▁159｜>' is not marked as EOG
+load: control token: 128158 '<｜place▁holder▁no▁158｜>' is not marked as EOG
+load: control token: 128157 '<｜place▁holder▁no▁157｜>' is not marked as EOG
+load: control token: 128156 '<｜place▁holder▁no▁156｜>' is not marked as EOG
+load: control token: 128154 '<｜place▁holder▁no▁154｜>' is not marked as EOG
+load: control token: 128150 '<｜place▁holder▁no▁150｜>' is not marked as EOG
+load: control token: 128148 '<｜place▁holder▁no▁148｜>' is not marked as EOG
+load: control token: 128147 '<｜place▁holder▁no▁147｜>' is not marked as EOG
+load: control token: 128139 '<｜place▁holder▁no▁139｜>' is not marked as EOG
+load: control token: 128138 '<｜place▁holder▁no▁138｜>' is not marked as EOG
+load: control token: 128137 '<｜place▁holder▁no▁137｜>' is not marked as EOG
+load: control token: 128136 '<｜place▁holder▁no▁136｜>' is not marked as EOG
+load: control token: 128135 '<｜place▁holder▁no▁135｜>' is not marked as EOG
+load: control token: 128133 '<｜place▁holder▁no▁133｜>' is not marked as EOG
+load: control token: 128132 '<｜place▁holder▁no▁132｜>' is not marked as EOG
+load: control token: 128131 '<｜place▁holder▁no▁131｜>' is not marked as EOG
+load: control token: 128126 '<｜place▁holder▁no▁126｜>' is not marked as EOG
+load: control token: 128122 '<｜place▁holder▁no▁122｜>' is not marked as EOG
+load: control token: 128115 '<｜place▁holder▁no▁115｜>' is not marked as EOG
+load: control token: 128112 '<｜place▁holder▁no▁112｜>' is not marked as EOG
+load: control token: 128111 '<｜place▁holder▁no▁111｜>' is not marked as EOG
+load: control token: 128105 '<｜place▁holder▁no▁105｜>' is not marked as EOG
+load: control token: 128103 '<｜place▁holder▁no▁103｜>' is not marked as EOG
+load: control token: 128099 '<｜place▁holder▁no▁99｜>' is not marked as EOG
+load: control token: 128098 '<｜place▁holder▁no▁98｜>' is not marked as EOG
+load: control token: 128097 '<｜place▁holder▁no▁97｜>' is not marked as EOG
+load: control token: 128096 '<｜place▁holder▁no▁96｜>' is not marked as EOG
+load: control token: 128092 '<｜place▁holder▁no▁92｜>' is not marked as EOG
+load: control token: 128091 '<｜place▁holder▁no▁91｜>' is not marked as EOG
+load: control token: 128088 '<｜place▁holder▁no▁88｜>' is not marked as EOG
+load: control token: 128085 '<｜place▁holder▁no▁85｜>' is not marked as EOG
+load: control token: 128082 '<｜place▁holder▁no▁82｜>' is not marked as EOG
+load: control token: 128080 '<｜place▁holder▁no▁80｜>' is not marked as EOG
+load: control token: 128075 '<｜place▁holder▁no▁75｜>' is not marked as EOG
+load: control token: 128074 '<｜place▁holder▁no▁74｜>' is not marked as EOG
+load: control token: 128073 '<｜place▁holder▁no▁73｜>' is not marked as EOG
+load: control token: 128072 '<｜place▁holder▁no▁72｜>' is not marked as EOG
+load: control token: 128067 '<｜place▁holder▁no▁67｜>' is not marked as EOG
+load: control token: 128063 '<｜place▁holder▁no▁63｜>' is not marked as EOG
+load: control token: 128062 '<｜place▁holder▁no▁62｜>' is not marked as EOG
+load: control token: 128060 '<｜place▁holder▁no▁60｜>' is not marked as EOG
+load: control token: 128059 '<｜place▁holder▁no▁59｜>' is not marked as EOG
+load: control token: 128055 '<｜place▁holder▁no▁55｜>' is not marked as EOG
+load: control token: 128053 '<｜place▁holder▁no▁53｜>' is not marked as EOG
+load: control token: 128051 '<｜place▁holder▁no▁51｜>' is not marked as EOG
+load: control token: 128050 '<｜place▁holder▁no▁50｜>' is not marked as EOG
+load: control token: 128049 '<｜place▁holder▁no▁49｜>' is not marked as EOG
+load: control token: 128047 '<｜place▁holder▁no▁47｜>' is not marked as EOG
+load: control token: 128045 '<｜place▁holder▁no▁45｜>' is not marked as EOG
+load: control token: 128043 '<｜place▁holder▁no▁43｜>' is not marked as EOG
+load: control token: 128042 '<｜place▁holder▁no▁42｜>' is not marked as EOG
+load: control token: 128041 '<｜place▁holder▁no▁41｜>' is not marked as EOG
+load: control token: 128035 '<｜place▁holder▁no▁35｜>' is not marked as EOG
+load: control token: 128032 '<｜place▁holder▁no▁32｜>' is not marked as EOG
+load: control token: 128030 '<｜place▁holder▁no▁30｜>' is not marked as EOG
+load: control token: 128029 '<｜place▁holder▁no▁29｜>' is not marked as EOG
+load: control token: 128026 '<｜place▁holder▁no▁26｜>' is not marked as EOG
+load: control token: 128023 '<｜place▁holder▁no▁23｜>' is not marked as EOG
+load: control token: 128021 '<｜place▁holder▁no▁21｜>' is not marked as EOG
+load: control token: 128019 '<｜place▁holder▁no▁19｜>' is not marked as EOG
+load: control token: 128015 '<｜place▁holder▁no▁15｜>' is not marked as EOG
+load: control token: 128013 '<｜place▁holder▁no▁13｜>' is not marked as EOG
+load: control token: 128012 '<｜place▁holder▁no▁12｜>' is not marked as EOG
+load: control token: 128009 '<｜place▁holder▁no▁9｜>' is not marked as EOG
+load: control token: 128008 '<｜place▁holder▁no▁8｜>' is not marked as EOG
+load: control token: 128007 '<｜place▁holder▁no▁7｜>' is not marked as EOG
+load: control token: 128006 '<｜place▁holder▁no▁6｜>' is not marked as EOG
+load: control token: 128002 '<｜place▁holder▁no▁2｜>' is not marked as EOG
+load: control token: 128001 '<｜place▁holder▁no▁1｜>' is not marked as EOG
+load: control token: 128379 '<｜place▁holder▁no▁379｜>' is not marked as EOG
+load: control token: 128404 '<｜place▁holder▁no▁404｜>' is not marked as EOG
+load: control token: 128720 '<｜place▁holder▁no▁720｜>' is not marked as EOG
+load: control token: 128580 '<｜place▁holder▁no▁580｜>' is not marked as EOG
+load: control token: 128217 '<｜place▁holder▁no▁217｜>' is not marked as EOG
+load: control token: 128724 '<｜place▁holder▁no▁724｜>' is not marked as EOG
+load: control token: 128551 '<｜place▁holder▁no▁551｜>' is not marked as EOG
+load: control token: 128526 '<｜place▁holder▁no▁526｜>' is not marked as EOG
+load: control token: 128119 '<｜place▁holder▁no▁119｜>' is not marked as EOG
+load: control token: 128794 '<｜place▁holder▁no▁794｜>' is not marked as EOG
+load: control token: 128231 '<｜place▁holder▁no▁231｜>' is not marked as EOG
+load: control token: 128180 '<｜place▁holder▁no▁180｜>' is not marked as EOG
+load: control token: 128145 '<｜place▁holder▁no▁145｜>' is not marked as EOG
+load: control token: 128262 '<｜place▁holder▁no▁262｜>' is not marked as EOG
+load: control token: 128118 '<｜place▁holder▁no▁118｜>' is not marked as EOG
+load: control token: 128759 '<｜place▁holder▁no▁759｜>' is not marked as EOG
+load: control token: 128175 '<｜place▁holder▁no▁175｜>' is not marked as EOG
+load: control token: 128201 '<｜place▁holder▁no▁201｜>' is not marked as EOG
+load: control token: 128297 '<｜place▁holder▁no▁297｜>' is not marked as EOG
+load: control token: 128220 '<｜place▁holder▁no▁220｜>' is not marked as EOG
+load: control token: 128117 '<｜place▁holder▁no▁117｜>' is not marked as EOG
+load: control token: 128376 '<｜place▁holder▁no▁376｜>' is not marked as EOG
+load: control token: 128261 '<｜place▁holder▁no▁261｜>' is not marked as EOG
+load: control token: 128127 '<｜place▁holder▁no▁127｜>' is not marked as EOG
+load: control token: 128120 '<｜place▁holder▁no▁120｜>' is not marked as EOG
+load: control token: 128789 '<｜place▁holder▁no▁789｜>' is not marked as EOG
+load: control token: 128282 '<｜place▁holder▁no▁282｜>' is not marked as EOG
+load: control token: 128069 '<｜place▁holder▁no▁69｜>' is not marked as EOG
+load: control token: 128806 '<｜tool▁calls▁begin｜>' is not marked as EOG
+load: control token: 128129 '<｜place▁holder▁no▁129｜>' is not marked as EOG
+load: control token: 128797 '<｜place▁holder▁no▁797｜>' is not marked as EOG
+load: control token: 128211 '<｜place▁holder▁no▁211｜>' is not marked as EOG
+load: control token: 128014 '<｜place▁holder▁no▁14｜>' is not marked as EOG
+load: control token: 128289 '<｜place▁holder▁no▁289｜>' is not marked as EOG
+load: control token: 128378 '<｜place▁holder▁no▁378｜>' is not marked as EOG
+load: control token: 128627 '<｜place▁holder▁no▁627｜>' is not marked as EOG
+load: control token: 128365 '<｜place▁holder▁no▁365｜>' is not marked as EOG
+load: control token: 128373 '<｜place▁holder▁no▁373｜>' is not marked as EOG
+load: control token: 128416 '<｜place▁holder▁no▁416｜>' is not marked as EOG
+load: control token: 128728 '<｜place▁holder▁no▁728｜>' is not marked as EOG
+load: control token: 128469 '<｜place▁holder▁no▁469｜>' is not marked as EOG
+load: control token: 128716 '<｜place▁holder▁no▁716｜>' is not marked as EOG
+load: control token: 128754 '<｜place▁holder▁no▁754｜>' is not marked as EOG
+load: control token: 128155 '<｜place▁holder▁no▁155｜>' is not marked as EOG
+load: control token: 128711 '<｜place▁holder▁no▁711｜>' is not marked as EOG
+load: control token: 128244 '<｜place▁holder▁no▁244｜>' is not marked as EOG
+load: control token: 128225 '<｜place▁holder▁no▁225｜>' is not marked as EOG
+load: control token: 128223 '<｜place▁holder▁no▁223｜>' is not marked as EOG
+load: control token: 128366 '<｜place▁holder▁no▁366｜>' is not marked as EOG
+load: control token: 128501 '<｜place▁holder▁no▁501｜>' is not marked as EOG
+load: control token: 128587 '<｜place▁holder▁no▁587｜>' is not marked as EOG
+load: control token: 128065 '<｜place▁holder▁no▁65｜>' is not marked as EOG
+load: control token: 128300 '<｜place▁holder▁no▁300｜>' is not marked as EOG
+load: control token: 128667 '<｜place▁holder▁no▁667｜>' is not marked as EOG
+load: control token: 128582 '<｜place▁holder▁no▁582｜>' is not marked as EOG
+load: control token: 128477 '<｜place▁holder▁no▁477｜>' is not marked as EOG
+load: control token: 128108 '<｜place▁holder▁no▁108｜>' is not marked as EOG
+load: control token: 128536 '<｜place▁holder▁no▁536｜>' is not marked as EOG
+load: control token: 128791 '<｜place▁holder▁no▁791｜>' is not marked as EOG
+load: control token: 128110 '<｜place▁holder▁no▁110｜>' is not marked as EOG
+load: control token: 128417 '<｜place▁holder▁no▁417｜>' is not marked as EOG
+load: control token: 128681 '<｜place▁holder▁no▁681｜>' is not marked as EOG
+load: control token: 128174 '<｜place▁holder▁no▁174｜>' is not marked as EOG
+load: control token: 128541 '<｜place▁holder▁no▁541｜>' is not marked as EOG
+load: control token: 128038 '<｜place▁holder▁no▁38｜>' is not marked as EOG
+load: control token: 128086 '<｜place▁holder▁no▁86｜>' is not marked as EOG
+load: control token: 128333 '<｜place▁holder▁no▁333｜>' is not marked as EOG
+load: control token: 128033 '<｜place▁holder▁no▁33｜>' is not marked as EOG
+load: control token: 128405 '<｜place▁holder▁no▁405｜>' is not marked as EOG
+load: control token: 128236 '<｜place▁holder▁no▁236｜>' is not marked as EOG
+load: control token: 128397 '<｜place▁holder▁no▁397｜>' is not marked as EOG
+load: control token: 128512 '<｜place▁holder▁no▁512｜>' is not marked as EOG
+load: control token: 128039 '<｜place▁holder▁no▁39｜>' is not marked as EOG
+load: control token: 128486 '<｜place▁holder▁no▁486｜>' is not marked as EOG
+load: control token: 128005 '<｜place▁holder▁no▁5｜>' is not marked as EOG
+load: control token: 128359 '<｜place▁holder▁no▁359｜>' is not marked as EOG
+load: control token: 128761 '<｜place▁holder▁no▁761｜>' is not marked as EOG
+load: control token: 128219 '<｜place▁holder▁no▁219｜>' is not marked as EOG
+load: control token: 128246 '<｜place▁holder▁no▁246｜>' is not marked as EOG
+load: control token: 128782 '<｜place▁holder▁no▁782｜>' is not marked as EOG
+load: control token: 128409 '<｜place▁holder▁no▁409｜>' is not marked as EOG
+load: control token: 128654 '<｜place▁holder▁no▁654｜>' is not marked as EOG
+load: control token: 128056 '<｜place▁holder▁no▁56｜>' is not marked as EOG
+load: control token: 128574 '<｜place▁holder▁no▁574｜>' is not marked as EOG
+load: control token: 128338 '<｜place▁holder▁no▁338｜>' is not marked as EOG
+load: control token: 128767 '<｜place▁holder▁no▁767｜>' is not marked as EOG
+load: control token: 128640 '<｜place▁holder▁no▁640｜>' is not marked as EOG
+load: control token: 128169 '<｜place▁holder▁no▁169｜>' is not marked as EOG
+load: control token: 128556 '<｜place▁holder▁no▁556｜>' is not marked as EOG
+load: control token: 128078 '<｜place▁holder▁no▁78｜>' is not marked as EOG
+load: control token: 128237 '<｜place▁holder▁no▁237｜>' is not marked as EOG
+load: control token: 128752 '<｜place▁holder▁no▁752｜>' is not marked as EOG
+load: control token: 128741 '<｜place▁holder▁no▁741｜>' is not marked as EOG
+load: control token: 128165 '<｜place▁holder▁no▁165｜>' is not marked as EOG
+load: control token: 128305 '<｜place▁holder▁no▁305｜>' is not marked as EOG
+load: control token: 128451 '<｜place▁holder▁no▁451｜>' is not marked as EOG
+load: control token: 128739 '<｜place▁holder▁no▁739｜>' is not marked as EOG
+load: control token: 128602 '<｜place▁holder▁no▁602｜>' is not marked as EOG
+load: control token: 128497 '<｜place▁holder▁no▁497｜>' is not marked as EOG
+load: control token: 128024 '<｜place▁holder▁no▁24｜>' is not marked as EOG
+load: control token: 128281 '<｜place▁holder▁no▁281｜>' is not marked as EOG
+load: control token: 128542 '<｜place▁holder▁no▁542｜>' is not marked as EOG
+load: control token: 128071 '<｜place▁holder▁no▁71｜>' is not marked as EOG
+load: control token: 128598 '<｜place▁holder▁no▁598｜>' is not marked as EOG
+load: control token: 128796 '<｜place▁holder▁no▁796｜>' is not marked as EOG
+load: control token: 128560 '<｜place▁holder▁no▁560｜>' is not marked as EOG
+load: control token: 128037 '<｜place▁holder▁no▁37｜>' is not marked as EOG
+load: control token: 128208 '<｜place▁holder▁no▁208｜>' is not marked as EOG
+load: control token: 128052 '<｜place▁holder▁no▁52｜>' is not marked as EOG
+load: control token: 128176 '<｜place▁holder▁no▁176｜>' is not marked as EOG
+load: control token: 128202 '<｜place▁holder▁no▁202｜>' is not marked as EOG
+load: control token: 128614 '<｜place▁holder▁no▁614｜>' is not marked as EOG
+load: control token: 128508 '<｜place▁holder▁no▁508｜>' is not marked as EOG
+load: control token: 128048 '<｜place▁holder▁no▁48｜>' is not marked as EOG
+load: control token: 128057 '<｜place▁holder▁no▁57｜>' is not marked as EOG
+load: control token: 128369 '<｜place▁holder▁no▁369｜>' is not marked as EOG
+load: control token: 128561 '<｜place▁holder▁no▁561｜>' is not marked as EOG
+load: control token: 128259 '<｜place▁holder▁no▁259｜>' is not marked as EOG
+load: control token: 128128 '<｜place▁holder▁no▁128｜>' is not marked as EOG
+load: control token: 128498 '<｜place▁holder▁no▁498｜>' is not marked as EOG
+load: control token: 128203 '<｜place▁holder▁no▁203｜>' is not marked as EOG
+load: control token: 128537 '<｜place▁holder▁no▁537｜>' is not marked as EOG
+load: control token: 128513 '<｜place▁holder▁no▁513｜>' is not marked as EOG
+load: control token: 128204 '<｜place▁holder▁no▁204｜>' is not marked as EOG
+load: control token: 128177 '<｜place▁holder▁no▁177｜>' is not marked as EOG
+load: control token: 128328 '<｜place▁holder▁no▁328｜>' is not marked as EOG
+load: control token: 128329 '<｜place▁holder▁no▁329｜>' is not marked as EOG
+load: control token: 128287 '<｜place▁holder▁no▁287｜>' is not marked as EOG
+load: control token: 128677 '<｜place▁holder▁no▁677｜>' is not marked as EOG
+load: control token: 128093 '<｜place▁holder▁no▁93｜>' is not marked as EOG
+load: control token: 128364 '<｜place▁holder▁no▁364｜>' is not marked as EOG
+load: control token: 128292 '<｜place▁holder▁no▁292｜>' is not marked as EOG
+load: control token: 128234 '<｜place▁holder▁no▁234｜>' is not marked as EOG
+load: control token: 128706 '<｜place▁holder▁no▁706｜>' is not marked as EOG
+load: control token: 128650 '<｜place▁holder▁no▁650｜>' is not marked as EOG
+load: control token: 128381 '<｜place▁holder▁no▁381｜>' is not marked as EOG
+load: control token: 128505 '<｜place▁holder▁no▁505｜>' is not marked as EOG
+load: control token: 128535 '<｜place▁holder▁no▁535｜>' is not marked as EOG
+load: control token: 128194 '<｜place▁holder▁no▁194｜>' is not marked as EOG
+load: control token: 128680 '<｜place▁holder▁no▁680｜>' is not marked as EOG
+load: control token: 128031 '<｜place▁holder▁no▁31｜>' is not marked as EOG
+load: control token: 128046 '<｜place▁holder▁no▁46｜>' is not marked as EOG
+load: control token: 128095 '<｜place▁holder▁no▁95｜>' is not marked as EOG
+load: control token: 128266 '<｜place▁holder▁no▁266｜>' is not marked as EOG
+load: control token: 128152 '<｜place▁holder▁no▁152｜>' is not marked as EOG
+load: control token: 128113 '<｜place▁holder▁no▁113｜>' is not marked as EOG
+load: control token: 128705 '<｜place▁holder▁no▁705｜>' is not marked as EOG
+load: control token: 128360 '<｜place▁holder▁no▁360｜>' is not marked as EOG
+load: control token: 128004 '<｜place▁holder▁no▁4｜>' is not marked as EOG
+load: control token: 128599 '<｜place▁holder▁no▁599｜>' is not marked as EOG
+load: control token: 128313 '<｜place▁holder▁no▁313｜>' is not marked as EOG
+load: control token: 128054 '<｜place▁holder▁no▁54｜>' is not marked as EOG
+load: control token: 128802 '<｜fim▁end｜>' is not marked as EOG
+load: control token: 128271 '<｜place▁holder▁no▁271｜>' is not marked as EOG
+load: control token: 128189 '<｜place▁holder▁no▁189｜>' is not marked as EOG
+load: control token: 128312 '<｜place▁holder▁no▁312｜>' is not marked as EOG
+load: control token: 128280 '<｜place▁holder▁no▁280｜>' is not marked as EOG
+load: control token: 128773 '<｜place▁holder▁no▁773｜>' is not marked as EOG
+load: control token: 128146 '<｜place▁holder▁no▁146｜>' is not marked as EOG
+load: control token: 128572 '<｜place▁holder▁no▁572｜>' is not marked as EOG
+load: control token: 128581 '<｜place▁holder▁no▁581｜>' is not marked as EOG
+load: control token: 128198 '<｜place▁holder▁no▁198｜>' is not marked as EOG
+load: control token: 128622 '<｜place▁holder▁no▁622｜>' is not marked as EOG
+load: control token: 128695 '<｜place▁holder▁no▁695｜>' is not marked as EOG
+load: control token: 128066 '<｜place▁holder▁no▁66｜>' is not marked as EOG
+load: control token: 128578 '<｜place▁holder▁no▁578｜>' is not marked as EOG
+load: control token: 128678 '<｜place▁holder▁no▁678｜>' is not marked as EOG
+load: control token: 128274 '<｜place▁holder▁no▁274｜>' is not marked as EOG
+load: control token: 128255 '<｜place▁holder▁no▁255｜>' is not marked as EOG
+load: control token: 128243 '<｜place▁holder▁no▁243｜>' is not marked as EOG
+load: control token: 128669 '<｜place▁holder▁no▁669｜>' is not marked as EOG
+load: control token: 128143 '<｜place▁holder▁no▁143｜>' is not marked as EOG
+load: control token: 128084 '<｜place▁holder▁no▁84｜>' is not marked as EOG
+load: control token: 128215 '<｜place▁holder▁no▁215｜>' is not marked as EOG
+load: control token: 128496 '<｜place▁holder▁no▁496｜>' is not marked as EOG
+load: control token: 128341 '<｜place▁holder▁no▁341｜>' is not marked as EOG
+load: control token: 128286 '<｜place▁holder▁no▁286｜>' is not marked as EOG
+load: control token: 128353 '<｜place▁holder▁no▁353｜>' is not marked as EOG
+load: control token: 128310 '<｜place▁holder▁no▁310｜>' is not marked as EOG
+load: control token: 128540 '<｜place▁holder▁no▁540｜>' is not marked as EOG
+load: control token: 128626 '<｜place▁holder▁no▁626｜>' is not marked as EOG
+load: control token: 128142 '<｜place▁holder▁no▁142｜>' is not marked as EOG
+load: control token: 128114 '<｜place▁holder▁no▁114｜>' is not marked as EOG
+load: control token: 128140 '<｜place▁holder▁no▁140｜>' is not marked as EOG
+load: control token: 128144 '<｜place▁holder▁no▁144｜>' is not marked as EOG
+load: control token: 128087 '<｜place▁holder▁no▁87｜>' is not marked as EOG
+load: control token: 128396 '<｜place▁holder▁no▁396｜>' is not marked as EOG
+load: control token: 128547 '<｜place▁holder▁no▁547｜>' is not marked as EOG
+load: control token: 128294 '<｜place▁holder▁no▁294｜>' is not marked as EOG
+load: control token: 128658 '<｜place▁holder▁no▁658｜>' is not marked as EOG
+load: control token: 128170 '<｜place▁holder▁no▁170｜>' is not marked as EOG
+load: control token: 128362 '<｜place▁holder▁no▁362｜>' is not marked as EOG
+load: control token: 128807 '<｜tool▁calls▁end｜>' is not marked as EOG
+load: control token: 128224 '<｜place▁holder▁no▁224｜>' is not marked as EOG
+load: control token: 128660 '<｜place▁holder▁no▁660｜>' is not marked as EOG
+load: control token: 128192 '<｜place▁holder▁no▁192｜>' is not marked as EOG
+load: control token: 128318 '<｜place▁holder▁no▁318｜>' is not marked as EOG
+load: control token: 128489 '<｜place▁holder▁no▁489｜>' is not marked as EOG
+load: control token: 128081 '<｜place▁holder▁no▁81｜>' is not marked as EOG
+load: control token: 128748 '<｜place▁holder▁no▁748｜>' is not marked as EOG
+load: control token: 128521 '<｜place▁holder▁no▁521｜>' is not marked as EOG
+load: control token: 128700 '<｜place▁holder▁no▁700｜>' is not marked as EOG
+load: control token: 128687 '<｜place▁holder▁no▁687｜>' is not marked as EOG
+load: control token: 128322 '<｜place▁holder▁no▁322｜>' is not marked as EOG
+load: control token: 128442 '<｜place▁holder▁no▁442｜>' is not marked as EOG
+load: control token: 128179 '<｜place▁holder▁no▁179｜>' is not marked as EOG
+load: control token: 128763 '<｜place▁holder▁no▁763｜>' is not marked as EOG
+load: control token: 128745 '<｜place▁holder▁no▁745｜>' is not marked as EOG
+load: control token: 128064 '<｜place▁holder▁no▁64｜>' is not marked as EOG
+load: control token: 128321 '<｜place▁holder▁no▁321｜>' is not marked as EOG
+load: control token: 128543 '<｜place▁holder▁no▁543｜>' is not marked as EOG
+load: control token: 128467 '<｜place▁holder▁no▁467｜>' is not marked as EOG
+load: control token: 128676 '<｜place▁holder▁no▁676｜>' is not marked as EOG
+load: control token: 128610 '<｜place▁holder▁no▁610｜>' is not marked as EOG
+load: control token: 128444 '<｜place▁holder▁no▁444｜>' is not marked as EOG
+load: control token: 128805 '<|EOT|>' is not marked as EOG
+load: control token: 128102 '<｜place▁holder▁no▁102｜>' is not marked as EOG
+load: control token: 128778 '<｜place▁holder▁no▁778｜>' is not marked as EOG
+load: control token: 128620 '<｜place▁holder▁no▁620｜>' is not marked as EOG
+load: control token: 128519 '<｜place▁holder▁no▁519｜>' is not marked as EOG
+load: control token: 128478 '<｜place▁holder▁no▁478｜>' is not marked as EOG
+load: control token: 128410 '<｜place▁holder▁no▁410｜>' is not marked as EOG
+load: control token: 128721 '<｜place▁holder▁no▁721｜>' is not marked as EOG
+load: control token: 128751 '<｜place▁holder▁no▁751｜>' is not marked as EOG
+load: control token: 128116 '<｜place▁holder▁no▁116｜>' is not marked as EOG
+load: control token: 128450 '<｜place▁holder▁no▁450｜>' is not marked as EOG
+load: control token: 128436 '<｜place▁holder▁no▁436｜>' is not marked as EOG
+load: control token: 128393 '<｜place▁holder▁no▁393｜>' is not marked as EOG
+load: control token: 128020 '<｜place▁holder▁no▁20｜>' is not marked as EOG
+load: control token: 128076 '<｜place▁holder▁no▁76｜>' is not marked as EOG
+load: control token: 128383 '<｜place▁holder▁no▁383｜>' is not marked as EOG
+load: control token: 128230 '<｜place▁holder▁no▁230｜>' is not marked as EOG
+load: control token: 128653 '<｜place▁holder▁no▁653｜>' is not marked as EOG
+load: control token: 128412 '<｜place▁holder▁no▁412｜>' is not marked as EOG
+load: control token: 128003 '<｜place▁holder▁no▁3｜>' is not marked as EOG
+load: control token: 128077 '<｜place▁holder▁no▁77｜>' is not marked as EOG
+load: control token: 128421 '<｜place▁holder▁no▁421｜>' is not marked as EOG
+load: control token: 128545 '<｜place▁holder▁no▁545｜>' is not marked as EOG
+load: control token: 128089 '<｜place▁holder▁no▁89｜>' is not marked as EOG
+load: control token: 128714 '<｜place▁holder▁no▁714｜>' is not marked as EOG
+load: control token: 128134 '<｜place▁holder▁no▁134｜>' is not marked as EOG
+load: control token: 128061 '<｜place▁holder▁no▁61｜>' is not marked as EOG
+load: control token: 128717 '<｜place▁holder▁no▁717｜>' is not marked as EOG
+load: control token: 128437 '<｜place▁holder▁no▁437｜>' is not marked as EOG
+load: control token: 128185 '<｜place▁holder▁no▁185｜>' is not marked as EOG
+load: control token: 128546 '<｜place▁holder▁no▁546｜>' is not marked as EOG
+load: control token: 128491 '<｜place▁holder▁no▁491｜>' is not marked as EOG
+load: control token: 128564 '<｜place▁holder▁no▁564｜>' is not marked as EOG
+load: control token: 128749 '<｜place▁holder▁no▁749｜>' is not marked as EOG
+load: control token: 128350 '<｜place▁holder▁no▁350｜>' is not marked as EOG
+load: control token: 128068 '<｜place▁holder▁no▁68｜>' is not marked as EOG
+load: control token: 128389 '<｜place▁holder▁no▁389｜>' is not marked as EOG
+load: control token: 128533 '<｜place▁holder▁no▁533｜>' is not marked as EOG
+load: control token: 128420 '<｜place▁holder▁no▁420｜>' is not marked as EOG
+load: control token: 128756 '<｜place▁holder▁no▁756｜>' is not marked as EOG
+load: control token: 128530 '<｜place▁holder▁no▁530｜>' is not marked as EOG
+load: control token: 128149 '<｜place▁holder▁no▁149｜>' is not marked as EOG
+load: control token: 128166 '<｜place▁holder▁no▁166｜>' is not marked as EOG
+load: control token: 128044 '<｜place▁holder▁no▁44｜>' is not marked as EOG
+load: control token: 128686 '<｜place▁holder▁no▁686｜>' is not marked as EOG
+load: control token: 128550 '<｜place▁holder▁no▁550｜>' is not marked as EOG
+load: control token: 128455 '<｜place▁holder▁no▁455｜>' is not marked as EOG
+load: control token: 128272 '<｜place▁holder▁no▁272｜>' is not marked as EOG
+load: control token: 128779 '<｜place▁holder▁no▁779｜>' is not marked as EOG
+load: control token: 128299 '<｜place▁holder▁no▁299｜>' is not marked as EOG
+load: control token: 128184 '<｜place▁holder▁no▁184｜>' is not marked as EOG
+load: control token: 128153 '<｜place▁holder▁no▁153｜>' is not marked as EOG
+load: control token: 128670 '<｜place▁holder▁no▁670｜>' is not marked as EOG
+load: control token: 128465 '<｜place▁holder▁no▁465｜>' is not marked as EOG
+load: control token: 128696 '<｜place▁holder▁no▁696｜>' is not marked as EOG
+load: control token: 128488 '<｜place▁holder▁no▁488｜>' is not marked as EOG
+load: control token: 128025 '<｜place▁holder▁no▁25｜>' is not marked as EOG
+load: control token: 128100 '<｜place▁holder▁no▁100｜>' is not marked as EOG
+load: control token: 128659 '<｜place▁holder▁no▁659｜>' is not marked as EOG
+load: control token: 128617 '<｜place▁holder▁no▁617｜>' is not marked as EOG
+load: control token: 128101 '<｜place▁holder▁no▁101｜>' is not marked as EOG
+load: control token: 128625 '<｜place▁holder▁no▁625｜>' is not marked as EOG
+load: control token: 128249 '<｜place▁holder▁no▁249｜>' is not marked as EOG
+load: control token: 128205 '<｜place▁holder▁no▁205｜>' is not marked as EOG
+load: control token: 128766 '<｜place▁holder▁no▁766｜>' is not marked as EOG
+load: control token: 128186 '<｜place▁holder▁no▁186｜>' is not marked as EOG
+load: control token: 128760 '<｜place▁holder▁no▁760｜>' is not marked as EOG
+load: control token:      2 '<｜▁pad▁｜>' is not marked as EOG
+load: control token: 128334 '<｜place▁holder▁no▁334｜>' is not marked as EOG
+load: control token: 128070 '<｜place▁holder▁no▁70｜>' is not marked as EOG
+load: control token: 128685 '<｜place▁holder▁no▁685｜>' is not marked as EOG
+load: control token: 128022 '<｜place▁holder▁no▁22｜>' is not marked as EOG
+load: control token: 128387 '<｜place▁holder▁no▁387｜>' is not marked as EOG
+load: control token: 128181 '<｜place▁holder▁no▁181｜>' is not marked as EOG
+load: control token: 128418 '<｜place▁holder▁no▁418｜>' is not marked as EOG
+load: control token: 128256 '<｜place▁holder▁no▁256｜>' is not marked as EOG
+load: control token: 128348 '<｜place▁holder▁no▁348｜>' is not marked as EOG
+load: control token: 128688 '<｜place▁holder▁no▁688｜>' is not marked as EOG
+load: control token: 128309 '<｜place▁holder▁no▁309｜>' is not marked as EOG
+load: control token: 128141 '<｜place▁holder▁no▁141｜>' is not marked as EOG
+load: control token: 128729 '<｜place▁holder▁no▁729｜>' is not marked as EOG
+load: control token: 128227 '<｜place▁holder▁no▁227｜>' is not marked as EOG
+load: control token: 128771 '<｜place▁holder▁no▁771｜>' is not marked as EOG
+load: control token: 128010 '<｜place▁holder▁no▁10｜>' is not marked as EOG
+load: control token: 128642 '<｜place▁holder▁no▁642｜>' is not marked as EOG
+load: control token: 128226 '<｜place▁holder▁no▁226｜>' is not marked as EOG
+load: control token: 128439 '<｜place▁holder▁no▁439｜>' is not marked as EOG
+load: control token: 128772 '<｜place▁holder▁no▁772｜>' is not marked as EOG
+load: control token: 128452 '<｜place▁holder▁no▁452｜>' is not marked as EOG
+load: control token: 128058 '<｜place▁holder▁no▁58｜>' is not marked as EOG
+load: control token: 128715 '<｜place▁holder▁no▁715｜>' is not marked as EOG
+load: control token: 128577 '<｜place▁holder▁no▁577｜>' is not marked as EOG
+load: control token: 128017 '<｜place▁holder▁no▁17｜>' is not marked as EOG
+load: control token: 128639 '<｜place▁holder▁no▁639｜>' is not marked as EOG
+load: control token: 128311 '<｜place▁holder▁no▁311｜>' is not marked as EOG
+load: control token: 128304 '<｜place▁holder▁no▁304｜>' is not marked as EOG
+load: control token: 128190 '<｜place▁holder▁no▁190｜>' is not marked as EOG
+load: control token: 128011 '<｜place▁holder▁no▁11｜>' is not marked as EOG
+load: control token: 128123 '<｜place▁holder▁no▁123｜>' is not marked as EOG
+load: control token: 128267 '<｜place▁holder▁no▁267｜>' is not marked as EOG
+load: control token: 128018 '<｜place▁holder▁no▁18｜>' is not marked as EOG
+load: control token: 128652 '<｜place▁holder▁no▁652｜>' is not marked as EOG
+load: control token: 128799 '<｜place▁holder▁no▁799｜>' is not marked as EOG
+load: control token: 128094 '<｜place▁holder▁no▁94｜>' is not marked as EOG
+load: control token: 128800 '<｜fim▁hole｜>' is not marked as EOG
+load: control token: 128284 '<｜place▁holder▁no▁284｜>' is not marked as EOG
+load: control token: 128473 '<｜place▁holder▁no▁473｜>' is not marked as EOG
+load: control token: 128548 '<｜place▁holder▁no▁548｜>' is not marked as EOG
+load: control token: 128593 '<｜place▁holder▁no▁593｜>' is not marked as EOG
+load: control token:      1 '<｜end▁of▁sentence｜>' is not marked as EOG
+load: control token: 128792 '<｜place▁holder▁no▁792｜>' is not marked as EOG
+load: control token: 128130 '<｜place▁holder▁no▁130｜>' is not marked as EOG
+load: control token: 128458 '<｜place▁holder▁no▁458｜>' is not marked as EOG
+load: control token: 128125 '<｜place▁holder▁no▁125｜>' is not marked as EOG
+load: control token: 128733 '<｜place▁holder▁no▁733｜>' is not marked as EOG
+load: control token: 128370 '<｜place▁holder▁no▁370｜>' is not marked as EOG
+load: control token: 128787 '<｜place▁holder▁no▁787｜>' is not marked as EOG
+load: control token: 128406 '<｜place▁holder▁no▁406｜>' is not marked as EOG
+load: control token: 128770 '<｜place▁holder▁no▁770｜>' is not marked as EOG
+load: control token: 128476 '<｜place▁holder▁no▁476｜>' is not marked as EOG
+load: control token: 128600 '<｜place▁holder▁no▁600｜>' is not marked as EOG
+load: control token: 128036 '<｜place▁holder▁no▁36｜>' is not marked as EOG
+load: control token: 128028 '<｜place▁holder▁no▁28｜>' is not marked as EOG
+load: control token: 128358 '<｜place▁holder▁no▁358｜>' is not marked as EOG
+load: control token: 128538 '<｜place▁holder▁no▁538｜>' is not marked as EOG
+load: control token: 128657 '<｜place▁holder▁no▁657｜>' is not marked as EOG
+load: control token: 128704 '<｜place▁holder▁no▁704｜>' is not marked as EOG
+load: control token: 128407 '<｜place▁holder▁no▁407｜>' is not marked as EOG
+load: control token: 128277 '<｜place▁holder▁no▁277｜>' is not marked as EOG
+load: control token: 128107 '<｜place▁holder▁no▁107｜>' is not marked as EOG
+load: control token: 128210 '<｜place▁holder▁no▁210｜>' is not marked as EOG
+load: control token: 128344 '<｜place▁holder▁no▁344｜>' is not marked as EOG
+load: control token: 128106 '<｜place▁holder▁no▁106｜>' is not marked as EOG
+load: control token: 128354 '<｜place▁holder▁no▁354｜>' is not marked as EOG
+load: control token: 128664 '<｜place▁holder▁no▁664｜>' is not marked as EOG
+load: control token: 128528 '<｜place▁holder▁no▁528｜>' is not marked as EOG
+load: control token: 128554 '<｜place▁holder▁no▁554｜>' is not marked as EOG
+load: control token: 128673 '<｜place▁holder▁no▁673｜>' is not marked as EOG
+load: control token: 128027 '<｜place▁holder▁no▁27｜>' is not marked as EOG
+load: control token: 128308 '<｜place▁holder▁no▁308｜>' is not marked as EOG
+load: control token: 128565 '<｜place▁holder▁no▁565｜>' is not marked as EOG
+load: control token: 128506 '<｜place▁holder▁no▁506｜>' is not marked as EOG
+load: control token: 128016 '<｜place▁holder▁no▁16｜>' is not marked as EOG
+load: control token: 128616 '<｜place▁holder▁no▁616｜>' is not marked as EOG
+load: control token: 128584 '<｜place▁holder▁no▁584｜>' is not marked as EOG
+load: control token: 128703 '<｜place▁holder▁no▁703｜>' is not marked as EOG
+load: control token: 128121 '<｜place▁holder▁no▁121｜>' is not marked as EOG
+load: control token: 128090 '<｜place▁holder▁no▁90｜>' is not marked as EOG
+load: control token: 128780 '<｜place▁holder▁no▁780｜>' is not marked as EOG
+load: control token: 128482 '<｜place▁holder▁no▁482｜>' is not marked as EOG
+load: control token: 128443 '<｜place▁holder▁no▁443｜>' is not marked as EOG
+load: control token: 128718 '<｜place▁holder▁no▁718｜>' is not marked as EOG
+load: control token: 128298 '<｜place▁holder▁no▁298｜>' is not marked as EOG
+load: control token: 128216 '<｜place▁holder▁no▁216｜>' is not marked as EOG
+load: control token: 128615 '<｜place▁holder▁no▁615｜>' is not marked as EOG
+load: control token: 128511 '<｜place▁holder▁no▁511｜>' is not marked as EOG
+load: control token: 128293 '<｜place▁holder▁no▁293｜>' is not marked as EOG
+load: control token: 128690 '<｜place▁holder▁no▁690｜>' is not marked as EOG
+load: control token: 128124 '<｜place▁holder▁no▁124｜>' is not marked as EOG
+load: control token: 128699 '<｜place▁holder▁no▁699｜>' is not marked as EOG
+load: control token: 128507 '<｜place▁holder▁no▁507｜>' is not marked as EOG
+load: control token:      0 '<｜begin▁of▁sentence｜>' is not marked as EOG
+load: control token: 128459 '<｜place▁holder▁no▁459｜>' is not marked as EOG
+load: control token: 128485 '<｜place▁holder▁no▁485｜>' is not marked as EOG
+load: control token: 128079 '<｜place▁holder▁no▁79｜>' is not marked as EOG
+load: control token: 128438 '<｜place▁holder▁no▁438｜>' is not marked as EOG
+load: control token: 128390 '<｜place▁holder▁no▁390｜>' is not marked as EOG
+load: control token: 128235 '<｜place▁holder▁no▁235｜>' is not marked as EOG
+load: control token: 128655 '<｜place▁holder▁no▁655｜>' is not marked as EOG
+load: control token: 128621 '<｜place▁holder▁no▁621｜>' is not marked as EOG
+load: control token: 128034 '<｜place▁holder▁no▁34｜>' is not marked as EOG
+load: control token: 128747 '<｜place▁holder▁no▁747｜>' is not marked as EOG
+load: control token: 128619 '<｜place▁holder▁no▁619｜>' is not marked as EOG
+load: control token: 128268 '<｜place▁holder▁no▁268｜>' is not marked as EOG
+load: control token: 128345 '<｜place▁holder▁no▁345｜>' is not marked as EOG
+load: control token: 128744 '<｜place▁holder▁no▁744｜>' is not marked as EOG
+load: control token: 128206 '<｜place▁holder▁no▁206｜>' is not marked as EOG
+load: control token: 128529 '<｜place▁holder▁no▁529｜>' is not marked as EOG
+load: control token: 128682 '<｜place▁holder▁no▁682｜>' is not marked as EOG
+load: control token: 128468 '<｜place▁holder▁no▁468｜>' is not marked as EOG
+load: control token: 128464 '<｜place▁holder▁no▁464｜>' is not marked as EOG
+load: control token: 128316 '<｜place▁holder▁no▁316｜>' is not marked as EOG
+load: control token: 128109 '<｜place▁holder▁no▁109｜>' is not marked as EOG
+load: control token: 128576 '<｜place▁holder▁no▁576｜>' is not marked as EOG
+load: control token: 128727 '<｜place▁holder▁no▁727｜>' is not marked as EOG
+load: control token: 128319 '<｜place▁holder▁no▁319｜>' is not marked as EOG
+load: control token: 128713 '<｜place▁holder▁no▁713｜>' is not marked as EOG
+load: control token: 128273 '<｜place▁holder▁no▁273｜>' is not marked as EOG
+load: control token: 128801 '<｜fim▁begin｜>' is not marked as EOG
+load: control token: 128408 '<｜place▁holder▁no▁408｜>' is not marked as EOG
+load: control token: 128651 '<｜place▁holder▁no▁651｜>' is not marked as EOG
+load: control token: 128430 '<｜place▁holder▁no▁430｜>' is not marked as EOG
+load: control token: 128178 '<｜place▁holder▁no▁178｜>' is not marked as EOG
+load: control token: 128427 '<｜place▁holder▁no▁427｜>' is not marked as EOG
+load: control token: 128665 '<｜place▁holder▁no▁665｜>' is not marked as EOG
+load: control token: 128355 '<｜place▁holder▁no▁355｜>' is not marked as EOG
+load: control token: 128382 '<｜place▁holder▁no▁382｜>' is not marked as EOG
+load: control token: 128520 '<｜place▁holder▁no▁520｜>' is not marked as EOG
+load: control token: 128040 '<｜place▁holder▁no▁40｜>' is not marked as EOG
+load: control token: 128814 '<｜tool▁sep｜>' is not marked as EOG
+load: control token: 128586 '<｜place▁holder▁no▁586｜>' is not marked as EOG
+load: control token: 128151 '<｜place▁holder▁no▁151｜>' is not marked as EOG
+load: control token: 128388 '<｜place▁holder▁no▁388｜>' is not marked as EOG
+load: control token: 128743 '<｜place▁holder▁no▁743｜>' is not marked as EOG
+load: control token: 128374 '<｜place▁holder▁no▁374｜>' is not marked as EOG
+load: control token: 128083 '<｜place▁holder▁no▁83｜>' is not marked as EOG
+load: control token: 128775 '<｜place▁holder▁no▁775｜>' is not marked as EOG
+load: control token: 128363 '<｜place▁holder▁no▁363｜>' is not marked as EOG
+load: control token: 128432 '<｜place▁holder▁no▁432｜>' is not marked as EOG
+load: control token: 128809 '<｜tool▁call▁end｜>' is not marked as EOG
+load: control token: 128726 '<｜place▁holder▁no▁726｜>' is not marked as EOG
+load: control token: 128351 '<｜place▁holder▁no▁351｜>' is not marked as EOG
+load: control token: 128214 '<｜place▁holder▁no▁214｜>' is not marked as EOG
+load: control token: 128604 '<｜place▁holder▁no▁604｜>' is not marked as EOG
+load: control token: 128314 '<｜place▁holder▁no▁314｜>' is not marked as EOG
+load: control token: 128644 '<｜place▁holder▁no▁644｜>' is not marked as EOG
+load: control token: 128241 '<｜place▁holder▁no▁241｜>' is not marked as EOG
+load: control token: 128104 '<｜place▁holder▁no▁104｜>' is not marked as EOG
+load: control token: 128702 '<｜place▁holder▁no▁702｜>' is not marked as EOG
+load: control token: 128000 '<｜place▁holder▁no▁0｜>' is not marked as EOG
+load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect
+load: special tokens cache size = 818
+load: token to piece cache size = 0.8223 MB
+print_info: arch             = deepseek2
+print_info: vocab_only       = 0
+print_info: n_ctx_train      = 163840
+print_info: n_embd           = 7168
+print_info: n_layer          = 61
+print_info: n_head           = 128
+print_info: n_head_kv        = 128
+print_info: n_rot            = 64
+print_info: n_swa            = 0
+print_info: n_embd_head_k    = 192
+print_info: n_embd_head_v    = 128
+print_info: n_gqa            = 1
+print_info: n_embd_k_gqa     = 24576
+print_info: n_embd_v_gqa     = 16384
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-06
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: n_ff             = 18432
+print_info: n_expert         = 256
+print_info: n_expert_used    = 8
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 0
+print_info: rope scaling     = yarn
+print_info: freq_base_train  = 10000.0
+print_info: freq_scale_train = 0.025
+print_info: n_ctx_orig_yarn  = 4096
+print_info: rope_finetuned   = unknown
+print_info: ssm_d_conv       = 0
+print_info: ssm_d_inner      = 0
+print_info: ssm_d_state      = 0
+print_info: ssm_dt_rank      = 0
+print_info: ssm_dt_b_c_rms   = 0
+print_info: model type       = 671B
+print_info: model params     = 671.03 B
+print_info: general.name     = DeepSeek V3 BF16
+print_info: n_layer_dense_lead   = 3
+print_info: n_lora_q             = 1536
+print_info: n_lora_kv            = 512
+print_info: n_ff_exp             = 2048
+print_info: n_expert_shared      = 1
+print_info: expert_weights_scale = 2.5
+print_info: expert_weights_norm  = 1
+print_info: expert_gating_func   = sigmoid
+print_info: rope_yarn_log_mul    = 0.1000
+print_info: vocab type       = BPE
+print_info: n_vocab          = 129280
+print_info: n_merges         = 127741
+print_info: BOS token        = 0 '<｜begin▁of▁sentence｜>'
+print_info: EOS token        = 1 '<｜end▁of▁sentence｜>'
+print_info: EOT token        = 1 '<｜end▁of▁sentence｜>'
+print_info: PAD token        = 1 '<｜end▁of▁sentence｜>'
+print_info: LF token         = 201 'Ċ'
+print_info: FIM PRE token    = 128801 '<｜fim▁begin｜>'
+print_info: FIM SUF token    = 128800 '<｜fim▁hole｜>'
+print_info: FIM MID token    = 128802 '<｜fim▁end｜>'
+print_info: EOG token        = 1 '<｜end▁of▁sentence｜>'
+print_info: max token length = 256
+load_tensors: loading model tensors, this can take a while... (mmap = true)
+load_tensors: layer   0 assigned to device CPU
+load_tensors: layer   1 assigned to device CUDA0
+load_tensors: layer   2 assigned to device CUDA0
+load_tensors: layer   3 assigned to device CUDA0
+load_tensors: layer   4 assigned to device CUDA0
+load_tensors: layer   5 assigned to device CUDA0
+load_tensors: layer   6 assigned to device CUDA0
+load_tensors: layer   7 assigned to device CUDA0
+load_tensors: layer   8 assigned to device CUDA0
+load_tensors: layer   9 assigned to device CUDA0
+load_tensors: layer  10 assigned to device CUDA0
+load_tensors: layer  11 assigned to device CUDA0
+load_tensors: layer  12 assigned to device CUDA0
+load_tensors: layer  13 assigned to device CUDA0
+load_tensors: layer  14 assigned to device CUDA0
+load_tensors: layer  15 assigned to device CUDA0
+load_tensors: layer  16 assigned to device CUDA1
+load_tensors: layer  17 assigned to device CUDA1
+load_tensors: layer  18 assigned to device CUDA1
+load_tensors: layer  19 assigned to device CUDA1
+load_tensors: layer  20 assigned to device CUDA1
+load_tensors: layer  21 assigned to device CUDA1
+load_tensors: layer  22 assigned to device CUDA1
+load_tensors: layer  23 assigned to device CUDA1
+load_tensors: layer  24 assigned to device CUDA1
+load_tensors: layer  25 assigned to device CUDA1
+load_tensors: layer  26 assigned to device CUDA1
+load_tensors: layer  27 assigned to device CUDA1
+load_tensors: layer  28 assigned to device CUDA1
+load_tensors: layer  29 assigned to device CUDA1
+load_tensors: layer  30 assigned to device CUDA1
+load_tensors: layer  31 assigned to device CUDA2
+load_tensors: layer  32 assigned to device CUDA2
+load_tensors: layer  33 assigned to device CUDA2
+load_tensors: layer  34 assigned to device CUDA2
+load_tensors: layer  35 assigned to device CUDA2
+load_tensors: layer  36 assigned to device CUDA2
+load_tensors: layer  37 assigned to device CUDA2
+load_tensors: layer  38 assigned to device CUDA2
+load_tensors: layer  39 assigned to device CUDA2
+load_tensors: layer  40 assigned to device CUDA2
+load_tensors: layer  41 assigned to device CUDA2
+load_tensors: layer  42 assigned to device CUDA2
+load_tensors: layer  43 assigned to device CUDA2
+load_tensors: layer  44 assigned to device CUDA2
+load_tensors: layer  45 assigned to device CUDA2
+load_tensors: layer  46 assigned to device CUDA3
+load_tensors: layer  47 assigned to device CUDA3
+load_tensors: layer  48 assigned to device CUDA3
+load_tensors: layer  49 assigned to device CUDA3
+load_tensors: layer  50 assigned to device CUDA3
+load_tensors: layer  51 assigned to device CUDA3
+load_tensors: layer  52 assigned to device CUDA3
+load_tensors: layer  53 assigned to device CUDA3
+load_tensors: layer  54 assigned to device CUDA3
+load_tensors: layer  55 assigned to device CUDA3
+load_tensors: layer  56 assigned to device CUDA3
+load_tensors: layer  57 assigned to device CUDA3
+load_tensors: layer  58 assigned to device CUDA3
+load_tensors: layer  59 assigned to device CUDA3
+load_tensors: layer  60 assigned to device CUDA3
+load_tensors: layer  61 assigned to device CPU
+load_tensors: tensor 'token_embd.weight' (q4_K) (and 14 others) cannot be used with preferred buffer type CPU_AARCH64, using CPU instead
+ggml_backend_cuda_buffer_type_alloc_buffer: allocating 47261.42 MiB on device 0: cudaMalloc failed: out of memory
+llama_model_load: error loading model: unable to allocate CUDA0 buffer
+llama_model_load_from_file_impl: failed to load model
+common_init_from_params: failed to load model '/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf'
+srv    load_model: failed to load model, '/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf'
+main: exiting due to model loading error
+Waiting for server & model initialization...
+ Retrying... [1/500] | Elapsed: 00:01 Retrying... [2/500] | Elapsed: 00:02 Retrying... [3/500] | Elapsed: 00:03 Retrying... [4/500] | Elapsed: 00:04 Retrying... [5/500] | Elapsed: 00:05 Retrying... [6/500] | Elapsed: 00:06 Retrying... [7/500] | Elapsed: 00:07 Retrying... [8/500] | Elapsed: 00:08 Retrying... [9/500] | Elapsed: 00:09 Retrying... [10/500] | Elapsed: 00:10 Retrying... [11/500] | Elapsed: 00:11 Retrying... [12/500] | Elapsed: 00:12 Retrying... [13/500] | Elapsed: 00:13 Retrying... [14/500] | Elapsed: 00:14 Retrying... [15/500] | Elapsed: 00:15 Retrying... [16/500] | Elapsed: 00:16 Retrying... [17/500] | Elapsed: 00:17 Retrying... [18/500] | Elapsed: 00:18 Retrying... [19/500] | Elapsed: 00:19 Retrying... [20/500] | Elapsed: 00:20 Retrying... [21/500] | Elapsed: 00:21 Retrying... [22/500] | Elapsed: 00:22 Retrying... [23/500] | Elapsed: 00:23 Retrying... [24/500] | Elapsed: 00:24 Retrying... [25/500] | Elapsed: 00:25 Retrying... [26/500] | Elapsed: 00:26 Retrying... [27/500] | Elapsed: 00:27 Retrying... [28/500] | Elapsed: 00:28 Retrying... [29/500] | Elapsed: 00:29 Retrying... [30/500] | Elapsed: 00:30 Retrying... [31/500] | Elapsed: 00:31 Retrying... [32/500] | Elapsed: 00:32 Retrying... [33/500] | Elapsed: 00:33 Retrying... [34/500] | Elapsed: 00:34 Retrying... [35/500] | Elapsed: 00:35 Retrying... [36/500] | Elapsed: 00:36 Retrying... [37/500] | Elapsed: 00:37 Retrying... [38/500] | Elapsed: 00:38 Retrying... [39/500] | Elapsed: 00:39 Retrying... [40/500] | Elapsed: 00:40 Retrying... [41/500] | Elapsed: 00:41 Retrying... [42/500] | Elapsed: 00:42 Retrying... [43/500] | Elapsed: 00:43 Retrying... [44/500] | Elapsed: 00:44 Retrying... [45/500] | Elapsed: 00:45 Retrying... [46/500] | Elapsed: 00:46 Retrying... [47/500] | Elapsed: 00:47 Retrying... [48/500] | Elapsed: 00:48 Retrying... [49/500] | Elapsed: 00:49 Retrying... [50/500] | Elapsed: 00:50 Retrying... [51/500] | Elapsed: 00:51 Retrying... [52/500] | Elapsed: 00:52 Retrying... [53/500] | Elapsed: 00:53 Retrying... [54/500] | Elapsed: 00:54 Retrying... [55/500] | Elapsed: 00:55 Retrying... [56/500] | Elapsed: 00:56 Retrying... [57/500] | Elapsed: 00:57 Retrying... [58/500] | Elapsed: 00:58 Retrying... [59/500] | Elapsed: 00:59 Retrying... [60/500] | Elapsed: 01:00 Retrying... [61/500] | Elapsed: 01:01 Retrying... [62/500] | Elapsed: 01:02 Retrying... [63/500] | Elapsed: 01:03 Retrying... [64/500] | Elapsed: 01:04 Retrying... [65/500] | Elapsed: 01:05 Retrying... [66/500] | Elapsed: 01:06 Retrying... [67/500] | Elapsed: 01:07 Retrying... [68/500] | Elapsed: 01:08 Retrying... [69/500] | Elapsed: 01:09 Retrying... [70/500] | Elapsed: 01:10 Retrying... [71/500] | Elapsed: 01:11 Retrying... [72/500] | Elapsed: 01:12 Retrying... [73/500] | Elapsed: 01:13 Retrying... [74/500] | Elapsed: 01:14 Retrying... [75/500] | Elapsed: 01:15 Retrying... [76/500] | Elapsed: 01:16 Retrying... [77/500] | Elapsed: 01:17 Retrying... [78/500] | Elapsed: 01:18 Retrying... [79/500] | Elapsed: 01:19 Retrying... [80/500] | Elapsed: 01:20 Retrying... [81/500] | Elapsed: 01:21 Retrying... [82/500] | Elapsed: 01:22 Retrying... [83/500] | Elapsed: 01:23 Retrying... [84/500] | Elapsed: 01:24 Retrying... [85/500] | Elapsed: 01:25 Retrying... [86/500] | Elapsed: 01:26 Retrying... [87/500] | Elapsed: 01:27 Retrying... [88/500] | Elapsed: 01:28 Retrying... [89/500] | Elapsed: 01:29 Retrying... [90/500] | Elapsed: 01:30 Retrying... [91/500] | Elapsed: 01:31 Retrying... [92/500] | Elapsed: 01:32 Retrying... [93/500] | Elapsed: 01:33 Retrying... [94/500] | Elapsed: 01:34 Retrying... [95/500] | Elapsed: 01:35 Retrying... [96/500] | Elapsed: 01:36 Retrying... [97/500] | Elapsed: 01:37 Retrying... [98/500] | Elapsed: 01:38 Retrying... [99/500] | Elapsed: 01:39 Retrying... [100/500] | Elapsed: 01:40 Retrying... [101/500] | Elapsed: 01:41 Retrying... [102/500] | Elapsed: 01:42 Retrying... [103/500] | Elapsed: 01:43 Retrying... [104/500] | Elapsed: 01:44 Retrying... [105/500] | Elapsed: 01:45 Retrying... [106/500] | Elapsed: 01:46 Retrying... [107/500] | Elapsed: 01:47 Retrying... [108/500] | Elapsed: 01:48 Retrying... [109/500] | Elapsed: 01:49 Retrying... [110/500] | Elapsed: 01:50 Retrying... [111/500] | Elapsed: 01:51 Retrying... [112/500] | Elapsed: 01:52 Retrying... [113/500] | Elapsed: 01:53 Retrying... [114/500] | Elapsed: 01:54 Retrying... [115/500] | Elapsed: 01:55 Retrying... [116/500] | Elapsed: 01:56 Retrying... [117/500] | Elapsed: 01:57 Retrying... [118/500] | Elapsed: 01:58 Retrying... [119/500] | Elapsed: 01:59 Retrying... [120/500] | Elapsed: 02:00 Retrying... [121/500] | Elapsed: 02:01 Retrying... [122/500] | Elapsed: 02:02 Retrying... [123/500] | Elapsed: 02:03 Retrying... [124/500] | Elapsed: 02:04 Retrying... [125/500] | Elapsed: 02:05 Retrying... [126/500] | Elapsed: 02:06 Retrying... [127/500] | Elapsed: 02:07 Retrying... [128/500] | Elapsed: 02:08 Retrying... [129/500] | Elapsed: 02:09 Retrying... [130/500] | Elapsed: 02:10 Retrying... [131/500] | Elapsed: 02:11 Retrying... [132/500] | Elapsed: 02:12 Retrying... [133/500] | Elapsed: 02:13 Retrying... [134/500] | Elapsed: 02:14 Retrying... [135/500] | Elapsed: 02:15 Retrying... [136/500] | Elapsed: 02:16 Retrying... [137/500] | Elapsed: 02:17 Retrying... [138/500] | Elapsed: 02:18 Retrying... [139/500] | Elapsed: 02:19 Retrying... [140/500] | Elapsed: 02:20 Retrying... [141/500] | Elapsed: 02:21 Retrying... [142/500] | Elapsed: 02:22 Retrying... [143/500] | Elapsed: 02:23 Retrying... [144/500] | Elapsed: 02:24 Retrying... [145/500] | Elapsed: 02:25 Retrying... [146/500] | Elapsed: 02:26 Retrying... [147/500] | Elapsed: 02:27 Retrying... [148/500] | Elapsed: 02:28 Retrying... [149/500] | Elapsed: 02:29 Retrying... [150/500] | Elapsed: 02:30 Retrying... [151/500] | Elapsed: 02:31 Retrying... [152/500] | Elapsed: 02:32 Retrying... [153/500] | Elapsed: 02:33 Retrying... [154/500] | Elapsed: 02:34 Retrying... [155/500] | Elapsed: 02:35 Retrying... [156/500] | Elapsed: 02:36 Retrying... [157/500] | Elapsed: 02:37 Retrying... [158/500] | Elapsed: 02:38 Retrying... [159/500] | Elapsed: 02:39 Retrying... [160/500] | Elapsed: 02:40 Retrying... [161/500] | Elapsed: 02:41 Retrying... [162/500] | Elapsed: 02:42 Retrying... [163/500] | Elapsed: 02:43 Retrying... [164/500] | Elapsed: 02:44 Retrying... [165/500] | Elapsed: 02:45 Retrying... [166/500] | Elapsed: 02:46 Retrying... [167/500] | Elapsed: 02:47 Retrying... [168/500] | Elapsed: 02:48 Retrying... [169/500] | Elapsed: 02:49 Retrying... [170/500] | Elapsed: 02:50 Retrying... [171/500] | Elapsed: 02:51 Retrying... [172/500] | Elapsed: 02:52 Retrying... [173/500] | Elapsed: 02:53 Retrying... [174/500] | Elapsed: 02:54 Retrying... [175/500] | Elapsed: 02:55 Retrying... [176/500] | Elapsed: 02:56 Retrying... [177/500] | Elapsed: 02:57 Retrying... [178/500] | Elapsed: 02:58 Retrying... [179/500] | Elapsed: 02:59 Retrying... [180/500] | Elapsed: 03:00 Retrying... [181/500] | Elapsed: 03:01 Retrying... [182/500] | Elapsed: 03:02 Retrying... [183/500] | Elapsed: 03:03 Retrying... [184/500] | Elapsed: 03:04 Retrying... [185/500] | Elapsed: 03:05 Retrying... [186/500] | Elapsed: 03:06 Retrying... [187/500] | Elapsed: 03:07 Retrying... [188/500] | Elapsed: 03:08 Retrying... [189/500] | Elapsed: 03:09 Retrying... [190/500] | Elapsed: 03:10 Retrying... [191/500] | Elapsed: 03:11 Retrying... [192/500] | Elapsed: 03:12 Retrying... [193/500] | Elapsed: 03:13 Retrying... [194/500] | Elapsed: 03:14 Retrying... [195/500] | Elapsed: 03:15 Retrying... [196/500] | Elapsed: 03:16 Retrying... [197/500] | Elapsed: 03:17 Retrying... [198/500] | Elapsed: 03:18 Retrying... [199/500] | Elapsed: 03:19 Retrying... [200/500] | Elapsed: 03:20 Retrying... [201/500] | Elapsed: 03:21 Retrying... [202/500] | Elapsed: 03:22 Retrying... [203/500] | Elapsed: 03:23 Retrying... [204/500] | Elapsed: 03:24 Retrying... [205/500] | Elapsed: 03:25 Retrying... [206/500] | Elapsed: 03:26 Retrying... [207/500] | Elapsed: 03:27 Retrying... [208/500] | Elapsed: 03:28 Retrying... [209/500] | Elapsed: 03:29 Retrying... [210/500] | Elapsed: 03:30 Retrying... [211/500] | Elapsed: 03:31 Retrying... [212/500] | Elapsed: 03:32 Retrying... [213/500] | Elapsed: 03:33 Retrying... [214/500] | Elapsed: 03:34 Retrying... [215/500] | Elapsed: 03:35 Retrying... [216/500] | Elapsed: 03:36 Retrying... [217/500] | Elapsed: 03:37 Retrying... [218/500] | Elapsed: 03:38 Retrying... [219/500] | Elapsed: 03:39 Retrying... [220/500] | Elapsed: 03:40 Retrying... [221/500] | Elapsed: 03:41 Retrying... [222/500] | Elapsed: 03:42 Retrying... [223/500] | Elapsed: 03:43 Retrying... [224/500] | Elapsed: 03:44 Retrying... [225/500] | Elapsed: 03:45 Retrying... [226/500] | Elapsed: 03:46 Retrying... [227/500] | Elapsed: 03:47 Retrying... [228/500] | Elapsed: 03:48 Retrying... [229/500] | Elapsed: 03:49 Retrying... [230/500] | Elapsed: 03:50 Retrying... [231/500] | Elapsed: 03:51 Retrying... [232/500] | Elapsed: 03:52 Retrying... [233/500] | Elapsed: 03:53 Retrying... [234/500] | Elapsed: 03:54 Retrying... [235/500] | Elapsed: 03:55 Retrying... [236/500] | Elapsed: 03:56 Retrying... [237/500] | Elapsed: 03:57 Retrying... [238/500] | Elapsed: 03:58 Retrying... [239/500] | Elapsed: 03:59 Retrying... [240/500] | Elapsed: 04:00 Retrying... [241/500] | Elapsed: 04:01 Retrying... [242/500] | Elapsed: 04:02 Retrying... [243/500] | Elapsed: 04:03 Retrying... [244/500] | Elapsed: 04:04 Retrying... [245/500] | Elapsed: 04:05 Retrying... [246/500] | Elapsed: 04:06 Retrying... [247/500] | Elapsed: 04:07 Retrying... [248/500] | Elapsed: 04:08 Retrying... [249/500] | Elapsed: 04:09 Retrying... [250/500] | Elapsed: 04:10 Retrying... [251/500] | Elapsed: 04:11 Retrying... [252/500] | Elapsed: 04:12 Retrying... [253/500] | Elapsed: 04:13 Retrying... [254/500] | Elapsed: 04:14 Retrying... [255/500] | Elapsed: 04:15 Retrying... [256/500] | Elapsed: 04:16 Retrying... [257/500] | Elapsed: 04:17 Retrying... [258/500] | Elapsed: 04:18 Retrying... [259/500] | Elapsed: 04:19 Retrying... [260/500] | Elapsed: 04:20 Retrying... [261/500] | Elapsed: 04:21 Retrying... [262/500] | Elapsed: 04:22 Retrying... [263/500] | Elapsed: 04:23 Retrying... [264/500] | Elapsed: 04:24 Retrying... [265/500] | Elapsed: 04:25 Retrying... [266/500] | Elapsed: 04:26 Retrying... [267/500] | Elapsed: 04:27 Retrying... [268/500] | Elapsed: 04:28 Retrying... [269/500] | Elapsed: 04:29 Retrying... [270/500] | Elapsed: 04:30 Retrying... [271/500] | Elapsed: 04:31 Retrying... [272/500] | Elapsed: 04:32 Retrying... [273/500] | Elapsed: 04:33 Retrying... [274/500] | Elapsed: 04:34 Retrying... [275/500] | Elapsed: 04:35 Retrying... [276/500] | Elapsed: 04:36 Retrying... [277/500] | Elapsed: 04:37 Retrying... [278/500] | Elapsed: 04:38 Retrying... [279/500] | Elapsed: 04:39 Retrying... [280/500] | Elapsed: 04:40 Retrying... [281/500] | Elapsed: 04:41 Retrying... [282/500] | Elapsed: 04:42 Retrying... [283/500] | Elapsed: 04:43 Retrying... [284/500] | Elapsed: 04:44 Retrying... [285/500] | Elapsed: 04:45 Retrying... [286/500] | Elapsed: 04:46 Retrying... [287/500] | Elapsed: 04:47 Retrying... [288/500] | Elapsed: 04:48 Retrying... [289/500] | Elapsed: 04:49 Retrying... [290/500] | Elapsed: 04:50 Retrying... [291/500] | Elapsed: 04:51 Retrying... [292/500] | Elapsed: 04:52 Retrying... [293/500] | Elapsed: 04:53 Retrying... [294/500] | Elapsed: 04:54 Retrying... [295/500] | Elapsed: 04:55 Retrying... [296/500] | Elapsed: 04:56 Retrying... [297/500] | Elapsed: 04:57 Retrying... [298/500] | Elapsed: 04:58 Retrying... [299/500] | Elapsed: 04:59 Retrying... [300/500] | Elapsed: 05:00 Retrying... [301/500] | Elapsed: 05:01 Retrying... [302/500] | Elapsed: 05:02 Retrying... [303/500] | Elapsed: 05:03 Retrying... [304/500] | Elapsed: 05:04 Retrying... [305/500] | Elapsed: 05:05 Retrying... [306/500] | Elapsed: 05:06 Retrying... [307/500] | Elapsed: 05:07 Retrying... [308/500] | Elapsed: 05:08 Retrying... [309/500] | Elapsed: 05:09 Retrying... [310/500] | Elapsed: 05:10 Retrying... [311/500] | Elapsed: 05:11 Retrying... [312/500] | Elapsed: 05:12 Retrying... [313/500] | Elapsed: 05:13 Retrying... [314/500] | Elapsed: 05:14 Retrying... [315/500] | Elapsed: 05:15 Retrying... [316/500] | Elapsed: 05:16 Retrying... [317/500] | Elapsed: 05:17 Retrying... [318/500] | Elapsed: 05:18 Retrying... [319/500] | Elapsed: 05:19 Retrying... [320/500] | Elapsed: 05:20 Retrying... [321/500] | Elapsed: 05:21 Retrying... [322/500] | Elapsed: 05:22 Retrying... [323/500] | Elapsed: 05:23 Retrying... [324/500] | Elapsed: 05:24 Retrying... [325/500] | Elapsed: 05:25 Retrying... [326/500] | Elapsed: 05:26 Retrying... [327/500] | Elapsed: 05:27 Retrying... [328/500] | Elapsed: 05:28 Retrying... [329/500] | Elapsed: 05:29 Retrying... [330/500] | Elapsed: 05:30 Retrying... [331/500] | Elapsed: 05:31 Retrying... [332/500] | Elapsed: 05:32 Retrying... [333/500] | Elapsed: 05:33 Retrying... [334/500] | Elapsed: 05:34 Retrying... [335/500] | Elapsed: 05:35 Retrying... [336/500] | Elapsed: 05:36 Retrying... [337/500] | Elapsed: 05:37 Retrying... [338/500] | Elapsed: 05:38 Retrying... [339/500] | Elapsed: 05:39 Retrying... [340/500] | Elapsed: 05:40 Retrying... [341/500] | Elapsed: 05:41 Retrying... [342/500] | Elapsed: 05:42 Retrying... [343/500] | Elapsed: 05:43 Retrying... [344/500] | Elapsed: 05:44 Retrying... [345/500] | Elapsed: 05:45 Retrying... [346/500] | Elapsed: 05:46 Retrying... [347/500] | Elapsed: 05:47 Retrying... [348/500] | Elapsed: 05:48 Retrying... [349/500] | Elapsed: 05:49 Retrying... [350/500] | Elapsed: 05:50 Retrying... [351/500] | Elapsed: 05:51 Retrying... [352/500] | Elapsed: 05:52 Retrying... [353/500] | Elapsed: 05:53 Retrying... [354/500] | Elapsed: 05:54 Retrying... [355/500] | Elapsed: 05:55 Retrying... [356/500] | Elapsed: 05:56 Retrying... [357/500] | Elapsed: 05:57 Retrying... [358/500] | Elapsed: 05:58 Retrying... [359/500] | Elapsed: 05:59 Retrying... [360/500] | Elapsed: 06:00 Retrying... [361/500] | Elapsed: 06:01 Retrying... [362/500] | Elapsed: 06:02 Retrying... [363/500] | Elapsed: 06:03 Retrying... [364/500] | Elapsed: 06:04 Retrying... [365/500] | Elapsed: 06:05 Retrying... [366/500] | Elapsed: 06:06 Retrying... [367/500] | Elapsed: 06:07 Retrying... [368/500] | Elapsed: 06:08 Retrying... [369/500] | Elapsed: 06:09 Retrying... [370/500] | Elapsed: 06:10 Retrying... [371/500] | Elapsed: 06:11 Retrying... [372/500] | Elapsed: 06:12 Retrying... [373/500] | Elapsed: 06:13 Retrying... [374/500] | Elapsed: 06:14 Retrying... [375/500] | Elapsed: 06:15 Retrying... [376/500] | Elapsed: 06:16 Retrying... [377/500] | Elapsed: 06:17 Retrying... [378/500] | Elapsed: 06:18 Retrying... [379/500] | Elapsed: 06:19 Retrying... [380/500] | Elapsed: 06:20 Retrying... [381/500] | Elapsed: 06:21 Retrying... [382/500] | Elapsed: 06:22 Retrying... [383/500] | Elapsed: 06:23 Retrying... [384/500] | Elapsed: 06:24 Retrying... [385/500] | Elapsed: 06:25 Retrying... [386/500] | Elapsed: 06:26 Retrying... [387/500] | Elapsed: 06:27 Retrying... [388/500] | Elapsed: 06:28 Retrying... [389/500] | Elapsed: 06:29 Retrying... [390/500] | Elapsed: 06:30 Retrying... [391/500] | Elapsed: 06:31 Retrying... [392/500] | Elapsed: 06:32 Retrying... [393/500] | Elapsed: 06:33 Retrying... [394/500] | Elapsed: 06:34 Retrying... [395/500] | Elapsed: 06:35 Retrying... [396/500] | Elapsed: 06:36 Retrying... [397/500] | Elapsed: 06:37 Retrying... [398/500] | Elapsed: 06:38 Retrying... [399/500] | Elapsed: 06:39 Retrying... [400/500] | Elapsed: 06:40 Retrying... [401/500] | Elapsed: 06:41 Retrying... [402/500] | Elapsed: 06:42 Retrying... [403/500] | Elapsed: 06:43 Retrying... [404/500] | Elapsed: 06:44 Retrying... [405/500] | Elapsed: 06:45 Retrying... [406/500] | Elapsed: 06:46 Retrying... [407/500] | Elapsed: 06:47 Retrying... [408/500] | Elapsed: 06:48 Retrying... [409/500] | Elapsed: 06:49 Retrying... [410/500] | Elapsed: 06:50 Retrying... [411/500] | Elapsed: 06:51 Retrying... [412/500] | Elapsed: 06:52 Retrying... [413/500] | Elapsed: 06:53 Retrying... [414/500] | Elapsed: 06:54 Retrying... [415/500] | Elapsed: 06:55 Retrying... [416/500] | Elapsed: 06:56 Retrying... [417/500] | Elapsed: 06:57 Retrying... [418/500] | Elapsed: 06:58 Retrying... [419/500] | Elapsed: 06:59 Retrying... [420/500] | Elapsed: 07:00 Retrying... [421/500] | Elapsed: 07:01 Retrying... [422/500] | Elapsed: 07:02 Retrying... [423/500] | Elapsed: 07:03 Retrying... [424/500] | Elapsed: 07:04 Retrying... [425/500] | Elapsed: 07:05 Retrying... [426/500] | Elapsed: 07:06 Retrying... [427/500] | Elapsed: 07:07 Retrying... [428/500] | Elapsed: 07:08 Retrying... [429/500] | Elapsed: 07:09 Retrying... [430/500] | Elapsed: 07:10 Retrying... [431/500] | Elapsed: 07:11 Retrying... [432/500] | Elapsed: 07:12 Retrying... [433/500] | Elapsed: 07:13 Retrying... [434/500] | Elapsed: 07:14 Retrying... [435/500] | Elapsed: 07:15 Retrying... [436/500] | Elapsed: 07:16 Retrying... [437/500] | Elapsed: 07:17 Retrying... [438/500] | Elapsed: 07:18 Retrying... [439/500] | Elapsed: 07:19 Retrying... [440/500] | Elapsed: 07:20 Retrying... [441/500] | Elapsed: 07:21 Retrying... [442/500] | Elapsed: 07:22 Retrying... [443/500] | Elapsed: 07:23 Retrying... [444/500] | Elapsed: 07:24 Retrying... [445/500] | Elapsed: 07:25 Retrying... [446/500] | Elapsed: 07:26 Retrying... [447/500] | Elapsed: 07:27 Retrying... [448/500] | Elapsed: 07:28 Retrying... [449/500] | Elapsed: 07:29 Retrying... [450/500] | Elapsed: 07:30 Retrying... [451/500] | Elapsed: 07:31 Retrying... [452/500] | Elapsed: 07:32 Retrying... [453/500] | Elapsed: 07:33 Retrying... [454/500] | Elapsed: 07:34 Retrying... [455/500] | Elapsed: 07:35 Retrying... [456/500] | Elapsed: 07:36 Retrying... [457/500] | Elapsed: 07:37 Retrying... [458/500] | Elapsed: 07:38 Retrying... [459/500] | Elapsed: 07:39 Retrying... [460/500] | Elapsed: 07:40 Retrying... [461/500] | Elapsed: 07:41 Retrying... [462/500] | Elapsed: 07:42 Retrying... [463/500] | Elapsed: 07:43 Retrying... [464/500] | Elapsed: 07:44 Retrying... [465/500] | Elapsed: 07:45 Retrying... [466/500] | Elapsed: 07:46 Retrying... [467/500] | Elapsed: 07:47 Retrying... [468/500] | Elapsed: 07:48 Retrying... [469/500] | Elapsed: 07:49 Retrying... [470/500] | Elapsed: 07:50 Retrying... [471/500] | Elapsed: 07:51 Retrying... [472/500] | Elapsed: 07:52 Retrying... [473/500] | Elapsed: 07:53 Retrying... [474/500] | Elapsed: 07:54 Retrying... [475/500] | Elapsed: 07:55 Retrying... [476/500] | Elapsed: 07:56 Retrying... [477/500] | Elapsed: 07:57 Retrying... [478/500] | Elapsed: 07:58 Retrying... [479/500] | Elapsed: 07:59 Retrying... [480/500] | Elapsed: 08:00 Retrying... [481/500] | Elapsed: 08:01 Retrying... [482/500] | Elapsed: 08:02 Retrying... [483/500] | Elapsed: 08:03 Retrying... [484/500] | Elapsed: 08:04 Retrying... [485/500] | Elapsed: 08:05 Retrying... [486/500] | Elapsed: 08:06 Retrying... [487/500] | Elapsed: 08:07 Retrying... [488/500] | Elapsed: 08:08 Retrying... [489/500] | Elapsed: 08:09 Retrying... [490/500] | Elapsed: 08:10 Retrying... [491/500] | Elapsed: 08:11 Retrying... [492/500] | Elapsed: 08:12 Retrying... [493/500] | Elapsed: 08:13 Retrying... [494/500] | Elapsed: 08:14 Retrying... [495/500] | Elapsed: 08:15 Retrying... [496/500] | Elapsed: 08:16 Retrying... [497/500] | Elapsed: 08:17 Retrying... [498/500] | Elapsed: 08:18 Retrying... [499/500] | Elapsed: 08:19 Retrying... [500/500] | Elapsed: 08:20Calling LLM API...
+ERROR: LLM API returned an error: ❌ ERROR: API call failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1542c445fd90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+LLM API call completed successfully!
+Waiting for SPARQL query file: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992139/misc/temp/llm_response.txt

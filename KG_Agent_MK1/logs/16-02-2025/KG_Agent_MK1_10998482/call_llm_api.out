@@ -1,0 +1,228 @@
+LOG: Full prompt prepared:
+You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+1. **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+2. **Ensure the generated query adheres strictly to the provided shape.** Do not reference entities or properties that are not described in the shape.
+3. **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+4. **Do not generate natural language responses.** Return only raw SPARQL code.
+5. **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+6. **Use standard prefixes (`PREFIX`) where necessary.** Optimize queries for performance.
+7. **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+User prompt:
+How many ontologies are defined?
+
+Shape:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX pv: <http://ld.company.org/prod-vocab/>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX prodi: <http://ld.company.org/prod-instances/>
+PREFIX wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+:Price
+{
+   rdf:type  [pv:Price]  ;                                     # 100.0 %
+   pv:currency  xsd:string  ;                                  # 100.0 %
+   rdfs:label  xsd:string  ;                                   # 100.0 %
+   pv:amount  xsd:decimal                                      # 100.0 %
+}
+
+
+:Employee
+{
+   rdf:type  [pv:Employee]  ;                                  # 100.0 %
+   rdfs:label  xsd:string  ;                                   # 100.0 %
+   pv:areaOfExpertise  @:ProductCategory  +;                   # 100.0 %
+            # 27.659574468085108 % obj: @:ProductCategory. Cardinality: {1}
+            # 23.404255319148938 % obj: @:ProductCategory. Cardinality: {5}
+            # 21.27659574468085 % obj: @:ProductCategory. Cardinality: {4}
+            # 17.02127659574468 % obj: @:ProductCategory. Cardinality: {3}
+            # 10.638297872340425 % obj: @:ProductCategory. Cardinality: {2}
+   pv:email  xsd:string  ;                                     # 100.0 %
+   pv:memberOf  @:Department  ;                                # 100.0 %
+   pv:name  xsd:string  ;                                      # 100.0 %
+   pv:hasManager  @:Manager  ;                                 # 100.0 %
+   pv:phone  xsd:string  ?;
+            # 76.59574468085107 % obj: xsd:string. Cardinality: {1}
+   pv:addressText  xsd:string  ?
+            # 65.95744680851064 % obj: xsd:string. Cardinality: {1}
+}
+
+
+:BomPart
+{
+   rdf:type  [pv:BomPart]  ;                                   # 100.0 %
+   rdfs:label  xsd:string  +;                                  # 100.0 %
+            # 98.98477157360406 % obj: xsd:string. Cardinality: {1}
+   pv:hasPart  @:Hardware  ;                                   # 100.0 %
+   pv:quantity  xsd:string  +                                  # 100.0 %
+            # 98.98477157360406 % obj: xsd:string. Cardinality: {1}
+}
+
+
+:Hardware
+{
+   rdf:type  [pv:Hardware]  ;                                  # 100.0 %
+   pv:name  xsd:string  ;                                      # 100.0 %
+   pv:depth_mm  xsd:integer  ;                                 # 100.0 %
+   rdfs:label  xsd:string  ;                                   # 100.0 %
+   pv:hasSupplier  @:Supplier  ;                               # 100.0 %
+   pv:price  @:Price  ;                                        # 100.0 %
+   pv:weight_g  xsd:integer  ;                                 # 100.0 %
+   pv:width_mm  xsd:integer  ;                                 # 100.0 %
+   pv:id  xsd:string  ;                                        # 100.0 %
+   pv:hasProductManager  IRI  ;                                # 100.0 %
+            # 85.2 % obj: @:Employee. Cardinality: {1}
+            # 10.0 % obj: @:Manager. Cardinality: {1}
+   pv:height_mm  xsd:integer  ;                                # 100.0 %
+   pv:hasCategory  @:ProductCategory  *;
+            # 99.9 % obj: @:ProductCategory. Cardinality: +
+            # 53.5 % obj: @:ProductCategory. Cardinality: {2}
+            # 40.2 % obj: @:ProductCategory. Cardinality: {3}
+   pv:reliabilityIndex  xsd:decimal  ?;
+            # 91.2 % obj: xsd:decimal. Cardinality: {1}
+   pv:compatibleProduct  @:Hardware  *
+            # 80.80000000000001 % obj: @:Hardware. Cardinality: +
+            # 25.0 % obj: @:Hardware. Cardinality: {1}
+            # 24.8 % obj: @:Hardware. Cardinality: {2}
+            # 14.6 % obj: @:Hardware. Cardinality: {3}
+}
+
+
+:Supplier
+{
+   rdf:type  [pv:Supplier]  ;                                  # 100.0 %
+   pv:name  xsd:string  ;                                      # 100.0 %
+   pv:addressCountry  xsd:string  ;                            # 100.0 %
+   pv:id  xsd:string  ;                                        # 100.0 %
+   pv:addressLocality  xsd:string  ;                           # 100.0 %
+   rdfs:label  xsd:string  ;                                   # 100.0 %
+   pv:addressCountryCode  xsd:string  ;                        # 100.0 %
+   wgs84:long  xsd:string  ?;
+            # 99.2 % obj: xsd:string. Cardinality: {1}
+   wgs84:lat  xsd:string  ?;
+            # 99.2 % obj: xsd:string. Cardinality: {1}
+   pv:country  IRI  ?
+            # 90.8 % obj: IRI. Cardinality: {1}
+}
+
+
+:Service
+{
+   rdf:type  [pv:Service]  ;                                   # 100.0 %
+   pv:eligibleFor  @:Hardware  +;                              # 100.0 %
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {16}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {186}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {217}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {256}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {355}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {330}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {103}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {241}
+            # 11.11111111111111 % obj: @:Hardware. Cardinality: {389}
+   pv:price  @:Price  ;                                        # 100.0 %
+   rdfs:label  xsd:string  ;                                   # 100.0 %
+   pv:hasProductManager  IRI  ;                                # 100.0 %
+            # 88.88888888888889 % obj: @:Employee. Cardinality: {1}
+   pv:id  xsd:string  ;                                        # 100.0 %
+   pv:name  xsd:string  ;                                      # 100.0 %
+   pv:hasCategory  @:ProductCategory  ?
+            # 11.11111111111111 % obj: @:ProductCategory. Cardinality: {1}
+}
+
+
+:Department
+{
+   rdf:type  [pv:Department]  ;                                # 100.0 %
+   pv:responsibleFor  @:Hardware  +;                           # 100.0 %
+            # 16.666666666666664 % obj: @:Hardware. Cardinality: {9}
+            # 16.666666666666664 % obj: @:Hardware. Cardinality: {10}
+            # 16.666666666666664 % obj: @:Hardware. Cardinality: {8}
+            # 16.666666666666664 % obj: @:Hardware. Cardinality: {12}
+            # 16.666666666666664 % obj: @:Hardware. Cardinality: {7}
+            # 16.666666666666664 % obj: @:Hardware. Cardinality: {4}
+            # 66.66666666666666 % obj: @:Service. Cardinality: +
+   pv:id  xsd:string  ;                                        # 100.0 %
+   pv:name  xsd:string  ;                                      # 100.0 %
+   rdfs:label  xsd:string                                      # 100.0 %
+}
+
+
+:BillOfMaterial
+{
+   rdf:type  [pv:BillOfMaterial]  ;                            # 100.0 %
+   pv:hasBomPart  @:BomPart  +;                                # 100.0 %
+            # 15.0 % obj: @:BomPart. Cardinality: {8}
+            # 15.0 % obj: @:BomPart. Cardinality: {5}
+            # 15.0 % obj: @:BomPart. Cardinality: {9}
+            # 15.0 % obj: @:BomPart. Cardinality: {12}
+            # 10.0 % obj: @:BomPart. Cardinality: {11}
+            # 10.0 % obj: @:BomPart. Cardinality: {15}
+   pv:name  xsd:string  ;                                      # 100.0 %
+   rdfs:label  xsd:string                                      # 100.0 %
+}
+
+
+:ProductCategory
+{
+   rdf:type  [pv:ProductCategory]  ;                           # 100.0 %
+   pv:name  xsd:string  ;                                      # 100.0 %
+   rdfs:label  xsd:string                                      # 100.0 %
+}
+
+
+:Manager
+{
+   pv:phone  xsd:string  ;                                     # 100.0 %
+   rdf:type  [pv:Manager]  ;                                   # 100.0 %
+   pv:memberOf  @:Department  ;                                # 100.0 %
+   pv:name  xsd:string  ;                                      # 100.0 %
+   rdfs:label  xsd:string  ;                                   # 100.0 %
+   pv:email  xsd:string  ;                                     # 100.0 %
+   pv:addressText  xsd:string  ?
+            # 66.66666666666666 % obj: xsd:string. Cardinality: {1}
+}
+
+
+:Dataset
+{
+   rdfs:label  xsd:string  ;                                   # 100.0 %
+   rdf:type  [void:Dataset]                                    # 100.0 %
+}
+✅ Response saved to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/16-02-2025/KG_Agent_MK1_10998482/misc/temp/llm_response.txt

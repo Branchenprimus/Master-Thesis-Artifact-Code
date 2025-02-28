@@ -1,0 +1,5 @@
+
+
+SELECT DISTINCT ?cat WHERE {
+  ?cat wdt:P31 wd:Q146. 
+}

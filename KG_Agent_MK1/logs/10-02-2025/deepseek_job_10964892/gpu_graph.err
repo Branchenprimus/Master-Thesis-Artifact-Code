@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/gpu_graph.py", line 2, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

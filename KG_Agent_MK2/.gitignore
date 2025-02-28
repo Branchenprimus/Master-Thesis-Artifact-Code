@@ -1,0 +1,4 @@
+kgvenv/
+.env
+logs/
+test/

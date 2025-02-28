@@ -1,0 +1,28 @@
++ export CUDA_VISIBLE_DEVICES=0,1,2,3
++ CUDA_VISIBLE_DEVICES=0,1,2,3
++ lsof -i :
+lsof: unacceptable port specification in: -i :
+lsof 4.94.0
+ latest revision: https://github.com/lsof-org/lsof
+ latest FAQ: https://github.com/lsof-org/lsof/blob/master/00FAQ
+ latest (non-formatted) man page: https://github.com/lsof-org/lsof/blob/master/Lsof.8
+ usage: [-?abhKlnNoOPRtUvVX] [+|-c c] [+|-d s] [+D D] [+|-E] [+|-e s] [+|-f[gG]]
+ [-F [f]] [-g [s]] [-i [i]] [+|-L [l]] [+m [m]] [+|-M] [-o [o]] [-p s]
+ [+|-r [t]] [-s [p:s]] [-S [t]] [-T [t]] [-u s] [+|-w] [-x [fl]] [--] [names]
+Use the ``-h'' option to get more help information.
++ apptainer exec --nv --pwd /app --bind /p/project1/hai_kg-rag-thesis/models:/models ./llama-server -m --port --host -n 512 -c 4096 --n-gpu-layers --parallel --cache-type-k q5_0 --mlock --rope-freq-base 1000000 --log-disable --verbose-prompt --mlock
++ SERVER_PID=31741
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/09-02-2025/deepseek_job_10959386/server.log
++ echo 'Server PID: 31741'
++ sleep 10
++ echo 'Waiting for LLM server to start on port ...'
+++ seq 1
++ for i in $(seq 1 $LLM_SERVER_RETRIES)
++ curl -sSf http://:/v1/models
+curl: (3) URL using bad/illegal format or missing URL
++ sleep 1
++ nc -z '' ''
+Ncat: You must specify a host to connect to. QUITTING.
++ echo 'ERROR: LLM server did not start after  seconds.'
++ pkill -f vllm.entrypoints.openai.api_server
++ exit 1

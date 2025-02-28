@@ -1,0 +1,51 @@
+```
+
+### Example Use Cases
+
+The following are example use cases for the SHACL shapes defined above:
+
+*   **Validating Ontology Metadata**: Use the `:Ontology` shape to validate the metadata of an ontology, such as its title, description, and version information.
+*   **Validating Class Definitions**: Use the `:Class` shape to validate the definitions of classes in an ontology, such as their labels, comments, and subclass relationships.
+*   **Validating Property Definitions**: Use the `:Property` shape to validate the definitions of properties in an ontology, such as their labels, comments, and domain and range restrictions.
+*   **Validating Instance Data**: Use the `:Agent`, `:Person`, and `:Organization` shapes to validate instance data, such as the metadata of agents, people, and organizations.
+
+### Example Validation Queries
+
+The following are example validation queries that can be used to validate data against the SHACL shapes defined above:
+
+*   **Validate Ontology Metadata**:
+
+    ```sparql
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX vann: <http://purl.org/vocab/vann/>
+
+SELECT ?ontology ?result
+WHERE {
+  ?ontology a owl:Ontology .
+  BIND(sh:validate(?ontology, :Ontology, ?result)) AS ?validationResult) .
+}
+```
+
+*   **Validate Class Definitions**:
+
+    ```sparql
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?class ?result
+WHERE {
+  ?class a owl:Class .
+  BIND(sh:validate(?class, :Class, ?result)) AS ?validationResult) .
+}
+```
+
+*   **Validate Property Definitions**:
+
+    ```sparql
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX rdf: <http://www.w3.org/1999/

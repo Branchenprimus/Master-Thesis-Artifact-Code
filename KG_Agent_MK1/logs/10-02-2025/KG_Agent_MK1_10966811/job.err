@@ -1,0 +1,2373 @@
++ export CUDA_VISIBLE_DEVICES=0,1,2,3
++ CUDA_VISIBLE_DEVICES=0,1,2,3
++ lsof -i :8000
++ '[' '!' -f /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/misc/monitor/gpu_usage.csv ']'
++ echo 'timestamp,index,name,utilization.gpu [%],memory.used [MiB],memory.total [MiB]'
++ GPU_MONITOR_PID=27949
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ echo 'Starting file tracking...'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/track_files.log
++ python /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/track_files.py --root-dir /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1 --output /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/misc/meta
++ sleep 5
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/track_files.log
++ apptainer exec --nv --pwd /app --bind /p/project1/hai_kg-rag-thesis/models:/models /p/project1/hai_kg-rag-thesis/llama_server.sif ./llama-server -m /p/project1/hai_kg-rag-thesis/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf --port 8000 --host localhost -n 512 -c 4096 --n-gpu-layers 35 --parallel 4 --cache-type-k q5_0 --mlock --rope-freq-base 1000000
++ echo 'Waiting for server & model initialization...'
++ (( i=1 ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/server.log
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 1 250 0 1
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 2 250 0 2
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 3 250 0 3
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 4 250 0 4
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 5 250 0 5
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 6 250 0 6
++ sleep 1
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 7 250 0 7
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 8 250 0 8
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 9 250 0 9
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 10 250 0 10
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 11 250 0 11
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 12 250 0 12
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 13 250 0 13
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 14 250 0 14
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 15 250 0 15
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 16 250 0 16
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 17 250 0 17
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 18 250 0 18
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 19 250 0 19
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 20 250 0 20
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ sleep 5
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 21 250 0 21
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 22 250 0 22
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 23 250 0 23
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 24 250 0 24
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 25 250 0 25
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 26 250 0 26
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 27 250 0 27
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 28 250 0 28
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 29 250 0 29
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 30 250 0 30
++ sleep 1
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 31 250 0 31
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 32 250 0 32
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 33 250 0 33
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 34 250 0 34
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 35 250 0 35
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ grep -q '"model_loaded":true'
++ curl -sSf http://localhost:8000/v1/health
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 36 250 0 36
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 37 250 0 37
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 38 250 0 38
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 39 250 0 39
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 40 250 0 40
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 41 250 0 41
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 42 250 0 42
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 43 250 0 43
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 44 250 0 44
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 45 250 0 45
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 46 250 0 46
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 47 250 0 47
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 48 250 0 48
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 49 250 0 49
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 50 250 0 50
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 51 250 0 51
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 52 250 0 52
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 53 250 0 53
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 54 250 0 54
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 55 250 0 55
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 56 250 0 56
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 57 250 0 57
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 58 250 0 58
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 59 250 0 59
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 60 250 1 0
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 61 250 1 1
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 62 250 1 2
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 63 250 1 3
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 64 250 1 4
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 65 250 1 5
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 66 250 1 6
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 67 250 1 7
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 68 250 1 8
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 69 250 1 9
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 70 250 1 10
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
++ sleep 5
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 71 250 1 11
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 72 250 1 12
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 73 250 1 13
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 74 250 1 14
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 75 250 1 15
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 76 250 1 16
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 77 250 1 17
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 78 250 1 18
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 79 250 1 19
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 80 250 1 20
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 81 250 1 21
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 82 250 1 22
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 83 250 1 23
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 84 250 1 24
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 85 250 1 25
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 86 250 1 26
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 87 250 1 27
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 88 250 1 28
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 89 250 1 29
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 90 250 1 30
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 91 250 1 31
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 92 250 1 32
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 93 250 1 33
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 94 250 1 34
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 95 250 1 35
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 96 250 1 36
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 97 250 1 37
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 98 250 1 38
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 99 250 1 39
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 100 250 1 40
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 101 250 1 41
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 102 250 1 42
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 103 250 1 43
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 104 250 1 44
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 105 250 1 45
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 106 250 1 46
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 107 250 1 47
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 108 250 1 48
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 109 250 1 49
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 110 250 1 50
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 111 250 1 51
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 112 250 1 52
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 113 250 1 53
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 114 250 1 54
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 115 250 1 55
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 116 250 1 56
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 117 250 1 57
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 118 250 1 58
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 119 250 1 59
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 120 250 2 0
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 121 250 2 1
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 122 250 2 2
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 123 250 2 3
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 124 250 2 4
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 125 250 2 5
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 126 250 2 6
++ sleep 1
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 127 250 2 7
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 128 250 2 8
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 129 250 2 9
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 130 250 2 10
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 131 250 2 11
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 132 250 2 12
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 133 250 2 13
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 134 250 2 14
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 135 250 2 15
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 136 250 2 16
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 137 250 2 17
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 138 250 2 18
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 139 250 2 19
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 140 250 2 20
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 141 250 2 21
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 142 250 2 22
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 143 250 2 23
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 144 250 2 24
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 145 250 2 25
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 146 250 2 26
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 147 250 2 27
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 148 250 2 28
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ sleep 5
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 503
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 149 250 2 29
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 150 250 2 30
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 151 250 2 31
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 152 250 2 32
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 153 250 2 33
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 154 250 2 34
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 155 250 2 35
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 156 250 2 36
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 157 250 2 37
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 158 250 2 38
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 159 250 2 39
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 160 250 2 40
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 161 250 2 41
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 162 250 2 42
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 163 250 2 43
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 164 250 2 44
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 165 250 2 45
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 166 250 2 46
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 167 250 2 47
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 168 250 2 48
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 169 250 2 49
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 170 250 2 50
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 171 250 2 51
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
++ sleep 5
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 172 250 2 52
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 173 250 2 53
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 174 250 2 54
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 175 250 2 55
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 176 250 2 56
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 177 250 2 57
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 178 250 2 58
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 179 250 2 59
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 180 250 3 0
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 181 250 3 1
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 182 250 3 2
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 183 250 3 3
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 184 250 3 4
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 185 250 3 5
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 186 250 3 6
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 187 250 3 7
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 188 250 3 8
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 189 250 3 9
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 190 250 3 10
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 191 250 3 11
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 192 250 3 12
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 193 250 3 13
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 194 250 3 14
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 195 250 3 15
++ sleep 1
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 196 250 3 16
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 197 250 3 17
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 198 250 3 18
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 199 250 3 19
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 200 250 3 20
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 201 250 3 21
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 202 250 3 22
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 203 250 3 23
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 204 250 3 24
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 205 250 3 25
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 206 250 3 26
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 207 250 3 27
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 208 250 3 28
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 209 250 3 29
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 210 250 3 30
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 211 250 3 31
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 212 250 3 32
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 213 250 3 33
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 214 250 3 34
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 215 250 3 35
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 216 250 3 36
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 217 250 3 37
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 218 250 3 38
++ sleep 1
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 219 250 3 39
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 220 250 3 40
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 221 250 3 41
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 222 250 3 42
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 223 250 3 43
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 224 250 3 44
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 225 250 3 45
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 226 250 3 46
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 227 250 3 47
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 228 250 3 48
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 229 250 3 49
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 230 250 3 50
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 231 250 3 51
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 232 250 3 52
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 233 250 3 53
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 234 250 3 54
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 235 250 3 55
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 236 250 3 56
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 237 250 3 57
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 238 250 3 58
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 239 250 3 59
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 240 250 4 0
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 241 250 4 1
++ sleep 1
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 242 250 4 2
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 243 250 4 3
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 244 250 4 4
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 245 250 4 5
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 246 250 4 6
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 247 250 4 7
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 248 250 4 8
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 249 250 4 9
++ sleep 1
++ (( i++ ))
++ (( i<=250 ))
++ nc -z localhost 8000
++ curl -sSf http://localhost:8000/v1/health
++ grep -q '"model_loaded":true'
+curl: (22) The requested URL returned error: 404
++ printf '\r Retrying... [%d/%d] | Elapsed: %02d:%02d' 250 250 4 10
++ sleep 1
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ (( i++ ))
++ (( i<=250 ))
++ [[ 251 -eq '' ]]
++ SYSTEM_PROMPT_PATH=/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/system_prompt.txt
++ echo 'Calling LLM API...'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/call_llm_api.log
++ python /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/call_llm_api.py --host localhost --port 8000 --model_path /p/project1/hai_kg-rag-thesis/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf --user_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/user_prompt.txt --system_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/system_prompt.txt --output_dir /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/misc/temp --max_tokens 256 --temperature 0.3 --model_name DeepSeek-V3-Q2_K_XS
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ '[' 0 -ne 0 ']'
++ echo 'LLM API call completed successfully!'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/call_llm_api.log
++ echo 'Waiting for SPARQL query file: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/misc/temp/llm_response.txt'
++ '[' '!' -f /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/misc/temp/llm_response.txt ']'
++ echo 'Verifying and executing SPARQL query...'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/sparql_verifier.log
++ python /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/sparql_verifier.py --sparql_endpoint_url https://query.wikidata.org/sparql --response_file /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/misc/temp/llm_response.txt --output_dir /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/misc/temp
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ true
++ nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total --format=csv,noheader
++ sleep 5
++ '[' 1 -ne 0 ']'
++ echo 'ERROR: SPARQL verification failed. Check logs: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/sparql_verifier.err'
++ tee -a /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/10-02-2025/KG_Agent_MK1_10966811/sparql_verifier.log
++ exit 1

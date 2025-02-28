@@ -1,0 +1,57 @@
++ echo 'Starting file tracking...'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999240/track_files.log
++ python track_files.py --root-dir ./ --output logs/16-02-2025/KG_Agent_MK1_10999240/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999240/track_files.log
++ python extract_shapes.py --turtle_input_path /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl --shape_output_path /p/project1/hai_kg-rag-thesis/challenge_text2sparql/shapes
++ SYSTEM_PROMPT_PATH=system_prompt.txt
+++ basename /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl .ttl
++ BASE_FILENAME=prod-inst
++ '[' shex == shacl ']'
++ '[' shex == shex ']'
++ SHAPE_PATH=/p/project1/hai_kg-rag-thesis/challenge_text2sparql/shapes/prod-inst.shex
++ '[' '!' -f /p/project1/hai_kg-rag-thesis/challenge_text2sparql/shapes/prod-inst.shex ']'
++ echo 'Calling LLM API...'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999240/call_llm_api.log
++ python call_llm_api.py --use_chatgpt --model gpt-4o-mini --openai_api_key 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 --user_prompt_path ./user_prompt.txt --system_prompt_path system_prompt.txt --shape_path shex --output_dir logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp --max_tokens 512 --temperature 0.1
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/call_llm_api.py", line 7, in <module>
+    from openai import OpenAI
+ModuleNotFoundError: No module named 'openai'
+++ head -n 1 logs/16-02-2025/KG_Agent_MK1_10999240/call_llm_api.err
++ API_RESPONSE=
++ '[' 0 -ne 0 ']'
++ echo ''
++ grep -qi error
++ echo 'LLM API call completed successfully!'
++ tee -a logs/16-02-2025/KG_Agent_MK1_10999240/call_llm_api.log
++ echo 'Waiting for SPARQL query file: logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt'
++ SPARQL_VERIFIER_WAITED=0
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt ']'
++ '[' 0 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt ']'
++ '[' 2 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt ']'
++ '[' 4 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt ']'
++ '[' 6 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt ']'
++ '[' 8 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt ']'
++ '[' 10 -ge 300 ']'
++ sleep 2
++ (( SPARQL_VERIFIER_WAITED += SPARQL_VERIFIER_SLEEP_INTERVAL ))
++ '[' '!' -f logs/16-02-2025/KG_Agent_MK1_10999240/misc/temp/llm_response.txt ']'
++ '[' 12 -ge 300 ']'
++ sleep 2

@@ -1,0 +1,1 @@
+SELECT (COUNT(DISTINCT ?ontology) AS ?count) WHERE { ?ontology a owl:Ontology }

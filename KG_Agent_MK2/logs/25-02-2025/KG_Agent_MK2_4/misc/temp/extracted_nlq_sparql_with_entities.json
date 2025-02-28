@@ -1,0 +1,74 @@
+[
+    {
+        "question_text": "What is the time zone of Salt Lake City?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q23337>  <http://www.wikidata.org/prop/direct/P421>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q23337"
+        ],
+        "llm_extracted_entity_names": [
+            "Salt Lake City"
+        ],
+        "wikidata_entities_resolved": {
+            "Salt Lake City": "Q23337"
+        }
+    },
+    {
+        "question_text": "Who killed Caesar?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q1048>  <http://www.wikidata.org/prop/direct/P157>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q1048"
+        ],
+        "llm_extracted_entity_names": [
+            "Caesar"
+        ],
+        "wikidata_entities_resolved": {
+            "Caesar": "Q29288"
+        }
+    },
+    {
+        "question_text": "What is the highest mountain in Germany?",
+        "sparql_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { ?uri wdt:P31 wd:Q8502 ; wdt:P2044 ?elevation ; wdt:P17 wd:Q183 . } ORDER BY DESC(?elevation) LIMIT 1",
+        "wikidata_entities_from_sparql": [
+            "Q183",
+            "Q8502"
+        ],
+        "llm_extracted_entity_names": [
+            "mountain",
+            "Germany"
+        ],
+        "wikidata_entities_resolved": {
+            "mountain": "Q8502",
+            "Germany": "Q183"
+        }
+    },
+    {
+        "question_text": "Which American presidents were in office during the Vietnam War?",
+        "sparql_query": "SELECT DISTINCT ?o WHERE { <http://www.wikidata.org/entity/Q8740>  <http://www.wikidata.org/prop/direct/P580>  ?startWar . <http://www.wikidata.org/entity/Q8740>  <http://www.wikidata.org/prop/direct/P582>  ?endWar . <http://www.wikidata.org/entity/Q30>  <http://www.wikidata.org/prop/P6> ?blank . ?blank <http://www.wikidata.org/prop/statement/P6> ?o . ?blank <http://www.wikidata.org/prop/qualifier/P580> ?start . ?blank <http://www.wikidata.org/prop/qualifier/P582> ?end . FILTER (?startWar < ?start && ?endWar > ?end)} ",
+        "wikidata_entities_from_sparql": [
+            "Q30",
+            "Q8740"
+        ],
+        "llm_extracted_entity_names": [
+            "American president",
+            "Vietnam War"
+        ],
+        "wikidata_entities_resolved": {
+            "Vietnam War": "Q8740"
+        }
+    },
+    {
+        "question_text": "Butch Otter is the governor of which U.S. state?",
+        "sparql_query": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?res WHERE { ?res wdt:P6 wd:Q39593 . }",
+        "wikidata_entities_from_sparql": [
+            "Q39593"
+        ],
+        "llm_extracted_entity_names": [
+            "Butch Otter",
+            "U.S. state"
+        ],
+        "wikidata_entities_resolved": {
+            "Butch Otter": "Q39593",
+            "U.S. state": "Q35657"
+        }
+    }
+]

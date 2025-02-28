@@ -1,0 +1,8 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?mountain WHERE {
+  ?mountain wdt:P31 wd:Q85015;  # instance of mountain
+            wdt:P17 wd:Q183;    # located in Germany
+  ?mountain wdt:P610 ?height.    # highest point
+} ORDER BY DESC(?height) LIMIT 1

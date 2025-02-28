@@ -1,0 +1,8 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?country WHERE {
+  ?country wdt:P31 wd:Q36255.  # Q36255 is the entity for constitutional monarchy
+  ?country wdt:P150 ?region.    # P150 is the property for 'contains administrative territorial entity'
+  ?region wdt:P31 wd:Q5107.      # Q5107 is the entity for European countries
+}

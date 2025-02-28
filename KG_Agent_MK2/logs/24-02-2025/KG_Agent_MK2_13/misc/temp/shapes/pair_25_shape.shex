@@ -1,0 +1,113 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q2246489 = The_Storm_on_the_Sea_of_Galilee>
+{
+   wdt:P195  IRI  ;                                                                             // rdfs:comment "P195  -->  collection"
+   wdt:P217  xsd:string  ;                                                                      // rdfs:comment "P217  -->  inventory number"
+   wdt:P350  xsd:integer  ;                                                                     // rdfs:comment "P350  -->  RKDimages ID"
+   wdt:P373  xsd:string  ;                                                                      // rdfs:comment "P373  -->  Commons category"
+   wdt:P528  xsd:integer  {9};                                                                  // rdfs:comment "P528  -->  catalog code"
+   wdt:P571  xsd:string  ;                                                                      // rdfs:comment "P571  -->  inception"
+   wdt:P646  xsd:string  ;                                                                      // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P793  IRI  ;                                                                             // rdfs:comment "P793  -->  significant event"
+   wdt:P921  IRI  ;                                                                             // rdfs:comment "P921  -->  main subject"
+   wdt:P973  IRI  ;                                                                             // rdfs:comment "P973  -->  described at URL"
+   wdt:P1028  IRI  ;                                                                            // rdfs:comment "P1028  -->  donated by"
+   wdt:P1257  xsd:integer  ;                                                                    // rdfs:comment "P1257  -->  depicts Iconclass notation"
+   wdt:P1257  xsd:string  {4};                                                                  // rdfs:comment "P1257  -->  depicts Iconclass notation"
+   wdt:P1476  xsd:string  ;                                                                     // rdfs:comment "P1476  -->  title"
+   wdt:P2048  xsd:integer  ;                                                                    // rdfs:comment "P2048  -->  height"
+   wdt:P2049  xsd:integer  ;                                                                    // rdfs:comment "P2049  -->  width"
+   wdt:P4701  xsd:string  ;                                                                     // rdfs:comment "P4701  -->  Google Arts & Culture asset ID"
+   wdt:P6216  IRI  ;                                                                            // rdfs:comment "P6216  -->  copyright status"
+   wdt:P9092  xsd:integer  ;                                                                    // rdfs:comment "P9092  -->  Art in the Christian Tradition ID"
+   wdt:P13023  xsd:string  ;                                                                    // rdfs:comment "P13023  -->  HA! artwork ID"
+   rdfs:label  xsd:string  {34};
+   wdt:P18  IRI  ;                                                                              // rdfs:comment "P18  -->  image"
+   wdt:P31  IRI  {2};                                                                           // rdfs:comment "P31  -->  instance of"
+   wdt:P127  IRI  {8};                                                                          // rdfs:comment "P127  -->  owned by"
+   wdt:P135  IRI  ;                                                                             // rdfs:comment "P135  -->  movement"
+   wdt:P136  IRI  {2};                                                                          // rdfs:comment "P136  -->  genre"
+   wdt:P140  IRI  ;                                                                             // rdfs:comment "P140  -->  religion or worldview"
+   wdt:P144  IRI  {2};                                                                          // rdfs:comment "P144  -->  based on"
+   wdt:P170  IRI  ;                                                                             // rdfs:comment "P170  -->  creator"
+   wdt:P180  IRI  {3};                                                                          // rdfs:comment "P180  -->  depicts"
+   wdt:P186  IRI  {2}                                                                           // rdfs:comment "P186  -->  made from material"
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q3305213 = painting>
+{
+   rdfs:label  xsd:string  {112};
+   wdt:P18  IRI  ;                                                       // rdfs:comment "P18  -->  image"
+   wdt:P31  IRI  ;                                                       // rdfs:comment "P31  -->  instance of"
+   wdt:P227  xsd:string  ;                                               // rdfs:comment "P227  -->  GND ID"
+   wdt:P244  xsd:string  ;                                               // rdfs:comment "P244  -->  Library of Congress authority ID"
+   wdt:P279  IRI  ;                                                      // rdfs:comment "P279  -->  subclass of"
+   wdt:P373  xsd:string  ;                                               // rdfs:comment "P373  -->  Commons category"
+   wdt:P460  IRI  ;                                                      // rdfs:comment "P460  -->  said to be the same as"
+   wdt:P486  xsd:string  ;                                               // rdfs:comment "P486  -->  MeSH descriptor ID"
+   wdt:P487  xsd:string  ;                                               // rdfs:comment "P487  -->  Unicode character"
+   wdt:P527  IRI  {2};                                                   // rdfs:comment "P527  -->  has part(s)"
+   wdt:P672  xsd:string  ;                                               // rdfs:comment "P672  -->  MeSH tree code"
+   wdt:P691  xsd:string  ;                                               // rdfs:comment "P691  -->  NL CR AUT ID"
+   wdt:P910  IRI  ;                                                      // rdfs:comment "P910  -->  topic's main category"
+   wdt:P1014  xsd:integer  ;                                             // rdfs:comment "P1014  -->  Art & Architecture Thesaurus ID"
+   wdt:P1051  xsd:integer  ;                                             // rdfs:comment "P1051  -->  PSH ID"
+   wdt:P1225  xsd:integer  {2};                                          // rdfs:comment "P1225  -->  U.S. National Archives Identifier"
+   wdt:P1245  xsd:integer  ;                                             // rdfs:comment "P1245  -->  OmegaWiki Defined Meaning"
+   wdt:P1282  xsd:string  ;                                              // rdfs:comment "P1282  -->  OpenStreetMap tag or key"
+   wdt:P1343  IRI  ;                                                     // rdfs:comment "P1343  -->  described by source"
+   wdt:P1417  xsd:string  ;                                              // rdfs:comment "P1417  -->  Encyclopædia Britannica Online ID"
+   wdt:P1424  IRI  ;                                                     // rdfs:comment "P1424  -->  topic's main template"
+   wdt:P1709  IRI  ;                                                     // rdfs:comment "P1709  -->  equivalent class"
+   wdt:P1889  IRI  {3};                                                  // rdfs:comment "P1889  -->  different from"
+   wdt:P1963  IRI  {31};                                                 // rdfs:comment "P1963  -->  properties for this type"
+   wdt:P2079  IRI  {2};                                                  // rdfs:comment "P2079  -->  fabrication method"
+   wdt:P2167  xsd:integer  ;                                             // rdfs:comment "P2167  -->  UNSPSC Code"
+   wdt:P2347  xsd:integer  ;                                             // rdfs:comment "P2347  -->  YSO ID"
+   wdt:P2671  xsd:string  ;                                              // rdfs:comment "P2671  -->  Google Knowledge Graph ID"
+   wdt:P2892  xsd:string  ;                                              // rdfs:comment "P2892  -->  UMLS CUI"
+   wdt:P2924  xsd:integer  ;                                             // rdfs:comment "P2924  -->  Great Russian Encyclopedia Online ID (old version)"
+   wdt:P3832  xsd:integer  ;                                             // rdfs:comment "P3832  -->  Europeana Fashion Vocabulary ID"
+   wdt:P3916  xsd:string  ;                                              // rdfs:comment "P3916  -->  UNESCO Thesaurus ID"
+   wdt:P4212  xsd:string  ;                                              // rdfs:comment "P4212  -->  PACTOLS thesaurus ID"
+   wdt:P4255  xsd:string  ;                                              // rdfs:comment "P4255  -->  Banglapedia ID (English)"
+   wdt:P4527  xsd:integer  ;                                             // rdfs:comment "P4527  -->  UK Parliament thesaurus ID"
+   wdt:P4953  xsd:string  ;                                              // rdfs:comment "P4953  -->  Library of Congress Genre/Form Terms ID"
+   wdt:P5008  IRI  ;                                                     // rdfs:comment "P5008  -->  on focus list of Wikimedia project"
+   wdt:P5019  xsd:string  ;                                              // rdfs:comment "P5019  -->  Brockhaus Enzyklopädie online ID"
+   wdt:P5125  IRI  ;                                                     // rdfs:comment "P5125  -->  Wikimedia outline"
+   wdt:P5198  xsd:integer  ;                                             // rdfs:comment "P5198  -->  ASC Leiden Thesaurus ID"
+   wdt:P5247  xsd:string  ;                                              // rdfs:comment "P5247  -->  Giant Bomb ID"
+   wdt:P5437  xsd:integer  ;                                             // rdfs:comment "P5437  -->  EuroVoc ID"
+   wdt:P5869  IRI  ;                                                     // rdfs:comment "P5869  -->  model item"
+   wdt:P6104  IRI  {2};                                                  // rdfs:comment "P6104  -->  maintained by WikiProject"
+   wdt:P6385  xsd:string  ;                                              // rdfs:comment "P6385  -->  Krugosvet article"
+   wdt:P6573  xsd:string  ;                                              // rdfs:comment "P6573  -->  Klexikon article ID"
+   wdt:P7033  xsd:string  ;                                              // rdfs:comment "P7033  -->  Australian Educational Vocabulary ID"
+   wdt:P7749  xsd:integer  ;                                             // rdfs:comment "P7749  -->  Nomenclature for Museum Cataloging"
+   wdt:P7844  xsd:string  ;                                              // rdfs:comment "P7844  -->  Joconde object type ID"
+   wdt:P8168  xsd:string  ;                                              // rdfs:comment "P8168  -->  FactGrid item ID"
+   wdt:P8189  xsd:integer  ;                                             // rdfs:comment "P8189  -->  J9U ID"
+   wdt:P8514  xsd:string  ;                                              // rdfs:comment "P8514  -->  TOPCMB ID"
+   wdt:P8519  xsd:integer  ;                                             // rdfs:comment "P8519  -->  RKD thesaurus ID"
+   wdt:P8972  IRI  ;                                                     // rdfs:comment "P8972  -->  small logo or icon"
+   wdt:P9084  xsd:string  ;                                              // rdfs:comment "P9084  -->  ABC News topic ID"
+   wdt:P9112  xsd:string  ;                                              // rdfs:comment "P9112  -->  IFLA value vocabularies ID"
+   wdt:P9495  xsd:string  ;                                              // rdfs:comment "P9495  -->  National Historical Museums of Sweden ID"
+   wdt:P12086  xsd:string  ;                                             // rdfs:comment "P12086  -->  WikiKids ID"
+   wdt:P12596  xsd:integer                                               // rdfs:comment "P12596  -->  museum-digital tag ID"
+}

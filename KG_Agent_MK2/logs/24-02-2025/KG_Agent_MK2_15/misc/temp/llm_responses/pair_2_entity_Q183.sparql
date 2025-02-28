@@ -1,0 +1,6 @@
+SELECT ?mountain ?label WHERE {
+  ?mountain wdt:P31 wd:Q8502;  # instance of mountain
+            wdt:P610 wd:Q183.  # highest point in Germany
+  ?mountain rdfs:label ?label.
+  FILTER(LANG(?label) = "en")
+}

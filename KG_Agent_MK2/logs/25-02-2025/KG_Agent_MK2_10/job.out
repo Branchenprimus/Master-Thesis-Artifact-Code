@@ -1,0 +1,5 @@
+Starting file tracking...
+File tracking completed successfully!
+🔍 Input JSON: /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/qald_9_plus_test_wikidata_short.json
+📂 Output JSON: logs/25-02-2025/KG_Agent_MK2_10/misc/temp/extracted_nlq_sparql_with_entities.json
+❌ ERROR: JSON format incorrect, expected a list of questions.

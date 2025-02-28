@@ -1,0 +1,134 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q128446 = FC_Porto>
+{
+   rdfs:label  xsd:string  {97};
+   wdt:P17 IRI  -->  country
+   wdt:P31 IRI {2}  -->  instance of
+   wdt:P41 IRI  -->  flag image
+   wdt:P115 IRI  -->  home venue
+   wdt:P118 IRI  -->  league or competition
+   wdt:P154 IRI  -->  logo image
+   wdt:P159 IRI  -->  headquarters location
+   wdt:P166 IRI {2}  -->  award received
+   wdt:P214 xsd:integer  -->  VIAF cluster ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P286 IRI  -->  head coach
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P414 IRI  -->  stock exchange
+   wdt:P571 xsd:string  -->  inception
+   wdt:P634 IRI  -->  team captain
+   wdt:P641 IRI  -->  sport
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P856 IRI  -->  official website
+   wdt:P859 IRI  -->  sponsor
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P946 xsd:string  -->  ISIN
+   wdt:P1344 IRI  -->  participant in
+   wdt:P1424 IRI {2}  -->  topic's main template
+   wdt:P1449 xsd:string {2}  -->  nickname
+   wdt:P1617 xsd:string  -->  BBC Things ID
+   wdt:P1830 IRI {4}  -->  owner of
+   wdt:P1889 IRI  -->  different from
+   wdt:P2002 xsd:string {2}  -->  X (Twitter) username
+   wdt:P2003 xsd:string  -->  Instagram username
+   wdt:P2013 xsd:string  -->  Facebook username
+   wdt:P2397 xsd:string  -->  YouTube channel ID
+   wdt:P2522 IRI {2}  -->  competition won
+   wdt:P2924 xsd:integer  -->  Great Russian Encyclopedia Online ID (old version)
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P4264 xsd:string  -->  LinkedIn company or organization ID
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P5247 xsd:string  -->  Giant Bomb ID
+   wdt:P6112 IRI  -->  category for members of a team
+   wdt:P6131 xsd:integer  -->  Soccerway team ID
+   wdt:P6262 xsd:string  -->  Fandom article ID
+   wdt:P6364 IRI {2}  -->  official color
+   wdt:P7085 xsd:string  -->  TikTok username
+   wdt:P7223 xsd:integer  -->  Transfermarkt team ID
+   wdt:P7280 xsd:integer  -->  PlaymakerStats.com team ID
+   wdt:P7287 xsd:string  -->  WorldFootball.net team ID
+   wdt:P7351 xsd:integer  -->  FootballDatabase.eu team ID
+   wdt:P7361 xsd:integer  -->  UEFA team ID
+   wdt:P7412 xsd:integer  -->  ForaDeJogo.net team ID
+   wdt:P7454 xsd:integer  -->  Soccerbase team ID
+   wdt:P7502 xsd:string  -->  Golden ID
+   wdt:P7854 xsd:integer  -->  EU-Football.info club ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8687 xsd:integer {2}  -->  social media followers
+   wdt:P9346 xsd:string  -->  France 24 topic ID (French)
+   wdt:P11196 xsd:string  -->  Baidu Tieba name
+   wdt:P12416 xsd:integer  -->  Dongqiudi.com team ID
+   wdt:P12800  xsd:string                                               // rdfs:comment "P12800  -->  Vikidia article ID"
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q483110 = stadium>
+{
+   wdt:P18 IRI  -->  image
+   wdt:P138 IRI  -->  named after
+   wdt:P227 xsd:string  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P268 xsd:integer  -->  Bibliothèque nationale de France ID
+   wdt:P279 IRI {2}  -->  subclass of
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P443 IRI  -->  pronunciation audio
+   wdt:P487 xsd:string  -->  Unicode character
+   wdt:P508 xsd:integer  -->  BNCF Thesaurus ID
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P935 xsd:string  -->  Commons gallery
+   wdt:P1014 xsd:integer  -->  Art & Architecture Thesaurus ID
+   wdt:P1036 xsd:float {3}  -->  Dewey Decimal Classification
+   wdt:P1051 xsd:integer  -->  PSH ID
+   wdt:P1225 xsd:integer  -->  U.S. National Archives Identifier
+   wdt:P1245 xsd:integer  -->  OmegaWiki Defined Meaning
+   wdt:P1282 xsd:string {2}  -->  OpenStreetMap tag or key
+   wdt:P1343 IRI {5}  -->  described by source
+   wdt:P1368 xsd:integer  -->  National Library of Latvia ID
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1424 IRI  -->  topic's main template
+   wdt:P1687 IRI  -->  Wikidata property
+   wdt:P1709 IRI  -->  equivalent class
+   wdt:P1889 IRI {2}  -->  different from
+   wdt:P1963 IRI {16}  -->  properties for this type
+   wdt:P2347 xsd:integer  -->  YSO ID
+   wdt:P2452 xsd:string  -->  GeoNames feature code
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P3365 xsd:string  -->  Treccani ID
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3827 xsd:string  -->  JSTOR topic ID (archived)
+   wdt:P4212 xsd:string  -->  PACTOLS thesaurus ID
+   wdt:P4307 xsd:integer  -->  FOIH heritage types ID
+   wdt:P4980 xsd:integer  -->  Thésaurus de la désignation des œuvres architecturales et des espaces aménagés ID
+   wdt:P5008 IRI  -->  on focus list of Wikimedia project
+   wdt:P5604 xsd:integer  -->  archINFORM keyword ID
+   wdt:P6573 xsd:string  -->  Klexikon article ID
+   wdt:P7497 xsd:string  -->  Wolfram Language entity type
+   wdt:P7749 xsd:integer  -->  Nomenclature for Museum Cataloging
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8406 xsd:string  -->  Grove Art Online ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8519 xsd:integer  -->  RKD thesaurus ID
+   wdt:P8814 xsd:string  -->  WordNet 3.1 Synset ID
+   wdt:P9222 xsd:integer  -->  bashenc.online ID
+   wdt:P9809 xsd:string  -->  Enciclopedia dell'Arte Antica ID
+   wdt:P12086 xsd:string  -->  WikiKids ID
+   wdt:P12596 xsd:integer  -->  museum-digital tag ID
+   rdfs:label  xsd:string  {126}
+}

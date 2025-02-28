@@ -1,0 +1,25 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q74033544 = Mars>
+{
+   rdfs:label  xsd:string  ;
+   wdt:P31  IRI  ;                                                    // rdfs:comment "P31  -->  instance of"
+   wdt:P170  IRI  ;                                                   // rdfs:comment "P170  -->  creator"
+   wdt:P195  IRI  {3};                                                // rdfs:comment "P195  -->  collection"
+   wdt:P217  xsd:string  ;                                            // rdfs:comment "P217  -->  inventory number"
+   wdt:P276  IRI  ;                                                   // rdfs:comment "P276  -->  location"
+   wdt:P571  xsd:string  ;                                            // rdfs:comment "P571  -->  inception"
+   wdt:P1476  xsd:string  ;                                           // rdfs:comment "P1476  -->  title"
+   wdt:P2079  IRI  ;                                                  // rdfs:comment "P2079  -->  fabrication method"
+   wdt:P4683  xsd:integer  ;                                          // rdfs:comment "P4683  -->  National Gallery of Art artwork ID"
+   wdt:P6108  IRI                                                     // rdfs:comment "P6108  -->  IIIF manifest URL"
+}

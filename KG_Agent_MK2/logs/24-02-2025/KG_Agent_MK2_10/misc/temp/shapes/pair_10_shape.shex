@@ -1,0 +1,149 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+wd:P17 = country
+{
+   rdfs:label  xsd:string  {236};
+   rdf:type  [<http://wikiba.se/ontology#Property>]  ;
+   wdt:P31  IRI  {3};                                   // rdfs:comment "P31  -->  instance of"
+   wdt:P1282  xsd:string  {2};                          // rdfs:comment "P1282  -->  OpenStreetMap tag or key"
+   wdt:P1628  IRI  {5};                                 // rdfs:comment "P1628  -->  equivalent property"
+   wdt:P1629  IRI  {3};                                 // rdfs:comment "P1629  -->  Wikidata item of this property"
+   wdt:P1647  IRI  ;                                    // rdfs:comment "P1647  -->  subproperty of"
+   wdt:P1659  IRI  {11};                                // rdfs:comment "P1659  -->  related property"
+   wdt:P1855  IRI  {4};                                 // rdfs:comment "P1855  -->  Wikidata property example"
+   wdt:P2302  IRI  {6};                                 // rdfs:comment "P2302  -->  property constraint"
+   wdt:P2668  IRI  ;                                    // rdfs:comment "P2668  -->  stability of property value"
+   wdt:P2875  IRI  ;                                    // rdfs:comment "P2875  -->  property usage tracking category"
+   wdt:P3254  IRI  ;                                    // rdfs:comment "P3254  -->  property proposal discussion"
+   wdt:P3709  IRI  ;                                    // rdfs:comment "P3709  -->  category for value different from Wikidata"
+   wdt:P3713  IRI  ;                                    // rdfs:comment "P3713  -->  category for value not in Wikidata"
+   wdt:P3734  IRI  ;                                    // rdfs:comment "P3734  -->  category for value same as Wikidata"
+   wdt:P7964  xsd:string                                // rdfs:comment "P7964  -->  corresponding HTML autocomplete attribute"
+}
+
+
+
+
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+wd:Q1794067 = place               // rdfs:comment "Q1794067  -->  place"
+{
+   rdfs:label  xsd:string  {83};
+   wdt:P31  IRI  ;                // rdfs:comment "P31  -->  instance of"
+   wdt:P460  IRI  ;               // rdfs:comment "P460  -->  said to be the same as"
+   wdt:P1889  IRI  ;              // rdfs:comment "P1889  -->  different from"
+   wdt:P12800  xsd:string         // rdfs:comment "P12800  -->  Vikidia article ID"
+}
+
+
+
+
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+wd:Q35509 = cave                   // rdfs:comment "Q35509  -->  cave"
+{
+   rdfs:label  xsd:string  {138};
+   wdt:P18  IRI  ;                 // rdfs:comment "P18  -->  image"
+   wdt:P227  xsd:string  ;         // rdfs:comment "P227  -->  GND ID"
+   wdt:P244  xsd:string  ;         // rdfs:comment "P244  -->  Library of Congress authority ID"
+   wdt:P268  xsd:string  ;         // rdfs:comment "P268  -->  Bibliothèque nationale de France ID"
+   wdt:P279  IRI  {3};             // rdfs:comment "P279  -->  subclass of"
+   wdt:P349  xsd:integer  ;        // rdfs:comment "P349  -->  NDL Authority ID"
+   wdt:P373  xsd:string  ;         // rdfs:comment "P373  -->  Commons category"
+   wdt:P460  IRI  ;                // rdfs:comment "P460  -->  said to be the same as"
+   wdt:P486  xsd:string  ;         // rdfs:comment "P486  -->  MeSH descriptor ID"
+   wdt:P508  xsd:integer  ;        // rdfs:comment "P508  -->  BNCF Thesaurus ID"
+   wdt:P646  xsd:string  ;         // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P672  xsd:string  {3};      // rdfs:comment "P672  -->  MeSH tree code"
+   wdt:P691  xsd:string  ;         // rdfs:comment "P691  -->  NL CR AUT ID"
+   wdt:P910  IRI  ;                // rdfs:comment "P910  -->  topic's main category"
+   wdt:P935  xsd:string  ;         // rdfs:comment "P935  -->  Commons gallery"
+   wdt:P948  IRI  ;                // rdfs:comment "P948  -->  page banner"
+   wdt:P1014  xsd:integer  ;       // rdfs:comment "P1014  -->  Art & Architecture Thesaurus ID"
+   wdt:P1051  xsd:integer  ;       // rdfs:comment "P1051  -->  PSH ID"
+   wdt:P1225  xsd:integer  ;       // rdfs:comment "P1225  -->  U.S. National Archives Identifier"
+   wdt:P1245  xsd:integer  ;       // rdfs:comment "P1245  -->  OmegaWiki Defined Meaning"
+   wdt:P1343  IRI  {6};            // rdfs:comment "P1343  -->  described by source"
+   wdt:P1417  xsd:string  {2};     // rdfs:comment "P1417  -->  Encyclopædia Britannica Online ID"
+   wdt:P1424  IRI  {2};            // rdfs:comment "P1424  -->  topic's main template"
+   wdt:P1709  IRI  ;               // rdfs:comment "P1709  -->  equivalent class"
+   wdt:P1807  xsd:integer  ;       // rdfs:comment "P1807  -->  Great Aragonese Encyclopedia ID"
+   wdt:P1889  IRI  {3};            // rdfs:comment "P1889  -->  different from"
+   wdt:P1963  IRI  {4};            // rdfs:comment "P1963  -->  properties for this type"
+   wdt:P2004  xsd:integer  ;       // rdfs:comment "P2004  -->  NALT ID"
+   wdt:P2347  xsd:integer  ;       // rdfs:comment "P2347  -->  YSO ID"
+   wdt:P2354  IRI  ;               // rdfs:comment "P2354  -->  has list"
+   wdt:P2452  xsd:string  ;        // rdfs:comment "P2452  -->  GeoNames feature code"
+   wdt:P2579  IRI  {2};            // rdfs:comment "P2579  -->  studied in"
+   wdt:P2581  xsd:string  ;        // rdfs:comment "P2581  -->  BabelNet ID"
+   wdt:P2670  IRI  ;               // rdfs:comment "P2670  -->  has part(s) of the class"
+   wdt:P2888  IRI  ;               // rdfs:comment "P2888  -->  exact match"
+   wdt:P2892  xsd:string  ;        // rdfs:comment "P2892  -->  UMLS CUI"
+   wdt:P3417  xsd:string  ;        // rdfs:comment "P3417  -->  Quora topic ID"
+   wdt:P3827  xsd:string  ;        // rdfs:comment "P3827  -->  JSTOR topic ID (archived)"
+   wdt:P3859  xsd:integer  ;       // rdfs:comment "P3859  -->  Environment Ontology ID"
+   wdt:P3916  xsd:string  ;        // rdfs:comment "P3916  -->  UNESCO Thesaurus ID"
+   wdt:P4212  xsd:string  ;        // rdfs:comment "P4212  -->  PACTOLS thesaurus ID"
+   wdt:P4307  xsd:integer  ;       // rdfs:comment "P4307  -->  FOIH heritage types ID"
+   wdt:P4342  xsd:string  ;        // rdfs:comment "P4342  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID"
+   wdt:P4527  xsd:integer  ;       // rdfs:comment "P4527  -->  UK Parliament thesaurus ID"
+   wdt:P4640  IRI  ;               // rdfs:comment "P4640  -->  spherical panorama image"
+   wdt:P4903  xsd:string  ;        // rdfs:comment "P4903  -->  New Georgia Encyclopedia ID"
+   wdt:P5008  IRI  ;               // rdfs:comment "P5008  -->  on focus list of Wikimedia project"
+   wdt:P5160  xsd:string  ;        // rdfs:comment "P5160  -->  Thesaurus for Graphic Materials ID"
+   wdt:P6010  xsd:string  ;        // rdfs:comment "P6010  -->  Encyclopedia of Alabama ID"
+   wdt:P6015  xsd:string  ;        // rdfs:comment "P6015  -->  Handbook of Texas ID"
+   wdt:P6262  xsd:string  {4};     // rdfs:comment "P6262  -->  Fandom article ID"
+   wdt:P6366  xsd:integer  ;       // rdfs:comment "P6366  -->  Microsoft Academic ID"
+   wdt:P6385  xsd:string  ;        // rdfs:comment "P6385  -->  Krugosvet article"
+   wdt:P6573  xsd:string  ;        // rdfs:comment "P6573  -->  Klexikon article ID"
+   wdt:P7033  xsd:string  ;        // rdfs:comment "P7033  -->  Australian Educational Vocabulary ID"
+   wdt:P7497  xsd:string  ;        // rdfs:comment "P7497  -->  Wolfram Language entity type"
+   wdt:P7695  xsd:integer  ;       // rdfs:comment "P7695  -->  e-WV: The West Virginia Encyclopedia ID"
+   wdt:P7960  xsd:string  ;        // rdfs:comment "P7960  -->  Joconde discovery ID"
+   wdt:P8168  xsd:string  ;        // rdfs:comment "P8168  -->  FactGrid item ID"
+   wdt:P8189  xsd:integer  ;       // rdfs:comment "P8189  -->  J9U ID"
+   wdt:P8313  xsd:string  ;        // rdfs:comment "P8313  -->  Lex ID"
+   wdt:P8370  xsd:integer  ;       // rdfs:comment "P8370  -->  UNBIS Thesaurus ID"
+   wdt:P8408  xsd:string  ;        // rdfs:comment "P8408  -->  KBpedia ID"
+   wdt:P8519  xsd:integer  ;       // rdfs:comment "P8519  -->  RKD thesaurus ID"
+   wdt:P8603  xsd:integer  ;       // rdfs:comment "P8603  -->  Istrapedia ID"
+   wdt:P8647  xsd:string  ;        // rdfs:comment "P8647  -->  Library of Congress Children's Subject Headings ID"
+   wdt:P8814  xsd:string  ;        // rdfs:comment "P8814  -->  WordNet 3.1 Synset ID"
+   wdt:P8933  IRI  ;               // rdfs:comment "P8933  -->  category for the view from the item"
+   wdt:P9475  xsd:string  ;        // rdfs:comment "P9475  -->  Encyclopedia of Korean Culture ID"
+   wdt:P9495  xsd:string  ;        // rdfs:comment "P9495  -->  National Historical Museums of Sweden ID"
+   wdt:P10283  xsd:string  ;       // rdfs:comment "P10283  -->  OpenAlex ID"
+   wdt:P10565  xsd:integer  ;      // rdfs:comment "P10565  -->  Encyclopedia of China (Third Edition) ID"
+   wdt:P11514  xsd:string  ;       // rdfs:comment "P11514  -->  Great Russian Encyclopedia portal ID"
+   wdt:P12596  xsd:integer  ;      // rdfs:comment "P12596  -->  museum-digital tag ID"
+   wdt:P12800  xsd:string  {3}     // rdfs:comment "P12800  -->  Vikidia article ID"
+}
+
+
+
+

@@ -1,0 +1,93 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+<Shape entry point: http://www.wikidata.org/entity/Q8740 = Vietnam_War>
+{
+   rdfs:label  xsd:string  {149};
+   wdt:P10  IRI  ;                                                       // rdfs:comment "P10  -->  video"
+   wdt:P18  IRI  ;                                                       // rdfs:comment "P18  -->  image"
+   wdt:P31  IRI  ;                                                       // rdfs:comment "P31  -->  instance of"
+   wdt:P156  IRI  ;                                                      // rdfs:comment "P156  -->  followed by"
+   wdt:P227  xsd:string  ;                                               // rdfs:comment "P227  -->  GND ID"
+   wdt:P244  xsd:string  ;                                               // rdfs:comment "P244  -->  Library of Congress authority ID"
+   wdt:P268  xsd:string  ;                                               // rdfs:comment "P268  -->  Bibliothèque nationale de France ID"
+   wdt:P276  IRI  {4};                                                   // rdfs:comment "P276  -->  location"
+   wdt:P349  xsd:integer  ;                                              // rdfs:comment "P349  -->  NDL Authority ID"
+   wdt:P361  IRI  ;                                                      // rdfs:comment "P361  -->  part of"
+   wdt:P373  xsd:string  ;                                               // rdfs:comment "P373  -->  Commons category"
+   wdt:P443  IRI  ;                                                      // rdfs:comment "P443  -->  pronunciation audio"
+   wdt:P460  IRI  ;                                                      // rdfs:comment "P460  -->  said to be the same as"
+   wdt:P486  xsd:string  ;                                               // rdfs:comment "P486  -->  MeSH descriptor ID"
+   wdt:P508  xsd:integer  ;                                              // rdfs:comment "P508  -->  BNCF Thesaurus ID"
+   wdt:P527  IRI  {4};                                                   // rdfs:comment "P527  -->  has part(s)"
+   wdt:P580  xsd:string  ;                                               // rdfs:comment "P580  -->  start time"
+   wdt:P582  xsd:string  ;                                               // rdfs:comment "P582  -->  end time"
+   wdt:P646  xsd:string  ;                                               // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P672  xsd:string  {2};                                            // rdfs:comment "P672  -->  MeSH tree code"
+   wdt:P691  xsd:string  ;                                               // rdfs:comment "P691  -->  NL CR AUT ID"
+   wdt:P710  IRI  {19};                                                  // rdfs:comment "P710  -->  participant"
+   wdt:P910  IRI  ;                                                      // rdfs:comment "P910  -->  topic's main category"
+   wdt:P950  xsd:string  ;                                               // rdfs:comment "P950  -->  National Library of Spain ID"
+   wdt:P1120  xsd:integer  {2};                                          // rdfs:comment "P1120  -->  number of deaths"
+   wdt:P1225  xsd:integer  ;                                             // rdfs:comment "P1225  -->  U.S. National Archives Identifier"
+   wdt:P1296  xsd:integer  ;                                             // rdfs:comment "P1296  -->  Gran Enciclopèdia Catalana ID (former scheme)"
+   wdt:P1417  xsd:string  ;                                              // rdfs:comment "P1417  -->  Encyclopædia Britannica Online ID"
+   wdt:P1424  IRI  ;                                                     // rdfs:comment "P1424  -->  topic's main template"
+   wdt:P1617  xsd:string  ;                                              // rdfs:comment "P1617  -->  BBC Things ID"
+   wdt:P1842  xsd:string  ;                                              // rdfs:comment "P1842  -->  Global Anabaptist Mennonite Encyclopedia Online ID"
+   wdt:P2347  xsd:integer  ;                                             // rdfs:comment "P2347  -->  YSO ID"
+   wdt:P2581  xsd:string  ;                                              // rdfs:comment "P2581  -->  BabelNet ID"
+   wdt:P2716  IRI  ;                                                     // rdfs:comment "P2716  -->  montage image"
+   wdt:P2892  xsd:string  ;                                              // rdfs:comment "P2892  -->  UMLS CUI"
+   wdt:P2924  xsd:integer  ;                                             // rdfs:comment "P2924  -->  Great Russian Encyclopedia Online ID (old version)"
+   wdt:P3219  xsd:string  ;                                              // rdfs:comment "P3219  -->  Encyclopædia Universalis ID"
+   wdt:P3221  xsd:string  ;                                              // rdfs:comment "P3221  -->  New York Times topic ID"
+   wdt:P3222  xsd:string  ;                                              // rdfs:comment "P3222  -->  NE.se ID"
+   wdt:P3417  xsd:string  ;                                              // rdfs:comment "P3417  -->  Quora topic ID"
+   wdt:P3553  xsd:integer  ;                                             // rdfs:comment "P3553  -->  Zhihu topic ID"
+   wdt:P3612  xsd:string  ;                                              // rdfs:comment "P3612  -->  Le Monde diplomatique subject ID"
+   wdt:P4073  xsd:string  ;                                              // rdfs:comment "P4073  -->  Fandom wiki ID"
+   wdt:P4220  IRI  {2};                                                  // rdfs:comment "P4220  -->  order of battle"
+   wdt:P4342  xsd:string  ;                                              // rdfs:comment "P4342  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID"
+   wdt:P4527  xsd:integer  ;                                             // rdfs:comment "P4527  -->  UK Parliament thesaurus ID"
+   wdt:P5008  IRI  {2};                                                  // rdfs:comment "P5008  -->  on focus list of Wikimedia project"
+   wdt:P5019  xsd:string  ;                                              // rdfs:comment "P5019  -->  Brockhaus Enzyklopädie online ID"
+   wdt:P5063  xsd:string  ;                                              // rdfs:comment "P5063  -->  Interlingual Index ID"
+   wdt:P5125  IRI  ;                                                     // rdfs:comment "P5125  -->  Wikimedia outline"
+   wdt:P5905  xsd:string  ;                                              // rdfs:comment "P5905  -->  Comic Vine ID"
+   wdt:P5986  xsd:integer  ;                                             // rdfs:comment "P5986  -->  Getty Iconography Authority ID"
+   wdt:P6058  xsd:string  ;                                              // rdfs:comment "P6058  -->  Larousse ID"
+   wdt:P6200  xsd:string  ;                                              // rdfs:comment "P6200  -->  BBC News topic ID"
+   wdt:P6366  xsd:integer  ;                                             // rdfs:comment "P6366  -->  Microsoft Academic ID"
+   wdt:P6385  xsd:string  ;                                              // rdfs:comment "P6385  -->  Krugosvet article"
+   wdt:P6713  xsd:string  ;                                              // rdfs:comment "P6713  -->  Australian War Memorial ID"
+   wdt:P6900  xsd:string  ;                                              // rdfs:comment "P6900  -->  NicoNicoPedia ID"
+   wdt:P7644  xsd:string  ;                                              // rdfs:comment "P7644  -->  Encyclopedia of Cleveland History ID"
+   wdt:P7688  xsd:string  ;                                              // rdfs:comment "P7688  -->  Mississippi Encyclopedia ID"
+   wdt:P7695  xsd:integer  ;                                             // rdfs:comment "P7695  -->  e-WV: The West Virginia Encyclopedia ID"
+   wdt:P7952  xsd:integer  ;                                             // rdfs:comment "P7952  -->  The First Amendment Encyclopedia ID"
+   wdt:P8189  xsd:integer  ;                                             // rdfs:comment "P8189  -->  J9U ID"
+   wdt:P8313  xsd:string  ;                                              // rdfs:comment "P8313  -->  Lex ID"
+   wdt:P8408  xsd:string  ;                                              // rdfs:comment "P8408  -->  KBpedia ID"
+   wdt:P8814  xsd:string  ;                                              // rdfs:comment "P8814  -->  WordNet 3.1 Synset ID"
+   wdt:P9281  xsd:string  ;                                              // rdfs:comment "P9281  -->  Encyclopedia of Greater Philadelphia ID"
+   wdt:P9346  xsd:string  ;                                              // rdfs:comment "P9346  -->  France 24 topic ID (French)"
+   wdt:P9497  xsd:integer  ;                                             // rdfs:comment "P9497  -->  Australian Thesaurus of Education Descriptors ID"
+   wdt:P10283  xsd:string  ;                                             // rdfs:comment "P10283  -->  OpenAlex ID"
+   wdt:P10913  xsd:string  ;                                             // rdfs:comment "P10913  -->  UK Archival Thesaurus ID"
+   wdt:P12086  xsd:string  ;                                             // rdfs:comment "P12086  -->  WikiKids ID"
+   wdt:P12385  xsd:string  ;                                             // rdfs:comment "P12385  -->  Gran Enciclopèdia Catalana ID"
+   wdt:P12596  xsd:integer  ;                                            // rdfs:comment "P12596  -->  museum-digital tag ID"
+   wdt:P12800  xsd:string                                                // rdfs:comment "P12800  -->  Vikidia article ID"
+}
+
+
+
+

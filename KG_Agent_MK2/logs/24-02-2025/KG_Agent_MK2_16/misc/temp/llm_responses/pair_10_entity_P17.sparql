@@ -1,0 +1,12 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT DISTINCT ?country
+WHERE {
+  ?place wdt:P31 wd:Q1794067.  # instance of place
+  ?cave wdt:P31 wd:Q35509.     # instance of cave
+  ?place wdt:P2354 ?cave.       # has list of caves
+  ?country wdt:P17 ?place.      # country has place
+}
+GROUP BY ?country
+HAVING (COUNT(?cave) > 2)

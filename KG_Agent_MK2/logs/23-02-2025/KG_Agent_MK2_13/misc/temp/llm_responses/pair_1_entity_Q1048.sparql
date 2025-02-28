@@ -1,0 +1,7 @@
+PREFIX ex: <http://example.org/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?killer WHERE {
+  wd:wd:Q61 wdt:P157 ?killer.
+}

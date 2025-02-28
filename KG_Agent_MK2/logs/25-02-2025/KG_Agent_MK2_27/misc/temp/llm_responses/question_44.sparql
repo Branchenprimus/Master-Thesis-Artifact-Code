@@ -1,0 +1,10 @@
+PREFIX ex: <http://example.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?country WHERE {
+  ?country wdt:P31 wd:Q6256 ;  # instance of country
+           wdt:P279 wd:Q41614 ;  # subclass of constitutional monarchy
+           wdt:P30 wd:Q46 .  # located in Europe
+}

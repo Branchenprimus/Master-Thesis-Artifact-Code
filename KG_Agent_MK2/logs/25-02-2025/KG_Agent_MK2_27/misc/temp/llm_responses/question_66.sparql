@@ -1,0 +1,8 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?artist WHERE {
+  wd:Q241665 wdt:P569 ?dob .
+  ?artist wdt:P569 ?dob .
+  FILTER(?artist != wd:Q241665)
+}

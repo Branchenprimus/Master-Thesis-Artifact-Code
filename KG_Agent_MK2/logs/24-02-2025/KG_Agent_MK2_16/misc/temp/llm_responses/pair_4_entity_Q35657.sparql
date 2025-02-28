@@ -1,0 +1,4 @@
+SELECT ?state WHERE {
+  wd:Q39593 wdt:P39 ?position .
+  ?position wdt:P768 ?state .
+}

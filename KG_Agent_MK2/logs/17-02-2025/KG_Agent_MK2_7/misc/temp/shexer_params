@@ -1,0 +1,20 @@
+{
+    "source": {
+        "local_file": null,
+        "remote_url": "http://example.org/data.ttl",
+        "sparql_endpoint": null,
+        "raw_data": null
+    },
+    "target_classes": [
+        "http://schema.org/Place",
+        "http://schema.org/City"
+    ],
+    "all_classes": false,
+    "shape_map_file": null,
+    "disable_comments": false,
+    "examples": "SHAPE_EXAMPLES",
+    "remove_empty_shapes": true,
+    "class_property": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "ignore_namespaces": null,
+    "depth": 1
+}

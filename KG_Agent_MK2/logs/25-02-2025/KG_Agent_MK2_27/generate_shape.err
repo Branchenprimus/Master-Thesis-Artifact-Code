@@ -1,0 +1,113 @@
+math xmlns="http://www.w3.org/1998/Math/MathML" display="block" alttext="{\displaystyle -{\frac {Gm_{1}m_{2}}{r^{2}}}=m_{2}A_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi>G</mi>
+              <msub>
+                <mi>m</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <msub>
+                <mi>m</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+            </mrow>
+            <msup>
+              <mi>r</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msup>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <msub>
+          <mi>m</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle -{\frac {Gm_{1}m_{2}}{r^{2}}}=m_{2}A_{2}}</annotation>
+  </semantics>
+</math does not look like a valid URI, trying to serialize this will break.
+math xmlns="http://www.w3.org/1998/Math/MathML" display="block" alttext="{\displaystyle m_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>m</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m_{2}}</annotation>
+  </semantics>
+</math does not look like a valid URI, trying to serialize this will break.
+math xmlns="http://www.w3.org/1998/Math/MathML" display="block" alttext="{\displaystyle m_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>m</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m_{1}}</annotation>
+  </semantics>
+</math does not look like a valid URI, trying to serialize this will break.
+math xmlns="http://www.w3.org/1998/Math/MathML" display="block" alttext="{\displaystyle A_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{2}}</annotation>
+  </semantics>
+</math does not look like a valid URI, trying to serialize this will break.
+math xmlns="http://www.w3.org/1998/Math/MathML" display="block" alttext="{\displaystyle G}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>G</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle G}</annotation>
+  </semantics>
+</math does not look like a valid URI, trying to serialize this will break.
+math xmlns="http://www.w3.org/1998/Math/MathML" display="block" alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math does not look like a valid URI, trying to serialize this will break.

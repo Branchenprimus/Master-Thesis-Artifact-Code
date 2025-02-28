@@ -1,0 +1,50 @@
+🔍 Input JSON (Original): /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/qald_9_plus_test_wikidata_short.json
+📂 Output JSON (LLM Results): logs/25-02-2025/KG_Agent_MK2_22/misc/temp/extracted_nlq_sparql_with_entities.json
+🔍 Question ID 99
+📌 Original Values: {'http://www.wikidata.org/entity/Q3134980', 'http://www.wikidata.org/entity/Q2212'}
+📌 LLM Values: {'http://www.wikidata.org/entity/Q3134980', 'http://www.wikidata.org/entity/Q2212'}
+✅ Question ID 99 - Correct: True
+🔍 Question ID 98
+📌 Original Values: {'http://www.wikidata.org/entity/Q1243545', 'http://www.wikidata.org/entity/Q207370', 'http://www.wikidata.org/entity/Q172248', 'http://www.wikidata.org/entity/Q294846', 'http://www.wikidata.org/entity/Q1228715'}
+📌 LLM Values: {'http://www.wikidata.org/entity/Q109236'}
+✅ Question ID 98 - Correct: False
+🔍 Question ID 86
+📌 Original Values: {'http://www.wikidata.org/entity/Q3375'}
+📌 LLM Values: {'Zugspitze', 'http://www.wikidata.org/entity/Q3375'}
+✅ Question ID 86 - Correct: False
+🔍 Question ID 84
+📌 Original Values: {'http://www.wikidata.org/entity/Q9588', 'http://www.wikidata.org/entity/Q9640', 'http://www.wikidata.org/entity/Q9696'}
+📌 LLM Values: set()
+✅ Question ID 84 - Correct: False
+🔍 Question ID 81
+📌 Original Values: set()
+📌 LLM Values: {'http://www.wikidata.org/entity/Q30'}
+✅ Question ID 81 - Correct: False
+🔍 Question ID 66
+📌 Original Values: {'http://www.wikidata.org/entity/Q2735138', 'http://www.wikidata.org/entity/Q98538749', 'http://www.wikidata.org/entity/Q2515323', 'http://www.wikidata.org/entity/Q11473351', 'http://www.wikidata.org/entity/Q4388123', 'http://www.wikidata.org/entity/Q62267382', 'http://www.wikidata.org/entity/Q3274687', 'http://www.wikidata.org/entity/Q2441062', 'http://www.wikidata.org/entity/Q76370382', 'http://www.wikidata.org/entity/Q4717039', 'http://www.wikidata.org/entity/Q16217595', 'http://www.wikidata.org/entity/Q19737612', 'http://www.wikidata.org/entity/Q466435', 'http://www.wikidata.org/entity/Q95210650', 'http://www.wikidata.org/entity/Q241665', 'http://www.wikidata.org/entity/Q9364870', 'http://www.wikidata.org/entity/Q11589525', 'http://www.wikidata.org/entity/Q13034715', 'http://www.wikidata.org/entity/Q11587490'}
+📌 LLM Values: {'http://www.wikidata.org/entity/Q2735138', 'http://www.wikidata.org/entity/Q75973139', 'http://www.wikidata.org/entity/Q7289389', 'http://www.wikidata.org/entity/Q6146882', 'http://www.wikidata.org/entity/Q98538749', 'http://www.wikidata.org/entity/Q4653445', 'http://www.wikidata.org/entity/Q28967510', 'http://www.wikidata.org/entity/Q6131269', 'http://www.wikidata.org/entity/Q11770797', 'http://www.wikidata.org/entity/Q76370382', 'http://www.wikidata.org/entity/Q4717039', 'http://www.wikidata.org/entity/Q130330362', 'http://www.wikidata.org/entity/Q43677361', 'http://www.wikidata.org/entity/Q6147129', 'http://www.wikidata.org/entity/Q123884930', 'http://www.wikidata.org/entity/Q112544952', 'http://www.wikidata.org/entity/Q85951564', 'http://www.wikidata.org/entity/Q466435', 'http://www.wikidata.org/entity/Q123715000', 'http://www.wikidata.org/entity/Q10357387', 'http://www.wikidata.org/entity/Q97694147', 'http://www.wikidata.org/entity/Q95210650', 'http://www.wikidata.org/entity/Q65583569', 'http://www.wikidata.org/entity/Q529103', 'http://www.wikidata.org/entity/Q24560687', 'http://www.wikidata.org/entity/Q124463689', 'http://www.wikidata.org/entity/Q121539945', 'http://www.wikidata.org/entity/Q111974267', 'http://www.wikidata.org/entity/Q11587490', 'http://www.wikidata.org/entity/Q17859785', 'http://www.wikidata.org/entity/Q35492233', 'http://www.wikidata.org/entity/Q3181579', 'http://www.wikidata.org/entity/Q98251198', 'http://www.wikidata.org/entity/Q75370395', 'http://www.wikidata.org/entity/Q128840418', 'http://www.wikidata.org/entity/Q9374016', 'http://www.wikidata.org/entity/Q7812711', 'http://www.wikidata.org/entity/Q28926518', 'http://www.wikidata.org/entity/Q13014284', 'http://www.wikidata.org/entity/Q16139169', 'http://www.wikidata.org/entity/Q2441062', 'http://www.wikidata.org/entity/Q1232460', 'http://www.wikidata.org/entity/Q118910897', 'http://www.wikidata.org/entity/Q7145918', 'http://www.wikidata.org/entity/Q95227126', 'http://www.wikidata.org/entity/Q20021106', 'http://www.wikidata.org/entity/Q5964119', 'http://www.wikidata.org/entity/Q98230521', 'http://www.wikidata.org/entity/Q123887706', 'http://www.wikidata.org/entity/Q123886019', 'http://www.wikidata.org/entity/Q6124626', 'http://www.wikidata.org/entity/Q11988209', 'http://www.wikidata.org/entity/Q64846348', 'http://www.wikidata.org/entity/Q12775036', 'http://www.wikidata.org/entity/Q100796023', 'http://www.wikidata.org/entity/Q3302670', 'http://www.wikidata.org/entity/Q15290801', 'http://www.wikidata.org/entity/Q124656004', 'http://www.wikidata.org/entity/Q2515323', 'http://www.wikidata.org/entity/Q33104697', 'http://www.wikidata.org/entity/Q6534845', 'http://www.wikidata.org/entity/Q15965067', 'http://www.wikidata.org/entity/Q3697563', 'http://www.wikidata.org/entity/Q30113039', 'http://www.wikidata.org/entity/Q3274687', 'http://www.wikidata.org/entity/Q62267382', 'http://www.wikidata.org/entity/Q1526541', 'http://www.wikidata.org/entity/Q12720402', 'http://www.wikidata.org/entity/Q43963991', 'http://www.wikidata.org/entity/Q16217595', 'http://www.wikidata.org/entity/Q66764442', 'http://www.wikidata.org/entity/Q69848336', 'http://www.wikidata.org/entity/Q27533388', 'http://www.wikidata.org/entity/Q28740234', 'http://www.wikidata.org/entity/Q7429519', 'http://www.wikidata.org/entity/Q241665', 'http://www.wikidata.org/entity/Q97140264', 'http://www.wikidata.org/entity/Q9364870', 'http://www.wikidata.org/entity/Q9355632', 'http://www.wikidata.org/entity/Q13034715', 'http://www.wikidata.org/entity/Q131421990', 'http://www.wikidata.org/entity/Q311095', 'http://www.wikidata.org/entity/Q92254279', 'http://www.wikidata.org/entity/Q6873020', 'http://www.wikidata.org/entity/Q1947954', 'http://www.wikidata.org/entity/Q126622698', 'http://www.wikidata.org/entity/Q11473351', 'http://www.wikidata.org/entity/Q4388123', 'http://www.wikidata.org/entity/Q85775078', 'http://www.wikidata.org/entity/Q97179588', 'http://www.wikidata.org/entity/Q19737612', 'http://www.wikidata.org/entity/Q3616071', 'http://www.wikidata.org/entity/Q75782378', 'http://www.wikidata.org/entity/Q112499499', 'http://www.wikidata.org/entity/Q1821145', 'http://www.wikidata.org/entity/Q2519431', 'http://www.wikidata.org/entity/Q5042266', 'http://www.wikidata.org/entity/Q130681137', 'http://www.wikidata.org/entity/Q125579228', 'http://www.wikidata.org/entity/Q11589525', 'http://www.wikidata.org/entity/Q7626481', 'http://www.wikidata.org/entity/Q27598097'}
+✅ Question ID 66 - Correct: False
+🔍 Question ID 64
+📌 Original Values: {'http://www.wikidata.org/entity/Q36180', 'http://www.wikidata.org/entity/Q6625963', 'http://www.wikidata.org/entity/Q33231', 'http://www.wikidata.org/entity/Q1930187', 'http://www.wikidata.org/entity/Q18844224'}
+📌 LLM Values: {'http://www.wikidata.org/entity/Q36180', 'http://www.wikidata.org/entity/Q6625963', 'http://www.wikidata.org/entity/Q33231', 'http://www.wikidata.org/entity/Q1930187', 'http://www.wikidata.org/entity/Q12144794', 'http://www.wikidata.org/entity/Q18844224'}
+✅ Question ID 64 - Correct: False
+🔍 Question ID 56
+📌 Original Values: {'50431'}
+📌 LLM Values: {'0'}
+✅ Question ID 56 - Correct: False
+🔍 Question ID 49
+📌 Original Values: {'http://www.wikidata.org/entity/Q642970'}
+📌 LLM Values: {'http://www.wikidata.org/entity/Q43229', '12'}
+✅ Question ID 49 - Correct: False
+🔍 Question ID 44
+📌 Original Values: {'http://www.wikidata.org/entity/Q32', 'http://www.wikidata.org/entity/Q31', 'http://www.wikidata.org/entity/Q35', 'http://www.wikidata.org/entity/Q34'}
+📌 LLM Values: set()
+✅ Question ID 44 - Correct: False
+
+📊 ===== Verification Statistics =====
+✅ Correct SPARQL Queries: 1
+❌ Incorrect SPARQL Queries: 9
+📈 Accuracy: 10.00%
+=====================================
+
+✅ Verification completed! Updated JSON saved to: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/extracted_nlq_sparql_with_entities.json

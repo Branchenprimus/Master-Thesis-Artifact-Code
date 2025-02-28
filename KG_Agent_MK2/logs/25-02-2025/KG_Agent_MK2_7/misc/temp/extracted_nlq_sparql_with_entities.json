@@ -1,0 +1,30 @@
+[
+    {
+        "id": 0,
+        "question_text": "What is the time zone of Salt Lake City?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q23337>  <http://www.wikidata.org/prop/direct/P421>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q23337"
+        ],
+        "llm_extracted_entity_names": [
+            "Salt Lake City"
+        ],
+        "wikidata_entities_resolved": {
+            "Salt Lake City": "Q23337"
+        }
+    },
+    {
+        "id": 1,
+        "question_text": "Who killed Caesar?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q1048>  <http://www.wikidata.org/prop/direct/P157>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q1048"
+        ],
+        "llm_extracted_entity_names": [
+            "Caesar"
+        ],
+        "wikidata_entities_resolved": {
+            "Caesar": "Q29288"
+        }
+    }
+]

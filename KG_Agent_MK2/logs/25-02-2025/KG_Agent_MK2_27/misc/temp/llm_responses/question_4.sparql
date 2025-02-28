@@ -1,0 +1,8 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?airport ?airportLabel WHERE {
+  ?airport wdt:P31 wd:Q1248784;  # instance of airport
+           wdt:P131 wd:Q99.      # located in the administrative territorial entity California
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}

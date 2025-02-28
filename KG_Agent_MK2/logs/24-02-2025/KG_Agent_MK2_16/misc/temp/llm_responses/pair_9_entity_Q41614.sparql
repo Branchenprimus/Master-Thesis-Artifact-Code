@@ -1,0 +1,7 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?country WHERE {
+  ?country wdt:P31 wd:Q3624078.  # instance of constitutional monarchy
+  ?country wdt:P17 wd:Q46.        # located in Europe
+}

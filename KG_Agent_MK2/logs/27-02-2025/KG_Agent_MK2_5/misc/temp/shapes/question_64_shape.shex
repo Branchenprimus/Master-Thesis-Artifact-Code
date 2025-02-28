@@ -1,0 +1,200 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q7934 = Frank_Herbert>
+{
+   wdt:P268 xsd:string  -->  Bibliothèque nationale de France ID
+   wdt:P269 xsd:integer  -->  IdRef ID
+   wdt:P271 xsd:string  -->  NACSIS-CAT author ID
+   wdt:P345 xsd:string  -->  IMDb ID
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P396 xsd:string  -->  SBN author ID
+   wdt:P409 xsd:integer  -->  Libraries Australia ID
+   wdt:P434 xsd:string  -->  MusicBrainz artist ID
+   wdt:P485 IRI  -->  archives at
+   wdt:P509 IRI  -->  cause of death
+   wdt:P535 xsd:integer  -->  Find a Grave memorial ID
+   wdt:P569 xsd:string  -->  date of birth
+   wdt:P570 xsd:string  -->  date of death
+   wdt:P607 IRI  -->  conflict
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P648 xsd:string  -->  Open Library ID
+   wdt:P650 xsd:integer  -->  RKDartists ID
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P734 IRI  -->  family name
+   wdt:P735 IRI {2}  -->  given name
+   wdt:P800 IRI  -->  notable work
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P949 xsd:integer  -->  National Library of Israel ID (old)
+   wdt:P950 xsd:string  -->  National Library of Spain ID
+   wdt:P1005 xsd:integer  -->  Portuguese National Library author ID
+   wdt:P1006 xsd:integer  -->  Nationale Thesaurus voor Auteursnamen ID
+   wdt:P1015 xsd:integer  -->  NORAF ID
+   wdt:P1196 IRI  -->  manner of death
+   wdt:P1207 xsd:string  -->  NUKAT ID
+   wdt:P1233 xsd:integer  -->  Internet Speculative Fiction Database author ID
+   wdt:P1263 xsd:string  -->  Notable Names Database
+   wdt:P1266 xsd:integer  -->  AlloCiné person ID
+   wdt:P1273 xsd:string  -->  CANTIC ID (former scheme)
+   wdt:P1280 xsd:integer  -->  CONOR.SI ID
+   wdt:P1315 xsd:integer  -->  NLA Trove people ID
+   wdt:P1343 IRI  -->  described by source
+   wdt:P1368 xsd:integer  -->  National Library of Latvia ID
+   wdt:P1375 xsd:integer  -->  NSK ID
+   wdt:P1411 IRI {3}  -->  nominated for
+   wdt:P1412 IRI {2}  -->  languages spoken, written or signed
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1477 xsd:string  -->  birth name
+   wdt:P1559 xsd:string  -->  name in native language
+   wdt:P1695 xsd:string  -->  NLP ID (old)
+   wdt:P1712 xsd:string  -->  Metacritic ID
+   wdt:P1813 xsd:string  -->  short name
+   wdt:P1890 xsd:integer  -->  CCAB ID
+   wdt:P1899 xsd:integer  -->  LibriVox author ID
+   wdt:P1938 xsd:integer  -->  Project Gutenberg author ID
+   wdt:P1953 xsd:integer  -->  Discogs artist ID
+   wdt:P2019 xsd:string  -->  AllMovie person ID
+   wdt:P2031 xsd:string  -->  work period (start)
+   wdt:P2032 xsd:string  -->  work period (end)
+   wdt:P2163 xsd:integer  -->  FAST ID
+   wdt:P2168 xsd:integer  -->  Swedish Film Database person ID
+   wdt:P2188 xsd:integer  -->  BiblioNet author ID
+   wdt:P2191 xsd:integer  -->  Vegetti Catalog of Fantastic Literature NILF ID
+   wdt:P2354 IRI  -->  has list
+   wdt:P2435 xsd:integer  -->  PORT person ID
+   wdt:P2519 xsd:integer  -->  Scope.dk person ID
+   wdt:P2600 xsd:integer  -->  Geni.com profile ID
+   wdt:P2604 xsd:integer  -->  Kinopoisk person ID
+   wdt:P2605 xsd:integer  -->  ČSFD person ID
+   wdt:P2607 xsd:string  -->  BookBrainz author ID
+   wdt:P2638 xsd:string  -->  TV.com ID
+   wdt:P2750 xsd:integer  -->  Photographers’ Identities Catalog ID
+   wdt:P2850 xsd:integer  -->  Apple Music artist ID (U.S. version)
+   wdt:P2949 xsd:string  -->  WikiTree person ID
+   wdt:P2963 xsd:integer  -->  Goodreads author ID
+   wdt:P3056 xsd:integer  -->  TCM Movie Database person ID
+   wdt:P3065 xsd:string  -->  RERO ID (legacy)
+   wdt:P3142 xsd:string  -->  EDb person ID
+   wdt:P3204 xsd:integer  -->  Ciné-Ressources person ID
+   wdt:P3219 xsd:string  -->  Encyclopædia Universalis ID
+   wdt:P3222 xsd:string  -->  NE.se ID
+   wdt:P3280 xsd:integer  -->  BAnQ authority ID
+   wdt:P3341 xsd:integer  -->  Kvikmyndir person ID
+   wdt:P3348 xsd:integer  -->  National Library of Greece ID
+   wdt:P3368 xsd:integer  -->  Prabook ID
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3430 xsd:string {2}  -->  SNAC ARK ID
+   wdt:P3630 xsd:integer  -->  Babelio author ID
+   wdt:P3762 xsd:integer  -->  openMLOL author ID
+   wdt:P3845 xsd:integer  -->  TV Guide person ID (former scheme)
+   wdt:P3846 xsd:integer  -->  DBC author ID
+   wdt:P3933 xsd:integer  -->  Cinema.de ID
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P4438 xsd:string  -->  BFI Films, TV and people ID
+   wdt:P4515 xsd:integer  -->  Prisma ID
+   wdt:P4619 xsd:integer  -->  National Library of Brazil ID
+   wdt:P4657 xsd:integer  -->  The Numbers person ID
+   wdt:P4666 xsd:integer  -->  CineMagia person ID
+   wdt:P4768 xsd:integer  -->  cinematografo.it name or company ID
+   wdt:P4782 xsd:integer  -->  Movieplayer person ID
+   wdt:P4785 xsd:integer  -->  MYmovies name ID (former scheme)
+   wdt:P4823 xsd:integer  -->  American National Biography ID
+   wdt:P4862 xsd:string  -->  Amazon author ID
+   wdt:P4985 xsd:integer  -->  TMDB person ID
+   wdt:P5033 xsd:integer  -->  Filmweb.pl person ID
+   wdt:P5034 xsd:string  -->  National Library of Korea ID
+   wdt:P5254 xsd:integer  -->  FilmTv.it person ID
+   wdt:P5284 xsd:integer  -->  Douban movie celebrity ID
+   wdt:P5357 xsd:string  -->  Encyclopedia of Science Fiction ID
+   wdt:P5365 xsd:integer  -->  Internet Book Database of Fiction writer ID
+   wdt:P5408 xsd:string  -->  Fantastic Fiction author ID
+   wdt:P5534 xsd:integer  -->  Open Media Database person ID
+   wdt:P5570 xsd:integer  -->  NooSFere author ID
+   wdt:P5617 xsd:string  -->  Evene ID
+   wdt:P5714 xsd:string  -->  Tor.com author ID
+   wdt:P6058 xsd:string  -->  Larousse ID
+   wdt:P6262 xsd:string  -->  Fandom article ID
+   wdt:P6379 IRI  -->  has works in the collection
+   wdt:P6394 xsd:string  -->  ELNET ID
+   wdt:P6441 xsd:integer  -->  Douban author ID
+   wdt:P6521 xsd:integer  -->  Crew United person and company ID
+   wdt:P6645 xsd:string  -->  Stedelijk Museum Amsterdam ID
+   wdt:P6706 xsd:string  -->  De Agostini ID
+   wdt:P6839 xsd:string  -->  TV Tropes ID
+   wdt:P7029 xsd:integer {2}  -->  National Library of Russia ID
+   wdt:P7214 xsd:integer  -->  Allcinema person ID
+   wdt:P7215 xsd:integer  -->  Eiga.com person ID
+   wdt:P7293 xsd:integer  -->  PLWABN ID
+   wdt:P7300 xsd:integer  -->  MUBI person ID
+   wdt:P7305 xsd:integer  -->  Online PWN Encyclopedia ID
+   wdt:P7369 xsd:integer  -->  National Library of Chile ID
+   wdt:P7400 xsd:string  -->  LibraryThing author ID
+   wdt:P7433 xsd:integer  -->  FantLab author ID
+   wdt:P7699 xsd:string  -->  National Library of Lithuania ID
+   wdt:P7704 xsd:string  -->  Europeana entity
+   wdt:P7763 IRI  -->  copyright status as a creator
+   wdt:P8125 xsd:integer  -->  Fandango person ID
+   wdt:P8179 xsd:string  -->  Canadiana Name Authority ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8504 xsd:string  -->  Science Fiction Awards Database author ID
+   wdt:P8796 xsd:integer  -->  Film w prasie polskiej press collection ID
+   wdt:P8849 xsd:integer  -->  CONOR.BG ID
+   wdt:P8851 xsd:integer  -->  CONOR.SR ID
+   wdt:P9171 xsd:integer  -->  RILM ID
+   wdt:P9196 xsd:string  -->  BookBub author ID
+   wdt:P9307 xsd:string  -->  Fancyclopedia 3 ID
+   wdt:P9707 xsd:integer  -->  GCD creator ID
+   wdt:P9918 xsd:string  -->  Kallías ID
+   wdt:P9965 xsd:integer  -->  Musik-Sammler.de artist ID
+   wdt:P9984 xsd:integer  -->  CANTIC ID
+   wdt:P9995 xsd:integer  -->  MYmovies person ID
+   wdt:P10069 xsd:integer  -->  Tabakalera ID
+   wdt:P10227 xsd:string  -->  National Library of Ireland ID
+   wdt:P10266 xsd:integer  -->  AdoroCinema person ID
+   wdt:P10302 xsd:string  -->  Film.ru person ID
+   wdt:P10832 xsd:string  -->  WorldCat Entities ID
+   wdt:P11137 xsd:string  -->  Reddit
+   wdt:P11249 xsd:integer  -->  KBR person ID
+   wdt:P11345 xsd:string  -->  Cinematografo.it name or company ID (new)
+   wdt:P11386 xsd:string  -->  Listal ID
+   wdt:P11496 xsd:integer  -->  CiNii Research ID
+   wdt:P11514 xsd:string  -->  Great Russian Encyclopedia portal ID
+   wdt:P11683 xsd:string  -->  Ivi person ID
+   wdt:P11686 xsd:integer  -->  University of Barcelona authority ID
+   wdt:P12098 xsd:integer  -->  Kinobox person ID
+   wdt:P12458 xsd:integer  -->  Parsifal cluster ID
+   wdt:P12582 xsd:integer  -->  Oxford Reference overview ID
+   wdt:P12836 xsd:integer  -->  Douban personage ID
+   wdt:P13022 xsd:integer  -->  Koha Kütüphane ID
+   wdt:P13049 xsd:integer  -->  DDB person (GND) ID
+   rdfs:label  xsd:string  {83};
+   wdt:P18 IRI  -->  image
+   wdt:P19 IRI  -->  place of birth
+   wdt:P20 IRI  -->  place of death
+   wdt:P21 IRI  -->  sex or gender
+   wdt:P26 IRI {2}  -->  spouse
+   wdt:P27 IRI  -->  country of citizenship
+   wdt:P31 IRI  -->  instance of
+   wdt:P40 IRI  -->  child
+   wdt:P69 IRI {3}  -->  educated at
+   wdt:P101 IRI  -->  field of work
+   wdt:P106 IRI {6}  -->  occupation
+   wdt:P109 IRI  -->  signature
+   wdt:P136 IRI  -->  genre
+   wdt:P140 IRI  -->  religion or worldview
+   wdt:P166 IRI {6}  -->  award received
+   wdt:P213 xsd:integer  -->  ISNI
+   wdt:P214 xsd:integer  -->  VIAF cluster ID
+   wdt:P227 xsd:integer  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+}

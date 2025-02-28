@@ -1,0 +1,46 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q164791 = Carlo_Giuliani>
+{
+   rdfs:label  xsd:string  {45};
+   wdt:P18  IRI  ;                                                            // rdfs:comment "P18  -->  image"
+   wdt:P19  IRI  ;                                                            // rdfs:comment "P19  -->  place of birth"
+   wdt:P20  IRI  ;                                                            // rdfs:comment "P20  -->  place of death"
+   wdt:P21  IRI  ;                                                            // rdfs:comment "P21  -->  sex or gender"
+   wdt:P22  IRI  ;                                                            // rdfs:comment "P22  -->  father"
+   wdt:P25  IRI  ;                                                            // rdfs:comment "P25  -->  mother"
+   wdt:P27  IRI  ;                                                            // rdfs:comment "P27  -->  country of citizenship"
+   wdt:P31  IRI  ;                                                            // rdfs:comment "P31  -->  instance of"
+   wdt:P106  IRI  ;                                                           // rdfs:comment "P106  -->  occupation"
+   wdt:P157  IRI  ;                                                           // rdfs:comment "P157  -->  killed by"
+   wdt:P213  xsd:integer  ;                                                   // rdfs:comment "P213  -->  ISNI"
+   wdt:P214  xsd:integer  ;                                                   // rdfs:comment "P214  -->  VIAF cluster ID"
+   wdt:P227  xsd:integer  ;                                                   // rdfs:comment "P227  -->  GND ID"
+   wdt:P268  xsd:integer  ;                                                   // rdfs:comment "P268  -->  Bibliothèque nationale de France ID"
+   wdt:P276  IRI  ;                                                           // rdfs:comment "P276  -->  location"
+   wdt:P373  xsd:string  ;                                                    // rdfs:comment "P373  -->  Commons category"
+   wdt:P434  xsd:string  ;                                                    // rdfs:comment "P434  -->  MusicBrainz artist ID"
+   wdt:P509  IRI  ;                                                           // rdfs:comment "P509  -->  cause of death"
+   wdt:P569  xsd:string  ;                                                    // rdfs:comment "P569  -->  date of birth"
+   wdt:P570  xsd:string  ;                                                    // rdfs:comment "P570  -->  date of death"
+   wdt:P585  xsd:string  ;                                                    // rdfs:comment "P585  -->  point in time"
+   wdt:P646  xsd:string  ;                                                    // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P734  IRI  ;                                                           // rdfs:comment "P734  -->  family name"
+   wdt:P735  IRI  ;                                                           // rdfs:comment "P735  -->  given name"
+   wdt:P1196  IRI  ;                                                          // rdfs:comment "P1196  -->  manner of death"
+   wdt:P1412  IRI  ;                                                          // rdfs:comment "P1412  -->  languages spoken, written or signed"
+   wdt:P1442  IRI  ;                                                          // rdfs:comment "P1442  -->  image of grave"
+   wdt:P1559  xsd:string  ;                                                   // rdfs:comment "P1559  -->  name in native language"
+   wdt:P3065  xsd:string  ;                                                   // rdfs:comment "P3065  -->  RERO ID (legacy)"
+   wdt:P7293  xsd:integer  ;                                                  // rdfs:comment "P7293  -->  PLWABN ID"
+   wdt:P10832  xsd:string                                                     // rdfs:comment "P10832  -->  WorldCat Entities ID"
+}

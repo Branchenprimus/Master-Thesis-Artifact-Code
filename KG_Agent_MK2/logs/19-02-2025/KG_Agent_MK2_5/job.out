@@ -1,0 +1,31 @@
+Starting file tracking...
+File tracking completed successfully!
+output_dir: logs/19-02-2025/KG_Agent_MK2_5/misc/temp
+Using ChatGPT API
+full_prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+1. **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+2. **Ensure the generated query adheres strictly to the provided shape.** Do not reference entities or properties that are not described in the shape.
+3. **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+4. **Do not generate natural language responses.** Return only raw SPARQL code.
+5. **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+6. **Use standard prefixes (`PREFIX`) where necessary.** Optimize queries for performance.
+7. **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+Who killed Caesar?
+
+### Shape Constraints:
+
+
+### Expected SPARQL Query:
+```sparql
+
+✅ Response saved to logs/19-02-2025/KG_Agent_MK2_5/misc/temp/llm_response.txt

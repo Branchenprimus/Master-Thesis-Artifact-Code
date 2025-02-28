@@ -1,0 +1,7 @@
++ echo 'Starting file tracking...'
++ tee -a logs/24-02-2025/KG_Agent_MK2_4/track_files.log
++ python track_files.py --root-dir ./ --output logs/24-02-2025/KG_Agent_MK2_4/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/24-02-2025/KG_Agent_MK2_4/track_files.log
++ python ./util/extract_entity_list.py --input-file /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/qald_9_plus_test_wikidata_short.json --output-file /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/benchmark/extracted_nlq_sparql_with_entities_short.json --openai-api-key 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

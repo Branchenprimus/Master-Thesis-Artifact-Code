@@ -1,0 +1,50 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q63521971 = Lincoln>
+{
+   rdfs:label  xsd:string  {2};
+   wdt:P17  IRI  ;                                                       // rdfs:comment "P17  -->  country"
+   wdt:P31  IRI  ;                                                       // rdfs:comment "P31  -->  instance of"
+   wdt:P131  IRI  {2};                                                   // rdfs:comment "P131  -->  located in the administrative territorial entity"
+   wdt:P625  xsd:string  ;                                               // rdfs:comment "P625  -->  coordinate location"
+   wdt:P3517  xsd:string                                                 // rdfs:comment "P3517  -->  Geographical Names Board of NSW ID"
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q493203 = President>
+{
+   rdfs:label  xsd:string  {14};
+   wdt:P31  IRI  ;                                                       // rdfs:comment "P31  -->  instance of"
+   wdt:P136  IRI  ;                                                      // rdfs:comment "P136  -->  genre"
+   wdt:P155  IRI  ;                                                      // rdfs:comment "P155  -->  follows"
+   wdt:P156  IRI  ;                                                      // rdfs:comment "P156  -->  followed by"
+   wdt:P161  IRI  ;                                                      // rdfs:comment "P161  -->  cast member"
+   wdt:P345  xsd:string  ;                                               // rdfs:comment "P345  -->  IMDb ID"
+   wdt:P364  IRI  ;                                                      // rdfs:comment "P364  -->  original language of film or TV show"
+   wdt:P449  IRI  ;                                                      // rdfs:comment "P449  -->  original broadcaster"
+   wdt:P495  IRI  ;                                                      // rdfs:comment "P495  -->  country of origin"
+   wdt:P580  xsd:string  ;                                               // rdfs:comment "P580  -->  start time"
+   wdt:P582  xsd:string  ;                                               // rdfs:comment "P582  -->  end time"
+   wdt:P646  xsd:string  ;                                               // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P840  IRI  ;                                                      // rdfs:comment "P840  -->  narrative location"
+   wdt:P856  IRI  ;                                                      // rdfs:comment "P856  -->  official website"
+   wdt:P1113  xsd:integer  ;                                             // rdfs:comment "P1113  -->  number of episodes"
+   wdt:P2001  xsd:string  ;                                              // rdfs:comment "P2001  -->  Revised Romanization"
+   wdt:P4282  xsd:integer  ;                                             // rdfs:comment "P4282  -->  LUMIERE film ID"
+   wdt:P4983  xsd:integer  ;                                             // rdfs:comment "P4983  -->  TMDB TV series ID"
+   wdt:P5108  xsd:string  ;                                              // rdfs:comment "P5108  -->  HanCinema film ID"
+   wdt:P8013  xsd:string  ;                                              // rdfs:comment "P8013  -->  Trakt.tv ID"
+   wdt:P11460  xsd:string                                                // rdfs:comment "P11460  -->  Plex media key"
+}

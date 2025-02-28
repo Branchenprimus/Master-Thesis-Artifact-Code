@@ -1,0 +1,7 @@
++ echo 'Starting file tracking...'
++ tee -a logs/23-02-2025/KG_Agent_MK2_3/track_files.log
++ python track_files.py --root-dir ./ --output logs/23-02-2025/KG_Agent_MK2_3/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/23-02-2025/KG_Agent_MK2_3/track_files.log
++ python generate_shape.py --shape-output-path logs/23-02-2025/KG_Agent_MK2_3/misc/temp

@@ -1,0 +1,62 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q46970 = airline>
+{
+   rdfs:label  xsd:string  {101};
+   wdt:P18 IRI  -->  image
+   wdt:P227 xsd:string  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P268 xsd:integer  -->  Bibliothèque nationale de France ID
+   wdt:P279 IRI  -->  subclass of
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P452 IRI  -->  industry
+   wdt:P487 xsd:string  -->  Unicode character
+   wdt:P508 xsd:integer  -->  BNCF Thesaurus ID
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P948 IRI  -->  page banner
+   wdt:P1245 xsd:integer  -->  OmegaWiki Defined Meaning
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1424 IRI  -->  topic's main template
+   wdt:P1709  IRI  {2};                                               // rdfs:comment "P1709  -->  equivalent class"
+   wdt:P1963  IRI  {6};                                               // rdfs:comment "P1963  -->  properties for this type"
+   wdt:P2347 xsd:integer  -->  YSO ID
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P3827 xsd:string  -->  JSTOR topic ID (archived)
+   wdt:P3911 xsd:string  -->  STW Thesaurus for Economics ID
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P4527 xsd:integer  -->  UK Parliament thesaurus ID
+   wdt:P4573 xsd:integer  -->  Merchant Category Code
+   wdt:P5008 IRI  -->  on focus list of Wikimedia project
+   wdt:P5437 xsd:integer  -->  EuroVoc ID
+   wdt:P5869  IRI  {2};                                               // rdfs:comment "P5869  -->  model item"
+   wdt:P6186 IRI  -->  category for eponymous categories
+   wdt:P6849 xsd:string  -->  DR topic ID
+   wdt:P7033 xsd:string  -->  Australian Educational Vocabulary ID
+   wdt:P7497 xsd:string  -->  Wolfram Language entity type
+   wdt:P7870 xsd:integer  -->  Analysis & Policy Observatory term ID
+   wdt:P7901 xsd:integer  -->  Encyclopedia of Chicago ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8370 xsd:integer  -->  UNBIS Thesaurus ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8814 xsd:string  -->  WordNet 3.1 Synset ID
+   wdt:P9368 xsd:string  -->  CNA topic ID
+   wdt:P10730 xsd:string  -->  Data Commons ID
+   wdt:P11137 xsd:string  -->  Reddit
+   wdt:P12086 xsd:string  -->  WikiKids ID
+   wdt:P12596 xsd:integer  -->  museum-digital tag ID
+   wdt:P12800  xsd:string                                             // rdfs:comment "P12800  -->  Vikidia article ID"
+}

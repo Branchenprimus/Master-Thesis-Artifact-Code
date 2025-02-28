@@ -1,0 +1,59 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+wdt:P31
+{
+   rdfs:label  xsd:string  {44};
+   wdt:P18  IRI  ;                // rdfs:comment "P18  -->  image"
+   wdt:P19  IRI  ;                // rdfs:comment "P19  -->  place of birth"
+   wdt:P21  IRI  ;                // rdfs:comment "P21  -->  sex or gender"
+   wdt:P26  IRI  ;                // rdfs:comment "P26  -->  spouse"
+   wdt:P27  IRI  ;                // rdfs:comment "P27  -->  country of citizenship"
+   wdt:P31  IRI  ;                // rdfs:comment "P31  -->  instance of"
+   wdt:P39  IRI  {4};             // rdfs:comment "P39  -->  position held"
+   wdt:P69  IRI  {3};             // rdfs:comment "P69  -->  educated at"
+   wdt:P101  IRI  ;               // rdfs:comment "P101  -->  field of work"
+   wdt:P102  IRI  ;               // rdfs:comment "P102  -->  member of political party"
+   wdt:P106  IRI  ;               // rdfs:comment "P106  -->  occupation"
+   wdt:P109  IRI  ;               // rdfs:comment "P109  -->  signature"
+   wdt:P140  IRI  ;               // rdfs:comment "P140  -->  religion or worldview"
+   wdt:P214  xsd:integer  ;       // rdfs:comment "P214  -->  VIAF cluster ID"
+   wdt:P241  IRI  ;               // rdfs:comment "P241  -->  military branch"
+   wdt:P244  xsd:string  ;        // rdfs:comment "P244  -->  Library of Congress authority ID"
+   wdt:P373  xsd:string  ;        // rdfs:comment "P373  -->  Commons category"
+   wdt:P569  xsd:string  ;        // rdfs:comment "P569  -->  date of birth"
+   wdt:P646  xsd:string  ;        // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P734  IRI  ;               // rdfs:comment "P734  -->  family name"
+   wdt:P735  IRI  {3};            // rdfs:comment "P735  -->  given name"
+   wdt:P937  IRI  {2};            // rdfs:comment "P937  -->  work location"
+   wdt:P1157  xsd:string  ;       // rdfs:comment "P1157  -->  US Congress Bio ID"
+   wdt:P1263  xsd:string  ;       // rdfs:comment "P1263  -->  Notable Names Database"
+   wdt:P1340  IRI  ;              // rdfs:comment "P1340  -->  eye color"
+   wdt:P1412  IRI  ;              // rdfs:comment "P1412  -->  languages spoken, written or signed"
+   wdt:P1477  xsd:string  ;       // rdfs:comment "P1477  -->  birth name"
+   wdt:P1559  xsd:string  ;       // rdfs:comment "P1559  -->  name in native language"
+   wdt:P1839  xsd:string  ;       // rdfs:comment "P1839  -->  US Federal Election Commission ID"
+   wdt:P1971  xsd:integer  ;      // rdfs:comment "P1971  -->  number of children"
+   wdt:P2163  xsd:integer  ;      // rdfs:comment "P2163  -->  FAST ID"
+   wdt:P2190  xsd:string  ;       // rdfs:comment "P2190  -->  C-SPAN person string ID (deprecated)"
+   wdt:P2390  xsd:string  ;       // rdfs:comment "P2390  -->  Ballotpedia ID"
+   wdt:P2949  xsd:string  ;       // rdfs:comment "P2949  -->  WikiTree person ID"
+   wdt:P4997  IRI  ;              // rdfs:comment "P4997  -->  National Governors Association biography URL"
+   wdt:P5421  xsd:integer  ;      // rdfs:comment "P5421  -->  Trading Card Database person ID"
+   wdt:P8462  xsd:string  ;       // rdfs:comment "P8462  -->  Political Graveyard politician ID"
+   wdt:P10632  xsd:string  ;      // rdfs:comment "P10632  -->  OpenSanctions ID"
+   wdt:P10660  xsd:integer  ;     // rdfs:comment "P10660  -->  C-SPAN person numeric ID"
+   wdt:P10832  xsd:string  ;      // rdfs:comment "P10832  -->  WorldCat Entities ID"
+   wdt:P11500  xsd:integer        // rdfs:comment "P11500  -->  United States House of Representatives ID"
+}
+
+
+
+

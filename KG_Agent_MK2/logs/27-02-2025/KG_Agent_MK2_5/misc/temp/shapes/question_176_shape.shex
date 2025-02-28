@@ -1,0 +1,45 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q2246489 = The_Storm_on_the_Sea_of_Galilee>
+{
+   rdfs:label  xsd:string  {34};
+   wdt:P18 IRI  -->  image
+   wdt:P31 IRI {2}  -->  instance of
+   wdt:P127 IRI {8}  -->  owned by
+   wdt:P135 IRI  -->  movement
+   wdt:P136 IRI {2}  -->  genre
+   wdt:P140 IRI  -->  religion or worldview
+   wdt:P144 IRI {2}  -->  based on
+   wdt:P170 IRI  -->  creator
+   wdt:P180 IRI {3}  -->  depicts
+   wdt:P186 IRI {2}  -->  made from material
+   wdt:P195 IRI  -->  collection
+   wdt:P217 xsd:string  -->  inventory number
+   wdt:P350 xsd:integer  -->  RKDimages ID
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P528 xsd:integer {9}  -->  catalog code
+   wdt:P571 xsd:string  -->  inception
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P793 IRI  -->  significant event
+   wdt:P921 IRI  -->  main subject
+   wdt:P973 IRI  -->  described at URL
+   wdt:P1028 IRI  -->  donated by
+   wdt:P1257 xsd:integer  -->  depicts Iconclass notation
+   wdt:P1257 xsd:string {4}  -->  depicts Iconclass notation
+   wdt:P1476 xsd:string  -->  title
+   wdt:P2048 xsd:integer  -->  height
+   wdt:P2049 xsd:integer  -->  width
+   wdt:P4701 xsd:string  -->  Google Arts & Culture asset ID
+   wdt:P6216 IRI  -->  copyright status
+   wdt:P9092 xsd:integer  -->  Art in the Christian Tradition ID
+   wdt:P13023 xsd:string  -->  HA! artwork ID
+}

@@ -1,0 +1,45 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q2246489 = The_Storm_on_the_Sea_of_Galilee>
+{
+   wdt:P195  IRI  ;                                                                             // rdfs:comment "P195  -->  collection"
+   wdt:P217  xsd:string  ;                                                                      // rdfs:comment "P217  -->  inventory number"
+   wdt:P350  xsd:integer  ;                                                                     // rdfs:comment "P350  -->  RKDimages ID"
+   wdt:P373  xsd:string  ;                                                                      // rdfs:comment "P373  -->  Commons category"
+   wdt:P528  xsd:integer  {9};                                                                  // rdfs:comment "P528  -->  catalog code"
+   wdt:P571  xsd:string  ;                                                                      // rdfs:comment "P571  -->  inception"
+   wdt:P646  xsd:string  ;                                                                      // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P793  IRI  ;                                                                             // rdfs:comment "P793  -->  significant event"
+   wdt:P921  IRI  ;                                                                             // rdfs:comment "P921  -->  main subject"
+   wdt:P973  IRI  ;                                                                             // rdfs:comment "P973  -->  described at URL"
+   wdt:P1028  IRI  ;                                                                            // rdfs:comment "P1028  -->  donated by"
+   wdt:P1257  xsd:integer  ;                                                                    // rdfs:comment "P1257  -->  depicts Iconclass notation"
+   wdt:P1257  xsd:string  {4};                                                                  // rdfs:comment "P1257  -->  depicts Iconclass notation"
+   wdt:P1476  xsd:string  ;                                                                     // rdfs:comment "P1476  -->  title"
+   wdt:P2048  xsd:integer  ;                                                                    // rdfs:comment "P2048  -->  height"
+   wdt:P2049  xsd:integer  ;                                                                    // rdfs:comment "P2049  -->  width"
+   wdt:P4701  xsd:string  ;                                                                     // rdfs:comment "P4701  -->  Google Arts & Culture asset ID"
+   wdt:P6216  IRI  ;                                                                            // rdfs:comment "P6216  -->  copyright status"
+   wdt:P9092  xsd:integer  ;                                                                    // rdfs:comment "P9092  -->  Art in the Christian Tradition ID"
+   wdt:P13023  xsd:string  ;                                                                    // rdfs:comment "P13023  -->  HA! artwork ID"
+   rdfs:label  xsd:string  {34};
+   wdt:P18  IRI  ;                                                                              // rdfs:comment "P18  -->  image"
+   wdt:P31  IRI  {2};                                                                           // rdfs:comment "P31  -->  instance of"
+   wdt:P127  IRI  {8};                                                                          // rdfs:comment "P127  -->  owned by"
+   wdt:P135  IRI  ;                                                                             // rdfs:comment "P135  -->  movement"
+   wdt:P136  IRI  {2};                                                                          // rdfs:comment "P136  -->  genre"
+   wdt:P140  IRI  ;                                                                             // rdfs:comment "P140  -->  religion or worldview"
+   wdt:P144  IRI  {2};                                                                          // rdfs:comment "P144  -->  based on"
+   wdt:P170  IRI  ;                                                                             // rdfs:comment "P170  -->  creator"
+   wdt:P180  IRI  {3};                                                                          // rdfs:comment "P180  -->  depicts"
+   wdt:P186  IRI  {2}                                                                           // rdfs:comment "P186  -->  made from material"
+}

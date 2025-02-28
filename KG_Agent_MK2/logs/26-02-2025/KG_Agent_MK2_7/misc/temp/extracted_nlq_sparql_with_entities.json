@@ -1,0 +1,174 @@
+[
+    {
+        "id": "99",
+        "question_text": "What is the time zone of Salt Lake City?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q23337>  <http://www.wikidata.org/prop/direct/P421>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q23337"
+        ],
+        "llm_extracted_entity_names": [
+            "Salt Lake City",
+            "time zone"
+        ],
+        "wikidata_entities_resolved": {
+            "Salt Lake City": "Q23337",
+            "time zone": "Q12143"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "98",
+        "question_text": "Who killed Caesar?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q1048>  <http://www.wikidata.org/prop/direct/P157>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q1048"
+        ],
+        "llm_extracted_entity_names": [
+            "Caesar"
+        ],
+        "wikidata_entities_resolved": {
+            "Caesar": "Q29288"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "86",
+        "question_text": "What is the highest mountain in Germany?",
+        "sparql_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { ?uri wdt:P31 wd:Q8502 ; wdt:P2044 ?elevation ; wdt:P17 wd:Q183 . } ORDER BY DESC(?elevation) LIMIT 1",
+        "wikidata_entities_from_sparql": [
+            "Q183",
+            "Q8502"
+        ],
+        "llm_extracted_entity_names": [
+            "mountain",
+            "Germany"
+        ],
+        "wikidata_entities_resolved": {
+            "mountain": "Q8502",
+            "Germany": "Q183"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "84",
+        "question_text": "Which American presidents were in office during the Vietnam War?",
+        "sparql_query": "SELECT DISTINCT ?o WHERE { <http://www.wikidata.org/entity/Q8740>  <http://www.wikidata.org/prop/direct/P580>  ?startWar . <http://www.wikidata.org/entity/Q8740>  <http://www.wikidata.org/prop/direct/P582>  ?endWar . <http://www.wikidata.org/entity/Q30>  <http://www.wikidata.org/prop/P6> ?blank . ?blank <http://www.wikidata.org/prop/statement/P6> ?o . ?blank <http://www.wikidata.org/prop/qualifier/P580> ?start . ?blank <http://www.wikidata.org/prop/qualifier/P582> ?end . FILTER (?startWar < ?start && ?endWar > ?end)} ",
+        "wikidata_entities_from_sparql": [
+            "Q30",
+            "Q8740"
+        ],
+        "llm_extracted_entity_names": [
+            "American",
+            "president",
+            "Vietnam War"
+        ],
+        "wikidata_entities_resolved": {
+            "American": "Q463180",
+            "president": "Q30461",
+            "Vietnam War": "Q8740"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "81",
+        "question_text": "Butch Otter is the governor of which U.S. state?",
+        "sparql_query": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?res WHERE { ?res wdt:P6 wd:Q39593 . }",
+        "wikidata_entities_from_sparql": [
+            "Q39593"
+        ],
+        "llm_extracted_entity_names": [
+            "Butch Otter",
+            "governor",
+            "U.S. state"
+        ],
+        "wikidata_entities_resolved": {
+            "Butch Otter": "Q39593",
+            "governor": "Q132050",
+            "U.S. state": "Q35657"
+        },
+        "is_correct": true
+    },
+    {
+        "id": "66",
+        "question_text": "Which artists were born on the same date as Rachel Stevens?",
+        "sparql_query": " SELECT ?s WHERE { <http://www.wikidata.org/entity/Q241665>  <http://www.wikidata.org/prop/direct/P569>  ?date . ?s <http://www.wikidata.org/prop/direct/P106> / <http://www.wikidata.org/prop/direct/P279>*   <http://www.wikidata.org/entity/Q483501> . ?s  <http://www.wikidata.org/prop/direct/P569>  ?date . }",
+        "wikidata_entities_from_sparql": [
+            "Q241665",
+            "Q483501"
+        ],
+        "llm_extracted_entity_names": [
+            "Rachel Stevens"
+        ],
+        "wikidata_entities_resolved": {
+            "Rachel Stevens": "Q241665"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "64",
+        "question_text": "What is the profession of Frank Herbert?",
+        "sparql_query": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q7934>  <http://www.wikidata.org/prop/direct/P106>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q7934"
+        ],
+        "llm_extracted_entity_names": [
+            "Frank Herbert",
+            "profession"
+        ],
+        "wikidata_entities_resolved": {
+            "Frank Herbert": "Q7934",
+            "profession": "Q28640"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "56",
+        "question_text": "How many seats does the home stadium of FC Porto have?",
+        "sparql_query": "SELECT DISTINCT ?num WHERE { <http://www.wikidata.org/entity/Q128446> <http://www.wikidata.org/prop/direct/P115>/<http://www.wikidata.org/prop/direct/P1083> ?num }",
+        "wikidata_entities_from_sparql": [
+            "Q128446"
+        ],
+        "llm_extracted_entity_names": [
+            "FC Porto",
+            "stadium"
+        ],
+        "wikidata_entities_resolved": {
+            "FC Porto": "Q128446",
+            "stadium": "Q483110"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "49",
+        "question_text": "Which frequent flyer program has the most airlines?",
+        "sparql_query": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> PREFIX p: <http://www.wikidata.org/prop/> PREFIX ps: <http://www.wikidata.org/prop/statement/> SELECT ?frequentflyer WHERE { ?airlines wdt:P31 wd:Q46970 . ?airlines p:P4446/ps:P4446 ?frequentflyer . }  GROUP BY ?frequentflyer ORDER BY DESC(COUNT(?airlines)) LIMIT 1",
+        "wikidata_entities_from_sparql": [
+            "Q46970"
+        ],
+        "llm_extracted_entity_names": [
+            "frequent flyer program",
+            "airline"
+        ],
+        "wikidata_entities_resolved": {
+            "airline": "Q46970"
+        },
+        "is_correct": false
+    },
+    {
+        "id": "44",
+        "question_text": "Which European countries have a constitutional monarchy?",
+        "sparql_query": " SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q458>  <http://www.wikidata.org/prop/direct/P150>  ?o1 . ?o1 <http://www.wikidata.org/prop/direct/P122>   <http://www.wikidata.org/entity/Q41614> }",
+        "wikidata_entities_from_sparql": [
+            "Q41614",
+            "Q458"
+        ],
+        "llm_extracted_entity_names": [
+            "European country",
+            "constitutional monarchy"
+        ],
+        "wikidata_entities_resolved": {
+            "constitutional monarchy": "Q41614"
+        },
+        "is_correct": false
+    }
+]

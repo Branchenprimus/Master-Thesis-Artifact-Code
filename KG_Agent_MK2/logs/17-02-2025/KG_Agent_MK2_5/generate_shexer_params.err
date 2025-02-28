@@ -1,0 +1,1 @@
+ERROR:root:OpenAI API error: 'ShexerConfig' object has no attribute 'shape_map_file'

@@ -1,0 +1,8 @@
++ echo 'Starting file tracking...'
++ tee -a logs/19-02-2025/KG_Agent_MK2_4/track_files.log
++ python track_files.py --root-dir ./ --output logs/19-02-2025/KG_Agent_MK2_4/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/19-02-2025/KG_Agent_MK2_4/track_files.log
++ python call_llm_api.py --model gpt-4o-mini --openai_api_key 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 --user_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/user_prompt.txt --system_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/system_prompt.txt --shape_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/shex_shape.txt --output_dir logs/19-02-2025/KG_Agent_MK2_4/misc/temp
+❌ ERROR: API call to local LLM failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1553e09c22d0>: Failed to establish a new connection: [Errno 111] Connection refused'))

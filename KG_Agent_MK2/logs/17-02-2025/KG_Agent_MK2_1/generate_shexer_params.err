@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/generate_shexer_params.py", line 4, in <module>
+    from openai import OpenAI
+ModuleNotFoundError: No module named 'openai'

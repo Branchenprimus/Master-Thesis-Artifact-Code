@@ -1,0 +1,28 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q3295567 = Lovesick>
+{
+   rdfs:label  xsd:string  {9};
+   wdt:P31  IRI  ;                                                       // rdfs:comment "P31  -->  instance of"
+   wdt:P155  IRI  ;                                                      // rdfs:comment "P155  -->  follows"
+   wdt:P156  IRI  ;                                                      // rdfs:comment "P156  -->  followed by"
+   wdt:P175  IRI  ;                                                      // rdfs:comment "P175  -->  performer"
+   wdt:P264  IRI  ;                                                      // rdfs:comment "P264  -->  record label"
+   wdt:P361  IRI  ;                                                      // rdfs:comment "P361  -->  part of"
+   wdt:P436  xsd:string  ;                                               // rdfs:comment "P436  -->  MusicBrainz release group ID"
+   wdt:P495  IRI  ;                                                      // rdfs:comment "P495  -->  country of origin"
+   wdt:P577  xsd:string  ;                                               // rdfs:comment "P577  -->  publication date"
+   wdt:P646  xsd:string  ;                                               // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P1889  IRI  {2};                                                  // rdfs:comment "P1889  -->  different from"
+   wdt:P2624  xsd:string  ;                                              // rdfs:comment "P2624  -->  MetroLyrics ID"
+   wdt:P3417  xsd:string                                                 // rdfs:comment "P3417  -->  Quora topic ID"
+}

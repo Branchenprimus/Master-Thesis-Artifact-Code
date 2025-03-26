@@ -1,8 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?country WHERE {
-  ?country wdt:P31 wd:Q36255.  # instance of country
-  ?country wdt:P463 wd:Q1860.   # member of European Union
-  ?country wdt:P17 wd:Q41614.    # has constitutional monarchy
-}

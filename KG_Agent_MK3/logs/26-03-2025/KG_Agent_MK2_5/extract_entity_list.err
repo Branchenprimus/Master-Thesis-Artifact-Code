@@ -1,6 +1,0 @@
-usage: extract_entity_list.py [-h] --input_file INPUT_FILE --output_file
-                              OUTPUT_FILE --api_key API_KEY
-                              [--num_questions NUM_QUESTIONS] [--model MODEL]
-                              [--llm_provider LLM_PROVIDER] --is_local_graph
-                              IS_LOCAL_GRAPH
-extract_entity_list.py: error: argument --num_questions: expected one argument

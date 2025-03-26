@@ -1,7 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT (COUNT(?seats) AS ?numberOfSeats) WHERE {
-  wd:Q128446 wdt:P115 ?home_stadium .
-  ?home_stadium wdt:P2671 ?seats .
-}

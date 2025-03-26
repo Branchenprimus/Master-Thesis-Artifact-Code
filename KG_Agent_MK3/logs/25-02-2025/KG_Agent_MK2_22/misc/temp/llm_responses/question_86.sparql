@@ -1,9 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?mountain ?mountainLabel
-WHERE {
-  wd:Q183 wdt:P610 ?mountain .
-  ?mountain rdfs:label ?mountainLabel .
-  FILTER (LANG(?mountainLabel) = "en")
-}

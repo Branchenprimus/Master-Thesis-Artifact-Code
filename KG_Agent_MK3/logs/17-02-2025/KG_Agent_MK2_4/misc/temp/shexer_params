@@ -1,1 +1,0 @@
-{"source":{"local_file":null,"remote_url":"http://dbpedia.org/data/Salt_Lake_City.ttl","sparql_endpoint":null,"raw_data":null},"target_classes":["http://schema.org/City"],"all_classes":false,"examples":"SHAPE_EXAMPLES"}

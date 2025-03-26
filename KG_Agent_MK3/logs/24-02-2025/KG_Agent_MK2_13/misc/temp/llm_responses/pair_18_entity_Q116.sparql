@@ -1,9 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?monarch WHERE {
-  ?monarch wdt:P31 wd:Q116;  # instance of monarch
-           wdt:P17 wd:Q145;   # country is United Kingdom
-           wdt:P26 ?spouse.    # married to
-  ?spouse wdt:P31 wd:Q188.    # spouse is German
-}

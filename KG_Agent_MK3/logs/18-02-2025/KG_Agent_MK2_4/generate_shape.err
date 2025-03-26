@@ -1,3 +1,0 @@
-INFO: Loaded 1 lines from /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/logs/17-02-2025/KG_Agent_MK2_8/misc/temp/shexer_params.
-ERROR: Line 1: Shexer validation failed - You must provide one and only one of the following params: ['graph_file_input', 'graph_list_of_files_input', 'raw_graph', 'url_input', 'list_of_url_input', 'url_endpoint', 'rdflib_graph']
-INFO: Validation complete. 0/1 lines succeeded.

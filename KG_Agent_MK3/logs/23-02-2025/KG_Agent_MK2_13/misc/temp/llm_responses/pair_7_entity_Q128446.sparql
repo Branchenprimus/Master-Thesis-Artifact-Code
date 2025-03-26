@@ -1,8 +1,0 @@
-PREFIX ex: <http://example.org/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?seats WHERE {
-  wd:Q1001 wdt:P115 ?venue .
-  ?venue wdt:P1083 ?seats .
-}

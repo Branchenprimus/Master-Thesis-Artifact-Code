@@ -1,5 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-SELECT ?country WHERE {
-  wd:Q5284 wdt:P19 ?placeOfBirth .
-  ?placeOfBirth wdt:P17 ?country .
-}

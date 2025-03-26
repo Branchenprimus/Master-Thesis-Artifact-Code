@@ -1,6 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?timezone WHERE {
-  wd:wd:Salt_Lake_City wdt:P421 ?timezone.
-}

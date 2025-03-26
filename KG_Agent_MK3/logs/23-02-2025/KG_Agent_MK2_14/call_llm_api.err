@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 7, in <module>
-    logging.basicConfig(filename="llm_requests.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-    ^^^^^^^
-NameError: name 'logging' is not defined

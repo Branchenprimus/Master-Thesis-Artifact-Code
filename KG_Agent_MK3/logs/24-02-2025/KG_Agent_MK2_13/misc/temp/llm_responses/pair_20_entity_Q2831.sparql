@@ -1,6 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?cause_of_death WHERE {
-  wd:Q2831 wdt:P509 ?cause_of_death.
-}

@@ -1,7 +1,0 @@
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-
-SELECT ?skateboarder WHERE {
-  ?skateboarder wdt:P17 wd:Q34;
-                wdt:P31 wd:Q18510342.  # Assuming Q18510342 is the entity for professional skateboarder
-}

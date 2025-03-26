@@ -1,9 +1,0 @@
-PREFIX ex: <http://example.org/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?frequentFlyerProgram (COUNT(?airline) AS ?airlineCount) WHERE {
-  ?airline wdt:P1709 ?frequentFlyerProgram .
-} GROUP BY ?frequentFlyerProgram
-ORDER BY DESC(?airlineCount)
-LIMIT 1

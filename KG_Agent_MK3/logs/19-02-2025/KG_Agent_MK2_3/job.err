@@ -1,0 +1,14 @@
++ echo 'Starting file tracking...'
++ tee -a logs/19-02-2025/KG_Agent_MK2_3/track_files.log
++ python track_files.py --root-dir ./ --output logs/19-02-2025/KG_Agent_MK2_3/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/19-02-2025/KG_Agent_MK2_3/track_files.log
++ python call_llm_api.py --model gpt-4o-mini --openai_api_key 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 --user_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/user_prompt.txt --system_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/system_prompt.txt --shape_path --output_dir logs/19-02-2025/KG_Agent_MK2_3/misc/temp
+usage: call_llm_api.py [-h] [--use_chatgpt] [--host HOST] [--port PORT]
+                       [--model MODEL] [--openai_api_key OPENAI_API_KEY]
+                       --user_prompt_path USER_PROMPT_PATH
+                       --system_prompt_path SYSTEM_PROMPT_PATH --shape_path
+                       SHAPE_PATH --output_dir OUTPUT_DIR
+                       [--max_tokens MAX_TOKENS] [--temperature TEMPERATURE]
+call_llm_api.py: error: argument --shape_path: expected one argument

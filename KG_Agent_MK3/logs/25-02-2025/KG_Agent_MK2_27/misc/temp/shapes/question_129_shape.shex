@@ -1,0 +1,81 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q5480 = Bart_Simpson>
+{
+   rdfs:label  xsd:string  {85};
+   wdt:P18  IRI  ;                                                        // rdfs:comment "P18  -->  image"
+   wdt:P19  IRI  ;                                                        // rdfs:comment "P19  -->  place of birth"
+   wdt:P21  IRI  ;                                                        // rdfs:comment "P21  -->  sex or gender"
+   wdt:P22  IRI  {2};                                                     // rdfs:comment "P22  -->  father"
+   wdt:P25  IRI  ;                                                        // rdfs:comment "P25  -->  mother"
+   wdt:P27  IRI  ;                                                        // rdfs:comment "P27  -->  country of citizenship"
+   wdt:P31  IRI  {4};                                                     // rdfs:comment "P31  -->  instance of"
+   wdt:P53  IRI  ;                                                        // rdfs:comment "P53  -->  family"
+   wdt:P106  IRI  {3};                                                    // rdfs:comment "P106  -->  occupation"
+   wdt:P170  IRI  ;                                                       // rdfs:comment "P170  -->  creator"
+   wdt:P244  xsd:string  ;                                                // rdfs:comment "P244  -->  Library of Congress authority ID"
+   wdt:P373  xsd:string  ;                                                // rdfs:comment "P373  -->  Commons category"
+   wdt:P434  xsd:string  ;                                                // rdfs:comment "P434  -->  MusicBrainz artist ID"
+   wdt:P495  IRI  ;                                                       // rdfs:comment "P495  -->  country of origin"
+   wdt:P551  IRI  ;                                                       // rdfs:comment "P551  -->  residence"
+   wdt:P552  IRI  ;                                                       // rdfs:comment "P552  -->  handedness"
+   wdt:P569  xsd:string  ;                                                // rdfs:comment "P569  -->  date of birth"
+   wdt:P646  xsd:string  ;                                                // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P725  IRI  {3};                                                    // rdfs:comment "P725  -->  voice actor"
+   wdt:P734  IRI  ;                                                       // rdfs:comment "P734  -->  family name"
+   wdt:P735  IRI  {3};                                                    // rdfs:comment "P735  -->  given name"
+   wdt:P742  xsd:string  ;                                                // rdfs:comment "P742  -->  pseudonym"
+   wdt:P1038  IRI  {16};                                                  // rdfs:comment "P1038  -->  relative"
+   wdt:P1050  IRI  {2};                                                   // rdfs:comment "P1050  -->  medical condition"
+   wdt:P1080  IRI  ;                                                      // rdfs:comment "P1080  -->  from narrative universe"
+   wdt:P1412  IRI  {2};                                                   // rdfs:comment "P1412  -->  languages spoken, written or signed"
+   wdt:P1429  IRI  {2};                                                   // rdfs:comment "P1429  -->  has pet"
+   wdt:P1441  IRI  {3};                                                   // rdfs:comment "P1441  -->  present in work"
+   wdt:P1559  xsd:string  ;                                               // rdfs:comment "P1559  -->  name in native language"
+   wdt:P1830  IRI  ;                                                      // rdfs:comment "P1830  -->  owner of"
+   wdt:P1884  IRI  ;                                                      // rdfs:comment "P1884  -->  hair color"
+   wdt:P1953  xsd:integer  ;                                              // rdfs:comment "P1953  -->  Discogs artist ID"
+   wdt:P2563  IRI  ;                                                      // rdfs:comment "P2563  -->  superhuman feature or ability"
+   wdt:P2572  xsd:string  ;                                               // rdfs:comment "P2572  -->  hashtag"
+   wdt:P2581  xsd:string  ;                                               // rdfs:comment "P2581  -->  BabelNet ID"
+   wdt:P3150  IRI  ;                                                      // rdfs:comment "P3150  -->  birthday"
+   wdt:P3373  IRI  {2};                                                   // rdfs:comment "P3373  -->  sibling"
+   wdt:P3417  xsd:string  ;                                               // rdfs:comment "P3417  -->  Quora topic ID"
+   wdt:P3828  IRI  {2};                                                   // rdfs:comment "P3828  -->  wears"
+   wdt:P3847  xsd:string  ;                                               // rdfs:comment "P3847  -->  Open Library subject ID"
+   wdt:P4584  IRI  ;                                                      // rdfs:comment "P4584  -->  first appearance"
+   wdt:P4675  IRI  {2};                                                   // rdfs:comment "P4675  -->  appears in the form of"
+   wdt:P4839  xsd:string  ;                                               // rdfs:comment "P4839  -->  Wolfram Language entity code"
+   wdt:P5107  xsd:string  ;                                               // rdfs:comment "P5107  -->  Behind The Voice Actors character ID"
+   wdt:P5247  xsd:string  ;                                               // rdfs:comment "P5247  -->  Giant Bomb ID"
+   wdt:P5421  xsd:integer  ;                                              // rdfs:comment "P5421  -->  Trading Card Database person ID"
+   wdt:P5569  xsd:string  ;                                               // rdfs:comment "P5569  -->  Tebeosfera character ID"
+   wdt:P5905  xsd:string  ;                                               // rdfs:comment "P5905  -->  Comic Vine ID"
+   wdt:P6249  xsd:integer  ;                                              // rdfs:comment "P6249  -->  narrative age"
+   wdt:P6251  xsd:string  {4};                                            // rdfs:comment "P6251  -->  catchphrase"
+   wdt:P6262  xsd:string  {25};                                           // rdfs:comment "P6262  -->  Fandom article ID"
+   wdt:P6327  xsd:integer  ;                                              // rdfs:comment "P6327  -->  Goodreads character ID"
+   wdt:P6839  xsd:string  ;                                               // rdfs:comment "P6839  -->  TV Tropes ID"
+   wdt:P7047  IRI  {3};                                                   // rdfs:comment "P7047  -->  enemy"
+   wdt:P7157  xsd:integer  ;                                              // rdfs:comment "P7157  -->  The Top Tens ID"
+   wdt:P8189  xsd:integer  ;                                              // rdfs:comment "P8189  -->  J9U ID"
+   wdt:P8309  xsd:string  {2};                                            // rdfs:comment "P8309  -->  Yle topic ID"
+   wdt:P8345  IRI  ;                                                      // rdfs:comment "P8345  -->  media franchise"
+   wdt:P8419  xsd:string  ;                                               // rdfs:comment "P8419  -->  Archive of Our Own tag"
+   wdt:P10291  xsd:integer  ;                                             // rdfs:comment "P10291  -->  Wikisimpsons article ID"
+   wdt:P10757  xsd:integer  ;                                             // rdfs:comment "P10757  -->  Personality Database profile ID"
+   wdt:P11137  xsd:string  ;                                              // rdfs:comment "P11137  -->  Reddit"
+   wdt:P11386  xsd:string  ;                                              // rdfs:comment "P11386  -->  Listal ID"
+   wdt:P12086  xsd:string  ;                                              // rdfs:comment "P12086  -->  WikiKids ID"
+   wdt:P12800  xsd:string  {2};                                           // rdfs:comment "P12800  -->  Vikidia article ID"
+   wdt:P12978  xsd:integer                                                // rdfs:comment "P12978  -->  ‎TV Maze character ID"
+}

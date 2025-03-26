@@ -1,0 +1,124 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q240377 = Amanda_Palmer>
+{
+   rdfs:label  xsd:string  {54};
+   wdt:P18 IRI  -->  image
+   wdt:P19 IRI  -->  place of birth
+   wdt:P21 IRI  -->  sex or gender
+   wdt:P26 IRI  -->  spouse
+   wdt:P27 IRI  -->  country of citizenship
+   wdt:P31 IRI  -->  instance of
+   wdt:P69 IRI {2}  -->  educated at
+   wdt:P106 IRI {10}  -->  occupation
+   wdt:P136 IRI  -->  genre
+   wdt:P213 xsd:string  -->  ISNI
+   wdt:P214 xsd:integer  -->  VIAF cluster ID
+   wdt:P227 xsd:string  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P264 IRI {2}  -->  record label
+   wdt:P268 xsd:string  -->  Bibliothèque nationale de France ID
+   wdt:P269 xsd:integer  -->  IdRef ID
+   wdt:P345 xsd:string  -->  IMDb ID
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P358 IRI  -->  discography
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P434 xsd:string  -->  MusicBrainz artist ID
+   wdt:P463 IRI {2}  -->  member of
+   wdt:P551 IRI {2}  -->  residence
+   wdt:P569 xsd:string  -->  date of birth
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P648 xsd:string {2}  -->  Open Library ID
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P734 IRI  -->  family name
+   wdt:P735 IRI {2}  -->  given name
+   wdt:P856 IRI  -->  official website
+   wdt:P950 xsd:string  -->  National Library of Spain ID
+   wdt:P972 IRI  -->  catalog
+   wdt:P1006 xsd:integer  -->  Nationale Thesaurus voor Auteursnamen ID
+   wdt:P1015 xsd:integer  -->  NORAF ID
+   wdt:P1207 xsd:string  -->  NUKAT ID
+   wdt:P1263 xsd:string  -->  Notable Names Database
+   wdt:P1286 xsd:integer  -->  Munzinger Pop ID
+   wdt:P1303 IRI {3}  -->  instrument
+   wdt:P1343 IRI  -->  described by source
+   wdt:P1412 IRI  -->  languages spoken, written or signed
+   wdt:P1477 xsd:string  -->  birth name
+   wdt:P1553 xsd:integer  -->  Yandex Music artist ID
+   wdt:P1559 xsd:string  -->  name in native language
+   wdt:P1617 xsd:string  -->  BBC Things ID
+   wdt:P1728 xsd:string  -->  AllMusic artist ID
+   wdt:P1902 xsd:string  -->  Spotify artist ID
+   wdt:P1953 xsd:integer  -->  Discogs artist ID
+   wdt:P1971 xsd:integer  -->  number of children
+   wdt:P2002 xsd:string {2}  -->  X (Twitter) username
+   wdt:P2003 xsd:string  -->  Instagram username
+   wdt:P2013 xsd:string  -->  Facebook username
+   wdt:P2031 xsd:string  -->  work period (start)
+   wdt:P2163 xsd:integer  -->  FAST ID
+   wdt:P2397 xsd:string  -->  YouTube channel ID
+   wdt:P2562 xsd:string  -->  married name
+   wdt:P2605 xsd:integer  -->  ČSFD person ID
+   wdt:P2611 xsd:string  -->  TED speaker ID
+   wdt:P2722 xsd:integer  -->  Deezer artist ID
+   wdt:P2850 xsd:integer  -->  Apple Music artist ID (U.S. version)
+   wdt:P2909 xsd:integer  -->  SecondHandSongs artist ID
+   wdt:P2963 xsd:integer  -->  Goodreads author ID
+   wdt:P3017 xsd:string  -->  Rolling Stone artist ID
+   wdt:P3040 xsd:string  -->  SoundCloud ID
+   wdt:P3065 xsd:string  -->  RERO ID (legacy)
+   wdt:P3106 xsd:string  -->  Guardian topic ID
+   wdt:P3192 xsd:string  -->  Last.fm ID
+   wdt:P3265 xsd:string  -->  Myspace ID
+   wdt:P3283 xsd:string  -->  Bandcamp profile ID
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3430 xsd:string  -->  SNAC ARK ID
+   wdt:P3478 xsd:integer  -->  Songkick artist ID
+   wdt:P3630 xsd:integer  -->  Babelio author ID
+   wdt:P3943 xsd:string  -->  Tumblr username
+   wdt:P4015 xsd:string  -->  Vimeo ID
+   wdt:P4033 xsd:string  -->  Mastodon address
+   wdt:P4104 xsd:integer  -->  Carnegie Hall agent ID
+   wdt:P4175 xsd:string  -->  Patreon ID
+   wdt:P4198 xsd:string  -->  Google Play Music artist ID (former scheme)
+   wdt:P4208 xsd:string  -->  Billboard artist ID
+   wdt:P4619 xsd:integer  -->  National Library of Brazil ID
+   wdt:P4985 xsd:integer  -->  TMDB person ID
+   wdt:P5356 xsd:string  -->  Laut.de artist ID
+   wdt:P5404 xsd:string  -->  Rate Your Music artist ID
+   wdt:P5882 xsd:string  -->  Muziekweb performer ID
+   wdt:P5917 xsd:integer  -->  Shazam artist ID
+   wdt:P5951 xsd:integer  -->  ComiXology creator ID
+   wdt:P6276 xsd:string  -->  Amazon Music artist ID
+   wdt:P6461 xsd:string  -->  Rock's Backpages artist ID
+   wdt:P7052 xsd:string  -->  Jaxsta profile ID
+   wdt:P7109 xsd:string  -->  Acharts.co artist ID
+   wdt:P7194 xsd:string  -->  AZLyrics.com artist ID
+   wdt:P7212 xsd:string  -->  LyricsTranslate ID
+   wdt:P7293 xsd:integer  -->  PLWABN ID
+   wdt:P7704 xsd:string  -->  Europeana entity
+   wdt:P8179 xsd:string  -->  Canadiana Name Authority ID
+   wdt:P8309 xsd:string  -->  Yle topic ID
+   wdt:P8687 xsd:integer  -->  social media followers
+   wdt:P8819 xsd:string  -->  Pitchfork artist ID
+   wdt:P9171 xsd:integer  -->  RILM ID
+   wdt:P9271 xsd:string  -->  Kickstarter username
+   wdt:P9743 xsd:string  -->  Podchaser creator ID
+   wdt:P10302 xsd:string  -->  Film.ru person ID
+   wdt:P10832 xsd:string  -->  WorldCat Entities ID
+   wdt:P11137 xsd:string  -->  Reddit
+   wdt:P11386 xsd:string  -->  Listal ID
+   wdt:P11713 xsd:integer  -->  Patreon user numeric ID
+   wdt:P12098 xsd:integer  -->  Kinobox person ID
+   wdt:P12361 xsd:string  -->  Bluesky handle
+   wdt:P12749 xsd:string  -->  SNARC ID
+}

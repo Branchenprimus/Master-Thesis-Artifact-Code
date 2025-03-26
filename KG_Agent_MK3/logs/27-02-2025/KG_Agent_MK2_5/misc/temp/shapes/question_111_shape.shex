@@ -1,0 +1,303 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q33760 = Bertrand_Russell>
+{
+   wdt:P18 IRI  -->  image
+   wdt:P19 IRI  -->  place of birth
+   wdt:P20 IRI {2}  -->  place of death
+   wdt:P21 IRI  -->  sex or gender
+   wdt:P22 IRI  -->  father
+   wdt:P25 IRI  -->  mother
+   wdt:P26 IRI {4}  -->  spouse
+   wdt:P27 IRI {2}  -->  country of citizenship
+   wdt:P31 IRI  -->  instance of
+   wdt:P39 IRI  -->  position held
+   wdt:P40 IRI {4}  -->  child
+   wdt:P69 IRI {2}  -->  educated at
+   wdt:P97 IRI  -->  noble title
+   wdt:P101 IRI {12}  -->  field of work
+   wdt:P102 IRI {2}  -->  member of political party
+   wdt:P103 IRI  -->  native language
+   wdt:P106 IRI {18}  -->  occupation
+   wdt:P108 IRI {4}  -->  employer
+   wdt:P109 IRI  -->  signature
+   wdt:P135 IRI {3}  -->  movement
+   wdt:P140 IRI  -->  religion or worldview
+   wdt:P166 IRI {9}  -->  award received
+   wdt:P184 IRI  -->  doctoral advisor
+   wdt:P185 IRI  -->  doctoral student
+   wdt:P213 xsd:integer  -->  ISNI
+   wdt:P214 xsd:integer  -->  VIAF cluster ID
+   wdt:P227 xsd:integer  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   rdfs:label  xsd:string  {136};
+   wdt:P268 xsd:string  -->  Bibliothèque nationale de France ID
+   wdt:P269 xsd:integer  -->  IdRef ID
+   wdt:P270 xsd:string  -->  CALIS ID
+   wdt:P271 xsd:string  -->  NACSIS-CAT author ID
+   wdt:P345 xsd:string  -->  IMDb ID
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P396 xsd:string  -->  SBN author ID
+   wdt:P409 xsd:integer  -->  Libraries Australia ID
+   wdt:P434 xsd:string  -->  MusicBrainz artist ID
+   wdt:P463 IRI  -->  member of
+   wdt:P485 IRI {2}  -->  archives at
+   wdt:P509 IRI  -->  cause of death
+   wdt:P535 xsd:integer  -->  Find a Grave memorial ID
+   wdt:P549 xsd:integer  -->  Mathematics Genealogy Project ID
+   wdt:P569 xsd:string  -->  date of birth
+   wdt:P570 xsd:string  -->  date of death
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P648 xsd:string  -->  Open Library ID
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P701 xsd:string  -->  Dodis ID
+   wdt:P723 xsd:string  -->  Digitale Bibliotheek voor de Nederlandse Letteren author ID
+   wdt:P734 IRI  -->  family name
+   wdt:P735 IRI {3}  -->  given name
+   wdt:P737 IRI {18}  -->  influenced by
+   wdt:P793 IRI  -->  significant event
+   wdt:P800 IRI {15}  -->  notable work
+   wdt:P802 IRI  -->  student
+   wdt:P863 xsd:string  -->  InPhO ID
+   wdt:P866 xsd:string  -->  Perlentaucher ID
+   wdt:P906 xsd:integer  -->  SELIBR ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P937 IRI  -->  work location
+   wdt:P949 xsd:integer  -->  National Library of Israel ID (old)
+   wdt:P950 xsd:string  -->  National Library of Spain ID
+   wdt:P1003 xsd:integer  -->  National Library of Romania ID
+   wdt:P1005 xsd:integer  -->  Portuguese National Library author ID
+   wdt:P1006 xsd:integer  -->  Nationale Thesaurus voor Auteursnamen ID
+   wdt:P1015 xsd:integer  -->  NORAF ID
+   wdt:P1017 xsd:string  -->  Vatican Library ID (former scheme)
+   wdt:P1050 IRI  -->  medical condition
+   wdt:P1066 IRI  -->  student of
+   wdt:P1150 xsd:string  -->  Regensburg Classification
+   wdt:P1153 xsd:integer  -->  Scopus author ID
+   wdt:P1185 xsd:integer  -->  Rodovid ID
+   wdt:P1196 IRI  -->  manner of death
+   wdt:P1207 xsd:string  -->  NUKAT ID
+   wdt:P1213 xsd:integer  -->  NLC authorities
+   wdt:P1233 xsd:integer  -->  Internet Speculative Fiction Database author ID
+   wdt:P1263 xsd:string  -->  Notable Names Database
+   wdt:P1273 xsd:string  -->  CANTIC ID (former scheme)
+   wdt:P1280 xsd:integer  -->  CONOR.SI ID
+   wdt:P1284 xsd:integer  -->  Munzinger person ID
+   wdt:P1296 xsd:integer  -->  Gran Enciclopèdia Catalana ID (former scheme)
+   wdt:P1309 xsd:string  -->  EGAXA ID
+   wdt:P1315 xsd:integer {3}  -->  NLA Trove people ID
+   wdt:P1343 IRI {8}  -->  described by source
+   wdt:P1368 xsd:integer  -->  National Library of Latvia ID
+   wdt:P1411 IRI {2}  -->  nominated for
+   wdt:P1412 IRI  -->  languages spoken, written or signed
+   wdt:P1415 xsd:integer  -->  Oxford Dictionary of National Biography ID
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1424 IRI  -->  topic's main template
+   wdt:P1430 xsd:integer  -->  Open Plaques subject ID
+   wdt:P1472 xsd:string  -->  Commons Creator page
+   wdt:P1477 xsd:string  -->  birth name
+   wdt:P1556 xsd:string  -->  zbMATH author ID
+   wdt:P1559 xsd:string  -->  name in native language
+   wdt:P1563 xsd:string  -->  MacTutor biography ID
+   wdt:P1580 xsd:string  -->  University of Barcelona authority ID (former scheme)
+   wdt:P1607 xsd:integer  -->  Dialnet author ID
+   wdt:P1617 xsd:string  -->  BBC Things ID
+   wdt:P1670 xsd:string  -->  Canadiana Authorities ID (former scheme)
+   wdt:P1695 xsd:string  -->  NLP ID (old)
+   wdt:P1711 xsd:integer  -->  British Museum person or institution ID
+   wdt:P1741 xsd:integer  -->  GTAA ID
+   wdt:P1816 xsd:string  -->  National Portrait Gallery (London) person ID
+   wdt:P1819 xsd:string  -->  genealogics.org person ID
+   wdt:P1890 xsd:integer  -->  CCAB ID
+   wdt:P1899 xsd:integer  -->  LibriVox author ID
+   wdt:P1938 xsd:integer  -->  Project Gutenberg author ID
+   wdt:P1960 xsd:string  -->  Google Scholar author ID
+   wdt:P1977 xsd:integer  -->  Les Archives du spectacle person ID
+   wdt:P2163 xsd:integer  -->  FAST ID
+   wdt:P2188 xsd:integer  -->  BiblioNet author ID
+   wdt:P2191 xsd:integer  -->  Vegetti Catalog of Fantastic Literature NILF ID
+   wdt:P2348 IRI  -->  time period
+   wdt:P2381 xsd:integer  -->  Academic Tree ID
+   wdt:P2600 xsd:integer  -->  Geni.com profile ID
+   wdt:P2607 xsd:string  -->  BookBrainz author ID
+   wdt:P2632 IRI  -->  place of detention
+   wdt:P2732 xsd:integer  -->  Persée author ID
+   wdt:P2734 xsd:string  -->  Unz Review author ID
+   wdt:P2799 xsd:integer  -->  BVMC person ID
+   wdt:P2850 xsd:integer  -->  Apple Music artist ID (U.S. version)
+   wdt:P2889 xsd:string  -->  FamilySearch person ID
+   wdt:P2949 xsd:string  -->  WikiTree person ID
+   wdt:P2963 xsd:integer  -->  Goodreads author ID
+   wdt:P2966 xsd:string {2}  -->  National Library of Wales Authority ID
+   wdt:P3029 xsd:string  -->  UK National Archives ID
+   wdt:P3051 xsd:string  -->  Kindred Britain ID
+   wdt:P3065 xsd:string {2}  -->  RERO ID (legacy)
+   wdt:P3123 xsd:string  -->  Stanford Encyclopedia of Philosophy ID
+   wdt:P3154 xsd:string  -->  Runeberg author ID
+   wdt:P3219 xsd:string  -->  Encyclopædia Universalis ID
+   wdt:P3222 xsd:string  -->  NE.se ID
+   wdt:P3232 xsd:string  -->  PhilPapers author ID
+   wdt:P3235 xsd:string  -->  PhilPapers topic
+   wdt:P3280 xsd:integer  -->  BAnQ authority ID
+   wdt:P3348 xsd:integer  -->  National Library of Greece ID
+   wdt:P3360 xsd:integer  -->  Nobel Prize People Nomination ID
+   wdt:P3365 xsd:string  -->  Treccani ID
+   wdt:P3368 xsd:integer  -->  Prabook ID
+   wdt:P3373 IRI  -->  sibling
+   wdt:P3417 xsd:string {2}  -->  Quora topic ID
+   wdt:P3430 xsd:string  -->  SNAC ARK ID
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P3569 xsd:string  -->  Cultureel Woordenboek ID
+   wdt:P3630 xsd:integer  -->  Babelio author ID
+   wdt:P3762 xsd:integer  -->  openMLOL author ID
+   wdt:P3788 xsd:integer  -->  BNMM authority ID
+   wdt:P3847 xsd:string  -->  Open Library subject ID
+   wdt:P3987 xsd:integer  -->  SHARE Catalogue author ID
+   wdt:P4081 xsd:integer  -->  BHL creator ID
+   wdt:P4104 xsd:integer  -->  Carnegie Hall agent ID
+   wdt:P4159 xsd:string  -->  WeRelate person ID
+   wdt:P4215 xsd:string  -->  nLab ID
+   wdt:P4223 xsd:string {3}  -->  Treccani's Enciclopedia Italiana ID
+   wdt:P4248 xsd:integer  -->  The Black Book ID
+   wdt:P4293 xsd:string  -->  PM20 folder ID
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P4343 xsd:string {2}  -->  WBPLN author ID
+   wdt:P4619 xsd:integer  -->  National Library of Brazil ID
+   wdt:P4629 xsd:string  -->  Online Books Page author ID
+   wdt:P4638 xsd:string  -->  The Peerage person ID
+   wdt:P4789 xsd:string  -->  Who's Who UK ID
+   wdt:P4839 xsd:string  -->  Wolfram Language entity code
+   wdt:P4862 xsd:string  -->  Amazon author ID
+   wdt:P4955 xsd:integer  -->  MR Author ID
+   wdt:P4985 xsd:integer  -->  TMDB person ID
+   wdt:P5008 IRI  -->  on focus list of Wikimedia project
+   wdt:P5019 xsd:string  -->  Brockhaus Enzyklopädie online ID
+   wdt:P5034 xsd:string  -->  National Library of Korea ID
+   wdt:P5063 xsd:string  -->  Interlingual Index ID
+   wdt:P5357 xsd:string  -->  Encyclopedia of Science Fiction ID
+   wdt:P5441 xsd:string  -->  Encyclopaedia Herder person ID
+   wdt:P5570 xsd:integer  -->  NooSFere author ID
+   wdt:P5587 xsd:string  -->  Libris-URI
+   wdt:P5617 xsd:string  -->  Evene ID
+   wdt:P5695 xsd:integer  -->  Bibliopoche author ID
+   wdt:P5731 xsd:integer  -->  Angelicum ID
+   wdt:P5739 xsd:integer  -->  Pontificia Università della Santa Croce ID
+   wdt:P5821 xsd:integer  -->  ArhivX LOD
+   wdt:P5905 xsd:string  -->  Comic Vine ID
+   wdt:P6104 IRI  -->  maintained by WikiProject
+   wdt:P6173 xsd:integer  -->  Bitraga author ID
+   wdt:P6385 xsd:string  -->  Krugosvet article
+   wdt:P6394 xsd:string {2}  -->  ELNET ID
+   wdt:P6404 xsd:string  -->  Treccani's Dizionario di Storia ID
+   wdt:P6441 xsd:integer  -->  Douban author ID
+   wdt:P6683 xsd:integer  -->  Alexander Turnbull Library ID
+   wdt:P6706 xsd:string  -->  De Agostini ID
+   wdt:P6781 xsd:string  -->  ProofWiki ID
+   wdt:P6886 IRI  -->  writing language
+   wdt:P7026 xsd:integer  -->  Lebanese National Library ID
+   wdt:P7029 xsd:integer {2}  -->  National Library of Russia ID
+   wdt:P7142 xsd:integer  -->  Poincaré Papers person ID
+   wdt:P7212 xsd:string  -->  LyricsTranslate ID
+   wdt:P7293 xsd:integer  -->  PLWABN ID
+   wdt:P7305 xsd:integer  -->  Online PWN Encyclopedia ID
+   wdt:P7369 xsd:integer  -->  National Library of Chile ID
+   wdt:P7400 xsd:string  -->  LibraryThing author ID
+   wdt:P7502 xsd:string  -->  Golden ID
+   wdt:P7666 xsd:string  -->  Visuotinė lietuvių enciklopedija ID
+   wdt:P7699 xsd:string  -->  National Library of Lithuania ID
+   wdt:P7700 xsd:string  -->  Slovak National Library (VIAF) ID
+   wdt:P7704 xsd:string  -->  Europeana entity
+   wdt:P7796 xsd:integer  -->  BeWeb person ID
+   wdt:P7865 xsd:string  -->  CoBiS author ID
+   wdt:P7902 xsd:integer  -->  Deutsche Biographie (GND) ID
+   wdt:P7929 xsd:string  -->  Roglo person ID
+   wdt:P7982 xsd:integer  -->  Hrvatska enciklopedija ID
+   wdt:P7993 xsd:string {2}  -->  Treccani's Dizionario di Filosofia ID
+   wdt:P8024 xsd:integer  -->  Nobel Laureate API ID
+   wdt:P8034 xsd:string  -->  Vatican Library VcBA ID
+   wdt:P8094 xsd:string  -->  GeneaStar person ID
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8179 xsd:string  -->  Canadiana Name Authority ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8309 xsd:string  -->  Yle topic ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8496 xsd:string  -->  Archive Site Trinity College Cambridge ID
+   wdt:P8612 xsd:string  -->  past Fellow of the Royal Society ID
+   wdt:P8750 xsd:integer {2}  -->  Unione Romana Biblioteche Scientifiche ID
+   wdt:P8795 xsd:integer  -->  Diamond Catalog ID for persons and organisations
+   wdt:P8814 xsd:string  -->  WordNet 3.1 Synset ID
+   wdt:P8833 xsd:integer  -->  Union Catalog of Armenian Libraries authority ID
+   wdt:P8849 xsd:integer  -->  CONOR.BG ID
+   wdt:P8851 xsd:integer  -->  CONOR.SR ID
+   wdt:P8902 xsd:string  -->  Archives at Yale agent ID
+   wdt:P8947 xsd:integer  -->  Museo Galileo authority ID
+   wdt:P8992 xsd:string  -->  1914-1918-Online ID
+   wdt:P9037 xsd:string  -->  BHCL UUID
+   wdt:P9164 xsd:integer  -->  Svenska Institutet i Rom ID
+   wdt:P9171 xsd:integer  -->  RILM ID
+   wdt:P9178 xsd:integer  -->  Biblioteca Franco Serantini ID
+   wdt:P9179 xsd:integer  -->  Biblioteca Iglesia Nacional Española en Roma ID
+   wdt:P9212 xsd:integer  -->  Dizionario biografico online degli anarchici italiani ID
+   wdt:P9226 xsd:string  -->  ARAE ID
+   wdt:P9247 xsd:integer  -->  Pontifical University of Salamanca ID
+   wdt:P9251 xsd:integer  -->  Cyprus University of Technology ID
+   wdt:P9352 xsd:integer  -->  Portrait Archive ID
+   wdt:P9371 xsd:integer  -->  FranceArchives agent ID
+   wdt:P9594 xsd:integer  -->  Bodleian Archives & Manuscripts person ID
+   wdt:P9621 xsd:string  -->  Treccani's Enciclopedia della Matematica ID
+   wdt:P9807 xsd:integer  -->  SNK ID
+   wdt:P9863 xsd:string  -->  Gujarati Vishwakosh entry
+   wdt:P9885 xsd:string  -->  Bing entity ID
+   wdt:P9964 xsd:integer  -->  Kalliope-Verbund (GND) ID
+   wdt:P9984 xsd:integer  -->  CANTIC ID
+   wdt:P10069 xsd:integer  -->  Tabakalera ID
+   wdt:P10141 xsd:integer  -->  Academy of Athens authority ID
+   wdt:P10227 xsd:string  -->  National Library of Ireland ID
+   wdt:P10242 xsd:string  -->  Lur Encyclopedic Dictionary ID
+   wdt:P10553 xsd:string  -->  IxTheo authority ID
+   wdt:P10565 xsd:integer  -->  Encyclopedia of China (Third Edition) ID
+   wdt:P10608 xsd:string  -->  FID performing arts ID
+   wdt:P10704 xsd:float  -->  Biographical Memoirs of Fellows of the Royal Society ID
+   wdt:P10780 xsd:string  -->  Radio France person ID
+   wdt:P10832 xsd:string  -->  WorldCat Entities ID
+   wdt:P10849 xsd:integer  -->  Beamish peerage database person ID
+   wdt:P11137 xsd:string  -->  Reddit
+   wdt:P11155 xsd:integer  -->  Municipal Library of Trikala ID
+   wdt:P11158 xsd:integer  -->  Dimitri and Aliki Perrotis Central Library ID
+   wdt:P11185 xsd:string  -->  Levadia Library ID
+   wdt:P11193 xsd:string  -->  Piraeus Bank Group Cultural Foundation Library (B) ID
+   wdt:P11239 xsd:integer  -->  DFK Paris person ID
+   wdt:P11249 xsd:integer  -->  KBR person ID
+   wdt:P11386 xsd:string  -->  Listal ID
+   wdt:P11496 xsd:integer  -->  CiNii Research ID
+   wdt:P11514 xsd:string  -->  Great Russian Encyclopedia portal ID
+   wdt:P11686 xsd:integer  -->  University of Barcelona authority ID
+   wdt:P11870 xsd:integer  -->  The Literary Encyclopedia person ID
+   wdt:P12098 xsd:integer  -->  Kinobox person ID
+   wdt:P12385 xsd:string  -->  Gran Enciclopèdia Catalana ID
+   wdt:P12386 xsd:string  -->  Dansk Forfatterleksikon ID
+   wdt:P12430 xsd:string  -->  The StoryGraph author ID
+   wdt:P12458 xsd:integer  -->  Parsifal cluster ID
+   wdt:P12483 xsd:integer  -->  PMB – Personen der Moderne Basis person ID
+   wdt:P12502 xsd:integer  -->  UCA authority ID
+   wdt:P12582 xsd:integer  -->  Oxford Reference overview ID
+   wdt:P12749 xsd:string  -->  SNARC ID
+   wdt:P12800 xsd:string  -->  Vikidia article ID
+   wdt:P12836 xsd:integer  -->  Douban personage ID
+   wdt:P12975 xsd:integer  -->  Lexikon der Mathematik entry ID
+   wdt:P13019 xsd:integer  -->  RedBA Granada authority ID
+   wdt:P13022 xsd:integer  -->  Koha Kütüphane ID
+   wdt:P13049 xsd:integer  -->  DDB person (GND) ID
+   wdt:P13166 xsd:integer  -->  PUG authority ID
+   wdt:P13183 xsd:integer  -->  JudaicaLink person (GND) ID
+}

@@ -1,0 +1,29 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+SELECT ?countryLabel WHERE {
+  ?place wdt:P31 wd:Q1794067 .
+  ?place wdt:P17 ?country .
+  ?cave wdt:P31 wd:Q35509 .
+  ?place wdt:P31 ?cave .
+  
+  {
+    SELECT ?place (COUNT(?cave) AS ?caveCount) WHERE {
+      ?place wdt:P31 wd:Q1794067 .
+      ?cave wdt:P31 wd:Q35509 .
+      ?place wdt:P31 ?cave .
+    }
+    GROUP BY ?place
+    HAVING (COUNT(?cave) > 2)
+  }
+  
+  ?country rdfs:label ?countryLabel .
+  FILTER(LANG(?countryLabel) = "en")
+}

@@ -1,0 +1,21 @@
+INFO: Loaded 19 lines from /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/logs/17-02-2025/KG_Agent_MK2_8/misc/temp/shexer_params.
+ERROR: Line 1: invalid JSON - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+ERROR: Line 2: invalid JSON - Extra data: line 1 column 9 (char 8)
+ERROR: Line 3: invalid JSON - Extra data: line 1 column 13 (char 12)
+ERROR: Line 4: invalid JSON - Extra data: line 1 column 13 (char 12)
+ERROR: Line 5: invalid JSON - Extra data: line 1 column 18 (char 17)
+ERROR: Line 6: invalid JSON - Extra data: line 1 column 11 (char 10)
+ERROR: Line 7: invalid JSON - Expecting value: line 1 column 1 (char 0)
+ERROR: Line 8: invalid JSON - Extra data: line 1 column 17 (char 16)
+ERROR: Line 9: Shexer validation failed - You must provide one and only one of the following params: ['graph_file_input', 'graph_list_of_files_input', 'raw_graph', 'url_input', 'list_of_url_input', 'url_endpoint', 'rdflib_graph']
+ERROR: Line 10: invalid JSON - Expecting value: line 1 column 1 (char 0)
+ERROR: Line 11: invalid JSON - Extra data: line 1 column 14 (char 13)
+ERROR: Line 12: invalid JSON - Extra data: line 1 column 17 (char 16)
+ERROR: Line 13: invalid JSON - Extra data: line 1 column 19 (char 18)
+ERROR: Line 14: invalid JSON - Extra data: line 1 column 11 (char 10)
+ERROR: Line 15: invalid JSON - Extra data: line 1 column 22 (char 21)
+ERROR: Line 16: invalid JSON - Extra data: line 1 column 17 (char 16)
+ERROR: Line 17: invalid JSON - Extra data: line 1 column 20 (char 19)
+ERROR: Line 18: invalid JSON - Extra data: line 1 column 8 (char 7)
+ERROR: Line 19: invalid JSON - Expecting value: line 1 column 1 (char 0)
+INFO: Validation complete. 0/19 lines succeeded.

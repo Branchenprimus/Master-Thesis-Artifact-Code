@@ -1,0 +1,8 @@
+```sparql
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?profession WHERE {
+  wd:Q2021 wdt:P106 ?profession .
+}
+```

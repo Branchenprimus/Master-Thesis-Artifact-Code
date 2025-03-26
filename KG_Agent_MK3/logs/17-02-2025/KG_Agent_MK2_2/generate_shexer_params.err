@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/generate_shexer_params.py", line 7, in <module>
+    from pydantic_model import ShexerConfig
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/pydantic_model.py", line 21, in <module>
+    class ShexerConfig(BaseModel):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/pydantic_model.py", line 33, in ShexerConfig
+    @validator('target_classes', always=True)
+     ^^^^^^^^^
+NameError: name 'validator' is not defined

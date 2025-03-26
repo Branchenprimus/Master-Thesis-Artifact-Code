@@ -1,0 +1,76 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q59010 = Robert_Kennedy>
+{
+   rdfs:label  xsd:string  {20};
+   wdt:P19  IRI  ;                                                           // rdfs:comment "P19  -->  place of birth"
+   wdt:P20  IRI  ;                                                           // rdfs:comment "P20  -->  place of death"
+   wdt:P21  IRI  ;                                                           // rdfs:comment "P21  -->  sex or gender"
+   wdt:P27  IRI  ;                                                           // rdfs:comment "P27  -->  country of citizenship"
+   wdt:P31  IRI  ;                                                           // rdfs:comment "P31  -->  instance of"
+   wdt:P106  IRI  ;                                                          // rdfs:comment "P106  -->  occupation"
+   wdt:P569  xsd:string  ;                                                   // rdfs:comment "P569  -->  date of birth"
+   wdt:P570  xsd:string  ;                                                   // rdfs:comment "P570  -->  date of death"
+   wdt:P641  IRI  ;                                                          // rdfs:comment "P641  -->  sport"
+   wdt:P646  xsd:string  ;                                                   // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P734  IRI  ;                                                          // rdfs:comment "P734  -->  family name"
+   wdt:P735  IRI  ;                                                          // rdfs:comment "P735  -->  given name"
+   wdt:P1344  IRI  ;                                                         // rdfs:comment "P1344  -->  participant in"
+   wdt:P1447  xsd:string  ;                                                  // rdfs:comment "P1447  -->  Sports-Reference.com Olympic athlete ID (archived)"
+   wdt:P3368  xsd:integer  ;                                                 // rdfs:comment "P3368  -->  Prabook ID"
+   wdt:P8286  xsd:integer                                                    // rdfs:comment "P8286  -->  Olympedia people ID"
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q308194 = daughter>
+{
+   rdfs:label  xsd:string  {124};
+   wdt:P31  IRI  ;                                                      // rdfs:comment "P31  -->  instance of"
+   wdt:P227  xsd:string  ;                                              // rdfs:comment "P227  -->  GND ID"
+   wdt:P244  xsd:string  ;                                              // rdfs:comment "P244  -->  Library of Congress authority ID"
+   wdt:P279  IRI  {3};                                                  // rdfs:comment "P279  -->  subclass of"
+   wdt:P373  xsd:string  ;                                              // rdfs:comment "P373  -->  Commons category"
+   wdt:P461  IRI  {2};                                                  // rdfs:comment "P461  -->  opposite of"
+   wdt:P508  xsd:integer  ;                                             // rdfs:comment "P508  -->  BNCF Thesaurus ID"
+   wdt:P646  xsd:string  ;                                              // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P691  xsd:string  ;                                              // rdfs:comment "P691  -->  NL CR AUT ID"
+   wdt:P910  IRI  ;                                                     // rdfs:comment "P910  -->  topic's main category"
+   wdt:P1014  xsd:integer  ;                                            // rdfs:comment "P1014  -->  Art & Architecture Thesaurus ID"
+   wdt:P1256  xsd:string  ;                                             // rdfs:comment "P1256  -->  Iconclass notation"
+   wdt:P1343  IRI  {2};                                                 // rdfs:comment "P1343  -->  described by source"
+   wdt:P1552  IRI  ;                                                    // rdfs:comment "P1552  -->  has characteristic"
+   wdt:P1617  xsd:string  ;                                             // rdfs:comment "P1617  -->  BBC Things ID"
+   wdt:P2347  xsd:integer  ;                                            // rdfs:comment "P2347  -->  YSO ID"
+   wdt:P2738  IRI  ;                                                    // rdfs:comment "P2738  -->  disjoint union of"
+   wdt:P2919  IRI  ;                                                    // rdfs:comment "P2919  -->  label in sign language"
+   wdt:P3417  xsd:string  ;                                             // rdfs:comment "P3417  -->  Quora topic ID"
+   wdt:P3827  xsd:string  ;                                             // rdfs:comment "P3827  -->  JSTOR topic ID (archived)"
+   wdt:P4212  xsd:string  ;                                             // rdfs:comment "P4212  -->  PACTOLS thesaurus ID"
+   wdt:P4316  xsd:string  ;                                             // rdfs:comment "P4316  -->  kinship equivalent in SPARQL at Wikidata"
+   wdt:P6366  xsd:integer  ;                                            // rdfs:comment "P6366  -->  Microsoft Academic ID"
+   wdt:P7033  xsd:string  ;                                             // rdfs:comment "P7033  -->  Australian Educational Vocabulary ID"
+   wdt:P8168  xsd:string  ;                                             // rdfs:comment "P8168  -->  FactGrid item ID"
+   wdt:P8189  xsd:integer  ;                                            // rdfs:comment "P8189  -->  J9U ID"
+   wdt:P8703  xsd:string  ;                                             // rdfs:comment "P8703  -->  entry in abbreviations table"
+   wdt:P8814  xsd:string  ;                                             // rdfs:comment "P8814  -->  WordNet 3.1 Synset ID"
+   wdt:P9475  xsd:string  ;                                             // rdfs:comment "P9475  -->  Encyclopedia of Korean Culture ID"
+   wdt:P9497  xsd:integer  ;                                            // rdfs:comment "P9497  -->  Australian Thesaurus of Education Descriptors ID"
+   wdt:P10192  xsd:string  ;                                            // rdfs:comment "P10192  -->  Homosaurus ID (V3)"
+   wdt:P10283  xsd:string  ;                                            // rdfs:comment "P10283  -->  OpenAlex ID"
+   wdt:P10913  xsd:string  ;                                            // rdfs:comment "P10913  -->  UK Archival Thesaurus ID"
+   wdt:P12086  xsd:string  ;                                            // rdfs:comment "P12086  -->  WikiKids ID"
+   wdt:P12596  xsd:integer  ;                                           // rdfs:comment "P12596  -->  museum-digital tag ID"
+   wdt:P13300  xsd:string                                               // rdfs:comment "P13300  -->  New York Post topic ID"
+}

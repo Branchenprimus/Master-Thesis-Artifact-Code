@@ -1,0 +1,25 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q130948122 = China>
+{
+   rdfs:label  xsd:string  {2};
+   wdt:P31 IRI  -->  instance of
+   wdt:P50 IRI  -->  author
+   wdt:P304 xsd:string  -->  page(s)
+   wdt:P356 xsd:string  -->  DOI
+   wdt:P577 xsd:string  -->  publication date
+   wdt:P921 IRI  -->  main subject
+   wdt:P953 IRI {2}  -->  full work available at URL
+   wdt:P1104 xsd:integer  -->  number of pages
+   wdt:P1433 IRI  -->  published in
+   wdt:P1476 xsd:string  -->  title
+}

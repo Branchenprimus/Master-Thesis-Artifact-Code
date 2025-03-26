@@ -1,0 +1,54 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+<Shape entry point: http://www.wikidata.org/entity/Q41614 = constitutional_monarchy>
+{
+   rdfs:label  xsd:string  {138};
+   wdt:P18  IRI  ;                                                                    // rdfs:comment "P18  -->  image"
+   wdt:P31  IRI  ;                                                                    // rdfs:comment "P31  -->  instance of"
+   wdt:P227  xsd:string  ;                                                            // rdfs:comment "P227  -->  GND ID"
+   wdt:P268  xsd:string  ;                                                            // rdfs:comment "P268  -->  Bibliothèque nationale de France ID"
+   wdt:P279  IRI  ;                                                                   // rdfs:comment "P279  -->  subclass of"
+   wdt:P373  xsd:string  ;                                                            // rdfs:comment "P373  -->  Commons category"
+   wdt:P460  IRI  ;                                                                   // rdfs:comment "P460  -->  said to be the same as"
+   wdt:P646  xsd:string  ;                                                            // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P691  xsd:string  ;                                                            // rdfs:comment "P691  -->  NL CR AUT ID"
+   wdt:P910  IRI  ;                                                                   // rdfs:comment "P910  -->  topic's main category"
+   wdt:P1014  xsd:integer  ;                                                          // rdfs:comment "P1014  -->  Art & Architecture Thesaurus ID"
+   wdt:P1051  xsd:integer  ;                                                          // rdfs:comment "P1051  -->  PSH ID"
+   wdt:P1149  xsd:string  ;                                                           // rdfs:comment "P1149  -->  Library of Congress Classification"
+   wdt:P1417  xsd:string  ;                                                           // rdfs:comment "P1417  -->  Encyclopædia Britannica Online ID"
+   wdt:P1846  IRI  ;                                                                  // rdfs:comment "P1846  -->  distribution map"
+   wdt:P2671  xsd:string  {3};                                                        // rdfs:comment "P2671  -->  Google Knowledge Graph ID"
+   wdt:P3553  xsd:integer  ;                                                          // rdfs:comment "P3553  -->  Zhihu topic ID"
+   wdt:P3569  xsd:string  ;                                                           // rdfs:comment "P3569  -->  Cultureel Woordenboek ID"
+   wdt:P3827  xsd:string  ;                                                           // rdfs:comment "P3827  -->  JSTOR topic ID (archived)"
+   wdt:P5008  IRI  ;                                                                  // rdfs:comment "P5008  -->  on focus list of Wikimedia project"
+   wdt:P5034  xsd:string  ;                                                           // rdfs:comment "P5034  -->  National Library of Korea ID"
+   wdt:P5437  xsd:integer  ;                                                          // rdfs:comment "P5437  -->  EuroVoc ID"
+   wdt:P6366  xsd:integer  ;                                                          // rdfs:comment "P6366  -->  Microsoft Academic ID"
+   wdt:P7033  xsd:string  ;                                                           // rdfs:comment "P7033  -->  Australian Educational Vocabulary ID"
+   wdt:P7314  xsd:string  ;                                                           // rdfs:comment "P7314  -->  TDV Encyclopedia of Islam ID"
+   wdt:P8168  xsd:string  ;                                                           // rdfs:comment "P8168  -->  FactGrid item ID"
+   wdt:P8248  xsd:string  ;                                                           // rdfs:comment "P8248  -->  Colon Classification"
+   wdt:P8313  xsd:string  ;                                                           // rdfs:comment "P8313  -->  Lex ID"
+   wdt:P8408  xsd:string  ;                                                           // rdfs:comment "P8408  -->  KBpedia ID"
+   wdt:P8885  xsd:string  ;                                                           // rdfs:comment "P8885  -->  Namuwiki ID"
+   wdt:P10283  xsd:string  ;                                                          // rdfs:comment "P10283  -->  OpenAlex ID"
+   wdt:P10376  xsd:string  ;                                                          // rdfs:comment "P10376  -->  ScienceDirect topic ID"
+   wdt:P10565  xsd:integer  ;                                                         // rdfs:comment "P10565  -->  Encyclopedia of China (Third Edition) ID"
+   wdt:P11093  xsd:string  ;                                                          // rdfs:comment "P11093  -->  TUBITAK Sosyal Bilimler Ansiklopedisi ID"
+   wdt:P12596  xsd:integer  ;                                                         // rdfs:comment "P12596  -->  museum-digital tag ID"
+   wdt:P12800  xsd:string  {3}                                                        // rdfs:comment "P12800  -->  Vikidia article ID"
+}
+
+
+
+

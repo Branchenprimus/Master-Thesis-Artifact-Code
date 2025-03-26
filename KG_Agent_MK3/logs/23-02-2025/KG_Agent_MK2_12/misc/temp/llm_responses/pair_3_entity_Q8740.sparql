@@ -1,0 +1,11 @@
+```sparql
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?president WHERE {
+  ?president wdt:P31 wd:Q13218629;  # instance of president
+              wdt:P580 ?start;       # start time of presidency
+              wdt:P582 ?end.         # end time of presidency
+  FILTER (?start <= "1975-04-30"^^xsd:date && ?end >= "1955-11-01"^^xsd:date) # Vietnam War period
+}
+```

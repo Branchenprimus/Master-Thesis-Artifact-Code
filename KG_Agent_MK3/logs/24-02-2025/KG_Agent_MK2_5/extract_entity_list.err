@@ -1,0 +1,70 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/./util/extract_entity_list.py", line 120, in <module>
+    main()
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/./util/extract_entity_list.py", line 117, in main
+    transform_json(args.input_file, args.output_file, args.openai_api_key)
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/./util/extract_entity_list.py", line 90, in transform_json
+    llm_extracted_entities = extract_entities_with_llm(question_text, openai_api_key)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/./util/extract_entity_list.py", line 29, in extract_entities_with_llm
+    response = client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 279, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 879, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/openai/_base_client.py", line 1290, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/openai/_base_client.py", line 967, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/openai/_base_client.py", line 1003, in _request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_sync/http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 128, in read
+    return self._sock.recv(max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/software/juwelsbooster/stages/2024/software/Python/3.11.3-GCCcore-12.3.0/lib/python3.11/ssl.py", line 1263, in recv
+    return self.read(buflen)
+           ^^^^^^^^^^^^^^^^^
+  File "/p/software/juwelsbooster/stages/2024/software/Python/3.11.3-GCCcore-12.3.0/lib/python3.11/ssl.py", line 1136, in read
+    return self._sslobj.read(len)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

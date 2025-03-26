@@ -1,0 +1,25 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q117077998 = Berlin>
+{
+   rdfs:label  xsd:string  {3};
+   wdt:P31 IRI  -->  instance of
+   wdt:P176 IRI  -->  manufacturer
+   wdt:P458 xsd:integer  -->  IMO ship number
+   wdt:P587 xsd:integer  -->  MMSI
+   wdt:P729 xsd:string  -->  service entry
+   wdt:P1093 xsd:integer  -->  gross tonnage
+   wdt:P2043 xsd:integer  -->  length
+   wdt:P2049 xsd:integer  -->  width
+   wdt:P4519 xsd:integer  -->  payload mass
+   wdt:P8047 IRI  -->  country of registry
+}

@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/generate_shape.py", line 16, in <module>
+    from shexer.shaper import Shaper
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/shexer/shaper.py", line 12, in <module>
+    from shexer.utils.factories.shape_serializer_factory import get_shape_serializer, get_uml_serializer
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/shexer/utils/factories/shape_serializer_factory.py", line 2, in <module>
+    from shexer.io.shex.formater.shex_serializer import ShexSerializer
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/shexer/io/shex/formater/shex_serializer.py", line 9, in <module>
+    from shexer.io.wikidata import wikidata_annotation
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/shexer/io/wikidata.py", line 1, in <module>
+    from wlighter import WLighter
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/wlighter/__init__.py", line 1, in <module>
+    from wlighter.w_lighter import WLighter, SHEXC_FORMAT, TURTLE_FORMAT
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/wlighter/w_lighter.py", line 2, in <module>
+    import requests
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/requests/__init__.py", line 43, in <module>
+    import urllib3
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/urllib3/__init__.py", line 15, in <module>
+    from ._base_connection import _TYPE_BODY
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/urllib3/_base_connection.py", line 5, in <module>
+    from .util.connection import _TYPE_SOCKET_OPTIONS
+  File "/p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/lib/python3.11/site-packages/urllib3/util/__init__.py", line 8, in <module>
+    from .ssl_ import (
+  File "<frozen importlib._bootstrap>", line 1178, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1149, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1032, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1131, in get_data
+KeyboardInterrupt

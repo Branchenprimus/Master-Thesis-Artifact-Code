@@ -1,0 +1,67 @@
+🔍 Input JSON (Original): /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/qald_9_plus_test_wikidata_short.json
+📂 Output JSON (LLM Results): logs/25-02-2025/KG_Agent_MK2_27/misc/temp/extracted_nlq_sparql_with_entities.json
+✅ Question ID 99 - Correct: True
+✅ Question ID 98 - Correct: False
+✅ Question ID 86 - Correct: False
+✅ Question ID 84 - Correct: False
+✅ Question ID 81 - Correct: True
+✅ Question ID 66 - Correct: False
+✅ Question ID 64 - Correct: False
+✅ Question ID 56 - Correct: False
+✅ Question ID 49 - Correct: False
+✅ Question ID 44 - Correct: False
+✅ Question ID 42 - Correct: False
+✅ Question ID 4 - Correct: False
+✅ Question ID 32 - Correct: True
+✅ Question ID 31 - Correct: False
+✅ Question ID 29 - Correct: False
+✅ Question ID 68 - Correct: False
+✅ Question ID 22 - Correct: True
+✅ Question ID 214 - Correct: False
+✅ Question ID 210 - Correct: False
+✅ Question ID 199 - Correct: False
+✅ Question ID 203 - Correct: False
+✅ Question ID 197 - Correct: False
+✅ Question ID 196 - Correct: False
+✅ Question ID 188 - Correct: False
+✅ Question ID 187 - Correct: False
+✅ Question ID 176 - Correct: False
+✅ Question ID 62 - Correct: False
+✅ Question ID 173 - Correct: False
+✅ Question ID 168 - Correct: False
+✅ Question ID 166 - Correct: False
+✅ Question ID 160 - Correct: False
+✅ Question ID 158 - Correct: False
+✅ Question ID 157 - Correct: False
+✅ Question ID 150 - Correct: False
+✅ Question ID 149 - Correct: False
+✅ Question ID 25 - Correct: False
+✅ Question ID 143 - Correct: False
+✅ Question ID 140 - Correct: False
+✅ Question ID 139 - Correct: False
+✅ Question ID 137 - Correct: False
+✅ Question ID 136 - Correct: False
+✅ Question ID 134 - Correct: False
+✅ Question ID 132 - Correct: True
+✅ Question ID 128 - Correct: False
+✅ Question ID 124 - Correct: False
+✅ Question ID 122 - Correct: False
+✅ Question ID 111 - Correct: False
+✅ Question ID 117 - Correct: True
+✅ Question ID 59 - Correct: False
+✅ Question ID 113 - Correct: False
+✅ Question ID 104 - Correct: False
+✅ Question ID 10 - Correct: False
+✅ Question ID 1 - Correct: False
+✅ Question ID 178 - Correct: False
+✅ Question ID 129 - Correct: True
+✅ Question ID 183 - Correct: False
+✅ Question ID 181 - Correct: False
+
+📊 ===== Verification Statistics =====
+✅ Correct SPARQL Queries: 7
+❌ Incorrect SPARQL Queries: 50
+📈 Accuracy: 12.28%
+=====================================
+
+✅ Verification completed! Updated JSON saved to: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/extracted_nlq_sparql_with_entities.json

@@ -1,0 +1,127 @@
+[
+    {
+        "id": "99",
+        "question_text": "What is the time zone of Salt Lake City?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q23337>  <http://www.wikidata.org/prop/direct/P421>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q23337"
+        ],
+        "llm_extracted_entity_names": [
+            "Salt Lake City",
+            "time zone"
+        ],
+        "wikidata_entities_resolved": {
+            "Salt Lake City": "Q23337",
+            "time zone": "Q12143"
+        },
+        "llm_generated_sparql": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?timeZoneLabel WHERE { wd:Q23337 wdt:P421 ?timeZone . ?timeZone rdfs:label ?timeZoneLabel . FILTER(LANG(?timeZoneLabel) = \"en\" }",
+        "baseline_sparql_query_response": {
+            "head": {
+                "vars": [
+                    "o1"
+                ]
+            },
+            "results": {
+                "bindings": [
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q3134980"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q2212"
+                        }
+                    }
+                ]
+            }
+        },
+        "sparql_endpoint_response": {
+            "error": "400 Client Error: Bad Request for url: https://query.wikidata.org/sparql?query=PREFIX+wd%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fentity%2F%3E+PREFIX+wdt%3A+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2F%3E+SELECT+%3FtimeZoneLabel+WHERE+%7B+wd%3AQ23337+wdt%3AP421+%3FtimeZone+.+%3FtimeZone+rdfs%3Alabel+%3FtimeZoneLabel+.+FILTER%28LANG%28%3FtimeZoneLabel%29+%3D+%22en%22+%7D&format=json"
+        }
+    },
+    {
+        "id": "98",
+        "question_text": "Who killed Caesar?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q1048>  <http://www.wikidata.org/prop/direct/P157>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q1048"
+        ],
+        "llm_extracted_entity_names": [
+            "Caesar"
+        ],
+        "wikidata_entities_resolved": {
+            "Caesar": "Q29288"
+        },
+        "llm_generated_sparql": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?killer WHERE { wd:Q29288 wdt:P1576 ?killer . }",
+        "baseline_sparql_query_response": {
+            "head": {
+                "vars": [
+                    "o1"
+                ]
+            },
+            "results": {
+                "bindings": [
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q172248"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q207370"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q294846"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q1228715"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q1243545"
+                        }
+                    }
+                ]
+            }
+        },
+        "sparql_endpoint_response": {
+            "head": {
+                "vars": [
+                    "killer"
+                ]
+            },
+            "results": {
+                "bindings": []
+            }
+        },
+        "sparql_comparison_result": {
+            "baseline_entities": [
+                "Decimus Junius Brutus Albinus",
+                "Gaius Cassius Longinus",
+                "Publius Servilius Casca",
+                "Marcus Junius Brutus",
+                "Tillius Cimber"
+            ],
+            "llm_entities": [],
+            "common_entities": [],
+            "precision": 0,
+            "recall": 0.0,
+            "f1_score": 0,
+            "is_correct": false
+        },
+        "is_correct": false
+    }
+]

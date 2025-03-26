@@ -1,0 +1,46 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q164791 = Carlo_Giuliani>
+{
+   rdfs:label  xsd:string  {45};
+   wdt:P18 IRI  -->  image
+   wdt:P19 IRI  -->  place of birth
+   wdt:P20 IRI  -->  place of death
+   wdt:P21 IRI  -->  sex or gender
+   wdt:P22 IRI  -->  father
+   wdt:P25 IRI  -->  mother
+   wdt:P27 IRI  -->  country of citizenship
+   wdt:P31 IRI  -->  instance of
+   wdt:P106 IRI  -->  occupation
+   wdt:P157 IRI  -->  killed by
+   wdt:P213 xsd:integer  -->  ISNI
+   wdt:P214 xsd:integer  -->  VIAF cluster ID
+   wdt:P227 xsd:integer  -->  GND ID
+   wdt:P268 xsd:integer  -->  Bibliothèque nationale de France ID
+   wdt:P276 IRI  -->  location
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P434 xsd:string  -->  MusicBrainz artist ID
+   wdt:P509 IRI  -->  cause of death
+   wdt:P569 xsd:string  -->  date of birth
+   wdt:P570 xsd:string  -->  date of death
+   wdt:P585 xsd:string  -->  point in time
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P734 IRI  -->  family name
+   wdt:P735 IRI  -->  given name
+   wdt:P1196 IRI  -->  manner of death
+   wdt:P1412 IRI  -->  languages spoken, written or signed
+   wdt:P1442 IRI  -->  image of grave
+   wdt:P1559 xsd:string  -->  name in native language
+   wdt:P3065 xsd:string  -->  RERO ID (legacy)
+   wdt:P7293 xsd:integer  -->  PLWABN ID
+   wdt:P10832 xsd:string  -->  WorldCat Entities ID
+}

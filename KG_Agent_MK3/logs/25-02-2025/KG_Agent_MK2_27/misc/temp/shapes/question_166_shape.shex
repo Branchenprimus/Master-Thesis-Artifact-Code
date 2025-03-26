@@ -1,0 +1,55 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q82594 = computer_scientist>
+{
+   rdfs:label  xsd:string  {113};
+   wdt:P18  IRI  ;                                                               // rdfs:comment "P18  -->  image"
+   wdt:P31  IRI  ;                                                               // rdfs:comment "P31  -->  instance of"
+   wdt:P227  xsd:string  {2};                                                    // rdfs:comment "P227  -->  GND ID"
+   wdt:P244  xsd:string  ;                                                       // rdfs:comment "P244  -->  Library of Congress authority ID"
+   wdt:P268  xsd:string  ;                                                       // rdfs:comment "P268  -->  Bibliothèque nationale de France ID"
+   wdt:P279  IRI  {3};                                                           // rdfs:comment "P279  -->  subclass of"
+   wdt:P373  xsd:string  ;                                                       // rdfs:comment "P373  -->  Commons category"
+   wdt:P417  IRI  ;                                                              // rdfs:comment "P417  -->  patron saint"
+   wdt:P425  IRI  ;                                                              // rdfs:comment "P425  -->  field of this occupation"
+   wdt:P452  IRI  {2};                                                           // rdfs:comment "P452  -->  industry"
+   wdt:P460  IRI  {2};                                                           // rdfs:comment "P460  -->  said to be the same as"
+   wdt:P508  xsd:integer  ;                                                      // rdfs:comment "P508  -->  BNCF Thesaurus ID"
+   wdt:P646  xsd:string  ;                                                       // rdfs:comment "P646  -->  Freebase ID"
+   wdt:P691  xsd:string  {4};                                                    // rdfs:comment "P691  -->  NL CR AUT ID"
+   wdt:P910  IRI  ;                                                              // rdfs:comment "P910  -->  topic's main category"
+   wdt:P1014  xsd:integer  ;                                                     // rdfs:comment "P1014  -->  Art & Architecture Thesaurus ID"
+   wdt:P1021  xsd:integer  ;                                                     // rdfs:comment "P1021  -->  KldB-2010 occupation code"
+   wdt:P1036  xsd:float  ;                                                       // rdfs:comment "P1036  -->  Dewey Decimal Classification"
+   wdt:P1245  xsd:integer  ;                                                     // rdfs:comment "P1245  -->  OmegaWiki Defined Meaning"
+   wdt:P1296  xsd:integer  ;                                                     // rdfs:comment "P1296  -->  Gran Enciclopèdia Catalana ID (former scheme)"
+   wdt:P1889  IRI  ;                                                             // rdfs:comment "P1889  -->  different from"
+   wdt:P2283  IRI  {2};                                                          // rdfs:comment "P2283  -->  uses"
+   wdt:P2347  xsd:integer  ;                                                     // rdfs:comment "P2347  -->  YSO ID"
+   wdt:P2354  IRI  ;                                                             // rdfs:comment "P2354  -->  has list"
+   wdt:P2521  xsd:string  {24};                                                  // rdfs:comment "P2521  -->  female form of label"
+   wdt:P3321  xsd:string  {9};                                                   // rdfs:comment "P3321  -->  male form of label"
+   wdt:P3417  xsd:string  ;                                                      // rdfs:comment "P3417  -->  Quora topic ID"
+   wdt:P4652  xsd:string  ;                                                      // rdfs:comment "P4652  -->  ESCO Occupation ID"
+   wdt:P4839  xsd:string  ;                                                      // rdfs:comment "P4839  -->  Wolfram Language entity code"
+   wdt:P5844  xsd:string  ;                                                      // rdfs:comment "P5844  -->  Treccani Vocabulary ID"
+   wdt:P6186  IRI  ;                                                             // rdfs:comment "P6186  -->  category for eponymous categories"
+   wdt:P6706  xsd:string  ;                                                      // rdfs:comment "P6706  -->  De Agostini ID"
+   wdt:P8168  xsd:string  ;                                                      // rdfs:comment "P8168  -->  FactGrid item ID"
+   wdt:P8189  xsd:integer  ;                                                     // rdfs:comment "P8189  -->  J9U ID"
+   wdt:P8283  xsd:integer  ;                                                     // rdfs:comment "P8283  -->  ISCO-08 occupation class"
+   wdt:P8408  xsd:string  ;                                                      // rdfs:comment "P8408  -->  KBpedia ID"
+   wdt:P8814  xsd:string  ;                                                      // rdfs:comment "P8814  -->  WordNet 3.1 Synset ID"
+   wdt:P10376  xsd:string  {3};                                                  // rdfs:comment "P10376  -->  ScienceDirect topic ID"
+   wdt:P12385  xsd:string  ;                                                     // rdfs:comment "P12385  -->  Gran Enciclopèdia Catalana ID"
+   wdt:P12800  xsd:string                                                        // rdfs:comment "P12800  -->  Vikidia article ID"
+}

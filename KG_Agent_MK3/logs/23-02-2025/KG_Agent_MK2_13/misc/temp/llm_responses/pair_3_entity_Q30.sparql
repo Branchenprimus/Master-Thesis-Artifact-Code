@@ -1,0 +1,9 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?president WHERE {
+  ?president wdt:P31 wd:Q13218629;  # instance of American president
+             wdt:P580 ?start;       # start time of presidency
+             wdt:P582 ?end.         # end time of presidency
+  FILTER (?start <= "1975-04-30T00:00:00Z"^^xsd:dateTime && ?end >= "1955-11-01T00:00:00Z"^^xsd:dateTime) # Vietnam War period
+}

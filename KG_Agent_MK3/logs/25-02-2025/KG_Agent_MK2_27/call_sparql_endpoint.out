@@ -1,0 +1,155 @@
+sparql_folder: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses
+sparql_endpoint_url: https://query.wikidata.org/sparql
+ttl_file: None
+json_output: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/extracted_nlq_sparql_with_entities.json
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_99.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_99.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 99
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_98.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_98.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 98
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_86.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_86.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 86
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_84.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_84.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 84
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_81.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_81.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 81
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_66.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_66.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 66
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_64.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_64.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 64
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_56.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_56.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 56
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_49.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_49.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 49
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_44.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_44.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 44
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_42.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_42.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 42
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_4.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_4.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 4
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_32.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_32.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 32
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_31.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_31.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 31
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_29.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_29.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 29
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_68.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_68.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 68
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_22.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_22.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 22
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_214.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_214.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 214
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_210.sparql
+⚠️ No SPARQL file found for question ID 210, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_199.sparql
+⚠️ No SPARQL file found for question ID 199, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_203.sparql
+⚠️ No SPARQL file found for question ID 203, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_197.sparql
+⚠️ No SPARQL file found for question ID 197, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_196.sparql
+⚠️ No SPARQL file found for question ID 196, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_188.sparql
+⚠️ No SPARQL file found for question ID 188, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_187.sparql
+⚠️ No SPARQL file found for question ID 187, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_176.sparql
+⚠️ No SPARQL file found for question ID 176, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_62.sparql
+⚠️ No SPARQL file found for question ID 62, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_173.sparql
+⚠️ No SPARQL file found for question ID 173, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_168.sparql
+⚠️ No SPARQL file found for question ID 168, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_166.sparql
+⚠️ No SPARQL file found for question ID 166, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_160.sparql
+⚠️ No SPARQL file found for question ID 160, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_158.sparql
+⚠️ No SPARQL file found for question ID 158, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_157.sparql
+⚠️ No SPARQL file found for question ID 157, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_150.sparql
+⚠️ No SPARQL file found for question ID 150, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_149.sparql
+⚠️ No SPARQL file found for question ID 149, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_25.sparql
+⚠️ No SPARQL file found for question ID 25, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_143.sparql
+⚠️ No SPARQL file found for question ID 143, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_140.sparql
+⚠️ No SPARQL file found for question ID 140, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_139.sparql
+⚠️ No SPARQL file found for question ID 139, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_137.sparql
+⚠️ No SPARQL file found for question ID 137, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_136.sparql
+⚠️ No SPARQL file found for question ID 136, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_134.sparql
+⚠️ No SPARQL file found for question ID 134, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_132.sparql
+⚠️ No SPARQL file found for question ID 132, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_128.sparql
+⚠️ No SPARQL file found for question ID 128, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_124.sparql
+⚠️ No SPARQL file found for question ID 124, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_122.sparql
+⚠️ No SPARQL file found for question ID 122, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_111.sparql
+⚠️ No SPARQL file found for question ID 111, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_117.sparql
+⚠️ No SPARQL file found for question ID 117, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_59.sparql
+⚠️ No SPARQL file found for question ID 59, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_113.sparql
+⚠️ No SPARQL file found for question ID 113, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_104.sparql
+⚠️ No SPARQL file found for question ID 104, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_10.sparql
+⚠️ No SPARQL file found for question ID 10, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_1.sparql
+⚠️ No SPARQL file found for question ID 1, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_178.sparql
+⚠️ No SPARQL file found for question ID 178, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_129.sparql
+⚠️ No SPARQL file found for question ID 129, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_183.sparql
+⚠️ No SPARQL file found for question ID 183, skipping.
+sparql_file: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/llm_responses/question_181.sparql
+⚠️ No SPARQL file found for question ID 181, skipping.
+✅ Updated JSON file saved to: logs/25-02-2025/KG_Agent_MK2_27/misc/temp/extracted_nlq_sparql_with_entities.json

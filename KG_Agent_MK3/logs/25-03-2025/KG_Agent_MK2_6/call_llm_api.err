@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 193, in <module>
+    main()
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 179, in main
+    process_json_and_shapes(
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 160, in process_json_and_shapes
+    save_response(json_path, question_id, response)
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 86, in save_response
+    raise ValueError(f"❌ ERROR: Question ID {question_id} not found in {json_path} file.")
+ValueError: ❌ ERROR: Question ID 0 not found in logs/25-03-2025/KG_Agent_MK2_6/misc/temp/extracted_nlq_sparql_with_entities.json file.

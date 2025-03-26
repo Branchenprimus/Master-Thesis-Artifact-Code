@@ -1,0 +1,45 @@
+sparql_folder: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses
+sparql_endpoint_url: https://query.wikidata.org/sparql
+ttl_file: None
+json_output: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/extracted_nlq_sparql_with_entities.json
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_99.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_99.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 99
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_98.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_98.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 98
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_86.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_86.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 86
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_84.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_84.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 84
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_81.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_81.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 81
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_66.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_66.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 66
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_64.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_64.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 64
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_56.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_56.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 56
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_49.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_49.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 49
+sparql_file: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_44.sparql
+✅ Successfully extracted SPARQL query from logs/25-02-2025/KG_Agent_MK2_22/misc/temp/llm_responses/question_44.sparql
+🔍 Executing query against remote endpoint: https://query.wikidata.org/sparql
+✅ Added SPARQL results for question ID 44
+✅ Updated JSON file saved to: logs/25-02-2025/KG_Agent_MK2_22/misc/temp/extracted_nlq_sparql_with_entities.json

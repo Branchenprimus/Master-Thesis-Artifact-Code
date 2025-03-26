@@ -1,0 +1,8 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?countryLabel WHERE {
+  wd:Q5284 wdt:P19 ?placeOfBirth.
+  ?placeOfBirth wdt:P17 ?country.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}

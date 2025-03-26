@@ -1,0 +1,8 @@
++ echo 'Starting file tracking...'
++ tee -a logs/23-02-2025/KG_Agent_MK2_15/track_files.log
++ python track_files.py --root-dir ./ --output logs/23-02-2025/KG_Agent_MK2_15/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/23-02-2025/KG_Agent_MK2_15/track_files.log
++ python generate_shape.py --shape-output-path logs/23-02-2025/KG_Agent_MK2_15/misc/temp/shapes --json-file /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/extracted_nlq_sparql_with_entities_short.json
++ python call_llm_api.py --model gpt-4o-mini --openai_api_key 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 --json_path /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/extracted_nlq_sparql_with_entities_short.json --system_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/system_prompt.txt --shape_path logs/23-02-2025/KG_Agent_MK2_15/misc/temp/shapes --output_dir logs/23-02-2025/KG_Agent_MK2_15/misc/temp/llm_responses

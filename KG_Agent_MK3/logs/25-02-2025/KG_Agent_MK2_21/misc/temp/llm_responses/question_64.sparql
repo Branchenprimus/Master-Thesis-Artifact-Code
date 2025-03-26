@@ -1,0 +1,3 @@
+SELECT ?profession WHERE {
+  wd:Q7934 wdt:P106 ?profession .
+}

@@ -1,0 +1,89 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q30185 = mayor>
+{
+   rdfs:label  xsd:string  {181};
+   wdt:P18 IRI  -->  image
+   wdt:P31 IRI  -->  instance of
+   wdt:P227 xsd:string {2}  -->  GND ID
+   wdt:P244 xsd:string {2}  -->  Library of Congress authority ID
+   wdt:P268 xsd:integer  -->  Bibliothèque nationale de France ID
+   wdt:P279 IRI {6}  -->  subclass of
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P460 IRI {3}  -->  said to be the same as
+   wdt:P508 xsd:integer  -->  BNCF Thesaurus ID
+   wdt:P511 IRI  -->  honorific prefix
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P691 xsd:string {2}  -->  NL CR AUT ID
+   wdt:P902 xsd:integer  -->  HDS ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P1001 IRI  -->  applies to jurisdiction
+   wdt:P1014 xsd:integer  -->  Art & Architecture Thesaurus ID
+   wdt:P1036 xsd:float {2}  -->  Dewey Decimal Classification
+   wdt:P1225 xsd:integer  -->  U.S. National Archives Identifier
+   wdt:P1245 xsd:integer  -->  OmegaWiki Defined Meaning
+   wdt:P1296 xsd:integer  -->  Gran Enciclopèdia Catalana ID (former scheme)
+   wdt:P1343 IRI {6}  -->  described by source
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1709 IRI  -->  equivalent class
+   wdt:P1807 xsd:integer  -->  Great Aragonese Encyclopedia ID
+   wdt:P1889 IRI {5}  -->  different from
+   wdt:P2347 xsd:integer  -->  YSO ID
+   wdt:P2521 xsd:string {24}  -->  female form of label
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P3219 xsd:string  -->  Encyclopædia Universalis ID
+   wdt:P3321 xsd:string {29}  -->  male form of label
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P3569 xsd:string  -->  Cultureel Woordenboek ID
+   wdt:P3827 xsd:string  -->  JSTOR topic ID (archived)
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P4527 xsd:integer  -->  UK Parliament thesaurus ID
+   wdt:P4946 xsd:string  -->  Library of Congress Demographic Group Terms ID
+   wdt:P5008 IRI  -->  on focus list of Wikimedia project
+   wdt:P5160 xsd:string  -->  Thesaurus for Graphic Materials ID
+   wdt:P6293 xsd:string  -->  YSA ID
+   wdt:P6573 xsd:string  -->  Klexikon article ID
+   wdt:P7033 xsd:string  -->  Australian Educational Vocabulary ID
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8189 xsd:integer {2}  -->  J9U ID
+   wdt:P8309 xsd:string  -->  Yle topic ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8519 xsd:integer  -->  RKD thesaurus ID
+   wdt:P9223 xsd:string  -->  Provenio UUID
+   wdt:P9495 xsd:string  -->  National Historical Museums of Sweden ID
+   wdt:P9964 xsd:string  -->  Kalliope-Verbund (GND) ID
+   wdt:P12086 xsd:string  -->  WikiKids ID
+   wdt:P12143 xsd:string  -->  ‎Gaming Wiki Network article ID
+   wdt:P12385 xsd:string  -->  Gran Enciclopèdia Catalana ID
+   wdt:P12596 xsd:integer  -->  museum-digital tag ID
+   wdt:P12800 xsd:string {2}  -->  Vikidia article ID
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q117077998 = Berlin>
+{
+   rdfs:label  xsd:string  {3};
+   wdt:P31 IRI  -->  instance of
+   wdt:P176 IRI  -->  manufacturer
+   wdt:P458 xsd:integer  -->  IMO ship number
+   wdt:P587 xsd:integer  -->  MMSI
+   wdt:P729 xsd:string  -->  service entry
+   wdt:P1093 xsd:integer  -->  gross tonnage
+   wdt:P2043 xsd:integer  -->  length
+   wdt:P2049 xsd:integer  -->  width
+   wdt:P4519 xsd:integer  -->  payload mass
+   wdt:P8047 IRI  -->  country of registry
+}

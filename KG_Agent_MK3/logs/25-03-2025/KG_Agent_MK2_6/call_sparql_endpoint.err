@@ -1,0 +1,5 @@
+usage: call_sparql_endpoint.py [-h] --json_path JSON_PATH
+                               [--sparql_endpoint_url SPARQL_ENDPOINT_URL]
+                               [--is_local_graph]
+                               [--local_graph_location LOCAL_GRAPH_LOCATION]
+call_sparql_endpoint.py: error: unrecognized arguments: True

@@ -1,0 +1,151 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q39593 = Butch_Otter>
+{
+   rdfs:label  xsd:string  {44};
+   wdt:P18 IRI  -->  image
+   wdt:P19 IRI  -->  place of birth
+   wdt:P21 IRI  -->  sex or gender
+   wdt:P26 IRI  -->  spouse
+   wdt:P27 IRI  -->  country of citizenship
+   wdt:P31 IRI  -->  instance of
+   wdt:P39 IRI {4}  -->  position held
+   wdt:P69 IRI {3}  -->  educated at
+   wdt:P101 IRI  -->  field of work
+   wdt:P102 IRI  -->  member of political party
+   wdt:P106 IRI  -->  occupation
+   wdt:P109 IRI  -->  signature
+   wdt:P140 IRI  -->  religion or worldview
+   wdt:P214 xsd:integer  -->  VIAF cluster ID
+   wdt:P241 IRI  -->  military branch
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P569 xsd:string  -->  date of birth
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P734 IRI  -->  family name
+   wdt:P735 IRI {3}  -->  given name
+   wdt:P937 IRI {2}  -->  work location
+   wdt:P1157 xsd:string  -->  US Congress Bio ID
+   wdt:P1263 xsd:string  -->  Notable Names Database
+   wdt:P1340 IRI  -->  eye color
+   wdt:P1412 IRI  -->  languages spoken, written or signed
+   wdt:P1477 xsd:string  -->  birth name
+   wdt:P1559 xsd:string  -->  name in native language
+   wdt:P1839 xsd:string  -->  US Federal Election Commission ID
+   wdt:P1971 xsd:integer  -->  number of children
+   wdt:P2163 xsd:integer  -->  FAST ID
+   wdt:P2190 xsd:string  -->  C-SPAN person string ID (deprecated)
+   wdt:P2390 xsd:string  -->  Ballotpedia ID
+   wdt:P2949 xsd:string  -->  WikiTree person ID
+   wdt:P4997 IRI  -->  National Governors Association biography URL
+   wdt:P5421 xsd:integer  -->  Trading Card Database person ID
+   wdt:P8462 xsd:string  -->  Political Graveyard politician ID
+   wdt:P10632 xsd:string  -->  OpenSanctions ID
+   wdt:P10660 xsd:integer  -->  C-SPAN person numeric ID
+   wdt:P10832 xsd:string  -->  WorldCat Entities ID
+   wdt:P11500 xsd:integer  -->  United States House of Representatives ID
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q132050 = governor>
+{
+   rdfs:label  xsd:string  {140};
+   wdt:P2521 xsd:string {13}  -->  female form of label
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P3219 xsd:string  -->  Encyclopædia Universalis ID
+   wdt:P3321 xsd:string {4}  -->  male form of label
+   wdt:P3365 xsd:string  -->  Treccani ID
+   wdt:P3827 xsd:string  -->  JSTOR topic ID (archived)
+   wdt:P4212 xsd:string  -->  PACTOLS thesaurus ID
+   wdt:P5008 IRI  -->  on focus list of Wikimedia project
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8309 xsd:string  -->  Yle topic ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P9495 xsd:string  -->  National Historical Museums of Sweden ID
+   wdt:P12086 xsd:string  -->  WikiKids ID
+   wdt:P12596 xsd:integer  -->  museum-digital tag ID
+   wdt:P18 IRI  -->  image
+   wdt:P31 IRI {4}  -->  instance of
+   wdt:P227 xsd:string  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P268 xsd:string  -->  Bibliothèque nationale de France ID
+   wdt:P279 IRI  -->  subclass of
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P460 IRI  -->  said to be the same as
+   wdt:P508 xsd:integer  -->  BNCF Thesaurus ID
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P691 xsd:string {2}  -->  NL CR AUT ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P1001 IRI  -->  applies to jurisdiction
+   wdt:P1014 xsd:integer  -->  Art & Architecture Thesaurus ID
+   wdt:P1225 xsd:integer  -->  U.S. National Archives Identifier
+   wdt:P1245 xsd:integer  -->  OmegaWiki Defined Meaning
+   wdt:P1343 IRI  -->  described by source
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1709 IRI  -->  equivalent class
+   wdt:P1807 xsd:integer  -->  Great Aragonese Encyclopedia ID
+   wdt:P1889 IRI  -->  different from
+   wdt:P2098 IRI  -->  substitute/deputy/replacement of office/officeholder
+   wdt:P2347 xsd:integer  -->  YSO ID
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q35657 = U.S._state>
+{
+   rdfs:label  xsd:string  {154};
+   wdt:P279 IRI {6}  -->  subclass of
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P950 xsd:string  -->  National Library of Spain ID
+   wdt:P1114 xsd:integer  -->  quantity
+   wdt:P1151 IRI  -->  topic's main Wikimedia portal
+   wdt:P1368 xsd:integer  -->  National Library of Latvia ID
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1424 IRI  -->  topic's main template
+   wdt:P1705 xsd:string  -->  native label
+   wdt:P1748 xsd:string  -->  NCI Thesaurus ID
+   wdt:P2163 xsd:integer  -->  FAST ID
+   wdt:P2354 IRI {6}  -->  has list
+   wdt:P2390 xsd:string  -->  Ballotpedia ID
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P2888 IRI {2}  -->  exact match
+   wdt:P2892 xsd:string  -->  UMLS CUI
+   wdt:P3417 xsd:string {3}  -->  Quora topic ID
+   wdt:P3847 xsd:string  -->  Open Library subject ID
+   wdt:P4272 xsd:string  -->  DPLA subject term
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P7502 xsd:string  -->  Golden ID
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8885 xsd:string  -->  Namuwiki ID
+   wdt:P9885 xsd:string  -->  Bing entity ID
+   wdt:P10329 xsd:integer  -->  ICPSR Subject Thesaurus ID
+   wdt:P11762 xsd:integer  -->  Britannica Kids kids level article ID
+   wdt:P12800 xsd:string {2}  -->  Vikidia article ID
+   wdt:P12844 xsd:integer  -->  Federal Reserve Subject Taxonomy ID
+   wdt:P17 IRI  -->  country
+   wdt:P18 IRI  -->  image
+   wdt:P31 IRI  -->  instance of
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P268 xsd:string  -->  Bibliothèque nationale de France ID
+}

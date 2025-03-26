@@ -1,0 +1,7 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT ?artist WHERE {
+  ?artist wdt:P569 ?birthDate .
+  wd:Q12345 wdt:P569 ?birthDate .  # Replace Q12345 with the actual entity ID for Rachel Stevens
+}

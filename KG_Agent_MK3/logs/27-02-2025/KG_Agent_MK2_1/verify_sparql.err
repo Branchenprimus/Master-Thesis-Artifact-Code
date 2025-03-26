@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/verify_sparql.py", line 87, in <module>
+    process_json(args.json_path)
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/verify_sparql.py", line 71, in process_json
+    comparison_result = compare_sparql_results(entry)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/verify_sparql.py", line 28, in compare_sparql_results
+    baseline_vars = baseline_response.get("head", {}).get("vars", [])
+                    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'

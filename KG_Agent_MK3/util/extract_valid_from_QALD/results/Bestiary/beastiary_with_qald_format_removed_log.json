@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "question": "does Caypup have more special abilities than Aasimar?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if(COUNT(?cay_SpecAbils)>COUNT(?aas_SpecAbils), 'True', 'False') as ?res) WHERE {  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpecAbils> ?cay_SpecAbils. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#aasimar> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpecAbils> ?aas_SpecAbils }"
+  },
+  {
+    "id": 4,
+    "question": "is the number of creatures speaking both abyssal and aklo languages greater than infernal and terran?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if(?n_creatures_1>?n_creatures_2, 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?creatures_1) as ?n_creatures_1) WHERE { ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL>}} {SELECT (COUNT(?creatures_2) as ?n_creatures_2) WHERE { ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL>}} }"
+  },
+  {
+    "id": 8,
+    "question": "are creatures with good alignment more common than evil?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT ?res  WHERE {  {SELECT (COUNT(?good) as ?n_good)  WHERE{  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment  BIND(str(?Alignment) as ?good)  FILTER regex(?good, 'good', 'i')} }  {SELECT (COUNT(?evil) as ?n_evil)  WHERE{ ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?Alignment  BIND(str(?Alignment) as ?evil)  FILTER regex(?evil, 'evil', 'i')} }  BIND(if((?n_good>?n_evil), 'True', 'False') as ?res)  }"
+  },
+  {
+    "id": 12,
+    "question": "do dragons in average speak more languages than demons?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if(AVG(?drag_n_lang)>AVG(?dem_n_lang), 'True', 'False') as ?res) WHERE { {SELECT (COUNT(?language_1) as ?drag_n_lang)  WHERE {   ?creatures_1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language_1  FILTER regex(str(?creatures_1),'dragon', 'i')} GROUP BY ?creatures_1} {SELECT (COUNT(?language_2) as ?dem_n_lang)  WHERE {   ?creatures_2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?language_2  FILTER regex(str(?creatures_2),'demon', 'i')} GROUP BY ?creatures_2} }"
+  },
+  {
+    "id": 15,
+    "question": "is there any type of zombie with chaotic evil or chaotic neutral alignment?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if(?n_zombies_1+?n_zombies_2 > 0, 'True', 'False') as ?res) WHERE {    {SELECT (COUNT(?creatures_1) as ?n_zombies_1) WHERE {  ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticEvil>.   FILTER (regex(str(?creatures_1), 'zombie', 'i' ))}} {SELECT (COUNT(?creatures_2) as ?n_zombies_2) WHERE {  ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticNeutral>.   FILTER (regex(str(?creatures_2), 'zombie', 'i' ))}} }"
+  },
+  {
+    "id": 16,
+    "question": "does Trox speak more languages than Sunlord?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if((COUNT(?trox_lang) > COUNT(?sunlord_lang)), 'True', 'False') as ?res)   WHERE {   <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Trox> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?trox_lang.  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sunlord> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> ?sunlord_lang}"
+  },
+  {
+    "id": 23,
+    "question": "do skeletons have a greater percentage of true neutral alignment than zombies?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if((?skeleton_percentage > ?zombie_precentage), 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?skeletons) as ?n_skeletons) WHERE{ ?skeletons <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>. FILTER regex(str(?skeletons), 'skelet', 'i')} } {SELECT (COUNT(?skeletons) as ?n_neutral_skeletons) WHERE{ ?skeletons <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> FILTER regex(str(?skeletons), 'skelet', 'i')} } BIND((?n_neutral_skeletons/?n_skeletons) as ?skeleton_percentage) {SELECT (COUNT(?zombies) as ?n_zombies) WHERE{ ?zombies <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>. FILTER regex(str(?zombies), 'zombie', 'i')} } {SELECT (COUNT(?zombies) as ?n_neutral_zombies) WHERE{ ?zombies <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral> FILTER regex(str(?zombies), 'zombie', 'i')} } BIND((?n_neutral_zombies/?n_zombies) as ?zombie_precentage) }"
+  },
+  {
+    "id": 24,
+    "question": "do raven and ghoul have the same alignment?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if((?raven_alignment = ?ghoul_alignment), 'True', 'False') as ?res) WHERE {   <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Raven> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?raven_alignment.  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ghoul> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> ?ghoul_alignment  }"
+  },
+  {
+    "id": 29,
+    "question": "is Sangudaemon faster than Eblis?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if(?speed_1 > ?speed_2, 'True', 'False') as ?res) WHERE {<http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sangudaemon> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed_1. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Eblis> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasSpeedValue> ?speed_2 }"
+  },
+  {
+    "id": 41,
+    "question": "is Abaia superior to vampires in terms of base attributes?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if ((?n_greater/?n_base_attr) > 0.5, 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?comp) as ?n_greater)   WHERE { ?base_attr rdfs:subPropertyOf <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#base>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Abaia> ?base_attr ?ab_attr. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Vampire> ?base_attr ?vamp_attr. BIND(if ((?ab_attr > ?vamp_attr), 1, 0) as ?comp) FILTER (?comp = 1)}} {SELECT (COUNT(?base_attr) as ?n_base_attr)  WHERE{?base_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#base>.}} }"
+  },
+  {
+    "id": 43,
+    "question": "is Boggard superior to Selkie in terms of deffencive attributes?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if ((?n_greater/?n_def_attr) > 0.5, 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?comp) as ?n_greater)   WHERE { ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Boggard> ?def_attr ?bog_attr. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Selkie> ?def_attr ?selk_attr. BIND(if (?bog_attr > ?selk_attr, 1, 0) as ?comp) FILTER (?comp = 1)}} {SELECT (COUNT(?def_attr) as ?n_def_attr)  WHERE{?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>.}} }"
+  },
+  {
+    "id": 44,
+    "question": "is Centaur superior to Medusa in terms of mean defensive attributes?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if ((AVG(?cent_attr) > AVG(?med_attr)), 'True', 'False') as ?res) WHERE { ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Centaur> ?def_attr ?cent_attr. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Medusa> ?def_attr ?med_attr.}"
+  },
+  {
+    "id": 45,
+    "question": "is Biclops superior to Mastodon in terms of statistics sum?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if ((SUM(?bicl_stats) > SUM(?mast_stats)), 'True', 'False') as ?res) WHERE { ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biclops> ?stats ?bicl_stats. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mastodon> ?stats ?mast_stats. }"
+  },
+  {
+    "id": 46,
+    "question": "is Satyr superior to Cacodaemon in terms of mean statistics?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if ((AVG(?satyr_stats) > AVG(?cacd_stats)), 'True', 'False') as ?res) WHERE { ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Satyr> ?stats ?satyr_stats. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cacodaemon> ?stats ?cacd_stats. }"
+  },
+  {
+    "id": 51,
+    "question": "does creatures have more offencive attributes than defencive?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if(COUNT(DISTINCT ?off_attr) > COUNT(DISTINCT ?def_attr), 'True', 'False') as ?res) WHERE {  ?off_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#offValues>.  ?def_attr <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#defValues>.}"
+  },
+  {
+    "id": 68,
+    "question": "is there any spider type with touch value equal to 11?",
+    "reason": "SELECT result error: 'bool' object is not iterable",
+    "query": "ASK WHERE { ?spiders <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasTouchValue> ?touch_value FILTER regex(str(?spiders), 'spider', 'i') FILTER (?touch_value = 11) }"
+  },
+  {
+    "id": 76,
+    "question": "what is the average dexterity attribute for creatures with true neutral alignment?",
+    "reason": "Mismatch or outdated answer",
+    "expected_set": [
+      "24"
+    ],
+    "actual_set": [
+      "14.15487238979118329466357309"
+    ],
+    "query": "SELECT (AVG(?dex) as ?avg_dex) WHERE { ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral>;  <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#dex> ?dex }"
+  },
+  {
+    "id": 87,
+    "question": "does Baalzebul have a greater value of average statistics than Dagon?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if((AVG(?baalz_stats) > AVG(?dagon_stats)), 'True', 'False') as ?res) WHERE { ?stats <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#statistics>. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Baalzebul> ?stats ?baalz_stats. <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dagon> ?stats ?dagon_stats }"
+  },
+  {
+    "id": 89,
+    "question": "is the number of creatures speaking dark language greater than cyclops language?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if((COUNT(DISTINCT ?creatures_1) > COUNT(DISTINCT ?creatures_2)), 'True', 'False') as ?res) WHERE { ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DarkL>.  ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CyclopsL>. }"
+  },
+  {
+    "id": 90,
+    "question": "is the number of creatures speaking polyglot language greater than skald language?",
+    "reason": "ASK result mismatch",
+    "expected_bool": false,
+    "actual_bool": null,
+    "query": "SELECT (if((COUNT(DISTINCT ?creatures_1) > COUNT(DISTINCT ?creatures_2)), 'True', 'False') as ?res) WHERE { ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#PolyglotL>.  ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SkaldL>. }"
+  },
+  {
+    "id": 91,
+    "question": "are angels characterized by the greater average value of experience points than demons?",
+    "reason": "ASK result mismatch",
+    "expected_bool": true,
+    "actual_bool": null,
+    "query": "SELECT (if(?avg_ang_XP>?avg_dem_XP, 'True', 'False') as ?res) WHERE { {SELECT (AVG(?ang_XP) as ?avg_ang_XP) WHERE { ?angels <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasXPValue> ?ang_XP FILTER regex(str(?angels), 'angel', 'i')}} {SELECT (AVG(?dem_XP) as ?avg_dem_XP) WHERE { ?demons <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Beast>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasXPValue> ?dem_XP FILTER regex(str(?demons), 'demon', 'i')}} }"
+  }
+]

@@ -1,0 +1,7 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
+SELECT (COUNT(DISTINCT ?grandchild) AS ?grandchildCount) WHERE {
+  wd:Q83233 wdt:P40 ?child.
+  ?child wdt:P40 ?grandchild.
+}

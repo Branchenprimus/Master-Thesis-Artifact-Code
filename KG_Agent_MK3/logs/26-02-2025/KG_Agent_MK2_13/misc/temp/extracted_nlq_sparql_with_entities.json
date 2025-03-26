@@ -1,0 +1,133 @@
+[
+    {
+        "id": "99",
+        "question_text": "What is the time zone of Salt Lake City?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q23337>  <http://www.wikidata.org/prop/direct/P421>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q23337"
+        ],
+        "llm_extracted_entity_names": [
+            "Salt Lake City",
+            "time zone"
+        ],
+        "wikidata_entities_resolved": {
+            "Salt Lake City": "Q23337",
+            "time zone": "Q12143"
+        },
+        "llm_generated_sparql": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?timeZone WHERE { wd:Q23337 wdt:P421 ?timeZone . }",
+        "baseline_sparql_query_response": {
+            "head": {
+                "vars": [
+                    "o1"
+                ]
+            },
+            "results": {
+                "bindings": [
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q3134980"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q2212"
+                        }
+                    }
+                ]
+            }
+        },
+        "sparql_endpoint_response": {
+            "head": {
+                "vars": [
+                    "timeZone"
+                ]
+            },
+            "results": {
+                "bindings": [
+                    {
+                        "timeZone": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q2212"
+                        }
+                    },
+                    {
+                        "timeZone": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q3134980"
+                        }
+                    }
+                ]
+            }
+        },
+        "is_correct": false
+    },
+    {
+        "id": "98",
+        "question_text": "Who killed Caesar?",
+        "sparql_query": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q1048>  <http://www.wikidata.org/prop/direct/P157>  ?o1 .  }",
+        "wikidata_entities_from_sparql": [
+            "Q1048"
+        ],
+        "llm_extracted_entity_names": [
+            "Caesar"
+        ],
+        "wikidata_entities_resolved": {
+            "Caesar": "Q29288"
+        },
+        "llm_generated_sparql": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?killer WHERE { wd:Q29288 wdt:P1576 ?killer. }",
+        "baseline_sparql_query_response": {
+            "head": {
+                "vars": [
+                    "o1"
+                ]
+            },
+            "results": {
+                "bindings": [
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q172248"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q207370"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q294846"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q1228715"
+                        }
+                    },
+                    {
+                        "o1": {
+                            "type": "uri",
+                            "value": "http://www.wikidata.org/entity/Q1243545"
+                        }
+                    }
+                ]
+            }
+        },
+        "sparql_endpoint_response": {
+            "head": {
+                "vars": [
+                    "killer"
+                ]
+            },
+            "results": {
+                "bindings": []
+            }
+        },
+        "is_correct": false
+    }
+]

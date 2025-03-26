@@ -1,0 +1,25 @@
+sparql_folder: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses
+sparql_endpoint_url: https://query.wikidata.org/sparql
+ttl_file: None
+json_output: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/extracted_nlq_sparql_with_entities.json
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_99.sparql
+⚠️ No SPARQL file found for question ID 99, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_98.sparql
+⚠️ No SPARQL file found for question ID 98, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_86.sparql
+⚠️ No SPARQL file found for question ID 86, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_84.sparql
+⚠️ No SPARQL file found for question ID 84, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_81.sparql
+⚠️ No SPARQL file found for question ID 81, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_66.sparql
+⚠️ No SPARQL file found for question ID 66, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_64.sparql
+⚠️ No SPARQL file found for question ID 64, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_56.sparql
+⚠️ No SPARQL file found for question ID 56, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_49.sparql
+⚠️ No SPARQL file found for question ID 49, skipping.
+sparql_file: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/llm_responses/question_44.sparql
+⚠️ No SPARQL file found for question ID 44, skipping.
+✅ Updated JSON file saved to: logs/26-02-2025/KG_Agent_MK2_7/misc/temp/extracted_nlq_sparql_with_entities.json

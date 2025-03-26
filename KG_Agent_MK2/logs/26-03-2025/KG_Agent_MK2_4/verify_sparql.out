@@ -1,0 +1,83 @@
+Question ID: 0
+Baseline Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gancanagh', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Nisid', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ataxian', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Azruverda', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Celedeen', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Nymph', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cayhound', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BattleImp', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SwanMaiden', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cynosoma', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HeraldofDreams', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dryad', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Anhana', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Taniwha', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#WoodGiant', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Muse', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#NobleDjinniVizier', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#RimefireEidolon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Garuda', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Djinni', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Unicorn', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BlackButterfly', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Domovoi', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#RiftFlumph', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hamadryad', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#StarMonarch', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Faun', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#FungalNymph', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SkirmishersTroop', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SapphireOoze', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biofreezer', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Caypup', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Munavri', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElysianTitan'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 1
+Baseline Entities: {'False'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 2
+Baseline Entities: {'4'}
+LLM Entities: {'0'}
+Is Correct: False
+Question ID: 3
+Baseline Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#stabilize'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 4
+Baseline Entities: {'True'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 5
+Baseline Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral'}
+LLM Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#trueNeutral', '1762'}
+Is Correct: False
+Question ID: 6
+Baseline Entities: {'8'}
+LLM Entities: {'4071'}
+Is Correct: False
+Question ID: 7
+Baseline Entities: {'error'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 8
+Baseline Entities: {'False'}
+LLM Entities: {'0'}
+Is Correct: False
+Question ID: 9
+Baseline Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#aasimar'}
+LLM Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#aasimar'}
+Is Correct: True
+Question ID: 10
+Baseline Entities: {'89.25373134328358208955223881'}
+LLM Entities: {'error'}
+Is Correct: False
+Question ID: 11
+Baseline Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CelestialL', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CommonL', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL'}
+LLM Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL', '1617', '722', '453', '417', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CelestialL', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CommonL', '424', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL'}
+Is Correct: False
+Question ID: 12
+Baseline Entities: {'True'}
+LLM Entities: {'0'}
+Is Correct: False
+Question ID: 13
+Baseline Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ClawedKadian', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Arach', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Maharaja', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#FleshdollRogue', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BonepowderGhoul', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Psoglav', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElderWyrm', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#FetidSporeMound', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SlaadLordOfEntropy', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CrystalDragonJuvenile', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BaphometDemonLordofBeasts', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Tataka', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CrystalDragonYoungAdult', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AncientCrystalDragon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Marai', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ChrestomathCaulborn', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ConquerorWorm', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Orsatka', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Raktavarna', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#VaultGiant', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Skulk', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Duergar', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Tonberry', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CorpseOrgy', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonMatureAdult', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Trapper', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gitwerc', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonVeryOld', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonWyrm', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Avatarana', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Yig', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DegenerateSerpentfolk', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonVeryYoung', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mannstirge', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Chelarac', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Azruverda', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mongrelman', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Colliatur', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#FormianQueen', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#VeiledMaster', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CrystalDragonWyrm', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#VeparDukeofDagon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Polevik', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CandlestoneCourtier', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CaizelDeposedQueenofSuccubi', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AdultCrystalDragon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Sthenno', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#StirgeDemon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonOld', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Nocticula', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CrystalDragonOld', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#FungusQueen', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AdvancedNightwing', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dødelig', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TheInfernalDuke', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ContractDevilPhistophilus', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AddictionDevilAtropocustra', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonYoungAdult', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Zalyakavat', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SkeletalMage', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#YoungUmbralDragon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SlaadLordOfTheInsane', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SerpentfolkReclaimer', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AxiomiteGraveknight', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Uniila', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AcidNaga', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HeraldofHell', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gearghost', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DemiLich', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Aatheriexa', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#MuSpore', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Deathhand', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DuergarTyrant', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CaulbornThoughtkeeper', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AncientUmbralDragon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Arcadex', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AdultUmbralDragon', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CrystalDragonMatureAdult', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Rakshasa', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Nulmind', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#LichPsychic', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#OphiduanHominisCaste', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dandasuka', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Taniniver', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BloodQueen', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonGreatWyrm', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Lampad', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Plizeazoth', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Omnipath', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ErinatGremlin', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Mothman', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CrystalDragonGreatWyrm', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#EyeEater', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#CrystalDragonVeryOld', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#UmbralDragonJuvenile', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hyakume', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#VerminLord', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Serpentfolk', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#FungalNymph', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Amanusya', 'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Euryale'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 14
+Baseline Entities: {'5'}
+LLM Entities: {'0'}
+Is Correct: False
+Question ID: 15
+Baseline Entities: {'True'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 16
+Baseline Entities: {'False'}
+LLM Entities: set()
+Is Correct: False
+Question ID: 17
+Baseline Entities: {'error'}
+LLM Entities: {'error'}
+Is Correct: True
+Question ID: 18
+Baseline Entities: {'7'}
+LLM Entities: {'0'}
+Is Correct: False
+Question ID: 19
+Baseline Entities: {'http://www.semanticweb.org/annab/ontologies/2022/3/ontology#OgreMage'}
+LLM Entities: set()
+Is Correct: False
+
+📊 Execution Accuracy: 10.00% (2/20 correct)
+✅ Comparison results and accuracy appended to logs/26-03-2025/KG_Agent_MK2_4/misc/temp/extracted_nlq_sparql_with_entities.json

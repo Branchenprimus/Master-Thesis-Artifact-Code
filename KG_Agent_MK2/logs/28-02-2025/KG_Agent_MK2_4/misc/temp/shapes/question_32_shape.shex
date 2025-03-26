@@ -1,0 +1,280 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q567 = Angela_Merkel>
+{
+   rdfs:label  xsd:string  {224};
+   wdt:P18 IRI  -->  image
+   wdt:P19 IRI  -->  place of birth
+   wdt:P21 IRI  -->  sex or gender
+   wdt:P22 IRI  -->  father
+   wdt:P25 IRI  -->  mother
+   wdt:P26 IRI {2}  -->  spouse
+   wdt:P27 IRI  -->  country of citizenship
+   wdt:P31 IRI  -->  instance of
+   wdt:P39 IRI {9}  -->  position held
+   wdt:P53 IRI  -->  family
+   wdt:P69 IRI {4}  -->  educated at
+   wdt:P1185 xsd:integer  -->  Rodovid ID
+   wdt:P1207 xsd:string  -->  NUKAT ID
+   wdt:P1263 xsd:string  -->  Notable Names Database
+   wdt:P1266 xsd:integer  -->  AlloCiné person ID
+   wdt:P1280 xsd:integer  -->  CONOR.SI ID
+   wdt:P1284 xsd:integer  -->  Munzinger person ID
+   wdt:P1296 xsd:integer  -->  Gran Enciclopèdia Catalana ID (former scheme)
+   wdt:P1340 IRI  -->  eye color
+   wdt:P1343 IRI {10}  -->  described by source
+   wdt:P1344 IRI {20}  -->  participant in
+   wdt:P1368 xsd:integer  -->  National Library of Latvia ID
+   wdt:P1412 IRI  -->  languages spoken, written or signed
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1449 xsd:string {13}  -->  nickname
+   wdt:P1477 xsd:string  -->  birth name
+   wdt:P1559 xsd:string  -->  name in native language
+   wdt:P1617 xsd:string  -->  BBC Things ID
+   wdt:P1651 xsd:string  -->  YouTube video ID
+   wdt:P1695 xsd:string  -->  NLP ID (old)
+   wdt:P1713 IRI  -->  biography at the Bundestag of Germany URL
+   wdt:P1741 xsd:integer  -->  GTAA ID
+   wdt:P1749 xsd:string  -->  Parlement.com ID
+   wdt:P1816 xsd:string  -->  National Portrait Gallery (London) person ID
+   wdt:P1889 IRI {2}  -->  different from
+   wdt:P1953 xsd:integer  -->  Discogs artist ID
+   wdt:P2002 xsd:string {2}  -->  X (Twitter) username
+   wdt:P2003 xsd:string  -->  Instagram username
+   wdt:P2013 xsd:string  -->  Facebook username
+   wdt:P2021 xsd:integer  -->  Erdős number
+   wdt:P2048 xsd:float {2}  -->  height
+   wdt:P2163 xsd:integer  -->  FAST ID
+   wdt:P2190 xsd:string  -->  C-SPAN person string ID (deprecated)
+   wdt:P2372 xsd:string  -->  ODIS ID
+   wdt:P2435 xsd:integer  -->  PORT person ID
+   wdt:P2562 xsd:string  -->  married name
+   wdt:P2600 xsd:integer  -->  Geni.com profile ID
+   wdt:P2604 xsd:integer  -->  Kinopoisk person ID
+   wdt:P2605 xsd:integer  -->  ČSFD person ID
+   wdt:P2639 xsd:string  -->  Filmportal ID
+   wdt:P2949 xsd:string  -->  WikiTree person ID
+   wdt:P3065 xsd:string  -->  RERO ID (legacy)
+   wdt:P3106 xsd:string  -->  Guardian topic ID
+   wdt:P3183 xsd:string  -->  Wall Street Journal topic ID
+   wdt:P3219 xsd:string  -->  Encyclopædia Universalis ID
+   wdt:P3221 xsd:string  -->  New York Times topic ID
+   wdt:P3222 xsd:string  -->  NE.se ID
+   wdt:P3280 xsd:integer  -->  BAnQ authority ID
+   wdt:P3348 xsd:integer  -->  National Library of Greece ID
+   wdt:P3365 xsd:string  -->  Treccani ID
+   wdt:P3368 xsd:integer  -->  Prabook ID
+   wdt:P3373 IRI {2}  -->  sibling
+   wdt:P3388 xsd:integer  -->  LittleSis people ID
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3430 xsd:string  -->  SNAC ARK ID
+   wdt:P3479 xsd:string  -->  Omni topic ID
+   wdt:P3509 xsd:string  -->  Dagens Nyheter topic ID
+   rdf:type  [<http://www.wikidata.org/prop/novalue/P40>]  ;
+   wdt:P91 IRI  -->  sexual orientation
+   wdt:P101 IRI {4}  -->  field of work
+   wdt:P102 IRI  -->  member of political party
+   wdt:P103 IRI  -->  native language
+   wdt:P106 IRI {2}  -->  occupation
+   wdt:P108 IRI {2}  -->  employer
+   wdt:P109 IRI  -->  signature
+   wdt:P140 IRI {3}  -->  religion or worldview
+   wdt:P166 IRI {78}  -->  award received
+   wdt:P172 IRI  -->  ethnic group
+   wdt:P184 IRI  -->  doctoral advisor
+   wdt:P213 xsd:integer {2}  -->  ISNI
+   wdt:P214 xsd:integer {2}  -->  VIAF cluster ID
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P3602 IRI {8}  -->  candidacy in election
+   wdt:P3618 xsd:integer  -->  base salary
+   wdt:P3845 xsd:integer  -->  TV Guide person ID (former scheme)
+   wdt:P3846 xsd:integer  -->  DBC author ID
+   wdt:P3847 xsd:string  -->  Open Library subject ID
+   wdt:P4100 IRI  -->  parliamentary group
+   wdt:P4223 xsd:string  -->  Treccani's Enciclopedia Italiana ID
+   wdt:P4293 xsd:string  -->  PM20 folder ID
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P4521 xsd:integer  -->  Radio Radicale person ID
+   wdt:P4527 xsd:integer  -->  UK Parliament thesaurus ID
+   wdt:P4613 xsd:integer  -->  Encyclopedia of Modern Ukraine ID
+   wdt:P4619 xsd:integer  -->  National Library of Brazil ID
+   wdt:P4666 xsd:integer  -->  CineMagia person ID
+   wdt:P4839 xsd:string  -->  Wolfram Language entity code
+   wdt:P4985 xsd:integer  -->  TMDB person ID
+   wdt:P5019 xsd:string  -->  Brockhaus Enzyklopädie online ID
+   wdt:P5033 xsd:integer  -->  Filmweb.pl person ID
+   wdt:P5034 xsd:string  -->  National Library of Korea ID
+   wdt:P5284 xsd:integer  -->  Douban movie celebrity ID
+   wdt:P5337 xsd:string  -->  Google News topics ID
+   wdt:P5355 xsd:integer  -->  abgeordnetenwatch.de politician ID
+   wdt:P5361 xsd:string  -->  BNB person ID
+   wdt:P5419 xsd:string  -->  NYRB contributor ID
+   wdt:P5421 xsd:integer  -->  Trading Card Database person ID
+   wdt:P5551 xsd:string  -->  Courrier international topic ID
+   wdt:P5587 xsd:string  -->  Libris-URI
+   wdt:P5617 xsd:string  -->  Evene ID
+   wdt:P5821 xsd:integer  -->  ArhivX LOD
+   wdt:P5905 xsd:string  -->  Comic Vine ID
+   wdt:P6081 xsd:integer  -->  RIA Novosti reference
+   wdt:P6104 IRI  -->  maintained by WikiProject
+   wdt:P6200 xsd:string  -->  BBC News topic ID
+   wdt:P6262 xsd:string  -->  Fandom article ID
+   wdt:P6327 xsd:integer  -->  Goodreads character ID
+   wdt:P6385 xsd:string  -->  Krugosvet article
+   wdt:P6394 xsd:string  -->  ELNET ID
+   wdt:P6414 xsd:string  -->  DIZIE ID
+   wdt:P6488 xsd:string  -->  Enciclopedia delle donne ID
+   wdt:P6517 xsd:string  -->  WhoSampled artist ID
+   wdt:P6553 IRI {2}  -->  personal pronoun
+   wdt:P6573 xsd:string  -->  Klexikon article ID
+   wdt:P6683 xsd:integer  -->  Alexander Turnbull Library ID
+   wdt:P6706 xsd:string  -->  De Agostini ID
+   wdt:P6722 xsd:integer  -->  FemBio ID
+   wdt:P6760 xsd:integer  -->  Know Your Meme numeric ID
+   wdt:P6868 xsd:integer  -->  Hoopla artist ID
+   wdt:P6886 IRI  -->  writing language
+   wdt:P7029 xsd:integer  -->  National Library of Russia ID
+   wdt:P7293 xsd:integer  -->  PLWABN ID
+   wdt:P7301 xsd:string  -->  Al-Jazeera topic ID
+   wdt:P7305 xsd:integer  -->  Online PWN Encyclopedia ID
+   wdt:P7400 xsd:string  -->  LibraryThing author ID
+   wdt:P7502 xsd:string  -->  Golden ID
+   wdt:P7578 xsd:string  -->  DUC ID
+   wdt:P7666 xsd:string  -->  Visuotinė lietuvių enciklopedija ID
+   wdt:P7699 xsd:string  -->  National Library of Lithuania ID
+   wdt:P7700 xsd:string  -->  Slovak National Library (VIAF) ID
+   wdt:P7763 IRI  -->  copyright status as a creator
+   wdt:P7775 xsd:string {2}  -->  RationalWiki ID
+   wdt:P7902 xsd:integer  -->  Deutsche Biographie (GND) ID
+   wdt:P7982 xsd:integer  -->  Hrvatska enciklopedija ID
+   wdt:P8034 xsd:string  -->  Vatican Library VcBA ID
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8172 xsd:string  -->  Sejm-Wielki.pl profile ID
+   wdt:P8179 xsd:string  -->  Canadiana Name Authority ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8309 xsd:string  -->  Yle topic ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8349 xsd:integer  -->  Proleksis enciklopedija ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8445 xsd:integer  -->  Our Campaigns candidate ID
+   wdt:P8793 xsd:integer  -->  Quirinale ID
+   wdt:P8795 xsd:integer  -->  Diamond Catalog ID for persons and organisations
+   wdt:P8854 xsd:integer  -->  Salzburgwiki ID
+   wdt:P9037 xsd:string  -->  BHCL UUID
+   wdt:P9171 xsd:integer  -->  RILM ID
+   wdt:P9346 xsd:string  -->  France 24 topic ID (French)
+   wdt:P9349 xsd:string  -->  France 24 topic ID (Arabic)
+   wdt:P9368 xsd:string  -->  CNA topic ID
+   wdt:P9437 xsd:integer  -->  Politiklexikon ID
+   wdt:P9438 xsd:integer  -->  Europalexikon ID
+   wdt:P9629 xsd:integer  -->  Armeniapedia ID
+   wdt:P9671 xsd:string  -->  Bundesstiftung Aufarbeitung person ID
+   wdt:P9775 xsd:string  -->  Treccani's Lessico del XXI Secolo ID
+   wdt:P9807 xsd:integer  -->  SNK ID
+   wdt:P9864 xsd:integer  -->  Télé-Loisirs ID
+   wdt:P9885 xsd:string  -->  Bing entity ID
+   wdt:P9918 xsd:string  -->  Kallías ID
+   wdt:P9937 xsd:integer  -->  Postimees topic ID
+   wdt:P227 xsd:integer  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P9964 xsd:integer  -->  Kalliope-Verbund (GND) ID
+   wdt:P9984 xsd:integer  -->  CANTIC ID
+   wdt:P9995 xsd:integer  -->  MYmovies person ID
+   wdt:P10234 xsd:string {2}  -->  Der Spiegel topic ID
+   wdt:P10297 xsd:string  -->  Google Arts & Culture entity ID
+   wdt:P10302 xsd:string  -->  Film.ru person ID
+   wdt:P10347 xsd:string  -->  World Economic Forum ID
+   wdt:P10474 xsd:string  -->  svpressa.ru person ID
+   wdt:P10553 xsd:integer  -->  IxTheo authority ID
+   wdt:P10608 xsd:string  -->  FID performing arts ID
+   wdt:P10632 xsd:string  -->  OpenSanctions ID
+   wdt:P10660 xsd:integer  -->  C-SPAN person numeric ID
+   wdt:P10757 xsd:integer  -->  Personality Database profile ID
+   wdt:P10780 xsd:string  -->  Radio France person ID
+   wdt:P10832 xsd:string  -->  WorldCat Entities ID
+   wdt:P10916 xsd:string  -->  Süddeutsche Zeitung topic ID
+   wdt:P11012 xsd:string  -->  EU Knowledge Graph item ID
+   wdt:P11137 xsd:string  -->  Reddit
+   wdt:P11182 xsd:integer  -->  UOM ID
+   wdt:P11194 xsd:string  -->  Famous Birthdays ID
+   wdt:P11386 xsd:string  -->  Listal ID
+   wdt:P11496 xsd:integer  -->  CiNii Research ID
+   wdt:P11514 xsd:string  -->  Great Russian Encyclopedia portal ID
+   wdt:P11683 xsd:string  -->  Ivi person ID
+   wdt:P12086 xsd:string  -->  WikiKids ID
+   wdt:P12098 xsd:integer  -->  Kinobox person ID
+   wdt:P12385 xsd:string  -->  Gran Enciclopèdia Catalana ID
+   wdt:P12458 xsd:integer  -->  Parsifal cluster ID
+   wdt:P12582 xsd:integer  -->  Oxford Reference overview ID
+   wdt:P12597 xsd:integer  -->  museum-digital person ID
+   wdt:P12800 xsd:string {3}  -->  Vikidia article ID
+   wdt:P12836 xsd:integer  -->  Douban personage ID
+   wdt:P13030 xsd:string  -->  ‎Münzkabinett ID
+   wdt:P13049 xsd:integer  -->  DDB person (GND) ID
+   wdt:P13183 xsd:integer  -->  JudaicaLink person (GND) ID
+   wdt:P268 xsd:string  -->  Bibliothèque nationale de France ID
+   wdt:P269 xsd:string  -->  IdRef ID
+   wdt:P271 xsd:string  -->  NACSIS-CAT author ID
+   wdt:P345 xsd:string  -->  IMDb ID
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P396 xsd:string  -->  SBN author ID
+   wdt:P434 xsd:string  -->  MusicBrainz artist ID
+   wdt:P443 IRI {3}  -->  pronunciation audio
+   wdt:P463 IRI {9}  -->  member of
+   wdt:P528 xsd:integer  -->  catalog code
+   wdt:P549 xsd:integer  -->  Mathematics Genealogy Project ID
+   wdt:P551 IRI  -->  residence
+   wdt:P569 xsd:string  -->  date of birth
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P648 xsd:string  -->  Open Library ID
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P734 IRI  -->  family name
+   wdt:P735 IRI  -->  given name
+   wdt:P800 IRI  -->  notable work
+   wdt:P856 IRI  -->  official website
+   wdt:P866 xsd:string  -->  Perlentaucher ID
+   wdt:P906 xsd:integer  -->  SELIBR ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P935 xsd:string  -->  Commons gallery
+   wdt:P937 IRI {3}  -->  work location
+   wdt:P949 xsd:integer  -->  National Library of Israel ID (old)
+   wdt:P973 IRI {5}  -->  described at URL
+   wdt:P990 IRI  -->  audio recording of the subject's spoken voice
+   wdt:P1006 xsd:integer  -->  Nationale Thesaurus voor Auteursnamen ID
+   wdt:P1015 xsd:integer  -->  NORAF ID
+   wdt:P1026 IRI  -->  academic thesis
+   wdt:P1038 IRI  -->  relative
+   wdt:P1066 IRI  -->  student of
+   wdt:P1153 xsd:integer  -->  Scopus author ID
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/P1477 = birth_name>
+{
+   rdfs:label  xsd:string  {145};
+   wdt:P31 IRI {3}  -->  instance of
+   wdt:P1628 IRI  -->  equivalent property
+   wdt:P1629 IRI  -->  Wikidata item of this property
+   wdt:P1647 IRI  -->  subproperty of
+   wdt:P1659 IRI {5}  -->  related property
+   wdt:P1855 IRI {6}  -->  Wikidata property example
+   wdt:P2302 IRI {6}  -->  property constraint
+   wdt:P2668 IRI  -->  stability of property value
+   wdt:P2875 IRI  -->  property usage tracking category
+   wdt:P3254 IRI  -->  property proposal discussion
+   wdt:P8274 IRI  -->  living people protection class
+   rdf:type  [<http://wikiba.se/ontology#Property>]
+}

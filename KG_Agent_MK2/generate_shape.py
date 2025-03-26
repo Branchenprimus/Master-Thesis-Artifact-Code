@@ -130,14 +130,46 @@ def process_json(json_file, shape_output_path):
 
             print(f"✅ Saved combined ShEx shape for question {original_id} to {output_filepath}")
 
+def generate_shape_from_local_graph(local_graph_location, shape_output_path):
+    """
+    Generates a shape from a local graph using the Shexer library's all entities mode.
+    """
+    try:
+        shaper = Shaper(
+            graph_file_input=local_graph_location,
+            input_format="xml",  # Assuming the format of the local graph file is RDF/XML
+            disable_comments=True,
+            all_classes_mode=True
+        )
+
+        shape = shaper.shex_graph(string_output=True)
+        os.makedirs(shape_output_path, exist_ok=True)
+        output_filepath = os.path.join(shape_output_path, "local_graph_shape.shex")
+
+        with open(output_filepath, "w", encoding="utf-8") as f:
+            f.write(shape.strip())
+
+        print(f"✅ Saved ShEx shape for local graph to {output_filepath}")
+
+    except Exception as e:
+        print(f"❌ Error generating shape from local graph: {e}")
+
 def main():
     parser = argparse.ArgumentParser(description="Extract ShEx schemas from Wikidata entities found in a JSON dataset.")
     parser.add_argument("--target_json_file", type=str, required=True, help="Path to the JSON file containing extracted entities.")
     parser.add_argument("--shape_output_path", type=str, required=True, help="Path to save the extracted shapes.")
+    parser.add_argument("--is_local_graph", type=bool, required=True, help="Set True or False.")
+    parser.add_argument("--local_graph_location", type=str, required=False, help="Path to the local graph file.")
 
     args = parser.parse_args()
     
-    process_json(args.target_json_file, args.shape_output_path)
+    if args.is_local_graph:
+        if not args.local_graph_location:
+            print("❌ Error: --local_graph_location is required when --is_local_graph is True.")
+            return
+        generate_shape_from_local_graph(args.local_graph_location, args.shape_output_path)
+    else:
+        process_json(args.target_json_file, args.shape_output_path)
 
 if __name__ == "__main__":
     main()

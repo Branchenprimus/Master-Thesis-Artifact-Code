@@ -4,14 +4,6 @@ import re
 import requests
 import openai
 
-def extract_entities_from_sparql(sparql_query):
-    """
-    Extracts and cleans Wikidata entity identifiers from a SPARQL query.
-    """
-    entities = re.findall(r'wd:Q\d+|<http://www.wikidata.org/entity/Q\d+>', sparql_query)
-    clean_entities = {re.sub(r'.*Q', 'Q', e).replace(">", "") for e in entities}
-    return sorted(clean_entities)  # Return as a sorted list
-
 def extract_entities_with_llm(nlq, api_key, model, llm_provider):
     """
     Uses an LLM to extract the most relevant entities from a natural language query.
@@ -73,7 +65,7 @@ def get_wikidata_entities(entity_names):
 
     return wikidata_entities
 
-def transform_json(input_file, output_file, api_key, num_questions, model, llm_provider):
+def transform_json(input_file, output_file, api_key, num_questions, model, llm_provider, is_local_graph):
     """
     Transforms the input JSON structure into a simplified list of question-answer pairs,
     including extracted entity IDs from SPARQL, LLM, and Wikidata SPARQL endpoint,
@@ -107,24 +99,31 @@ def transform_json(input_file, output_file, api_key, num_questions, model, llm_p
         # Get the SPARQL query
         sparql_query = entry["query"]["sparql"]
 
-        # Extract entities from the SPARQL query
-        entities_from_sparql = extract_entities_from_sparql(sparql_query)
-
         # Extract multiple entities from NLQ using LLM
-        llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider)
+        if is_local_graph:
+            
+            # Append to transformed structure
+            transformed_data.append({
+                "id": original_id,  # Keep the original ID
+                "question_text": question_text,  # The natural language question
+                "sparql_query": sparql_query,  # The original SPARQL query from the dataset
+                "llm_extracted_entity_names": "Local Graph, no entity extraction needed",  # Named entities extracted by the LLM
+                "wikidata_entities_resolved": "Local Graph, no entity resolving needed"  # Wikidata Q-IDs mapped to LLM-extracted names
+            })
+        else:
+            llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider)
 
-        # Query Wikidata to get entity IDs for all extracted names
-        wikidata_entities_resolved = get_wikidata_entities(llm_extracted_entities)
+            # Query Wikidata to get entity IDs for all extracted names
+            wikidata_entities_resolved = get_wikidata_entities(llm_extracted_entities)
 
-        # Append to transformed structure
-        transformed_data.append({
-            "id": original_id,  # Keep the original ID
-            "question_text": question_text,  # The natural language question
-            "sparql_query": sparql_query,  # The original SPARQL query from the dataset
-            "wikidata_entities_from_sparql": entities_from_sparql,  # Entities extracted directly from the SPARQL query
-            "llm_extracted_entity_names": llm_extracted_entities,  # Named entities extracted by the LLM
-            "wikidata_entities_resolved": wikidata_entities_resolved  # Wikidata Q-IDs mapped to LLM-extracted names
-        })
+            # Append to transformed structure
+            transformed_data.append({
+                "id": original_id,  # Keep the original ID
+                "question_text": question_text,  # The natural language question
+                "sparql_query": sparql_query,  # The original SPARQL query from the dataset
+                "llm_extracted_entity_names": llm_extracted_entities,  # Named entities extracted by the LLM
+                "wikidata_entities_resolved": wikidata_entities_resolved  # Wikidata Q-IDs mapped to LLM-extracted names
+            })
 
         print(f"✅ Processed ID {original_id}")
 
@@ -140,17 +139,16 @@ def main():
     parser.add_argument("--input_file", type=str, required=True, help="Path to the input JSON file.")
     parser.add_argument("--output_file", type=str, required=True, help="Path to save the transformed JSON output.")
     parser.add_argument("--api_key", type=str, required=True, help="API key for entity extraction.")
-    parser.add_argument("--num_questions", type=str, help="Number of questions to process. If omitted, all questions will be processed.")
+    parser.add_argument("--num_questions", type=int, help="Number of questions to process. If omitted, all questions will be processed.")
     parser.add_argument("--model", type=str, default="gpt-4o-mini", help="Model used for entity extraction.")
     parser.add_argument("--llm_provider", type=str, default="openai", help="Define which llm to use.")
+    parser.add_argument("--is_local_graph", type=bool, required=True, help="Set True or False.")
 
     args = parser.parse_args()
     
     # Handle `num_questions`: Convert to `None` if empty or the string "None"
     if args.num_questions in (None, "", "None"):
         args.num_questions = None
-    else:
-        args.num_questions = int(args.num_questions)  # Ensure it's an integer
 
     # Ensure `num_questions` is a positive integer if provided
     if args.num_questions is not None and args.num_questions <= 0:
@@ -159,7 +157,7 @@ def main():
     print(f"📌 Using num_questions: {args.num_questions}")
 
     # Call your processing function
-    transform_json(args.input_file, args.output_file, args.api_key, args.num_questions, args.model, args.llm_provider)
+    transform_json(args.input_file, args.output_file, args.api_key, args.num_questions, args.model, args.llm_provider, args.is_local_graph)
 
 if __name__ == "__main__":
     main()

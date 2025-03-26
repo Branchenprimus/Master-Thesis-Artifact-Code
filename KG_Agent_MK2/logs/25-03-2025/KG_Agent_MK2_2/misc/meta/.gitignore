@@ -1,0 +1,4 @@
+kgvenv/
+.env
+test/
+QLAD_Benchmark/

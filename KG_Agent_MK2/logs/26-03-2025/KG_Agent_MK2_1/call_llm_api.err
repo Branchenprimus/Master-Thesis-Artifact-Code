@@ -1,0 +1,31 @@
+Debug: Saving response for question ID 0
+Debug: Checking entry ID 0 against question ID 0
+Debug: Checking entry ID 1 against question ID 0
+Debug: Checking entry ID 2 against question ID 0
+Debug: Checking entry ID 3 against question ID 0
+Debug: Checking entry ID 4 against question ID 0
+Debug: Checking entry ID 5 against question ID 0
+Debug: Checking entry ID 6 against question ID 0
+Debug: Checking entry ID 7 against question ID 0
+Debug: Checking entry ID 8 against question ID 0
+Debug: Checking entry ID 9 against question ID 0
+Debug: Checking entry ID 10 against question ID 0
+Debug: Checking entry ID 11 against question ID 0
+Debug: Checking entry ID 12 against question ID 0
+Debug: Checking entry ID 13 against question ID 0
+Debug: Checking entry ID 14 against question ID 0
+Debug: Checking entry ID 15 against question ID 0
+Debug: Checking entry ID 16 against question ID 0
+Debug: Checking entry ID 17 against question ID 0
+Debug: Checking entry ID 18 against question ID 0
+Debug: Checking entry ID 19 against question ID 0
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 193, in <module>
+    main()
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 179, in main
+    process_json_and_shapes(
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 160, in process_json_and_shapes
+    save_response(json_path, question_id, response)
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 86, in save_response
+    raise ValueError(f"❌ ERROR: Question ID {question_id} not found in {json_path} file.")
+ValueError: ❌ ERROR: Question ID 0 not found in logs/26-03-2025/KG_Agent_MK2_1/misc/temp/extracted_nlq_sparql_with_entities.json file.

@@ -1,0 +1,5860 @@
+🔄 Generating SPARQL for question ID 0 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+which creatures not speaking draconic language do have chaotic good alignment?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTRb4XSkDiPR2EqG6TT8DVuyEDJ', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT ?creature WHERE { ?creature rdf:type :Beast . ?creature :hasAlignment :ChaoticGood . FILTER NOT EXISTS { ?creature :hasLanguages :Draconic } }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008697, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=48, prompt_tokens=2732, total_tokens=2780, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 1 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+does Caypup have more special abilities than Aasimar?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTU0u1iL6rgFrPlqTvpfUFJDmYs', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(DISTINCT ?abilityCaypup) AS ?countCaypup) (COUNT(DISTINCT ?abilityAasimar) AS ?countAasimar) WHERE { { ?caypup a :Beast ; :hasSpecAbils ?abilityCaypup . FILTER(?caypup = :Caypup) } UNION { ?aasimar a :Beast ; :hasSpecAbils ?abilityAasimar . FILTER(?aasimar = :Aasimar) } } GROUP BY ?caypup ?aasimar HAVING (?countCaypup > ?countAasimar)\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008700, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=142, prompt_tokens=2731, total_tokens=2873, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 2 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+how many creatures with non-neutral alignment do speak treant language?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTW4pgiF6PuT1TQtOiWV646Y9Lm', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(?creature) AS ?count) WHERE { ?creature a :Beast ; :hasAlignment ?alignment ; :hasLanguages :Treant . FILTER(?alignment != :Neutral) }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008702, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=48, prompt_tokens=2731, total_tokens=2779, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 3 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+what spells Aasimar and Caypup do have in common?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTX4UEpqTV6v4Sbpu6i4gKgRKwJ', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nPREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>\nSELECT ?spell WHERE { \n  { ?aasimar :canSpell ?spell . }\n  UNION \n  { ?caypup :canSpell ?spell . }\n  FILTER(?aasimar = :Aasimar && ?caypup = :Caypup)\n}\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008703, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=89, prompt_tokens=2732, total_tokens=2821, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 4 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+is the number of creatures speaking both abyssal and aklo languages greater than infernal and terran?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTZP4kYbh7GFcNzBinQEfvhZVxZ', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(DISTINCT ?creature) AS ?countAbyssalAklo) (COUNT(DISTINCT ?creatureInfernalTerran) AS ?countInfernalTerran) WHERE { { SELECT ?creature WHERE { ?creature :hasLanguages :Abyssal ; :hasLanguages :Aklo . } } UNION { SELECT ?creatureInfernalTerran WHERE { ?creatureInfernalTerran :hasLanguages :Infernal ; :hasLanguages :Terran . } } } GROUP BY ?creature ?creatureInfernalTerran HAVING (?countAbyssalAklo > ?countInfernalTerran)\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008705, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=143, prompt_tokens=2739, total_tokens=2882, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 5 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+what is the most common alignment type?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTbB227hQLSAGolN9lRr0AQ6M1T', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT ?alignment (COUNT(?alignment) AS ?count) WHERE { ?beast :hasAlignment ?alignment } GROUP BY ?alignment ORDER BY DESC(?count) LIMIT 1\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008707, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=43, prompt_tokens=2726, total_tokens=2769, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 6 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+how many types of robots are among creatures?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTdxDF0l025DhgpoxbpgOSXjAzZ', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(DISTINCT ?robotType) AS ?numberOfRobotTypes) WHERE { ?robotType rdf:type :Beast . }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008709, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=35, prompt_tokens=2727, total_tokens=2762, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 7 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+is there any type of troll with good alignment?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTeuqQqG1BsuJcZpJp21ro0Wgqi', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT ?troll WHERE { ?troll rdf:type :Beast . ?troll :hasAlignment ?alignment . FILTER(?alignment = :Good) }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008710, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=38, prompt_tokens=2728, total_tokens=2766, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 8 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+are creatures with good alignment more common than evil?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTf7kJjUhar9gdEOTKr3gDDpyZ2', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(?good) AS ?goodCount) (COUNT(?evil) AS ?evilCount) WHERE { { SELECT ?good WHERE { ?s a :NamedIndividual ; :hasAlignment :Good . } } UNION { SELECT ?evil WHERE { ?s a :NamedIndividual ; :hasAlignment :Evil . } } }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008711, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=74, prompt_tokens=2728, total_tokens=2802, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 9 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+what creatures do have cold resist?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOThhDcPnsFetDxOeZEk91A88X66', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT ?creature WHERE { ?creature rdf:type :Beast . ?creature :hasResists :cold . }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008713, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=32, prompt_tokens=2725, total_tokens=2757, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 10 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+what percentage of dragons do speak both draconic and common languages?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTiwoUCuEqzhjv2ZxkjjwPpWKG3', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='SELECT (COUNT(?dragon) AS ?totalDragons) (COUNT(?dragonWithLanguages) AS ?dragonsWithLanguages) (IF(COUNT(?dragon) = 0, 0, (COUNT(?dragonWithLanguages) * 100 / COUNT(?dragon))) AS ?percentage) WHERE { ?dragon rdf:type :Beast . ?dragon :hasLanguages ?language . FILTER(?language IN (:Draconic, :Common)) BIND(IF(?language IN (:Draconic, :Common), ?dragon, UNDEF) AS ?dragonWithLanguages) } GROUP BY ?dragon', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008714, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=121, prompt_tokens=2732, total_tokens=2853, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 11 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+what are the top-5 languages by popularity among creatures?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTlwHAKayMcYoKMTKcr1xmSJL8C', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT ?language (COUNT(?creature) AS ?popularity) WHERE { ?creature a :Beast; :hasLanguages ?language. } GROUP BY ?language ORDER BY DESC(?popularity) LIMIT 5\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008717, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=52, prompt_tokens=2730, total_tokens=2782, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 12 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+do dragons in average speak more languages than demons?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTm1MCBCXHPfBhxTkLokTeHzseX', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (AVG(?dragonLangCount) AS ?avgDragonLang) (AVG(?demonLangCount) AS ?avgDemonLang) WHERE { { SELECT (COUNT(?language) AS ?dragonLangCount) WHERE { ?dragon rdf:type :Dragon ; :hasLanguages ?language . } GROUP BY ?dragon } UNION { SELECT (COUNT(?language) AS ?demonLangCount) WHERE { ?demon rdf:type :Demon ; :hasLanguages ?language . } GROUP BY ?demon } }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008718, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=111, prompt_tokens=2728, total_tokens=2839, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 13 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+what creatures do speak both common and undercommon languages?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOToxH7D7QOYj7Pdu3tBrk2locvi', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT ?creature WHERE { ?creature a :Beast ; :hasLanguages ?lang . FILTER(?lang IN (:Common, :Undercommon)) }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008720, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=38, prompt_tokens=2729, total_tokens=2767, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 14 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+how many creatures do speak abyssal, sylvan and elven languages?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTp3qqVQdGfHFVj2HEFBKXzhE5p', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(?creature) AS ?count) WHERE { ?creature a :Beast ; :hasLanguages ?language . FILTER(?language IN (:Abyssal, :Sylvan, :Elven)) }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008721, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=52, prompt_tokens=2733, total_tokens=2785, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 15 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+is there any type of zombie with chaotic evil or chaotic neutral alignment?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTrXe7AJRTKtpw3wcOcfOvwTzmo', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nPREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>\nSELECT ?zombie WHERE { ?zombie rdf:type :Beast . ?zombie :hasAlignment ?alignment . FILTER(?alignment IN (:ChaoticEvil, :ChaoticNeutral)) }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008723, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=70, prompt_tokens=2732, total_tokens=2802, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 16 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+does Trox speak more languages than Sunlord?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTsElbJwQXrWdYUrY424Fjc8BCk', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(DISTINCT ?langTrox) AS ?countTrox) (COUNT(DISTINCT ?langSunlord) AS ?countSunlord) WHERE { { ?trox a :NamedIndividual ; :hasLanguages ?langTrox . FILTER(?trox = :Trox) } UNION { ?sunlord a :NamedIndividual ; :hasLanguages ?langSunlord . FILTER(?sunlord = :Sunlord) } } GROUP BY ?trox ?sunlord HAVING (?countTrox > ?countSunlord)\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008724, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=117, prompt_tokens=2728, total_tokens=2845, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 17 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+does Einherji and Balor have any common language?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTuI40pa20GzOFlkjVWHI8VoEJD', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nPREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#> \nSELECT ?language WHERE { { :Einherji :hasLanguages ?language . } INTERSECT { :Balor :hasLanguages ?language . } }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008726, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=63, prompt_tokens=2730, total_tokens=2793, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 18 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+how many creatures with lawful neutral alignment can speak giant language?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTwutfmGI290sjaYUzodgccHHBv', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nSELECT (COUNT(?creature) AS ?count) WHERE { ?creature a :Beast ; :hasAlignment :LawfulNeutral ; :hasLanguages :Giant . }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008728, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=43, prompt_tokens=2730, total_tokens=2773, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+🔄 Generating SPARQL for question ID 19 with entities []...
+Full prompt: You are an expert in structured query languages, specifically SPARQL, the query language for RDF databases.
+
+Your task is to generate **only** valid SPARQL queries that precisely answer the user’s question by leveraging the provided shape constraints.
+
+Rules:
+- **Write your response in one line.** Do not include line breaks "/n" or other formating into your response. 
+- **Use the given shape constraints to construct an optimal SPARQL query.** The shape provides the structure and relationships available in the dataset.
+- **Respond only with a valid SPARQL query.** Do not include explanations, comments, or additional text.
+- **Do not generate natural language responses.** Return only raw SPARQL code.
+- **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
+- **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+
+The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
+
+---
+
+### User Query:
+which ogres with lawful evil alignment can speak common language?
+
+### Shape Constraints:
+PREFIX : <http://weso.es/shapes/>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
+PREFIX csvw: <http://www.w3.org/ns/csvw#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcam: <http://purl.org/dc/dcam/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX schema: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>
+
+:Beast
+{
+   rdf:type  [:Beast]  ;
+   rdf:type  [owl:NamedIndividual]  ;
+   :hasAlignment  @:Alignment  ;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:NamedIndividual
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Beast]  ?;
+   :hasAlignment  @:Alignment  ?;
+   :hasTouchValue  xsd:integer  ?;
+   :hasFortValue  xsd:integer  ?;
+   :hasWillValue  xsd:integer  ?;
+   :hasRefValue  xsd:integer  ?;
+   :hasACValue  xsd:integer  ?;
+   :hasHPvalue  xsd:integer  ?;
+   :hasInitValue  xsd:integer  ?;
+   :hasFlatFootedValue  xsd:integer  ?;
+   :cha  xsd:integer  ?;
+   :atk  xsd:integer  ?;
+   :hasXPValue  xsd:integer  ?;
+   :wis  xsd:integer  ?;
+   :dex  xsd:integer  ?;
+   :cmb  xsd:integer  ?;
+   :cmd  xsd:integer  ?;
+   :str  xsd:integer  ?;
+   :hasCRValue  xsd:integer  ?;
+   :hasSpeedValue  xsd:integer  ?;
+   :int  xsd:integer  ?;
+   :con  xsd:integer  ?;
+   :hasLanguages  @:Language  *;
+   :hasCRValue  xsd:double  ?;
+   rdf:type  [:Language]  ?;
+   rdf:type  [:Spells]  ?;
+   rdf:type  [:Alignment]  ?;
+   rdf:type  [:Environment]  ?;
+   rdf:type  [:SpecialAbilities]  ?;
+   rdf:type  [:Organization]  ?;
+   rdf:type  [:Resists]  ?;
+   rdf:type  [:Feats]  ?;
+   :wis  xsd:positiveInteger  ?;
+   :cha  xsd:positiveInteger  ?;
+   :hasTouchValue  xsd:positiveInteger  ?;
+   :hasSpeedValue  xsd:positiveInteger  ?;
+   :dex  xsd:positiveInteger  ?;
+   :int  xsd:positiveInteger  ?;
+   :hasFlatFootedValue  xsd:positiveInteger  ?;
+   :hasXPValue  xsd:positiveInteger  ?;
+   :cmd  xsd:positiveInteger  ?;
+   :str  xsd:positiveInteger  ?;
+   :con  xsd:positiveInteger  ?;
+   :hasACvalue  xsd:positiveInteger  ?;
+   :hasSpecAbils  @:SpecialAbilities  *;
+   :canSpell  @:NamedIndividual  *;
+   :hasEnvironment  @:NamedIndividual  *;
+   :hasResists  @:NamedIndividual  *;
+   :hasHPValue  xsd:integer  ?;
+   :canRanged  xsd:boolean  ?;
+   :canMelee  xsd:boolean  ?;
+   :hasFeats  @:Feats  *;
+   :hasOrganization  @:Organization  *;
+   :hasCRvalue  xsd:float  ?;
+   rdf:type  [:Treasure]  ?;
+   :hasRefValue  xsd:positiveInteger  ?;
+   :hasFortValue  xsd:positiveInteger  ?;
+   :hasWillValue  xsd:positiveInteger  ?;
+   :hasLevel  xsd:positiveInteger  ?;
+   :hasTreasure  @:NamedIndividual  ?
+}
+
+
+:Language
+{
+   rdf:type  [:Language]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Environment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Environment]  
+}
+
+
+:Organization
+{
+   rdf:type  [:Organization]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:FunctionalProperty
+{
+   rdf:type  [owl:FunctionalProperty]  ;
+   rdfs:range  IRI  ;
+   rdfs:domain  @:Class  ;
+   rdf:type  [owl:DatatypeProperty]  ?;
+   rdfs:subPropertyOf  IRI  ?;
+   rdf:type  [owl:ObjectProperty]  ?
+}
+
+
+:DatatypeProperty
+{
+   rdf:type  [owl:DatatypeProperty]  ;
+   rdf:type  [owl:FunctionalProperty]  ?;
+   rdfs:range  IRI  ?;
+   rdfs:domain  @:Class  ?;
+   rdfs:subPropertyOf  @:DatatypeProperty  ?
+}
+
+
+:Feats
+{
+   rdf:type  [:Feats]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:Class
+{
+   rdf:type  [owl:Class]  ?;
+   rdfs:subClassOf  IRI  ?;
+   owl:equivalentClass  BNode  ?
+}
+
+
+:Alignment
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Alignment]  
+}
+
+
+:ObjectProperty
+{
+   rdf:type  [owl:ObjectProperty]  ;
+   rdfs:domain  @:Class  ?;
+   rdfs:range  @:Class  ?;
+   rdfs:subPropertyOf  @:ObjectProperty  ?;
+   rdf:type  [owl:FunctionalProperty]  ?
+}
+
+
+:SpecialAbilities
+{
+   rdf:type  [:SpecialAbilities]  ;
+   rdf:type  [owl:NamedIndividual]  
+}
+
+
+:AnnotationProperty
+{
+   rdf:type  [owl:AnnotationProperty]  
+}
+
+
+:Spells
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Spells]  
+}
+
+
+:Resists
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Resists]  
+}
+
+
+:Treasure
+{
+   rdf:type  [owl:NamedIndividual]  ;
+   rdf:type  [:Treasure]  
+}
+
+
+:Ontology
+{
+   rdf:type  [owl:Ontology]  
+}
+
+### Expected SPARQL Query:
+```sparql
+
+ChatGPT completion object: ChatCompletion(id='chatcmpl-BFOTxEZy5PIANRFLpjXY734v6vlDN', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='```sparql\nPREFIX : <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#>\nSELECT ?ogre WHERE { ?ogre rdf:type :Beast . ?ogre :hasAlignment :LawfulEvil . ?ogre :hasLanguages :Common . }\n```', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None, annotations=[]))], created=1743008729, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier='default', system_fingerprint='fp_27322b4e16', usage=CompletionUsage(completion_tokens=67, prompt_tokens=2730, total_tokens=2797, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))

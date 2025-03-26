@@ -46,11 +46,14 @@ python ./extract_entity_list.py \
   --num_questions $NUM_QUESTIONS \
   --model $MODEL_ENTITY_EXTRACTION \
   --llm_provider $LLM_PROVIDER \
+  --is_local_graph $IS_LOCAL_GRAPH \
   > "$LOG_DIR/extract_entity_list.out" 2> "$LOG_DIR/extract_entity_list.err"
 
 python generate_shape.py \
   --shape_output_path "$TEMP_OUTPUT_DIR/shapes" \
   --target_json_file "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
+  --is_local_graph $IS_LOCAL_GRAPH \
+  --local_graph_location $LOCAL_GRAPH_LOCATION \
   > "$LOG_DIR/generate_shape.out" 2> "$LOG_DIR/generate_shape.err"
 
 python call_llm_api.py \
@@ -61,19 +64,16 @@ python call_llm_api.py \
   --shape_path "$TEMP_OUTPUT_DIR/shapes" \
   --output_dir "$TEMP_OUTPUT_DIR/llm_responses" \
   --llm_provider $LLM_PROVIDER \
+  --is_local_graph $IS_LOCAL_GRAPH \
   > "$LOG_DIR/call_llm_api.out" 2> "$LOG_DIR/call_llm_api.err"
 
 python call_sparql_endpoint.py \
   --sparql_endpoint_url "https://query.wikidata.org/sparql" \
   --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
+  --is_local_graph $IS_LOCAL_GRAPH \
+  --local_graph_location $LOCAL_GRAPH_LOCATION \
   > "$LOG_DIR/call_sparql_endpoint.out" 2> "$LOG_DIR/call_sparql_endpoint.err"
 
 python verify_sparql.py \
  --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   > "$LOG_DIR/verify_sparql.out" 2> "$LOG_DIR/verify_sparql.err"
-
-python process_results.py \
-  --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
-  --output_dir "$TEMP_OUTPUT_DIR/processed.txt" \
-  > "$LOG_DIR/process_results.out" 2> "$LOG_DIR/process_results.err"
-

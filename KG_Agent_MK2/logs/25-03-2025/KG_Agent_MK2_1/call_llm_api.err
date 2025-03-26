@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 187, in <module>
+    main()
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 173, in main
+    process_json_and_shapes(
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 108, in process_json_and_shapes
+    raise FileNotFoundError(f"❌ ERROR: Local graph shape file not found: {local_shape_file_path}")
+FileNotFoundError: ❌ ERROR: Local graph shape file not found: logs/25-03-2025/KG_Agent_MK2_1/misc/temp/shapes/local_graph_shape.shex

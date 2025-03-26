@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/process_results.py", line 89, in <module>
+    process_results(args.json_path, args.output_dir)
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/process_results.py", line 9, in process_results
+    with open(json_path, "r", encoding="utf-8") as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'logs/28-02-2025/KG_Agent_MK2_1/misc/temp/extracted_nlq_sparql_with_entities.json'

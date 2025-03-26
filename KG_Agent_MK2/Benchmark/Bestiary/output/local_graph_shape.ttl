@@ -1,0 +1,695 @@
+@prefix : <http://weso.es/shapes/> .
+@prefix default1: <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:AnnotationProperty a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:AnnotationProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass owl:AnnotationProperty .
+
+:Beast a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:wis ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasWillValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:con ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:double ;
+            sh:maxCount 1 ;
+            sh:path default1:hasCRValue ],
+        [ a sh:PropertyShape ;
+            sh:node :Feats ;
+            sh:path default1:hasFeats ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Beast ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:node :Language ;
+            sh:path default1:hasLanguages ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:str ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:path default1:canRanged ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:atk ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasHPvalue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:path default1:canMelee ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasRefValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasSpeedValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasWillValue ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :Treasure ;
+            sh:path default1:hasTreasure ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFlatFootedValue ],
+        [ a sh:PropertyShape ;
+            sh:node :NamedIndividual ;
+            sh:path default1:hasEnvironment ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasInitValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFortValue ],
+        [ a sh:PropertyShape ;
+            sh:node :NamedIndividual ;
+            sh:path default1:canSpell ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasRefValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:con ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:cmb ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasHPValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasCRValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFlatFootedValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasTouchValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasACvalue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:dex ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:int ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:dex ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasSpeedValue ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node :Alignment ;
+            sh:path default1:hasAlignment ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasXPValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasLevel ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasTouchValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:float ;
+            sh:maxCount 1 ;
+            sh:path default1:hasCRvalue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasACValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasXPValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:int ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFortValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:str ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:cmd ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:wis ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:cha ],
+        [ a sh:PropertyShape ;
+            sh:node :Organization ;
+            sh:path default1:hasOrganization ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:cha ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:cmd ],
+        [ a sh:PropertyShape ;
+            sh:node :NamedIndividual ;
+            sh:path default1:hasResists ],
+        [ a sh:PropertyShape ;
+            sh:node :SpecialAbilities ;
+            sh:path default1:hasSpecAbils ] ;
+    sh:targetClass default1:Beast .
+
+:Environment a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Environment ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Environment .
+
+:FunctionalProperty a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:ObjectProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path rdfs:range ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:DatatypeProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:FunctionalProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path rdfs:subPropertyOf ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node :Class ;
+            sh:path rdfs:domain ] ;
+    sh:targetClass owl:FunctionalProperty .
+
+:Ontology a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:Ontology ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass owl:Ontology .
+
+:Resists a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( default1:Resists ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Resists .
+
+:Spells a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Spells ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Spells .
+
+:DatatypeProperty a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:DatatypeProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:FunctionalProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path rdfs:range ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :DatatypeProperty ;
+            sh:path rdfs:subPropertyOf ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :Class ;
+            sh:path rdfs:domain ] ;
+    sh:targetClass owl:DatatypeProperty .
+
+:ObjectProperty a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:ObjectProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :Class ;
+            sh:path rdfs:range ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:FunctionalProperty ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :ObjectProperty ;
+            sh:path rdfs:subPropertyOf ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :Class ;
+            sh:path rdfs:domain ] ;
+    sh:targetClass owl:ObjectProperty .
+
+:Alignment a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( default1:Alignment ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Alignment .
+
+:Feats a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( default1:Feats ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Feats .
+
+:Language a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Language ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Language .
+
+:Organization a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( default1:Organization ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Organization .
+
+:SpecialAbilities a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( default1:SpecialAbilities ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:SpecialAbilities .
+
+:Treasure a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:in ( default1:Treasure ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass default1:Treasure .
+
+:Class a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path rdfs:subClassOf ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:path owl:equivalentClass ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:Class ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ] ;
+    sh:targetClass owl:Class .
+
+:NamedIndividual a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:node :Feats ;
+            sh:path default1:hasFeats ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFlatFootedValue ],
+        [ a sh:PropertyShape ;
+            sh:node :NamedIndividual ;
+            sh:path default1:canSpell ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasACvalue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasACValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:float ;
+            sh:maxCount 1 ;
+            sh:path default1:hasCRvalue ],
+        [ a sh:PropertyShape ;
+            sh:in ( owl:NamedIndividual ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:node :NamedIndividual ;
+            sh:path default1:hasEnvironment ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasSpeedValue ],
+        [ a sh:PropertyShape ;
+            sh:node :Organization ;
+            sh:path default1:hasOrganization ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Environment ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Spells ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasInitValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasXPValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasXPValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasSpeedValue ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Feats ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Organization ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasHPvalue ],
+        [ a sh:PropertyShape ;
+            sh:node :SpecialAbilities ;
+            sh:path default1:hasSpecAbils ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasRefValue ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Treasure ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:cha ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Language ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFortValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:cha ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFortValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:str ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasHPValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:con ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:wis ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Beast ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:int ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:int ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:double ;
+            sh:maxCount 1 ;
+            sh:path default1:hasCRValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:cmb ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:path default1:canMelee ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Resists ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:path default1:canRanged ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasCRValue ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :Treasure ;
+            sh:path default1:hasTreasure ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:atk ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:dex ],
+        [ a sh:PropertyShape ;
+            sh:maxCount 1 ;
+            sh:node :Alignment ;
+            sh:path default1:hasAlignment ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:con ],
+        [ a sh:PropertyShape ;
+            sh:node :Language ;
+            sh:path default1:hasLanguages ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:cmd ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:cmd ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:str ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasLevel ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasFlatFootedValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasWillValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:dex ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasTouchValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:hasRefValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasTouchValue ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:positiveInteger ;
+            sh:maxCount 1 ;
+            sh:path default1:wis ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:Alignment ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:dataType xsd:integer ;
+            sh:maxCount 1 ;
+            sh:path default1:hasWillValue ],
+        [ a sh:PropertyShape ;
+            sh:in ( default1:SpecialAbilities ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path rdf:type ],
+        [ a sh:PropertyShape ;
+            sh:node :NamedIndividual ;
+            sh:path default1:hasResists ] ;
+    sh:targetClass owl:NamedIndividual .

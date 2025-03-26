@@ -1,0 +1,544 @@
+PREFIX ex: <http://example.org/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX : <http://weso.es/shapes/>
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q116 = monarch>
+{
+   rdfs:label  xsd:string  {151};
+   wdt:P18 IRI  -->  image
+   wdt:P31 IRI {2}  -->  instance of
+   wdt:P39 IRI  -->  position held
+   wdt:P227 xsd:string  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P268 xsd:string  -->  Bibliothèque nationale de France ID
+   wdt:P279 IRI  -->  subclass of
+   wdt:P361 IRI  -->  part of
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P460 IRI  -->  said to be the same as
+   wdt:P508 xsd:integer  -->  BNCF Thesaurus ID
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P691 xsd:string {2}  -->  NL CR AUT ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P1014 xsd:integer  -->  Art & Architecture Thesaurus ID
+   wdt:P1036 xsd:integer  -->  Dewey Decimal Classification
+   wdt:P1036 xsd:float  -->  Dewey Decimal Classification
+   wdt:P1245 xsd:integer  -->  OmegaWiki Defined Meaning
+   wdt:P1343 IRI {2}  -->  described by source
+   wdt:P1382 IRI  -->  partially coincident with
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1424 IRI {2}  -->  topic's main template
+   wdt:P1709 IRI  -->  equivalent class
+   wdt:P2521 xsd:string {16}  -->  female form of label
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P3222 xsd:string  -->  NE.se ID
+   wdt:P3321 xsd:string {7}  -->  male form of label
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P3827 xsd:string  -->  JSTOR topic ID (archived)
+   wdt:P3828 IRI  -->  wears
+   wdt:P5008 IRI  -->  on focus list of Wikimedia project
+   wdt:P5019 xsd:string  -->  Brockhaus Enzyklopädie online ID
+   wdt:P6186 IRI  -->  category for eponymous categories
+   wdt:P7033 xsd:string  -->  Australian Educational Vocabulary ID
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8519 xsd:integer  -->  RKD thesaurus ID
+   wdt:P9223 xsd:string {3}  -->  Provenio UUID
+   wdt:P9475 xsd:string  -->  Encyclopedia of Korean Culture ID
+   wdt:P12596 xsd:integer  -->  museum-digital tag ID
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q145 = United_Kingdom>
+{
+   rdfs:label  xsd:string  {350};
+   wdt:P6 IRI  -->  head of government
+   wdt:P17  @<Shape entry point: http://www.wikidata.org/entity/Q145 = United_Kingdom>  ;  // rdfs:comment "P17  -->  country"
+   wdt:P18 IRI  -->  image
+   wdt:P30 IRI  -->  continent
+   wdt:P31 IRI {4}  -->  instance of
+   wdt:P35 IRI  -->  head of state
+   wdt:P36 IRI  -->  capital
+   wdt:P37 IRI  -->  official language
+   wdt:P38 IRI  -->  currency
+   wdt:P41 IRI  -->  flag image
+   wdt:P47 IRI  -->  shares border with
+   wdt:P78 IRI {2}  -->  top-level Internet domain
+   wdt:P85 IRI  -->  anthem
+   wdt:P94 IRI  -->  coat of arms image
+   wdt:P122 IRI  -->  basic form of government
+   wdt:P138 IRI  -->  named after
+   wdt:P140 IRI  -->  religion or worldview
+   wdt:P150 IRI {4}  -->  contains the administrative territorial entity
+   wdt:P268 xsd:string {3}  -->  Bibliothèque nationale de France ID
+   wdt:P269 xsd:integer  -->  IdRef ID
+   wdt:P271 xsd:string  -->  NACSIS-CAT author ID
+   wdt:P297 xsd:string  -->  ISO 3166-1 alpha-2 code
+   wdt:P298 xsd:string  -->  ISO 3166-1 alpha-3 code
+   wdt:P299 xsd:integer  -->  ISO 3166-1 numeric code
+   wdt:P300 xsd:string  -->  ISO 3166-2 code
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P361 IRI  -->  part of
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P395 xsd:string  -->  licence plate code
+   wdt:P402 xsd:integer  -->  OpenStreetMap relation ID
+   wdt:P409 xsd:integer  -->  Libraries Australia ID
+   wdt:P418 IRI  -->  has seal, badge, or sigil
+   wdt:P421 IRI  -->  located in time zone
+   wdt:P443 IRI  -->  pronunciation audio
+   wdt:P463 IRI {51}  -->  member of
+   wdt:P474 xsd:integer  -->  country calling code
+   wdt:P486 xsd:string  -->  MeSH descriptor ID
+   wdt:P487 xsd:string  -->  Unicode character
+   wdt:P530 IRI {85}  -->  diplomatic relation
+   wdt:P571 xsd:string  -->  inception
+   wdt:P605 xsd:string  -->  NUTS code
+   wdt:P610 IRI  -->  highest point
+   wdt:P625 xsd:string  -->  coordinate location
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P672 xsd:string  -->  MeSH tree code
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P706 IRI {3}  -->  located in/on physical feature
+   wdt:P793 IRI {3}  -->  significant event
+   wdt:P832 IRI {7}  -->  public holiday
+   wdt:P836 xsd:string  -->  GSS code (2011)
+   wdt:P856 IRI  -->  official website
+   wdt:P898 xsd:string {7}  -->  IPA transcription
+   wdt:P901 xsd:string  -->  FIPS 10-4 (countries and regions)
+   wdt:P902 xsd:integer  -->  HDS ID
+   wdt:P906 xsd:integer  -->  SELIBR ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P935 xsd:string  -->  Commons gallery
+   wdt:P155 IRI  -->  follows
+   wdt:P158 IRI  -->  seal image
+   wdt:P163 IRI  -->  flag
+   wdt:P172 IRI {4}  -->  ethnic group
+   wdt:P194 IRI  -->  legislative body
+   wdt:P208 IRI  -->  executive body
+   wdt:P209 IRI  -->  highest judicial authority
+   wdt:P213 xsd:integer  -->  ISNI
+   wdt:P214 xsd:integer  -->  VIAF cluster ID
+   wdt:P227 xsd:string  -->  GND ID
+   wdt:P237 IRI  -->  coat of arms
+   wdt:P242 IRI  -->  locator map image
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P2936 IRI {12}  -->  language used
+   wdt:P2950 xsd:string  -->  Nomisma ID
+   wdt:P2959 IRI  -->  permanent duplicated item
+   wdt:P2979 xsd:integer {4}  -->  maritime identification digits
+   wdt:P2981 xsd:string  -->  UIC alphabetical country code
+   wdt:P2982 xsd:integer  -->  UIC numerical country code
+   wdt:P2986 xsd:string  -->  aircraft registration prefix
+   wdt:P2997 xsd:integer  -->  age of majority
+   wdt:P2999 xsd:integer  -->  age of consent
+   wdt:P3024 xsd:string  -->  ITU letter code
+   wdt:P3065 xsd:string  -->  RERO ID (legacy)
+   wdt:P3067 xsd:string  -->  GS1 country code
+   wdt:P3068 xsd:string  -->  WIPO ST.3
+   wdt:P3106 xsd:string  -->  Guardian topic ID
+   wdt:P3134 xsd:integer  -->  TripAdvisor ID
+   wdt:P3175 xsd:string  -->  Statoids ID
+   wdt:P3222 xsd:string {3}  -->  NE.se ID
+   wdt:P3238 xsd:integer  -->  trunk prefix
+   wdt:P3270 xsd:integer  -->  compulsory education (minimum age)
+   wdt:P3271 xsd:integer  -->  compulsory education (maximum age)
+   wdt:P3348 xsd:integer  -->  National Library of Greece ID
+   wdt:P3365 xsd:string  -->  Treccani ID
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3422 xsd:integer  -->  INSEE countries and foreign territories code
+   wdt:P3479 xsd:string  -->  Omni topic ID
+   wdt:P3509 xsd:string  -->  Dagens Nyheter topic ID
+   wdt:P3529 xsd:integer  -->  median income
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P3612 xsd:string  -->  Le Monde diplomatique subject ID
+   wdt:P3616 xsd:integer  -->  Vision of Britain place ID
+   wdt:P3743 xsd:string  -->  ITU/ISO/IEC object ID
+   wdt:P3749 xsd:integer  -->  Google Maps Customer ID
+   wdt:P3836 xsd:string  -->  Pinterest username
+   wdt:P3864 xsd:float  -->  suicide rate
+   wdt:P3896 IRI  -->  geoshape
+   wdt:P3911 xsd:string  -->  STW Thesaurus for Economics ID
+   wdt:P3916 xsd:string  -->  UNESCO Thesaurus ID
+   wdt:P3984 xsd:string {2}  -->  subreddit
+   wdt:P4004 IRI  -->  escutcheon image
+   wdt:P4073 xsd:string {3}  -->  Fandom wiki ID
+   wdt:P4212 xsd:string  -->  PACTOLS thesaurus ID
+   wdt:P4291 IRI  -->  panoramic view
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P4427 xsd:integer  -->  GACS ID
+   wdt:P4527 xsd:integer  -->  UK Parliament thesaurus ID
+   wdt:P4613 xsd:integer  -->  Encyclopedia of Modern Ukraine ID
+   wdt:P4619 xsd:integer  -->  National Library of Brazil ID
+   wdt:P4725 xsd:integer  -->  C-SPAN organization ID
+   wdt:P4801 xsd:string  -->  LoC and MARC vocabularies ID
+   wdt:P4839 xsd:string  -->  Wolfram Language entity code
+   wdt:P4841 xsd:float  -->  total fertility rate
+   wdt:P4973 xsd:string  -->  Wikitribune category
+   wdt:P5002 xsd:integer  -->  Orthodox Encyclopedia ID
+   wdt:P5008 IRI {3}  -->  on focus list of Wikimedia project
+   wdt:P5034 xsd:string  -->  National Library of Korea ID
+   wdt:P5063 xsd:string  -->  Interlingual Index ID
+   wdt:P5125 IRI  -->  Wikimedia outline
+   wdt:P5180 xsd:string  -->  CIVICUS Monitor country entry
+   wdt:P5198 xsd:integer  -->  ASC Leiden Thesaurus ID
+   wdt:P5247 xsd:string  -->  Giant Bomb ID
+   wdt:P5250 xsd:integer  -->  IAB code
+   wdt:P5337 xsd:string  -->  Google News topics ID
+   wdt:P5400 xsd:string {4}  -->  GeoNLP ID (obsolete)
+   wdt:P5437 xsd:integer  -->  EuroVoc ID
+   wdt:P5456 xsd:string  -->  TasteAtlas ID
+   wdt:P5573 xsd:integer  -->  archINFORM location ID
+   wdt:P5587 xsd:string  -->  Libris-URI
+   wdt:P5658 IRI  -->  railway traffic side
+   wdt:P5698 xsd:integer  -->  Invasive Species Compendium Datasheet ID
+   wdt:P6058 xsd:string  -->  Larousse ID
+   wdt:P6150 xsd:integer  -->  Academy Awards Database nominee ID
+   wdt:P6213 xsd:string  -->  UK Parliament ID
+   wdt:P6262 xsd:string {11}  -->  Fandom article ID
+   wdt:P6265 xsd:integer  -->  Mindat locality ID
+   wdt:P948 IRI  -->  page banner
+   wdt:P949 xsd:integer  -->  National Library of Israel ID (old)
+   wdt:P950 xsd:string  -->  National Library of Spain ID
+   wdt:P982 xsd:string  -->  MusicBrainz area ID
+   wdt:P984 xsd:string  -->  IOC country code
+   wdt:P989 IRI  -->  spoken text audio
+   wdt:P998 xsd:string  -->  Curlie ID
+   wdt:P1015 xsd:integer  -->  NORAF ID
+   wdt:P1036 xsd:string  -->  Dewey Decimal Classification
+   wdt:P1081 xsd:float  -->  Human Development Index
+   wdt:P1082 xsd:integer  -->  population
+   wdt:P1125 xsd:float  -->  Gini coefficient
+   wdt:P1151 IRI  -->  topic's main Wikimedia portal
+   wdt:P1198 xsd:integer  -->  unemployment rate
+   wdt:P1245 xsd:integer  -->  OmegaWiki Defined Meaning
+   wdt:P1248 xsd:string  -->  KulturNav-ID
+   wdt:P1273 xsd:string  -->  CANTIC ID (former scheme)
+   wdt:P1281 xsd:integer  -->  WOEID
+   wdt:P1296 xsd:integer  -->  Gran Enciclopèdia Catalana ID (former scheme)
+   wdt:P1304 IRI  -->  central bank
+   wdt:P1313 IRI  -->  office held by head of government
+   wdt:P1332 xsd:string  -->  coordinates of northernmost point
+   wdt:P1333 xsd:string  -->  coordinates of southernmost point
+   wdt:P1334 xsd:string  -->  coordinates of easternmost point
+   wdt:P1335 xsd:string  -->  coordinates of westernmost point
+   wdt:P1343 IRI {7}  -->  described by source
+   wdt:P1344 IRI {12}  -->  participant in
+   wdt:P1365 IRI  -->  replaces
+   wdt:P1375 xsd:integer  -->  NSK ID
+   wdt:P1417 xsd:string {2}  -->  Encyclopædia Britannica Online ID
+   wdt:P1424 IRI {4}  -->  topic's main template
+   wdt:P1438 xsd:integer  -->  Jewish Encyclopedia ID (Russian)
+   wdt:P1448 xsd:string  -->  official name
+   wdt:P1451 xsd:string  -->  motto text
+   wdt:P1464 IRI  -->  category for people born here
+   wdt:P1465 IRI  -->  category for people who died here
+   wdt:P1482 IRI  -->  Stack Exchange tag
+   wdt:P1539 xsd:integer {4}  -->  female population
+   wdt:P1540 xsd:integer {4}  -->  male population
+   wdt:P1549 xsd:string {65}  -->  demonym
+   wdt:P6293 xsd:string  -->  YSA ID
+   wdt:P6343 xsd:integer {4}  -->  urban population
+   wdt:P6344 xsd:integer {4}  -->  rural population
+   wdt:P6379 IRI  -->  has works in the collection
+   wdt:P6385 xsd:string  -->  Krugosvet article
+   wdt:P6404 xsd:string  -->  Treccani's Dizionario di Storia ID
+   wdt:P6413 xsd:string  -->  JORFSearch organization ID
+   wdt:P6573 xsd:string  -->  Klexikon article ID
+   wdt:P6680 xsd:string  -->  MeSH term ID
+   wdt:P6694 xsd:string  -->  MeSH concept ID
+   wdt:P6706 xsd:string  -->  De Agostini ID
+   wdt:P6713 xsd:string  -->  Australian War Memorial ID
+   wdt:P6766 xsd:integer  -->  Who's on First ID
+   wdt:P6778 xsd:integer  -->  OBO Gazetteer ID
+   wdt:P6781 xsd:string  -->  ProofWiki ID
+   wdt:P6849 xsd:string  -->  DR topic ID
+   wdt:P6900 xsd:string {2}  -->  NicoNicoPedia ID
+   wdt:P7012 xsd:string  -->  World Encyclopedia of Puppetry Arts ID
+   wdt:P7039 xsd:integer  -->  National Library of Iceland ID
+   wdt:P7157 xsd:integer  -->  The Top Tens ID
+   wdt:P7284 xsd:string  -->  The Independent topic ID
+   wdt:P7295 xsd:string  -->  Gregorian calendar start date
+   wdt:P7305 xsd:integer  -->  Online PWN Encyclopedia ID
+   wdt:P7471 xsd:integer  -->  iNaturalist place ID
+   wdt:P7699 xsd:string  -->  National Library of Lithuania ID
+   wdt:P7769 xsd:integer  -->  Australian National Maritime Museum person ID
+   wdt:P7775 xsd:string  -->  RationalWiki ID
+   wdt:P7850 xsd:string  -->  Joconde location ID
+   wdt:P7867 IRI  -->  category for maps or plans
+   wdt:P7870 xsd:integer  -->  Analysis & Policy Observatory term ID
+   wdt:P7960 xsd:string  -->  Joconde discovery ID
+   wdt:P8061 xsd:string  -->  AGROVOC ID
+   wdt:P8072 xsd:integer  -->  CAB ID
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8217 xsd:integer  -->  iDAI.gazetteer ID
+   wdt:P8309 xsd:string {2}  -->  Yle topic ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8328 xsd:float  -->  Democracy Index
+   wdt:P8370 xsd:integer  -->  UNBIS Thesaurus ID
+   wdt:P8402 IRI  -->  open data portal
+   wdt:P8406 xsd:string  -->  Grove Art Online ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8483 xsd:string  -->  PM20 geo code
+   wdt:P8519 xsd:integer  -->  RKD thesaurus ID
+   wdt:P8714 xsd:string  -->  GADM ID
+   wdt:P8744 IRI  -->  economy of topic
+   wdt:P8763 xsd:integer  -->  birth rate
+   wdt:P8763 xsd:float {2}  -->  birth rate
+   wdt:P8814 xsd:string  -->  WordNet 3.1 Synset ID
+   wdt:P8826 xsd:string  -->  edition humboldt digital ID
+   wdt:P8885 xsd:string  -->  Namuwiki ID
+   wdt:P8935 xsd:string  -->  Encyclopedia of the History of Ukraine ID
+   wdt:P8974 xsd:string  -->  SAPA ID
+   wdt:P8988 xsd:string  -->  Mapy.cz ID
+   wdt:P9037 xsd:string {2}  -->  BHCL UUID
+   wdt:P9070 xsd:string  -->  Internet Encyclopedia of Ukraine ID
+   wdt:P9100 xsd:string {2}  -->  GitHub topic
+   wdt:P9222 xsd:integer  -->  bashenc.online ID
+   wdt:P9223 xsd:string {2}  -->  Provenio UUID
+   wdt:P9241 IRI  -->  demographics of topic
+   wdt:P9293 xsd:integer  -->  AIATSIS Place Thesaurus ID
+   wdt:P9318 xsd:string  -->  Ávvir topic ID
+   wdt:P9346 xsd:string  -->  France 24 topic ID (French)
+   wdt:P9475 xsd:string  -->  Encyclopedia of Korean Culture ID
+   wdt:P9495 xsd:string  -->  National Historical Museums of Sweden ID
+   wdt:P9571 xsd:string  -->  PeakVisor area ID
+   wdt:P9757 xsd:integer  -->  Schoenberg Database of Manuscripts place ID
+   wdt:P9937 xsd:integer  -->  Postimees topic ID
+   wdt:P9948 xsd:string  -->  The World Factbook country ID
+   wdt:P9957 xsd:integer  -->  museum-digital place ID
+   wdt:P9964 xsd:string  -->  Kalliope-Verbund (GND) ID
+   wdt:P9984 xsd:integer  -->  CANTIC ID
+   wdt:P10046 xsd:integer  -->  Apple Maps ID
+   wdt:P10077 xsd:string  -->  Spanish Cultural Heritage thesauri ID
+   wdt:P10091 xsd:integer  -->  death rate
+   wdt:P10091 xsd:float {3}  -->  death rate
+   wdt:P10227 xsd:string  -->  National Library of Ireland ID
+   wdt:P10234 xsd:string {2}  -->  Der Spiegel topic ID
+   wdt:P10291 xsd:integer  -->  Wikisimpsons article ID
+   wdt:P10297 xsd:string  -->  Google Arts & Culture entity ID
+   wdt:P10326 xsd:integer  -->  ICPSR Geographic Names Thesaurus ID
+   wdt:P10376 xsd:string  -->  ScienceDirect topic ID
+   wdt:P10456 xsd:integer  -->  Urban Electric Transit country ID
+   wdt:P10730 xsd:string  -->  Data Commons ID
+   wdt:P10832 xsd:string  -->  WorldCat Entities ID
+   wdt:P10916 xsd:string  -->  Süddeutsche Zeitung topic ID
+   wdt:P10919 xsd:integer  -->  AEDA geographic keyword ID
+   wdt:P11012 xsd:string  -->  EU Knowledge Graph item ID
+   wdt:P11196 xsd:string  -->  Baidu Tieba name
+   wdt:P11408 xsd:string  -->  Pixiv Encyclopedia ID
+   wdt:P11496 xsd:integer  -->  CiNii Research ID
+   wdt:P11547 xsd:integer  -->  Happy Planet Index score
+   wdt:P11593 xsd:float  -->  Inequality-adjusted Human Development Index
+   wdt:P11686 xsd:integer  -->  University of Barcelona authority ID
+   wdt:P11693 xsd:integer  -->  OpenStreetMap node ID
+   wdt:P11762 xsd:integer  -->  Britannica Kids kids level article ID
+   wdt:P11764 xsd:integer  -->  Britannica Kids students level article ID
+   wdt:P11765 xsd:integer  -->  Britannica Kids scholars level article ID
+   wdt:P11832 IRI  -->  satellite view
+   wdt:P11947 xsd:string  -->  Lemmy community ID
+   wdt:P12061 xsd:integer  -->  Pinakes country ID
+   wdt:P12086 xsd:string  -->  WikiKids ID
+   wdt:P12187 xsd:string  -->  Thesaurus Linguae Aegyptiae thesaurus ID
+   wdt:P12385 xsd:string  -->  Gran Enciclopèdia Catalana ID
+   wdt:P12431 xsd:string  -->  X place ID
+   wdt:P12443 IRI  -->  has cabinet
+   wdt:P12596 xsd:integer  -->  museum-digital tag ID
+   wdt:P12749 xsd:string  -->  SNARC ID
+   wdt:P12800 xsd:string {4}  -->  Vikidia article ID
+   wdt:P12844 xsd:integer  -->  Federal Reserve Subject Taxonomy ID
+   wdt:P13030 xsd:string  -->  ‎Münzkabinett ID
+   wdt:P13061 xsd:integer  -->  World Historical Gazetteer place ID
+   wdt:P13113 xsd:string  -->  Libération topic ID
+   wdt:P13141 xsd:string  -->  El Moudjahid topic ID
+   wdt:P13236 xsd:string  -->  Danbooru tag
+   wdt:P13300 xsd:string  -->  New York Post topic ID
+   wdt:P13317 xsd:string  -->  The New Yorker topic ID
+   wdt:P1552 IRI  -->  has characteristic
+   wdt:P1566 xsd:integer  -->  GeoNames ID
+   wdt:P1589 IRI  -->  lowest point
+   wdt:P1617 xsd:string  -->  BBC Things ID
+   wdt:P1622 IRI  -->  driving side
+   wdt:P1667 xsd:integer  -->  Getty Thesaurus of Geographic Names ID
+   wdt:P1705 xsd:string  -->  native label
+   wdt:P1711 xsd:integer  -->  British Museum person or institution ID
+   wdt:P1740 IRI  -->  category for films shot at this location
+   wdt:P1791 IRI  -->  category for people buried here
+   wdt:P1792 IRI {2}  -->  category of associated people
+   wdt:P1813 xsd:string {14}  -->  short name
+   wdt:P1889 IRI {4}  -->  different from
+   wdt:P1906 IRI  -->  office held by head of state
+   wdt:P1943 IRI  -->  location map
+   wdt:P1944 IRI  -->  relief location map
+   wdt:P2004 xsd:integer  -->  NALT ID
+   wdt:P2046 xsd:integer  -->  area
+   wdt:P2082 xsd:integer  -->  M49 code
+   wdt:P2131 xsd:integer {2}  -->  nominal GDP
+   wdt:P2163 xsd:integer  -->  FAST ID
+   wdt:P2184 IRI  -->  history of topic
+   wdt:P2250 xsd:float  -->  life expectancy
+   wdt:P2258 xsd:integer {2}  -->  mobile country code
+   wdt:P2326 xsd:integer  -->  GNS Unique Feature ID
+   wdt:P2347 xsd:integer  -->  YSO ID
+   wdt:P2468 xsd:integer {2}  -->  Theatricalia theatre ID
+   wdt:P2572 xsd:string {2}  -->  hashtag
+   wdt:P2573 xsd:integer  -->  number of out-of-school children
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P2596 IRI  -->  culture
+   wdt:P2633 IRI  -->  geography of topic
+   wdt:P2852 IRI {2}  -->  emergency phone number
+   wdt:P2853 IRI  -->  electrical plug type
+   wdt:P2855 xsd:integer {3}  -->  VAT rate
+   wdt:P2884 xsd:integer  -->  mains voltage
+   wdt:P2924 xsd:integer  -->  Great Russian Encyclopedia Online ID (old version)
+}
+
+
+
+
+
+<Shape entry point: http://www.wikidata.org/entity/Q188 = German>
+{
+   rdfs:label  xsd:string  {305};
+   wdt:P17 IRI {12}  -->  country
+   wdt:P18 IRI  -->  image
+   wdt:P31 IRI {2}  -->  instance of
+   wdt:P218 xsd:string  -->  ISO 639-1 code
+   wdt:P219 xsd:string {2}  -->  ISO 639-2 code
+   wdt:P220 xsd:string  -->  ISO 639-3 code
+   wdt:P227 xsd:string  -->  GND ID
+   wdt:P244 xsd:string  -->  Library of Congress authority ID
+   wdt:P268 xsd:integer  -->  Bibliothèque nationale de France ID
+   wdt:P269 xsd:integer  -->  IdRef ID
+   wdt:P278 xsd:string  -->  GOST 7.75–97 code
+   wdt:P279 IRI {2}  -->  subclass of
+   wdt:P282 IRI {2}  -->  writing system
+   wdt:P305 xsd:string  -->  IETF language tag
+   wdt:P349 xsd:integer  -->  NDL Authority ID
+   wdt:P373 xsd:string  -->  Commons category
+   wdt:P424 xsd:string  -->  Wikimedia language code
+   wdt:P508 xsd:integer  -->  BNCF Thesaurus ID
+   wdt:P527 IRI {11}  -->  has part(s)
+   wdt:P629 IRI  -->  edition or translation of
+   wdt:P646 xsd:string  -->  Freebase ID
+   wdt:P691 xsd:string  -->  NL CR AUT ID
+   wdt:P902 xsd:integer  -->  HDS ID
+   wdt:P910 IRI  -->  topic's main category
+   wdt:P948 IRI  -->  page banner
+   wdt:P1014 xsd:integer  -->  Art & Architecture Thesaurus ID
+   wdt:P1018 IRI {2}  -->  language regulatory body
+   wdt:P1036 xsd:integer  -->  Dewey Decimal Classification
+   wdt:P1036 xsd:string  -->  Dewey Decimal Classification
+   wdt:P1051 xsd:integer  -->  PSH ID
+   wdt:P1098 xsd:integer {2}  -->  number of speakers, writers, or signers
+   wdt:P1225 xsd:integer  -->  U.S. National Archives Identifier
+   wdt:P1245 xsd:integer  -->  OmegaWiki Defined Meaning
+   wdt:P1251 xsd:integer  -->  ABS ASCL 2011 code
+   wdt:P1282 xsd:string  -->  OpenStreetMap tag or key
+   wdt:P1343 IRI {7}  -->  described by source
+   wdt:P1394 xsd:string  -->  Glottolog code
+   wdt:P1417 xsd:string  -->  Encyclopædia Britannica Online ID
+   wdt:P1424 IRI  -->  topic's main template
+   wdt:P1466 xsd:string {6}  -->  WALS lect code
+   wdt:P1552 IRI  -->  has characteristic
+   wdt:P1617 xsd:string  -->  BBC Things ID
+   wdt:P1627 xsd:string  -->  Ethnologue.com language code
+   wdt:P1705 xsd:string  -->  native label
+   wdt:P1813 xsd:string {13}  -->  short name
+   wdt:P1842 xsd:string  -->  Global Anabaptist Mennonite Encyclopedia Online ID
+   wdt:P1846 IRI  -->  distribution map
+   wdt:P1889 IRI  -->  different from
+   wdt:P1999 IRI  -->  UNESCO language status
+   wdt:P2341 IRI {7}  -->  indigenous to
+   wdt:P2347 xsd:integer  -->  YSO ID
+   wdt:P2579 IRI {2}  -->  studied in
+   wdt:P2581 xsd:string  -->  BabelNet ID
+   wdt:P2888 IRI  -->  exact match
+   wdt:P2910 IRI  -->  icon
+   wdt:P2959 IRI {2}  -->  permanent duplicated item
+   wdt:P2989 IRI {4}  -->  has grammatical case
+   wdt:P3097 xsd:string  -->  ISBN identifier group
+   wdt:P3103 IRI {4}  -->  has tense
+   wdt:P3161 IRI {3}  -->  has grammatical mood
+   wdt:P3219 xsd:string  -->  Encyclopædia Universalis ID
+   wdt:P3417 xsd:string  -->  Quora topic ID
+   wdt:P3553 xsd:integer  -->  Zhihu topic ID
+   wdt:P3823 IRI  -->  Ethnologue language status
+   wdt:P3847 xsd:string  -->  Open Library subject ID
+   wdt:P3916 xsd:string  -->  UNESCO Thesaurus ID
+   wdt:P3984 xsd:string {2}  -->  subreddit
+   wdt:P4132 IRI {9}  -->  linguistic typology
+   wdt:P4212 xsd:string  -->  PACTOLS thesaurus ID
+   wdt:P4342 xsd:string  -->  Store norske leksikon (Great Norwegian Encyclopedia) ID
+   wdt:P4527 xsd:integer  -->  UK Parliament thesaurus ID
+   wdt:P4801 xsd:string {3}  -->  LoC and MARC vocabularies ID
+   wdt:P5008 IRI {2}  -->  on focus list of Wikimedia project
+   wdt:P5019 xsd:string  -->  Brockhaus Enzyklopädie online ID
+   wdt:P5109 IRI {3}  -->  has grammatical gender
+   wdt:P5198 xsd:integer  -->  ASC Leiden Thesaurus ID
+   wdt:P5250 xsd:integer  -->  IAB code
+   wdt:P5587 xsd:string  -->  Libris-URI
+   wdt:P5748 xsd:float  -->  Basisklassifikation
+   wdt:P5913 IRI {11}  -->  has paradigm class
+   wdt:P5922 xsd:integer  -->  ANZSRC 2008 FoR ID
+   wdt:P5996 IRI  -->  category for films in this language
+   wdt:P6058 xsd:string  -->  Larousse ID
+   wdt:P6106 IRI  -->  uses capitalization for
+   wdt:P6293 xsd:string  -->  YSA ID
+   wdt:P6366 xsd:integer  -->  Microsoft Academic ID
+   wdt:P6385 xsd:string  -->  Krugosvet article
+   wdt:P6573 xsd:string  -->  Klexikon article ID
+   wdt:P6870 xsd:integer  -->  Latvian National Encyclopedia Online ID
+   wdt:P6900 xsd:string  -->  NicoNicoPedia ID
+   wdt:P7033 xsd:string  -->  Australian Educational Vocabulary ID
+   wdt:P7084 IRI  -->  related category
+   wdt:P7157 xsd:integer  -->  The Top Tens ID
+   wdt:P7305 xsd:integer  -->  Online PWN Encyclopedia ID
+   wdt:P7884 xsd:string  -->  Joconde inscription ID
+   wdt:P8168 xsd:string  -->  FactGrid item ID
+   wdt:P8189 xsd:integer  -->  J9U ID
+   wdt:P8309 xsd:string  -->  Yle topic ID
+   wdt:P8313 xsd:string  -->  Lex ID
+   wdt:P8370 xsd:integer  -->  UNBIS Thesaurus ID
+   wdt:P8408 xsd:string  -->  KBpedia ID
+   wdt:P8419 xsd:string  -->  Archive of Our Own tag
+   wdt:P8529 xsd:integer  -->  ANZSRC 2020 FoR ID
+   wdt:P8703 xsd:string  -->  entry in abbreviations table
+   wdt:P8814 xsd:string  -->  WordNet 3.1 Synset ID
+   wdt:P8885 xsd:string  -->  Namuwiki ID
+   wdt:P9001 xsd:string  -->  Literary Encyclopedia ID
+   wdt:P9060 xsd:string  -->  POSIX locale identifier
+   wdt:P9100 xsd:string  -->  GitHub topic
+   wdt:P9223 xsd:string  -->  Provenio UUID
+   wdt:P9495 xsd:string  -->  National Historical Museums of Sweden ID
+   wdt:P9498 xsd:integer  -->  Enzyklopädie des europäischen Ostens ID
+   wdt:P9937 xsd:integer  -->  Postimees topic ID
+   wdt:P10283 xsd:string  -->  OpenAlex ID
+   wdt:P10369 xsd:string  -->  Lingua Libre ID
+   wdt:P10376 xsd:string {3}  -->  ScienceDirect topic ID
+   wdt:P10565 xsd:integer  -->  Encyclopedia of China (Third Edition) ID
+   wdt:P10913 xsd:string  -->  UK Archival Thesaurus ID
+   wdt:P10916 xsd:string  -->  Süddeutsche Zeitung topic ID
+   wdt:P11012 xsd:string  -->  EU Knowledge Graph item ID
+   wdt:P11196 xsd:string  -->  Baidu Tieba name
+   wdt:P11408 xsd:string  -->  Pixiv Encyclopedia ID
+   wdt:P11514 xsd:string  -->  Great Russian Encyclopedia portal ID
+   wdt:P11947 xsd:string  -->  Lemmy community ID
+   wdt:P12086 xsd:string  -->  WikiKids ID
+   wdt:P12596 xsd:integer  -->  museum-digital tag ID
+   wdt:P12674 xsd:string  -->  Kunstenpunt Knowledge Graph ID
+   wdt:P12721 xsd:string  -->  Lille norske leksikon ID
+   wdt:P12800 xsd:string {6}  -->  Vikidia article ID
+   wdt:P12946 xsd:string  -->  FOLDOC ID
+}

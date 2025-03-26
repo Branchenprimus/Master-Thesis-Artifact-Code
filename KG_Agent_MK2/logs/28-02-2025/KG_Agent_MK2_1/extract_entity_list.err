@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/./extract_entity_list.py", line 165, in <module>
+    main()
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/./extract_entity_list.py", line 162, in main
+    transform_json(args.input_file, args.output_file, args.api_key, args.num_questions, args.model, args.llm_provider)
+  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/./extract_entity_list.py", line 82, in transform_json
+    with open(input_file, "r", encoding="utf-8") as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/qald_9_plus_test_wikidata.json'

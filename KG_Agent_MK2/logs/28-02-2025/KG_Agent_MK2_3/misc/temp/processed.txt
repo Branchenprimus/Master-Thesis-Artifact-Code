@@ -1,0 +1,13 @@
+
+SPARQL Comparison Results Overview
+----------------------------------
+Total Queries Processed: 20
+Valid Comparisons: 20
+
+✅ Correct Predictions: 6 (30.00%)
+❌ Invalid Baseline Queries: 3
+❌ Invalid LLM SPARQL Responses: 11
+
+📊 Average Precision: 0.3167
+📊 Average Recall: 0.3500
+📊 Average F1-Score: 0.3250

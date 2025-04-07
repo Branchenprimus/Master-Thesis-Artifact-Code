@@ -3,6 +3,7 @@ import json
 import os
 import re
 from shexer.shaper import Shaper
+from utility import Utils
 
 def clean_shape_text(raw_shape):
     """
@@ -82,7 +83,7 @@ def process_json(json_file, shape_output_path):
 
     for entry in data:
         # Use the original dataset's question ID
-        original_id = entry.get("id")
+        original_id = entry.get("baseline_id")
 
         # Extract named entities from LLM (list of names)
         named_entities = entry.get("llm_extracted_entity_names", [])
@@ -96,25 +97,34 @@ def process_json(json_file, shape_output_path):
 
         combined_shex = ""  # Store all shapes for the question
         prefix_block = None  # Stores the prefixes once
+        processed_entities = set()  # Track processed entities to avoid duplicates
 
-        # Iterate over named entities and retrieve their corresponding Q-IDs
-        for named_entity in named_entities:
-            entity_id = entity_dict.get(named_entity, None)  # Get Q-ID for entity name
-
+        # Reverse the mapping to get entity_id -> list of names
+        entity_id_to_names = {}
+        for name in named_entities:
+            entity_id = entity_dict.get(name.strip())
             if entity_id:
-                shape = extract_shape(entity_id, named_entity)
-                if shape:
-                    # Extract the prefix block (assumed at the start of the ShEx)
-                    if prefix_block is None:
-                        prefix_block_match = re.search(r"^(PREFIX .*\n)+", shape)
-                        if prefix_block_match:
-                            prefix_block = prefix_block_match.group(0)
-                    
-                    # Remove any duplicate prefix block from the entity shape
-                    shape = re.sub(r"^(PREFIX .*\n)+", "", shape)
-                    
-                    # Append the cleaned entity shape
-                    combined_shex += shape + "\n\n"
+                entity_id_to_names.setdefault(entity_id, []).append(name)
+
+        for entity_id, names in entity_id_to_names.items():
+            if entity_id in processed_entities:
+                continue
+            processed_entities.add(entity_id)
+
+            # Use the first associated name for shape extraction
+            shape = extract_shape(entity_id, names[0])
+            if shape:
+                # Extract the prefix block (assumed at the start of the ShEx)
+                if prefix_block is None:
+                    prefix_block_match = re.search(r"^(PREFIX .*\n)+", shape)
+                    if prefix_block_match:
+                        prefix_block = prefix_block_match.group(0)
+                
+                # Remove any duplicate prefix block from the entity shape
+                shape = re.sub(r"^(PREFIX .*\n)+", "", shape)
+                
+                # Append the cleaned entity shape
+                combined_shex += shape + "\n\n"
 
         # Save combined shape to file
         if combined_shex:
@@ -158,17 +168,22 @@ def main():
     parser = argparse.ArgumentParser(description="Extract ShEx schemas from Wikidata entities found in a JSON dataset.")
     parser.add_argument("--target_json_file", type=str, required=True, help="Path to the JSON file containing extracted entities.")
     parser.add_argument("--shape_output_path", type=str, required=True, help="Path to save the extracted shapes.")
-    parser.add_argument("--is_local_graph", type=bool, required=True, help="Set True or False.")
+    parser.add_argument("--is_local_graph", type=Utils.str_to_bool, required=True, help="Set True or False.")
     parser.add_argument("--local_graph_location", type=str, required=False, help="Path to the local graph file.")
 
     args = parser.parse_args()
+    is_local_graph = args.is_local_graph
     
-    if args.is_local_graph:
+    print(f"✅ is_local_graph: {is_local_graph}")
+    
+    if is_local_graph:
         if not args.local_graph_location:
             print("❌ Error: --local_graph_location is required when --is_local_graph is True.")
             return
+        print(f"✅ Generating shape from local graph at {args.local_graph_location}")
         generate_shape_from_local_graph(args.local_graph_location, args.shape_output_path)
     else:
+        print(f"✅ Generating shape using sparql endpoint {args.target_json_file} and generated shapes.")
         process_json(args.target_json_file, args.shape_output_path)
 
 if __name__ == "__main__":

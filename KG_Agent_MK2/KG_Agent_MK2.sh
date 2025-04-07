@@ -26,7 +26,6 @@ mkdir -p "$LOG_DIR/misc/meta"
 mkdir -p "$TEMP_OUTPUT_DIR"
 
 exec > >(tee -a "$LOG_DIR/job.out") 2> >(tee -a "$LOG_DIR/job.err" >&2)
-set -x  # Enable debugging
 
 # Extended Logging for `track_files.py`
 python "track_files.py" \
@@ -38,6 +37,25 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "File tracking completed successfully!" | tee -a "$LOG_DIR/track_files.log"
+echo ""  # Blank line for separation
+
+echo "🔧 Running KG_Agent_MK2.sh with the following parameters:"
+echo "NUM_QUESTIONS           = $NUM_QUESTIONS" #if set to 0, it will process all questions
+echo "MAX_CONSECUTIVE_RETRIES = $MAX_CONSECUTIVE_RETRIES"
+echo "LOG_DIR                 = $LOG_DIR"
+echo "TEMP_OUTPUT_DIR         = $TEMP_OUTPUT_DIR"
+echo "LLM_PROVIDER            = $LLM_PROVIDER"
+echo "API_KEY                 = ${API_KEY:0:10}... (truncated)"
+echo "MODEL_ENTITY_EXTRACTION = $MODEL_ENTITY_EXTRACTION"
+echo "MODEL_SPARQL_GENERATION = $MODEL_SPARQL_GENERATION"
+echo "BASE_JSON_FILE          = $BASE_JSON_FILE"
+echo "SYSTEM_PROMPT_PATH      = $SYSTEM_PROMPT_PATH"
+echo "IS_LOCAL_GRAPH          = $IS_LOCAL_GRAPH"
+echo "LOCAL_GRAPH_LOCATION    = $LOCAL_GRAPH_LOCATION"
+echo "SPARQL_ENDPOINT_URL     = $SPARQL_ENDPOINT_URL"
+echo ""  # Blank line for separation
+
+set -x  # Enable debugging
 
 python ./extract_entity_list.py \
   --input_file $BASE_JSON_FILE \
@@ -48,6 +66,8 @@ python ./extract_entity_list.py \
   --llm_provider $LLM_PROVIDER \
   --is_local_graph $IS_LOCAL_GRAPH \
   > "$LOG_DIR/extract_entity_list.out" 2> "$LOG_DIR/extract_entity_list.err"
+echo ""  # Blank line for separation
+
 
 python generate_shape.py \
   --shape_output_path "$TEMP_OUTPUT_DIR/shapes" \
@@ -55,24 +75,30 @@ python generate_shape.py \
   --is_local_graph $IS_LOCAL_GRAPH \
   --local_graph_location $LOCAL_GRAPH_LOCATION \
   > "$LOG_DIR/generate_shape.out" 2> "$LOG_DIR/generate_shape.err"
+echo ""  # Blank line for separation
 
-python call_llm_api.py \
-  --model $MODEL_SPARQL_GENERATION \
-  --api_key $API_KEY \
-  --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
-  --system_prompt_path $SYSTEM_PROMPT_PATH \
-  --shape_path "$TEMP_OUTPUT_DIR/shapes" \
-  --output_dir "$TEMP_OUTPUT_DIR/llm_responses" \
-  --llm_provider $LLM_PROVIDER \
-  --is_local_graph $IS_LOCAL_GRAPH \
+  # Generate SPARQL with LLM
+  python call_llm_api.py \
+    --json_path $TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json \
+    --system_prompt_path $SYSTEM_PROMPT_PATH \
+    --shape_path $TEMP_OUTPUT_DIR/shapes \
+    --model $MODEL_SPARQL_GENERATION \
+    --api_key $API_KEY \
+    --llm_provider $LLM_PROVIDER \
+    --is_local_graph $IS_LOCAL_GRAPH \
+    --max_retries $MAX_CONSECUTIVE_RETRIES \
+    --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
+    --local_graph_path $LOCAL_GRAPH_LOCATION \
   > "$LOG_DIR/call_llm_api.out" 2> "$LOG_DIR/call_llm_api.err"
+echo ""  # Blank line for separation
 
-python call_sparql_endpoint.py \
-  --sparql_endpoint_url "https://query.wikidata.org/sparql" \
-  --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
-  --is_local_graph $IS_LOCAL_GRAPH \
-  --local_graph_location $LOCAL_GRAPH_LOCATION \
-  > "$LOG_DIR/call_sparql_endpoint.out" 2> "$LOG_DIR/call_sparql_endpoint.err"
+# python call_sparql_endpoint.py \
+#   --sparql_endpoint_url "https://query.wikidata.org/sparql" \
+#   --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
+#   --is_local_graph $IS_LOCAL_GRAPH \
+#   --local_graph_location $LOCAL_GRAPH_LOCATION \
+#   > "$LOG_DIR/call_sparql_endpoint.out" 2> "$LOG_DIR/call_sparql_endpoint.err"
+# echo ""  # Blank line for separation
 
 python verify_sparql.py \
  --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \

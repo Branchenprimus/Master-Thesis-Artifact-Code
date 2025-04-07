@@ -3,6 +3,10 @@ import os
 import json
 import sys
 from openai import OpenAI
+import requests
+import time
+from rdflib import Graph
+from utility import Utils
 
 def read_file(file_path):
     """Reads content from a file and returns it as a string."""
@@ -49,139 +53,191 @@ def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
             max_tokens=max_tokens,
             temperature=temperature
         )
-        print(f"Full prompt: {full_prompt}")
-        print(f"ChatGPT completion object: {completion}")
+
         return completion.choices[0].message.content.strip()
     
     except Exception as e:
         sys.stderr.write(f"❌ ERROR: API call to ChatGPT failed: {e}\n")
         sys.exit(1)
 
-import json
-import os
 
-def save_response(json_path, question_id, response):
-    """Saves the LLM response to the JSON file by appending the 'llm_generated_sparql' field."""
-    
-    # Remove SPARQL code block formatting
-    response = response.replace("```sparql", "").replace("```", "").strip()
-
-    # Load existing JSON data
-    if not os.path.exists(json_path):
-        raise FileNotFoundError(f"❌ ERROR: JSON file not found: {json_path}")
-
-    with open(json_path, "r", encoding="utf-8") as file:
-        data = json.load(file)
-
-    # Find the correct entry based on question_id and append the response
-    updated = False
-    for entry in data:
-        if str(entry.get("id")) == str(question_id):  # Ensure IDs are compared as strings
-            entry["llm_generated_sparql"] = response
-            updated = True
-            break
-
-    if not updated:
-        raise ValueError(f"❌ ERROR: Question ID {question_id} not found in {json_path} file.")
-
-    # Write back the updated JSON data
-    with open(json_path, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=4, ensure_ascii=False)
-
-    print(f"✅ Response saved for question ID {question_id} in {json_path}")
-
-
-def process_json_and_shapes(json_path, shape_dir, system_prompt_path, output_dir, api_key, model, max_tokens, temperature, llm_provider, is_local_graph):
+def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, model, max_tokens, temperature,
+                            llm_provider, is_local_graph, max_retries, sparql_endpoint_url, local_graph_path):
     """Iterates over JSON questions and shape files to generate SPARQL queries, ensuring only one LLM call per question."""
 
     # Load the JSON file with questions
     with open(json_path, "r", encoding="utf-8") as file:
         data = json.load(file)
 
+    print(f"🔍 Debug: Starting to process {len(data)} questions.")
+
     # Read system prompt
     system_prompt = read_file(system_prompt_path)
 
     if is_local_graph:
-        # Read the single shape file for the local graph
         local_shape_file_path = os.path.join(shape_dir, "local_graph_shape.shex")
         if not os.path.exists(local_shape_file_path):
             raise FileNotFoundError(f"❌ ERROR: Local graph shape file not found: {local_shape_file_path}")
         local_shape_data = read_file(local_shape_file_path)
 
-    # Iterate over each question-answer pair in the JSON file
     for entry in data:
-        question_id = entry.get('id')  # Use the original question ID
-        question = entry.get("question_text", "").strip()
-        entity_dict = entry.get("wikidata_entities_resolved", {})
-        entity_ids = []  # Initialize entity_ids
+        if not isinstance(entry, dict):
+            print(f"⚠️ Skipping non-dict entry: {entry}")
+            continue
 
-        if not question or not entity_dict:
-            print(f"⚠️ Skipping question ID {question_id} due to missing data.")
+        question_id = entry.get('baseline_id')
+        question = entry.get("baseline_question_text", "").strip()
+
+        print(f"\n🔎 Processing question ID {question_id}")
+        print(f"   ↳ Question: {repr(question)}")
+        print(f"   ↳ Resolved entities: {repr(entry.get('wikidata_entities_resolved'))}")
+
+        if not question:
+            print(f"⚠️ Skipping question ID {question_id} due to missing question text.")
             continue
 
         if is_local_graph:
-            # Use the single local shape data for all questions
+            entity_ids = []
             merged_shape_data = local_shape_data
         else:
-            # Collect all shape data for the entities in this question
-            combined_shape_data = []
-            entity_ids = list(entity_dict.values())  # Get all resolved entity Q-IDs
-
-            for entity_id in entity_ids:
-                shape_file_path = os.path.join(shape_dir, f"question_{question_id}_shape.shex")  # Match original dataset ID
-
-                if not os.path.exists(shape_file_path):
-                    print(f"⚠️ WARNING: Shape file not found for question {question_id}, entity {entity_id}: {shape_file_path}")
-                    continue
-
-                # Read shape data
-                shape_data = read_file(shape_file_path)
-                combined_shape_data.append(shape_data)
-
-            if not combined_shape_data:
-                print(f"⚠️ Skipping question ID {question_id} due to missing shape data.")
+            entity_dict = entry.get("wikidata_entities_resolved", {})
+            if not isinstance(entity_dict, dict) or not entity_dict:
+                print(f"⚠️ Skipping question ID {question_id} due to missing or invalid entity_dict.")
                 continue
 
-            # Merge all shape data for this question
-            merged_shape_data = "\n\n".join(combined_shape_data)
+            shape_file_path = os.path.join(shape_dir, f"question_{question_id}_shape.shex")
+            if not os.path.exists(shape_file_path):
+                print(f"⚠️ Shape file missing: {shape_file_path}")
+                continue
 
-        # Construct a single LLM prompt for the entire question
-        full_prompt = construct_prompt(system_prompt, question, merged_shape_data)
+            merged_shape_data = read_file(shape_file_path)
 
-        print(f"🔄 Generating SPARQL for question ID {question_id} with entities {entity_ids}...")
+        # Retry loop
+        # Retry loop with detailed logging
+        retries = 0
+        final_query = None
+        result = None
+        previous_response = None
+        attempts_log = []  # Change from dictionary to list
 
-        # **Call the LLM only once for this question**
-        response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
+        print(f"🔄 Constructing SPARQL with retry limit = {max_retries}")
 
-        save_response(json_path, question_id, response)
+        while retries <= max_retries:
+            if previous_response:
+                full_prompt = (
+                    construct_prompt(system_prompt, question, merged_shape_data) +
+                    f"\n\n### Previous attempt (failed):\n{previous_response}\n\n### Revised SPARQL Query:\n```sparql"
+                )
+            else:
+                full_prompt = construct_prompt(system_prompt, question, merged_shape_data)
+
+            response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
+
+            if not response:
+                retries += 1
+                time.sleep(1)
+                continue
+
+            final_query = response.replace("```sparql\n", "").replace("\n```", "").strip()
+            print(f"##########################################\nFull prompt: {full_prompt}\n##########################################")
+
+            print(f"LLM generated SPARQL query:\n{final_query}")
+            
+            if is_local_graph:
+                llm_generated_result = Utils.query_local_graph(final_query, local_graph_path)
+                baseline_result = Utils.query_local_graph(entry.get("baseline_sparql_query"), local_graph_path)
+                print(f"Local graph query result: {llm_generated_result}")
+            else:
+                llm_generated_result = Utils.query_sparql_endpoint(final_query, sparql_endpoint_url)
+                baseline_result = Utils.query_sparql_endpoint(entry.get("baseline_sparql_query"), sparql_endpoint_url)
+                print(f"Remote SPARQL endpoint query result: {llm_generated_result}")
+
+            # Truncate results if they exceed 1000 and mark as failed
+            if isinstance(llm_generated_result, list) and len(llm_generated_result) > 1000:
+                print(f"⚠️ Result exceeds 1000 entries. Truncating and marking as failed.")
+                llm_generated_result = []
+                failed = True
+                failure_reason = "Result exceeded 1000 entries (truncated)"
+            else:
+                failed = Utils.is_faulty_result(llm_generated_result)
+                failure_reason = "Faulty result" if failed else None
+
+            attempts_log.append({
+                "attempt": retries + 1,
+                "query": final_query,
+                "result": llm_generated_result,
+                "failed": str(failed),
+                "reason": failure_reason if failure_reason else "None"
+            })
+
+            if failure_reason:
+                print(f"⚠️ Failure reason: {failure_reason}")
+
+            if not failed:
+                print(f"✅ SPARQL executed successfully for question ID {question_id}")
+                break
+            else:
+                print(f"⚠️ Faulty result. Retrying... ({retries + 1}/{max_retries})")
+                previous_response = f"Query: {final_query}\nResult: {result}"
+                retries += 1
+                time.sleep(1)
+
+        # Save all attempts
+        entry["LLM_generated_sparql_query"] = attempts_log
+        entry["LLM_generated_sparql_endpoint_response"] = llm_generated_result
+        entry["baseline_sparql_query_response"] = baseline_result
+        entry["sparql_comparison_result"] = {
+            "is_correct": "",
+            "llm_failed_attempts": retries
+        }
+
+    with open(json_path, "w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
+
+    print(f"\n🎉 Done. All questions processed and saved to: {json_path}")
+
 
 def main():
     parser = argparse.ArgumentParser(description="Generate SPARQL queries from an LLM for a dataset.")
-    parser.add_argument("--json_path", required=True, help="Path to the JSON file containing extracted entities and questions.")
-    parser.add_argument("--system_prompt_path", required=True, help="Path to the system prompt file.")
-    parser.add_argument("--shape_path", required=True, help="Directory containing the ShEx shape files.")
-    parser.add_argument("--output_dir", required=True, help="Directory to save the generated SPARQL responses.")
-    parser.add_argument("--model", required=True, type=str, help="LLM model to use")
-    parser.add_argument("--api_key", required=True, type=str, help="API key.")
-    parser.add_argument("--max_tokens", default=512, type=int, help="Maximum number of tokens to generate.")
-    parser.add_argument("--temperature", default=0.1, type=float, help="Sampling temperature.")
-    parser.add_argument("--llm_provider", type=str, default="openai", help="Define which llm to use.")
-    parser.add_argument("--is_local_graph", type=bool, required=True, help="Set True or False.")
+    parser.add_argument("--json_path", required=True)
+    parser.add_argument("--system_prompt_path", required=True)
+    parser.add_argument("--shape_path", required=True)
+    parser.add_argument("--model", required=True)
+    parser.add_argument("--api_key", required=True)
+    parser.add_argument("--max_tokens", default=512, type=int)
+    parser.add_argument("--temperature", default=0.1, type=float)
+    parser.add_argument("--llm_provider", type=str, default="openai")
+
+    def str_to_bool(value):
+        return value.lower() in ('true', '1', 'yes')
+
+    parser.add_argument('--is_local_graph', type=Utils.str_to_bool, required=True, help="Use local graph (True/False)")
+    parser.add_argument("--max_retries", type=int, default=2)
+    parser.add_argument("--sparql_endpoint_url", type=str)
+    parser.add_argument("--local_graph_path", type=str)
 
     args = parser.parse_args()
+
+    if args.is_local_graph and not args.local_graph_path:
+        parser.error("--local_graph_path is required when --is_local_graph is True.")
+    if not args.is_local_graph and not args.sparql_endpoint_url:
+        parser.error("--sparql_endpoint_url is required when --is_local_graph is False.")
 
     process_json_and_shapes(
         json_path=args.json_path,
         shape_dir=args.shape_path,
         system_prompt_path=args.system_prompt_path,
-        output_dir=args.output_dir,
         api_key=args.api_key,
         model=args.model,
         max_tokens=args.max_tokens,
         temperature=args.temperature,
         llm_provider=args.llm_provider,
-        is_local_graph=args.is_local_graph
+        is_local_graph=args.is_local_graph,
+        max_retries=args.max_retries,
+        sparql_endpoint_url=args.sparql_endpoint_url,
+        local_graph_path=args.local_graph_path
     )
+    print("🔍 Debug: process_json_and_shapes executed successfully.")
 
 if __name__ == "__main__":
     main()

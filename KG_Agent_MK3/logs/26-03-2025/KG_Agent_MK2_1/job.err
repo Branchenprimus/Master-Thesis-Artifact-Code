@@ -1,0 +1,10 @@
++ python track_files.py --root-dir ./ --output logs/26-03-2025/KG_Agent_MK2_1/misc/meta
++ '[' 0 -ne 0 ']'
++ echo 'File tracking completed successfully!'
++ tee -a logs/26-03-2025/KG_Agent_MK2_1/track_files.log
+++ jq '.questions | length' /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/Benchmark/Bestiary/beastiary_with_qald_format.json
++ TOTAL_QUESTIONS=100
++ '[' '' = full ']'
++ [[ '' =~ ^[0-9]+$ ]]
++ echo 'ERROR: PROCESS_QUESTIONS must be '\''full'\'' or a positive integer'
++ exit 1

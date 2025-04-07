@@ -1,0 +1,51 @@
+[
+    {
+        "id": 0,
+        "question_text": "which creatures not speaking draconic language do have chaotic good alignment?",
+        "sparql_query": "SELECT ?creatures WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood> MINUS{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL>} }",
+        "llm_extracted_entity_names": "Local Graph, no entity extraction needed",
+        "wikidata_entities_resolved": "Local Graph, no entity resolving needed",
+        "baseline_response": [
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Anhana",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ataxian",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Azruverda",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BattleImp",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Biofreezer",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#BlackButterfly",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cayhound",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Caypup",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Celedeen",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Cynosoma",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Djinni",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Domovoi",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Dryad",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#ElysianTitan",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Faun",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#FungalNymph",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Gancanagh",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Garuda",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Hamadryad",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#HeraldofDreams",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Munavri",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Muse",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Nisid",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#NobleDjinniVizier",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Nymph",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#RiftFlumph",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#RimefireEidolon",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SapphireOoze",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SkirmishersTroop",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#StarMonarch",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#SwanMaiden",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Taniwha",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Unicorn",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#WoodGiant",
+            "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#caypup"
+        ],
+        "sparql_comparison_result": {
+            "baseline_entities": [],
+            "llm_entities": [],
+            "is_correct": "Invalid"
+        }
+    }
+]

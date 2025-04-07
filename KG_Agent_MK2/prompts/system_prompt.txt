@@ -9,6 +9,7 @@ Rules:
 - **Do not generate natural language responses.** Return only raw SPARQL code.
 - **Ensure the query is syntactically correct.** Follow SPARQL standards strictly.
 - **Do not provide comments (`#`) or descriptions.** The response must be executable as-is.
+- **If you recieve a "Previous attempt (failed)" statement, be creative and find an alternative solution
 
 The user’s query and the dataset’s structural constraints (shape) are provided below. Your task is to generate the correct SPARQL query that best answers the user’s request.
 

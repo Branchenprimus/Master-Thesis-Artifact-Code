@@ -3,10 +3,10 @@ import argparse
 
 def compare_sparql_results(entry):
     """Compares baseline and LLM-generated SPARQL query responses based on entity overlap."""
-    question_id = entry.get("id", "unknown")
+    question_id = entry.get("baseline_id", "unknown")
 
     baseline_entities = set(entry.get("baseline_sparql_query_response", []))
-    llm_entities = set(entry.get("sparql_endpoint_response", []))
+    llm_entities = set(entry.get("LLM_generated_sparql_endpoint_response", []))
 
     if not baseline_entities:
         is_correct = "Invalid"
@@ -16,15 +16,9 @@ def compare_sparql_results(entry):
         is_correct = "True" if baseline_entities == llm_entities else "False"
 
     print(f"Question ID: {question_id}")
-    print(f"Baseline Entities: {baseline_entities}")
-    print(f"LLM Entities: {llm_entities}")
     print(f"Is Correct: {is_correct}")
 
-    return {
-        "baseline_entities": list(baseline_entities),
-        "llm_entities": list(llm_entities),
-        "is_correct": is_correct
-    }
+    return is_correct
 
 def process_json(json_path):
     """Processes the JSON file, compares SPARQL query results, and appends the comparison results to the JSON file."""
@@ -38,12 +32,14 @@ def process_json(json_path):
     for entry in data:
         comparison_result = compare_sparql_results(entry)
         if comparison_result:
-            entry["sparql_comparison_result"] = comparison_result
+            entry["sparql_comparison_result"] = {
+                "is_correct": comparison_result
+            }
 
             # Only consider valid entries for accuracy
-            if comparison_result["is_correct"] != "Invalid":
+            if comparison_result != "Invalid":  # Adjusted to handle string result
                 total += 1
-                if comparison_result["is_correct"] == "True":
+                if comparison_result == "True":
                     correct += 1
 
     execution_accuracy = (correct / total * 100) if total > 0 else 0.0

@@ -3,6 +3,7 @@ import argparse
 import re
 import requests
 import openai
+from utility import Utils
 
 def extract_entities_with_llm(nlq, api_key, model, llm_provider):
     """
@@ -71,23 +72,38 @@ def transform_json(input_file, output_file, api_key, num_questions, model, llm_p
     including extracted entity IDs from SPARQL, LLM, and Wikidata SPARQL endpoint,
     while preserving the original question ID.
     """
-    with open(input_file, "r", encoding="utf-8") as file:
-        data = json.load(file)
+    try:
+        with open(input_file, 'r') as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON file: {input_file}. Error: {e}")
 
-    # Ensure data is a dictionary
-    if not isinstance(data, dict) or "questions" not in data:
-        raise ValueError("Invalid JSON structure: expected a dictionary with a 'questions' key.")
+    if isinstance(data, dict) and "questions" in data:
+        questions_list = data["questions"]
+    elif isinstance(data, list):
+        questions_list = data
+    else:
+        raise ValueError(
+            f"Invalid JSON structure in file {input_file}: expected a list or a dictionary with a 'questions' key."
+        )
 
-    questions_list = data["questions"]
+    # Validate each question entry
+    for entry in questions_list:
+        if not isinstance(entry, dict):
+            raise ValueError("Invalid question entry: each question must be a dictionary.")
+        if "id" not in entry or "question" not in entry or "query" not in entry:
+            raise ValueError("Invalid question entry: missing required keys ('id', 'question', 'query').")
+        if not isinstance(entry["question"], list) or not entry["question"]:
+            raise ValueError("Invalid question entry: 'question' must be a non-empty list.")
+        if not isinstance(entry["query"], dict) or "sparql" not in entry["query"]:
+            raise ValueError("Invalid question entry: 'query' must be a dictionary containing a 'sparql' key.")
 
-    # Determine how many questions to process
     if num_questions is None or num_questions > len(questions_list):
-        num_questions = len(questions_list)  # Process all questions if `num_questions` is not set
+        num_questions = len(questions_list)
 
     transformed_data = []
 
     for entry in questions_list[:num_questions]:  # Process only `num_questions` questions
-        # Use the original ID from the dataset
         original_id = entry.get("id")
 
         # Get the English question (fallback to first available if no English)
@@ -101,14 +117,12 @@ def transform_json(input_file, output_file, api_key, num_questions, model, llm_p
 
         # Extract multiple entities from NLQ using LLM
         if is_local_graph:
-            
-            # Append to transformed structure
             transformed_data.append({
-                "id": original_id,  # Keep the original ID
-                "question_text": question_text,  # The natural language question
-                "sparql_query": sparql_query,  # The original SPARQL query from the dataset
-                "llm_extracted_entity_names": "Local Graph, no entity extraction needed",  # Named entities extracted by the LLM
-                "wikidata_entities_resolved": "Local Graph, no entity resolving needed"  # Wikidata Q-IDs mapped to LLM-extracted names
+                "baseline_id": original_id,
+                "baseline_question_text": question_text,
+                "baseline_sparql_query": sparql_query,
+                "llm_extracted_entity_names": "Local Graph, no entity extraction needed",
+                "wikidata_entities_resolved": "Local Graph, no entity resolving needed"
             })
         else:
             llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider)
@@ -116,13 +130,12 @@ def transform_json(input_file, output_file, api_key, num_questions, model, llm_p
             # Query Wikidata to get entity IDs for all extracted names
             wikidata_entities_resolved = get_wikidata_entities(llm_extracted_entities)
 
-            # Append to transformed structure
             transformed_data.append({
-                "id": original_id,  # Keep the original ID
-                "question_text": question_text,  # The natural language question
-                "sparql_query": sparql_query,  # The original SPARQL query from the dataset
-                "llm_extracted_entity_names": llm_extracted_entities,  # Named entities extracted by the LLM
-                "wikidata_entities_resolved": wikidata_entities_resolved  # Wikidata Q-IDs mapped to LLM-extracted names
+                "baseline_id": original_id,
+                "baseline_question_text": question_text,
+                "baseline_sparql_query": sparql_query,
+                "llm_extracted_entity_names": llm_extracted_entities,
+                "wikidata_entities_resolved": wikidata_entities_resolved
             })
 
         print(f"✅ Processed ID {original_id}")
@@ -133,31 +146,30 @@ def transform_json(input_file, output_file, api_key, num_questions, model, llm_p
 
     print(f"✅ Transformed JSON saved to: {output_file}")
 
-
 def main():
     parser = argparse.ArgumentParser(description="Transform a JSON file into a simplified question-answer format with extracted entities.")
     parser.add_argument("--input_file", type=str, required=True, help="Path to the input JSON file.")
     parser.add_argument("--output_file", type=str, required=True, help="Path to save the transformed JSON output.")
     parser.add_argument("--api_key", type=str, required=True, help="API key for entity extraction.")
-    parser.add_argument("--num_questions", type=int, help="Number of questions to process. If omitted, all questions will be processed.")
+    parser.add_argument("--num_questions", type=int, help="Number of questions to process.")
     parser.add_argument("--model", type=str, default="gpt-4o-mini", help="Model used for entity extraction.")
     parser.add_argument("--llm_provider", type=str, default="openai", help="Define which llm to use.")
-    parser.add_argument("--is_local_graph", type=bool, required=True, help="Set True or False.")
+    parser.add_argument("--is_local_graph", type=Utils.str_to_bool, required=True, help="Set True or False.")
 
     args = parser.parse_args()
-    
-    # Handle `num_questions`: Convert to `None` if empty or the string "None"
-    if args.num_questions in (None, "", "None"):
-        args.num_questions = None
+    print(f"✅ is_local_graph: {args.is_local_graph}")
 
-    # Ensure `num_questions` is a positive integer if provided
-    if args.num_questions is not None and args.num_questions <= 0:
-        raise ValueError("Error: --num_questions must be a positive integer.")
+    if args.num_questions in (None, 0):
+        num_questions = None  # Treat 0 as "process all questions"
+    elif args.num_questions < 0:
+        raise ValueError("Error: --num_questions must be zero or a positive integer.")
+    else:
+        num_questions = args.num_questions
 
-    print(f"📌 Using num_questions: {args.num_questions}")
+    print(f"📌 Using num_questions: {'ALL' if num_questions is None else num_questions}")
 
-    # Call your processing function
-    transform_json(args.input_file, args.output_file, args.api_key, args.num_questions, args.model, args.llm_provider, args.is_local_graph)
+    # Use the validated variable here
+    transform_json(args.input_file, args.output_file, args.api_key, num_questions, args.model, args.llm_provider, args.is_local_graph)
 
 if __name__ == "__main__":
     main()

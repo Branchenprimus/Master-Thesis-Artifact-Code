@@ -1,0 +1,2 @@
+WARNING: Could not read file logs/27-03-2025/KG_Agent_MK3_2/misc/temp/shapes/local_graph_shape.shex: [Errno 2] No such file or directory: 'logs/27-03-2025/KG_Agent_MK3_2/misc/temp/shapes/local_graph_shape.shex'
+❌ Error: No shape data found at logs/27-03-2025/KG_Agent_MK3_2/misc/temp/shapes/local_graph_shape.shex

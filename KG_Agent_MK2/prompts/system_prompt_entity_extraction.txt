@@ -1,0 +1,5 @@
+Extract the most relevant named wikidata entities from the following question:
+    
+Question: "{nlq}"
+    
+Return a comma-separated list of entity names without explanations. Think rationally and in context of the question but respond only with entities literally named in the question. Extracted entities should be in singular form.

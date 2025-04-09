@@ -5,40 +5,46 @@ import requests
 import openai
 from utility import Utils
 
-def extract_entities_with_llm(nlq, api_key, model, llm_provider):
+def extract_entities_with_llm(nlq, api_key, model, llm_provider, system_prompt_path, max_tokens, temperature):
     """
     Uses an LLM to extract the most relevant entities from a natural language query.
-    Returns a list of entities.
+    Replaces {nlq} in the prompt file with the current question.
+    Returns a list of entity names.
     """
+    # Load prompt template
+    with open(system_prompt_path, "r", encoding="utf-8") as f:
+        prompt_template = f.read()
+
+    # Inject question into template
+    user_prompt = prompt_template.replace("{nlq}", nlq)
     
+    print(f"User prompt: {user_prompt}")
+
+    # Select provider
     if llm_provider == "openai":
         client = openai.OpenAI(api_key=api_key)
-    
     elif llm_provider == "deepseek":
-        client = openai.OpenAI(
-        api_key=api_key,
-        base_url="https://api.deepseek.com/v1", 
-    )
+        client = openai.OpenAI(api_key=api_key, base_url="https://api.deepseek.com/v1")
+    else:
+        raise ValueError(f"Unsupported LLM provider: {llm_provider}")
 
-    prompt = f"""Extract the most relevant named wikidata entities from the following question:
-    
-    Question: "{nlq}"
-    
-    Return a comma-separated list of entity names without explanations. Think rationally and in context of the question but respond only with entities literally named in the question. Extracted entities should be in singular form.
-    """
-
+    # Call LLM
     response = client.chat.completions.create(
         model=model,
-        messages=[{"role": "system", "content": "You are an expert in extracting named entities from questions."},
-                  {"role": "user", "content": prompt}],
-        max_tokens=50,
-        temperature=0.2
+        messages=[
+            {"role": "system", "content": "You are an expert in extracting named entities from questions."},
+            {"role": "user", "content": user_prompt}
+        ],
+        max_tokens=max_tokens,
+        temperature=temperature
     )
-    
+
     print(f"LLM response: {response}")
 
-    entity_names = response.choices[0].message.content.strip().split(", ")
-    return [name.strip() for name in entity_names if name]  # Return cleaned list
+    # Parse and return entity names
+    entity_names = response.choices[0].message.content.strip().split(",")
+    return [name.strip() for name in entity_names if name.strip()]
+
 
 def get_wikidata_entities(entity_names):
     """
@@ -66,7 +72,7 @@ def get_wikidata_entities(entity_names):
 
     return wikidata_entities
 
-def transform_json(input_file, output_file, api_key, num_questions, model, llm_provider, is_local_graph):
+def transform_json(input_file, output_file, api_key, num_questions, model, llm_provider, is_local_graph, system_prompt_path, max_tokens, temperature):
     """
     Transforms the input JSON structure into a simplified list of question-answer pairs,
     including extracted entity IDs from SPARQL, LLM, and Wikidata SPARQL endpoint,
@@ -125,7 +131,7 @@ def transform_json(input_file, output_file, api_key, num_questions, model, llm_p
                 "wikidata_entities_resolved": "Local Graph, no entity resolving needed"
             })
         else:
-            llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider)
+            llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider, system_prompt_path, max_tokens, temperature)
 
             # Query Wikidata to get entity IDs for all extracted names
             wikidata_entities_resolved = get_wikidata_entities(llm_extracted_entities)
@@ -154,7 +160,10 @@ def main():
     parser.add_argument("--num_questions", type=int, help="Number of questions to process.")
     parser.add_argument("--model", type=str, default="gpt-4o-mini", help="Model used for entity extraction.")
     parser.add_argument("--llm_provider", type=str, default="openai", help="Define which llm to use.")
+    parser.add_argument("--max_tokens", default=50, type=int)
+    parser.add_argument("--temperature", default=0.2, type=float)
     parser.add_argument("--is_local_graph", type=Utils.str_to_bool, required=True, help="Set True or False.")
+    parser.add_argument("--system_prompt_path", required=True, help="Path to system prompt file.")
 
     args = parser.parse_args()
     print(f"✅ is_local_graph: {args.is_local_graph}")
@@ -169,7 +178,7 @@ def main():
     print(f"📌 Using num_questions: {'ALL' if num_questions is None else num_questions}")
 
     # Use the validated variable here
-    transform_json(args.input_file, args.output_file, args.api_key, num_questions, args.model, args.llm_provider, args.is_local_graph)
+    transform_json(args.input_file, args.output_file, args.api_key, num_questions, args.model, args.llm_provider, args.is_local_graph, args.system_prompt_path, args.max_tokens, args.temperature)
 
 if __name__ == "__main__":
     main()

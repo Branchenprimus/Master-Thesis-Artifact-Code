@@ -5,61 +5,6 @@ import time
 from rdflib import Graph
 from utility import Utils
 
-def query_sparql_endpoint(sparql_query, endpoint_url):
-    """Executes a SPARQL query against a remote endpoint and returns result values."""
-    headers = {
-        "User-Agent": "SPARQLQueryBot/1.0 (contact: example@example.com)"
-    }
-    data = {
-        "query": sparql_query,
-        "format": "json"
-    }
-
-    try:
-        response = requests.get(endpoint_url, headers=headers, params=data)
-        response.raise_for_status()
-        json_response = response.json()
-
-        values = [
-            binding[var]["value"]
-            for var in json_response.get("head", {}).get("vars", [])
-            for binding in json_response.get("results", {}).get("bindings", [])
-            if var in binding and "value" in binding[var]
-        ]
-        return values
-    except requests.exceptions.RequestException as e:
-        return {"error": str(e)}
-
-def query_local_graph(sparql_query, graph_path):
-    """Executes a SPARQL query against a local RDF graph and returns result values."""
-    try:
-        g = Graph()
-        g.parse(graph_path, format=guess_format(graph_path))
-
-        qres = g.query(sparql_query)
-        values = []
-
-        for row in qres:
-            for val in row:
-                values.append(str(val))
-
-        return values
-    except Exception as e:
-        return {"error": str(e)}
-
-def guess_format(path):
-    """Heuristic to guess RDF serialization based on file extension."""
-    if path.endswith(".ttl"):
-        return "turtle"
-    elif path.endswith(".rdf") or path.endswith(".xml"):
-        return "xml"
-    elif path.endswith(".nt"):
-        return "nt"
-    elif path.endswith(".jsonld"):
-        return "json-ld"
-    else:
-        return "turtle"  # default
-
 def process_json(json_path, sparql_endpoint_url, is_local_graph=False, local_graph_location=None):
     with open(json_path, "r", encoding="utf-8") as file:
         data = json.load(file)
@@ -73,18 +18,18 @@ def process_json(json_path, sparql_endpoint_url, is_local_graph=False, local_gra
         if baseline_query:
             print(f"🔍 Executing baseline SPARQL query for question ID {question_id}...")
             if is_local_graph:
-                entry["baseline_sparql_query_response"] = query_local_graph(baseline_query, local_graph_location)
+                entry["baseline_sparql_query_response"] = Utils.query_local_graph(baseline_query, local_graph_location)
             else:
-                entry["baseline_sparql_query_response"] = query_sparql_endpoint(baseline_query, sparql_endpoint_url)
+                entry["baseline_sparql_query_response"] = Utils.query_sparql_endpoint(baseline_query, sparql_endpoint_url)
         else:
             print(f"⚠️ No baseline SPARQL query for question ID {question_id}")
 
         if llm_query:
             print(f"🔍 Executing LLM-generated SPARQL query for question ID {question_id}...")
             if is_local_graph:
-                entry["sparql_endpoint_response"] = query_local_graph(llm_query, local_graph_location)
+                entry["sparql_endpoint_response"] = Utils.query_local_graph(llm_query, local_graph_location)
             else:
-                entry["sparql_endpoint_response"] = query_sparql_endpoint(llm_query, sparql_endpoint_url)
+                entry["sparql_endpoint_response"] = Utils.query_sparql_endpoint(llm_query, sparql_endpoint_url)
         else:
             print(f"⚠️ No LLM-generated SPARQL query for question ID {question_id}")
 

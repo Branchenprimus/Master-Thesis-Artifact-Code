@@ -207,10 +207,6 @@ def main():
     parser.add_argument("--max_tokens", default=512, type=int)
     parser.add_argument("--temperature", default=0.1, type=float)
     parser.add_argument("--llm_provider", type=str, default="openai")
-
-    def str_to_bool(value):
-        return value.lower() in ('true', '1', 'yes')
-
     parser.add_argument('--is_local_graph', type=Utils.str_to_bool, required=True, help="Use local graph (True/False)")
     parser.add_argument("--max_retries", type=int, default=2)
     parser.add_argument("--sparql_endpoint_url", type=str)

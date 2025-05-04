@@ -83,7 +83,7 @@ def clean_shape_text(raw_shape):
             cleaned_lines.append(line)
     return "\n".join(cleaned_lines)
 
-def generate_combined_shape_from_wikidata(entity_label_pairs, shape_type):
+def generate_combined_shape_from_wikidata(entity_label_pairs, shape_type, annotation):
     if shape_type == "shex":
         shape_map_lines = [
             f"<http://www.wikidata.org/entity/{entity_id}>@<Shape entry point: http://www.wikidata.org/entity/{entity_id} = {label.replace(' ', '_')}>"
@@ -117,6 +117,7 @@ def generate_combined_shape_from_wikidata(entity_label_pairs, shape_type):
                 namespaces_dict=namespaces_dict,
                 disable_comments=True,
                 namespaces_to_ignore=namespaces_to_ignore,
+                wikidata_annotation=annotation,
             )
             return shaper.shex_graph(string_output=True)
 
@@ -216,7 +217,7 @@ def generate_combined_shape_from_dbpedia(entity_label_pairs, shape_type):
         print(f"❌ Error generating shape: {e}")
         return None
     
-def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, dataset_type):
+def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, dataset_type, annotation):
     with open(json_file, "r", encoding="utf-8") as file:
         data = json.load(file)
 
@@ -244,7 +245,7 @@ def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, datas
 
         if dataset_type == "wikidata":
             # Generate ShEx shape for each entity
-            shape = generate_combined_shape_from_wikidata(entity_label_pairs, shape_type)
+            shape = generate_combined_shape_from_wikidata(entity_label_pairs, shape_type, annotation)
         elif dataset_type == "dbpedia":
             # Generate ShEx shape for each entity
             shape = generate_combined_shape_from_dbpedia(entity_label_pairs, shape_type) 
@@ -273,6 +274,8 @@ def main():
     parser.add_argument("--shape_type", type=str, choices=["shex", "shacl"], required=True, help="Type of shape to generate (shex or shacl).")
     parser.add_argument("--existing_shape_path", type=str, required=False, help="Path to an existing shape file for SHACL generation.")
     parser.add_argument("--dataset_type", type=str, choices=["wikidata", "dbpedia", "corporate_graphs"], required=True, help="Type of dataset (wikidata or dbpedia).")
+    parser.add_argument("--annotation", type=Utils.str_to_bool, required=False, help="Annotation for the shape file.")
+    
     args = parser.parse_args()
     is_local_graph = args.is_local_graph
     
@@ -286,7 +289,7 @@ def main():
         generate_shape_from_local_graph(args.local_graph_location, args.shape_output_path, args.shape_type, args.existing_shape_path)
     else:
         print(f"✅ Generating shape using sparql endpoint {args.target_json_file} and generated shapes.")
-        generate_shape_from_endpoint(args.target_json_file, args.shape_output_path, args.shape_type, args.dataset_type)
+        generate_shape_from_endpoint(args.target_json_file, args.shape_output_path, args.shape_type, args.dataset_type, args.annotation)
 
 if __name__ == "__main__":
     main()

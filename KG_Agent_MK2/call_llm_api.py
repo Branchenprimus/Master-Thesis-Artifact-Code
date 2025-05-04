@@ -82,7 +82,6 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
             continue
 
         if is_local_graph:
-            entity_ids = []
             merged_shape_data = local_shape_data
         else:
             entity_dict = entry.get("endpoint_entities_resolved", {})
@@ -130,12 +129,12 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
             
             if is_local_graph:
                 llm_generated_result = Utils.query_local_graph(final_query, local_graph_path)
-                baseline_result = Utils.query_local_graph(entry.get("baseline_sparql_query"), local_graph_path)
-                print(f"Local graph query result: {llm_generated_result}")
+                # baseline_result = Utils.query_local_graph(entry.get("baseline_sparql_query"), local_graph_path)
+                # print(f"Local graph query result: {llm_generated_result}")
             else:
                 llm_generated_result = Utils.query_sparql_endpoint(final_query, sparql_endpoint_url)
-                baseline_result = Utils.query_sparql_endpoint(entry.get("baseline_sparql_query"), sparql_endpoint_url)
-                print(f"Remote SPARQL endpoint query result: {llm_generated_result}")
+                # baseline_result = Utils.query_sparql_endpoint(entry.get("baseline_sparql_query"), sparql_endpoint_url)
+                # print(f"Remote SPARQL endpoint query result: {llm_generated_result}")
 
             # Truncate results if they exceed 1000 and mark as failed
             if isinstance(llm_generated_result, list) and len(llm_generated_result) > 1000:
@@ -169,8 +168,8 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
 
         # Save all attempts
         entry["LLM_generated_sparql_query"] = attempts_log
-        entry["LLM_generated_sparql_query_response"] = llm_generated_result
-        entry["baseline_sparql_query_response"] = baseline_result
+        # entry["LLM_generated_sparql_query_response"] = llm_generated_result
+        # entry["baseline_sparql_query_response"] = baseline_result
         entry["sparql_comparison_result"] = {
             "is_correct": "",
             "llm_failed_attempts": retries

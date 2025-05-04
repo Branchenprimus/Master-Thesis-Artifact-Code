@@ -119,7 +119,7 @@ def get_dbpedia_entities(entity_names):
 
 
 
-def transform_json(benchmark_dataset, output_file, api_key, num_questions, model, llm_provider, is_local_graph, system_prompt_path, max_tokens, temperature, dataset_type):
+def transform_json(benchmark_dataset, output_file, api_key, num_questions, model, llm_provider, is_local_graph, local_graph_location, sparql_endpoint_url, system_prompt_path, max_tokens, temperature, dataset_type):
     """
     Transforms the input JSON structure into a simplified list of question-answer pairs,
     including extracted entity IDs from SPARQL, LLM, and Wikidata SPARQL endpoint,
@@ -173,6 +173,7 @@ def transform_json(benchmark_dataset, output_file, api_key, num_questions, model
             transformed_data.append({
                 "baseline_id": original_id,
                 "baseline_question_text": question_text,
+                "baseline_sparql_query_response": Utils.query_local_graph(sparql_query, local_graph_location),
                 "baseline_sparql_query": sparql_query,
                 "llm_extracted_entity_names": "Local Graph, no entity extraction needed",
                 "endpoint_entities_resolved": "Local Graph, no entity resolving needed"
@@ -191,16 +192,17 @@ def transform_json(benchmark_dataset, output_file, api_key, num_questions, model
                 "baseline_id": original_id,
                 "baseline_question_text": question_text,
                 "baseline_sparql_query": sparql_query,
+                "baseline_sparql_query_response": Utils.query_sparql_endpoint(sparql_query, sparql_endpoint_url),
                 "llm_extracted_entity_names": llm_extracted_entities,
                 "endpoint_entities_resolved": endpoint_entities_resolved
             })
 
-            print(f"✅ Processed ID {original_id}")
-            print(f"baseline_question_text {question_text}")
-            print(f"baseline_sparql_query {sparql_query}")
-            print(f"llm_extracted_entity_names {llm_extracted_entities}")
-            print(f"endpoint_entities_resolved {endpoint_entities_resolved}")
-            print("-----------------------------------------------------")
+        print(f"✅ Processed ID {original_id}")
+        print(f"baseline_question_text {question_text}")
+        print(f"baseline_sparql_query {sparql_query}")
+        print(f"llm_extracted_entity_names {llm_extracted_entities}")
+        print(f"endpoint_entities_resolved {endpoint_entities_resolved}")
+        print("-----------------------------------------------------")
 
     # Save to output JSON file
     with open(output_file, "w", encoding="utf-8") as file:
@@ -221,6 +223,9 @@ def main():
     parser.add_argument("--is_local_graph", type=Utils.str_to_bool, required=True, help="Set True or False.")
     parser.add_argument("--system_prompt_path", required=True, help="Path to system prompt file.")
     parser.add_argument("--dataset_type", type=str, default="default", help="Type of dataset to process.")
+    parser.add_argument("--local_graph_location", type=str, help="Path to the local RDF graph file (e.g., .ttl, .rdf).")
+    parser.add_argument("--sparql_endpoint_url", type=str, help="SPARQL endpoint URL (ignored if --is_local_graph is used).")
+
 
     args = parser.parse_args()
     print(f"✅ is_local_graph: {args.is_local_graph}")
@@ -235,7 +240,7 @@ def main():
     print(f"📌 Using num_questions: {'ALL' if num_questions is None else num_questions}")
 
     # Use the validated variable here
-    transform_json(args.benchmark_dataset, args.output_file, args.api_key, num_questions, args.model, args.llm_provider, args.is_local_graph, args.system_prompt_path, args.max_tokens, args.temperature, args.dataset_type)
+    transform_json(args.benchmark_dataset, args.output_file, args.api_key, num_questions, args.model, args.llm_provider, args.is_local_graph, args.local_graph_location, args.sparql_endpoint_url, args.system_prompt_path, args.max_tokens, args.temperature, args.dataset_type)
 
 if __name__ == "__main__":
     main()

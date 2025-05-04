@@ -76,6 +76,8 @@ python ./extract_entity_list.py \
   --is_local_graph $IS_LOCAL_GRAPH \
   --system_prompt_path $SYSTEM_PROMPT_ENTITY_EXTRACTION \
   --dataset_type $DATASET_TYPE \
+  --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
+  --local_graph_location $LOCAL_GRAPH_LOCATION \
   > "$LOG_DIR/extract_entity_list.out" 2> "$LOG_DIR/extract_entity_list.err"
 echo ""  # Blank line for separation
 
@@ -87,36 +89,33 @@ python generate_shape.py \
   --shape_type $SHAPE_TYPE \
   --existing_shape_path $EXISTING_SHAPE_PATH \
   --dataset_type $DATASET_TYPE \
+  --annotation $ANNOTATION \
   > "$LOG_DIR/generate_shape.out" 2> "$LOG_DIR/generate_shape.err"
 echo ""  # Blank line for separation
 
   # Generate SPARQL with LLM
   python call_llm_api.py \
-    --json_path $TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json \
-    --system_prompt_path $SYSTEM_PROMPT_SPARQL_GENERATION \
-    --shape_path $TEMP_OUTPUT_DIR/shapes \
-    --model $MODEL_SPARQL_GENERATION \
-    --api_key $API_KEY_SPARQL_GENERATION \
-    --max_tokens $MAX_TOKENS_SPARQL_GENERATION \
-    --temperature $TEMPERATURE_SPARQL_GENERATION \
-    --llm_provider $LLM_PROVIDER_SPARQL_GENERATION \
-    --is_local_graph $IS_LOCAL_GRAPH \
-    --max_retries $MAX_CONSECUTIVE_RETRIES \
-    --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
-    --local_graph_path $LOCAL_GRAPH_LOCATION \
-    --shape_type $SHAPE_TYPE \
-    --dataset_type $DATASET_TYPE \
+  --json_path $TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json \
+  --system_prompt_path $SYSTEM_PROMPT_SPARQL_GENERATION \
+  --shape_path $TEMP_OUTPUT_DIR/shapes \
+  --model $MODEL_SPARQL_GENERATION \
+  --api_key $API_KEY_SPARQL_GENERATION \
+  --max_tokens $MAX_TOKENS_SPARQL_GENERATION \
+  --temperature $TEMPERATURE_SPARQL_GENERATION \
+  --llm_provider $LLM_PROVIDER_SPARQL_GENERATION \
+  --is_local_graph $IS_LOCAL_GRAPH \
+  --max_retries $MAX_CONSECUTIVE_RETRIES \
+  --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
+  --local_graph_path $LOCAL_GRAPH_LOCATION \
+  --shape_type $SHAPE_TYPE \
+  --dataset_type $DATASET_TYPE \
   > "$LOG_DIR/call_llm_api.out" 2> "$LOG_DIR/call_llm_api.err"
 echo ""  # Blank line for separation
 
-python call_sparql_endpoint.py \
+python verify_sparql.py \
+  --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
   --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --is_local_graph $IS_LOCAL_GRAPH \
   --local_graph_location $LOCAL_GRAPH_LOCATION \
-  > "$LOG_DIR/call_sparql_endpoint.out" 2> "$LOG_DIR/call_sparql_endpoint.err"
-echo ""  # Blank line for separation
-
-python verify_sparql.py \
- --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   > "$LOG_DIR/verify_sparql.out" 2> "$LOG_DIR/verify_sparql.err"

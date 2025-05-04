@@ -7,7 +7,7 @@ from rdflib import Graph
 
 # ========== Argument Parsing ==========
 parser = argparse.ArgumentParser(description="Validate KGQA dataset using local RDF graph with rdflib.")
-parser.add_argument("input_file", help="QALD-style dataset file (JSON)")
+parser.add_argument("benchmark_dataset", help="QALD-style dataset file (JSON)")
 parser.add_argument("output_dir", help="Directory to save cleaned dataset and logs")
 parser.add_argument("rdf_file", help="Path to the RDF knowledge graph file")
 parser.add_argument("--rdf_format", default="xml", help="RDF format (e.g., xml, ttl, nt, json-ld). Default: xml")
@@ -20,7 +20,7 @@ graph.parse(args.rdf_file, format=args.rdf_format)
 print(f"✅ RDF graph loaded with {len(graph)} triples.\n")
 
 # ========== Load KGQA Dataset ==========
-with open(args.input_file, "r") as f:
+with open(args.benchmark_dataset, "r") as f:
     data = json.load(f)
 
 questions = data["questions"]
@@ -179,7 +179,7 @@ if "boolean" in expected_answer:
 
 # ========== Output ==========
 os.makedirs(args.output_dir, exist_ok=True)
-base_name = os.path.splitext(os.path.basename(args.input_file))[0]
+base_name = os.path.splitext(os.path.basename(args.benchmark_dataset))[0]
 cleaned_path = os.path.join(args.output_dir, f"{base_name}_cleaned.json")
 log_path = os.path.join(args.output_dir, f"{base_name}_removed_log.json")
 

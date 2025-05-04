@@ -40,7 +40,7 @@ fi
 echo "File tracking completed successfully!" | tee -a "$LOG_DIR/track_files.log"
 
 # Get total number of questions from original dataset
-TOTAL_QUESTIONS=$(jq '.questions | length' "$BASE_JSON_FILE")
+TOTAL_QUESTIONS=$(jq '.questions | length' "$BENCHMARK_DATASET")
 echo "Total questions in dataset: $TOTAL_QUESTIONS"
 
 # Determine number of questions to process

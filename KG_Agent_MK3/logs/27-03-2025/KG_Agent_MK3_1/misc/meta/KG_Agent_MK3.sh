@@ -39,7 +39,7 @@ fi
 echo "File tracking completed successfully!" | tee -a "$LOG_DIR/track_files.log"
 
 # Get total number of questions from original dataset
-TOTAL_QUESTIONS=$(jq '.questions | length' "$BASE_JSON_FILE")
+TOTAL_QUESTIONS=$(jq '.questions | length' "$BENCHMARK_DATASET")
 echo "Total questions in dataset: $TOTAL_QUESTIONS"
 
 # Determine number of questions to process
@@ -62,7 +62,7 @@ for question_idx in $(seq 0 $MAX_INDEX); do
 
   # Extract entities
   python ./extract_entity_list.py \
-    --input_file "$BASE_JSON_FILE" \
+    --benchmark_dataset "$BENCHMARK_DATASET" \
     --output_file "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
     --api_key "$API_KEY" \
     --model "$MODEL_ENTITY_EXTRACTION" \

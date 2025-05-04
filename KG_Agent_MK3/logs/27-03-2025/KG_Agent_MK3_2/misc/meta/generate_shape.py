@@ -78,7 +78,7 @@ def process_single_question(json_file, shape_output_path, question_index):
     entry = data[question_index]
     original_id = entry.get("id")
     named_entities = entry.get("llm_extracted_entity_names", [])
-    entity_dict = entry.get("wikidata_entities_resolved", {})
+    entity_dict = entry.get("endpoint_entities_resolved", {})
 
     if not named_entities or not entity_dict:
         print(f"⚠️ Skipping question {original_id}: missing entity data")

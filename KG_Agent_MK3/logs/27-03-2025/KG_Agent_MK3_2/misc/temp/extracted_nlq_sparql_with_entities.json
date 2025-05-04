@@ -4,7 +4,7 @@
         "question_text": "which creatures not speaking draconic language do have chaotic good alignment?",
         "sparql_query": "SELECT ?creatures WHERE {  ?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasAlignment> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#chaoticGood> MINUS{?creatures <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#DraconicL>} }",
         "llm_extracted_entity_names": "Local Graph, no entity extraction needed",
-        "wikidata_entities_resolved": "Local Graph, no entity resolving needed",
+        "endpoint_entities_resolved": "Local Graph, no entity resolving needed",
         "baseline_response": [
             "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Anhana",
             "http://www.semanticweb.org/annab/ontologies/2022/3/ontology#Ataxian",

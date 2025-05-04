@@ -125,3 +125,19 @@ class Utils:
         if all(str(r).strip() == "0" for r in result):
             return True
         return False
+    
+    @staticmethod
+    def resolve_llm_provider(llm_provider: str) -> str:
+        """Resolves the LLM provider to a specific string."""
+        if llm_provider == "openai":
+            return None
+        elif llm_provider == "deepseek":
+            return "https://api.deepseek.com/v1"
+        elif llm_provider == "alibaba":
+            return "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+        elif llm_provider == "anthropic":
+            return "https://api.anthropic.com/v1/"
+        elif llm_provider == "groq":
+            return "https://api.groq.com/openai/v1"
+        else:
+            raise ValueError(f"Unsupported LLM provider: {llm_provider}")

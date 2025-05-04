@@ -11,7 +11,7 @@ The pipeline consists of multiple Python scripts, each responsible for a specifi
 ### **1️⃣ Extract Entities from NLQs (`extract_entity_list.py`)**
 📌 **Goal:** Extract named entities from natural language questions.  
 🔹 **Inputs:**  
-- `--input_file` → JSON file containing NLQs  
+- `--benchmark_dataset` → JSON file containing NLQs  
 - `--api_key` → API key for LLM provider  
 - `--num_questions` → Number of questions to process  
 - `--model` → LLM model for entity extraction  

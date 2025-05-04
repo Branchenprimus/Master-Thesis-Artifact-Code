@@ -57,9 +57,9 @@ def get_wikidata_entities(entity_names):
                 wikidata_entities[entity_name] = results[0]["entity"]["value"].split("/")[-1]
     return wikidata_entities
 
-def transform_json(input_file, output_file, api_key, model, llm_provider, is_local_graph, question_index):
+def transform_json(benchmark_dataset, output_file, api_key, model, llm_provider, is_local_graph, question_index):
     """Processes a single question specified by index."""
-    with open(input_file, "r", encoding="utf-8") as file:
+    with open(benchmark_dataset, "r", encoding="utf-8") as file:
         data = json.load(file)
 
     if not isinstance(data, dict) or "questions" not in data:
@@ -87,17 +87,17 @@ def transform_json(input_file, output_file, api_key, model, llm_provider, is_loc
             "question_text": question_text,
             "sparql_query": sparql_query,
             "llm_extracted_entity_names": "Local Graph, no entity extraction needed",
-            "wikidata_entities_resolved": "Local Graph, no entity resolving needed"
+            "endpoint_entities_resolved": "Local Graph, no entity resolving needed"
         })
     else:
         llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider)
-        wikidata_entities_resolved = get_wikidata_entities(llm_extracted_entities)
+        endpoint_entities_resolved = get_wikidata_entities(llm_extracted_entities)
         transformed_data.append({
             "id": original_id,
             "question_text": question_text,
             "sparql_query": sparql_query,
             "llm_extracted_entity_names": llm_extracted_entities,
-            "wikidata_entities_resolved": wikidata_entities_resolved
+            "endpoint_entities_resolved": endpoint_entities_resolved
         })
 
     print(f"✅ Processed ID {original_id} (Index: {question_index})")
@@ -107,7 +107,7 @@ def transform_json(input_file, output_file, api_key, model, llm_provider, is_loc
 
 def main():
     parser = argparse.ArgumentParser(description="Process a single question from a JSON file using an index.")
-    parser.add_argument("--input_file", type=str, required=True, help="Path to the input JSON file.")
+    parser.add_argument("--benchmark_dataset", type=str, required=True, help="Path to the input JSON file.")
     parser.add_argument("--output_file", type=str, required=True, help="Path to save the output JSON.")
     parser.add_argument("--api_key", type=str, required=True, help="API key for entity extraction.")
     parser.add_argument("--model", type=str, default="gpt-4o-mini", help="Model used for entity extraction.")
@@ -118,7 +118,7 @@ def main():
     args = parser.parse_args()
     
     transform_json(
-        args.input_file,
+        args.benchmark_dataset,
         args.output_file,
         args.api_key,
         args.model,

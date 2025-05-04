@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # sourve .env and venv
-source /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/.env
-source /p/project1/hai_kg-rag-thesis/env/KG_Agent_MK2_venv/bin/activate
+source /root/KG_Agent/KG_Agent_MK2/.env
+source /root/KG_Agent/KG_Agent_MK2/venv/bin/activate
 
 set -e  # Exit script if any command fails
 
@@ -42,26 +42,30 @@ echo "File tracking completed successfully!" | tee -a "$LOG_DIR/track_files.log"
 echo ""  # Blank line for separation
 
 echo "🔧 Running KG_Agent_MK2.sh with the following parameters:"
-echo "NUM_QUESTIONS           = $NUM_QUESTIONS" #if set to 0, it will process all questions
-echo "MAX_CONSECUTIVE_RETRIES = $MAX_CONSECUTIVE_RETRIES"
-echo "LOG_DIR                 = $LOG_DIR"
-echo "TEMP_OUTPUT_DIR         = $TEMP_OUTPUT_DIR"
-echo "LLM_PROVIDER            = $LLM_PROVIDER"
-echo "API_KEY                 = ${API_KEY:0:10}... (truncated)"
-echo "MODEL_ENTITY_EXTRACTION = $MODEL_ENTITY_EXTRACTION"
-echo "MODEL_SPARQL_GENERATION = $MODEL_SPARQL_GENERATION"
-echo "BASE_JSON_FILE          = $BASE_JSON_FILE"
-echo "SYSTEM_PROMPT_PATH      = $SYSTEM_PROMPT_PATH"
-echo "IS_LOCAL_GRAPH          = $IS_LOCAL_GRAPH"
-echo "LOCAL_GRAPH_LOCATION    = $LOCAL_GRAPH_LOCATION"
-echo "SPARQL_ENDPOINT_URL     = $SPARQL_ENDPOINT_URL"
-echo "ANNOTATION              = $ANNOTATION"
+echo "NUM_QUESTIONS                         = $NUM_QUESTIONS" #if set to 0, it will process all questions
+echo "MAX_CONSECUTIVE_RETRIES               = $MAX_CONSECUTIVE_RETRIES"
+echo "LOG_DIR                               = $LOG_DIR"
+echo "TEMP_OUTPUT_DIR                       = $TEMP_OUTPUT_DIR"
+echo "LLM_PROVIDER_SPARQL_GENERATION        = $LLM_PROVIDER_SPARQL_GENERATION"
+echo "LLM_PROVIDER_ENTITY_EXTRACTION        = $LLM_PROVIDER_ENTITY_EXTRACTION"
+echo "API_KEY                               = ${API_KEY:0:10}... (truncated)"
+echo "MODEL_ENTITY_EXTRACTION               = $MODEL_ENTITY_EXTRACTION"
+echo "MODEL_SPARQL_GENERATION               = $MODEL_SPARQL_GENERATION"
+echo "SYSTEM_PROMPT_SPARQL_GENERATION       = $SYSTEM_PROMPT_SPARQL_GENERATION"
+echo "SYSTEM_PROMPT_ENTITY_EXTRACTION       = $SYSTEM_PROMPT_ENTITY_EXTRACTION"
+echo "BENCHMARK_DATASET                     = $BENCHMARK_DATASET"
+echo "IS_LOCAL_GRAPH                        = $IS_LOCAL_GRAPH"
+echo "LOCAL_GRAPH_LOCATION                  = $LOCAL_GRAPH_LOCATION"
+echo "SPARQL_ENDPOINT_URL                   = $SPARQL_ENDPOINT_URL"
+echo "EXISTING_SHAPE_PATH                   = $EXISTING_SHAPE_PATH"
+echo "SHAPE_TYPE                            = $SHAPE_TYPE"
+echo "DATASET_TYPE                          = $DATASET_TYPE"
 echo ""  # Blank line for separation
 
 set -x  # Enable debugging
 
 python ./extract_entity_list.py \
-  --input_file $BASE_JSON_FILE \
+  --benchmark_dataset $BENCHMARK_DATASET \
   --output_file "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --api_key $API_KEY_ENTITY_EXTRACTION \
   --num_questions $NUM_QUESTIONS \
@@ -71,16 +75,18 @@ python ./extract_entity_list.py \
   --temperature $TEMPERATURE_ENTITY_EXTRACTION \
   --is_local_graph $IS_LOCAL_GRAPH \
   --system_prompt_path $SYSTEM_PROMPT_ENTITY_EXTRACTION \
+  --dataset_type $DATASET_TYPE \
   > "$LOG_DIR/extract_entity_list.out" 2> "$LOG_DIR/extract_entity_list.err"
 echo ""  # Blank line for separation
-
 
 python generate_shape.py \
   --shape_output_path "$TEMP_OUTPUT_DIR/shapes" \
   --target_json_file "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --is_local_graph $IS_LOCAL_GRAPH \
   --local_graph_location $LOCAL_GRAPH_LOCATION \
-  --annotation $ANNOTATION \
+  --shape_type $SHAPE_TYPE \
+  --existing_shape_path $EXISTING_SHAPE_PATH \
+  --dataset_type $DATASET_TYPE \
   > "$LOG_DIR/generate_shape.out" 2> "$LOG_DIR/generate_shape.err"
 echo ""  # Blank line for separation
 
@@ -98,11 +104,13 @@ echo ""  # Blank line for separation
     --max_retries $MAX_CONSECUTIVE_RETRIES \
     --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
     --local_graph_path $LOCAL_GRAPH_LOCATION \
+    --shape_type $SHAPE_TYPE \
+    --dataset_type $DATASET_TYPE \
   > "$LOG_DIR/call_llm_api.out" 2> "$LOG_DIR/call_llm_api.err"
 echo ""  # Blank line for separation
 
 python call_sparql_endpoint.py \
-  --sparql_endpoint_url "https://query.wikidata.org/sparql" \
+  --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
   --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --is_local_graph $IS_LOCAL_GRAPH \
   --local_graph_location $LOCAL_GRAPH_LOCATION \

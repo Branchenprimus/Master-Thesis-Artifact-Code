@@ -13,23 +13,35 @@ def process_json(json_path, sparql_endpoint_url, is_local_graph=False, local_gra
         question_id = entry.get("baseline_id", "unknown")
 
         baseline_query = entry.get("baseline_sparql_query")
-        llm_query = entry.get("llm_generated_sparql")
+        print(f"baseline_sparql_query: {baseline_query}")
+        llm_queries = entry.get("LLM_generated_sparql_query", [])
+        llm_query = llm_queries[-1]["query"] if llm_queries else None
+        print(f"llm_generated_sparql: {llm_query}")
+
 
         if baseline_query:
-            print(f"🔍 Executing baseline SPARQL query for question ID {question_id}...")
+            print(f"\n🔍 Executing baseline SPARQL query for question ID {question_id}...")
             if is_local_graph:
                 entry["baseline_sparql_query_response"] = Utils.query_local_graph(baseline_query, local_graph_location)
             else:
-                entry["baseline_sparql_query_response"] = Utils.query_sparql_endpoint(baseline_query, sparql_endpoint_url)
+                response = Utils.query_sparql_endpoint(baseline_query, sparql_endpoint_url)
+                print(f"baseline_sparql_query_response: {response}")
+                print(f"baseline_query: {baseline_query}")
+                print(f"sparql_endpoint_url: {sparql_endpoint_url}")
+                entry["baseline_sparql_query_response"] = response
         else:
             print(f"⚠️ No baseline SPARQL query for question ID {question_id}")
 
         if llm_query:
             print(f"🔍 Executing LLM-generated SPARQL query for question ID {question_id}...")
             if is_local_graph:
-                entry["sparql_endpoint_response"] = Utils.query_local_graph(llm_query, local_graph_location)
+                entry["llm_generated_sparql_query_response"] = Utils.query_local_graph(llm_query, local_graph_location)
             else:
-                entry["sparql_endpoint_response"] = Utils.query_sparql_endpoint(llm_query, sparql_endpoint_url)
+                response = Utils.query_sparql_endpoint(llm_query, sparql_endpoint_url)
+                print(f"llm_generated_sparql_query_response: {baseline_query}")
+                print(f"baseline_query: {baseline_query}")
+                print(f"sparql_endpoint_url: {sparql_endpoint_url}")
+                entry["llm_generated_sparql_query_response"] = response
         else:
             print(f"⚠️ No LLM-generated SPARQL query for question ID {question_id}")
 
@@ -56,6 +68,6 @@ if __name__ == "__main__":
     process_json(
         args.json_path,
         args.sparql_endpoint_url,
-        is_local_graph=is_local_graph,
-        local_graph_location=args.local_graph_location
+        args.is_local_graph,
+        args.local_graph_location
     )

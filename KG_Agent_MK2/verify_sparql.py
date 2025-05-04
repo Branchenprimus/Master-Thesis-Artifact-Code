@@ -6,13 +6,11 @@ def compare_sparql_results(entry):
     question_id = entry.get("baseline_id", "unknown")
 
     baseline_entities = set(entry.get("baseline_sparql_query_response", []))
-    llm_entities = set(entry.get("LLM_generated_sparql_endpoint_response", []))
+    llm_entities = set(entry.get("LLM_generated_sparql_query_response", []))
 
     if not baseline_entities:
         is_correct = "Invalid"
-        intersection = set()
     else:
-        intersection = baseline_entities & llm_entities
         is_correct = "True" if baseline_entities == llm_entities else "False"
 
     print(f"Question ID: {question_id}")

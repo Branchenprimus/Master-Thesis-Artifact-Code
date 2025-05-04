@@ -3,7 +3,6 @@ import os
 import json
 import sys
 from openai import OpenAI
-import requests
 import time
 from rdflib import Graph
 from utility import Utils
@@ -17,32 +16,18 @@ def read_file(file_path):
         sys.stderr.write(f"WARNING: Could not read file {file_path}: {e}\n")
         return ""
 
-def construct_prompt(system_prompt, user_prompt, shape_data):
+def construct_prompt(system_prompt, nlq, shape_data, shape_type, dataset_type):
     """Constructs a structured prompt ensuring the model outputs only SPARQL."""
-    return f"""{system_prompt}
-
-### User Query:
-{user_prompt}
-
-### Shape Constraints:
-{shape_data}
-
-### Expected SPARQL Query:
-```sparql
-"""
+    
+    system_prompt = system_prompt.replace("{nlq}", nlq).replace("{ont}", dataset_type).replace("{shp_typ}", shape_type).replace("{shp_dat}", shape_data)
+    
+    return system_prompt
 
 def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider):
     """Calls OpenAI's GPT model via the ChatGPT API or DeepSeek API."""
     
-    if llm_provider == "openai":
-        client = OpenAI(api_key=api_key)
+    client = OpenAI(api_key=api_key, base_url=Utils.resolve_llm_provider(llm_provider))
     
-    elif llm_provider == "deepseek":
-        client = OpenAI(
-            api_key=api_key,
-            base_url="https://api.deepseek.com/v1", 
-        )    
-
     try:
         completion = client.chat.completions.create(
             model=model,
@@ -62,7 +47,7 @@ def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
 
 
 def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, model, max_tokens, temperature,
-                            llm_provider, is_local_graph, max_retries, sparql_endpoint_url, local_graph_path):
+                            llm_provider, is_local_graph, max_retries, sparql_endpoint_url, local_graph_path, shape_type, dataset_type):
     """Iterates over JSON questions and shape files to generate SPARQL queries, ensuring only one LLM call per question."""
 
     # Load the JSON file with questions
@@ -75,7 +60,7 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
     system_prompt = read_file(system_prompt_path)
 
     if is_local_graph:
-        local_shape_file_path = os.path.join(shape_dir, "local_graph_shape.shex")
+        local_shape_file_path = os.path.join(shape_dir, f"local_graph_shape.{shape_type}")
         if not os.path.exists(local_shape_file_path):
             raise FileNotFoundError(f"❌ ERROR: Local graph shape file not found: {local_shape_file_path}")
         local_shape_data = read_file(local_shape_file_path)
@@ -90,7 +75,7 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
 
         print(f"\n🔎 Processing question ID {question_id}")
         print(f"   ↳ Question: {repr(question)}")
-        print(f"   ↳ Resolved entities: {repr(entry.get('wikidata_entities_resolved'))}")
+        print(f"   ↳ Resolved entities: {repr(entry.get('endpoint_entities_resolved'))}")
 
         if not question:
             print(f"⚠️ Skipping question ID {question_id} due to missing question text.")
@@ -100,12 +85,12 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
             entity_ids = []
             merged_shape_data = local_shape_data
         else:
-            entity_dict = entry.get("wikidata_entities_resolved", {})
+            entity_dict = entry.get("endpoint_entities_resolved", {})
             if not isinstance(entity_dict, dict) or not entity_dict:
                 print(f"⚠️ Skipping question ID {question_id} due to missing or invalid entity_dict.")
                 continue
 
-            shape_file_path = os.path.join(shape_dir, f"question_{question_id}_shape.shex")
+            shape_file_path = os.path.join(shape_dir, f"question_{question_id}_shape.{shape_type}")
             if not os.path.exists(shape_file_path):
                 print(f"⚠️ Shape file missing: {shape_file_path}")
                 continue
@@ -125,11 +110,11 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
         while retries <= max_retries:
             if previous_response:
                 full_prompt = (
-                    construct_prompt(system_prompt, question, merged_shape_data) +
+                    construct_prompt(system_prompt, question, merged_shape_data, shape_type, dataset_type) +
                     f"\n\n### Previous attempt (failed):\n{previous_response}\n\n### Revised SPARQL Query:\n```sparql"
                 )
             else:
-                full_prompt = construct_prompt(system_prompt, question, merged_shape_data)
+                full_prompt = construct_prompt(system_prompt, question, merged_shape_data, shape_type, dataset_type)
 
             response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
 
@@ -184,7 +169,7 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
 
         # Save all attempts
         entry["LLM_generated_sparql_query"] = attempts_log
-        entry["LLM_generated_sparql_endpoint_response"] = llm_generated_result
+        entry["LLM_generated_sparql_query_response"] = llm_generated_result
         entry["baseline_sparql_query_response"] = baseline_result
         entry["sparql_comparison_result"] = {
             "is_correct": "",
@@ -211,6 +196,8 @@ def main():
     parser.add_argument("--max_retries", type=int, default=2)
     parser.add_argument("--sparql_endpoint_url", type=str)
     parser.add_argument("--local_graph_path", type=str)
+    parser.add_argument("--shape_type", type=str)
+    parser.add_argument("--dataset_type", type=str, default="default", help="Type of dataset to process.")
 
     args = parser.parse_args()
 
@@ -231,7 +218,9 @@ def main():
         is_local_graph=args.is_local_graph,
         max_retries=args.max_retries,
         sparql_endpoint_url=args.sparql_endpoint_url,
-        local_graph_path=args.local_graph_path
+        local_graph_path=args.local_graph_path,
+        shape_type=args.shape_type,
+        dataset_type=args.dataset_type
     )
     print("🔍 Debug: process_json_and_shapes executed successfully.")
 

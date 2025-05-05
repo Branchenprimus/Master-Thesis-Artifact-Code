@@ -5,9 +5,10 @@ import re
 import traceback
 import sys
 from rdflib import Graph
-from shexer.consts import NT, SHEXC, SHACL_TURTLE
+from shexer.consts import SHACL_TURTLE
 from shexer.shaper import Shaper
 from utility import Utils
+import time
 
 def generate_shape_from_local_graph(local_graph_location, shape_output_path, shape_type, existing_shape_path):
     """
@@ -83,90 +84,60 @@ def clean_shape_text(raw_shape):
             cleaned_lines.append(line)
     return "\n".join(cleaned_lines)
 
-def generate_combined_shape_from_wikidata(entity_label_pairs, shape_type, annotation):
-    if shape_type == "shex":
-        shape_map_lines = [
-            f"<http://www.wikidata.org/entity/{entity_id}>@<Shape entry point: http://www.wikidata.org/entity/{entity_id} = {label.replace(' ', '_')}>"
-            for label, entity_id in entity_label_pairs
-        ]
-        shape_map_raw = "\n".join(shape_map_lines)
-        print(f"Generated {shape_type} shape map:\n{shape_map_raw}")
+def generate_combined_shape_from_wikidata(entity_label_pairs, shape_type, annotation, sparql_endpoint_url):
+    shape_lines = []
+    for label, entity_id in entity_label_pairs:
+        # Use a unique namespace for the shape label to avoid ambiguity
+        shape_label = f"http://shapes.wikidata.org/{label.replace(' ', '_')}:{entity_id}"
+        shape_lines.append(f"<http://www.wikidata.org/entity/{entity_id}>@<{shape_label}>")
 
-        namespaces_dict = {
-            "http://example.org/": "ex",
-            "http://www.w3.org/XML/1998/namespace/": "xml",
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#": "rdf",
-            "http://www.w3.org/2000/01/rdf-schema#": "rdfs",
-            "http://www.w3.org/2001/XMLSchema#": "xsd",
-            "http://xmlns.com/foaf/0.1/": "foaf",
-            "http://www.wikidata.org/prop/direct/": "wdt",
-            "http://www.wikidata.org/entity/": "wd"
-        }
+    shape_map_raw = "\n".join(shape_lines)
+    print(f"Generated {shape_type} shape map:\n{shape_map_raw}")
 
-        namespaces_to_ignore = [
-            "http://www.wikidata.org/prop/",
-            "http://www.w3.org/2004/02/skos/core#",
-            "http://schema.org/",
-            "http://wikiba.se/ontology#",
-            "http://www.wikidata.org/prop/direct-normalized/"
-        ]
-        try:
-            shaper = Shaper(
-                shape_map_raw=shape_map_raw,
-                url_endpoint="https://query.wikidata.org/sparql",
-                namespaces_dict=namespaces_dict,
-                disable_comments=True,
-                namespaces_to_ignore=namespaces_to_ignore,
-                wikidata_annotation=annotation,
-            )
+    namespaces_dict = {
+        "http://example.org/": "ex",
+        "http://www.w3.org/XML/1998/namespace/": "xml",
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#": "rdf",
+        "http://www.w3.org/2000/01/rdf-schema#": "rdfs",
+        "http://www.w3.org/2001/XMLSchema#": "xsd",
+        "http://xmlns.com/foaf/0.1/": "foaf",
+        "http://www.wikidata.org/prop/direct/": "wdt",
+        "http://www.wikidata.org/entity/": "wd",
+        "http://shapes.wikidata.org/": "shapes"
+    }
+
+    namespaces_to_ignore = [
+        "http://www.wikidata.org/prop/",
+        "http://www.w3.org/2004/02/skos/core#",
+        "http://schema.org/",
+        "http://wikiba.se/ontology#",
+        "http://www.wikidata.org/prop/direct-normalized/"
+    ]
+
+    shaper = Shaper(
+    shape_map_raw=shape_map_raw,
+    url_endpoint=sparql_endpoint_url,
+    namespaces_dict=namespaces_dict,
+    disable_comments=True,
+    namespaces_to_ignore=namespaces_to_ignore,
+    wikidata_annotation=annotation,
+    )
+    
+    try:
+
+        if shape_type == "shex":
             return shaper.shex_graph(string_output=True)
 
-        except Exception as e:
+        elif shape_type == "shacl":
+            return shaper.shex_graph(string_output=True, output_format=SHACL_TURTLE)
+                
+    except Exception as e:
             print("❌ Error generating shape from shape_map:", file=sys.stderr)
             print(f"Entities involved: {entity_label_pairs}", file=sys.stderr)
             print(f"Shape map raw:\n{shape_map_raw}", file=sys.stderr)
             print(f"Exception message: {e}", file=sys.stderr)
             print("Full traceback:", file=sys.stderr)
             traceback.print_exc()  # already goes to stderr
-
-    elif shape_type == "shacl":
-        shape_lines = []
-        for label, entity_id in entity_label_pairs:
-            # Use a unique namespace for the shape label to avoid ambiguity
-            shape_label = f"http://shapes.wikidata.org/{label.replace(' ', '_')}"
-            shape_lines.append(f"<http://www.wikidata.org/entity/{entity_id}>@<{shape_label}>")
-
-        shape_map_raw = "\n".join(shape_lines)
-        print(f"Generated {shape_type} shape map:\n{shape_map_raw}")
-
-        namespaces_dict = {
-            "http://example.org/": "ex",
-            "http://www.w3.org/XML/1998/namespace/": "xml",
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#": "rdf",
-            "http://www.w3.org/2000/01/rdf-schema#": "rdfs",
-            "http://www.w3.org/2001/XMLSchema#": "xsd",
-            "http://xmlns.com/foaf/0.1/": "foaf",
-            "http://www.wikidata.org/prop/direct/": "wdt",
-            "http://www.wikidata.org/entity/": "wd",
-            "http://shapes.wikidata.org/": "shapes"
-        }
-        try:
-            shaper = Shaper(
-                shape_map_raw=shape_map_raw,
-                url_endpoint="https://query.wikidata.org/sparql",
-                namespaces_dict=namespaces_dict,
-                disable_comments=True,
-            )
-
-            return shaper.shex_graph(string_output=True, output_format=SHACL_TURTLE)
-            
-        except Exception as e:
-                print("❌ Error generating shape from shape_map:", file=sys.stderr)
-                print(f"Entities involved: {entity_label_pairs}", file=sys.stderr)
-                print(f"Shape map raw:\n{shape_map_raw}", file=sys.stderr)
-                print(f"Exception message: {e}", file=sys.stderr)
-                print("Full traceback:", file=sys.stderr)
-                traceback.print_exc()  # already goes to stderr
 
 def generate_combined_shape_from_dbpedia(entity_label_pairs, shape_type):
     """
@@ -176,7 +147,7 @@ def generate_combined_shape_from_dbpedia(entity_label_pairs, shape_type):
         shape_lines = []
         for label, entity_id in entity_label_pairs:
             # Use a unique namespace for the shape label to avoid ambiguity
-            shape_label = f"http://shapes.dbpedia.org/{label.replace(' ', '_')}"
+            shape_label = f"http://shapes.dbpedia.org/{label.replace(' ', '_')}:{entity_id}"
             shape_lines.append(f"<{entity_id}>@<{shape_label}>")
 
         shape_map_raw = "\n".join(shape_lines)
@@ -217,7 +188,7 @@ def generate_combined_shape_from_dbpedia(entity_label_pairs, shape_type):
         print(f"❌ Error generating shape: {e}")
         return None
     
-def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, dataset_type, annotation):
+def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, dataset_type, annotation, sparql_endpoint_url):
     with open(json_file, "r", encoding="utf-8") as file:
         data = json.load(file)
 
@@ -241,11 +212,9 @@ def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, datas
             print(f"⚠️ Warning: No valid entity-label pairs for question ID {original_id}.")
             continue
         
-        # time.sleep(1.5)  # adjust if needed
-
         if dataset_type == "wikidata":
             # Generate ShEx shape for each entity
-            shape = generate_combined_shape_from_wikidata(entity_label_pairs, shape_type, annotation)
+            shape = generate_combined_shape_from_wikidata(entity_label_pairs, shape_type, annotation, sparql_endpoint_url)
         elif dataset_type == "dbpedia":
             # Generate ShEx shape for each entity
             shape = generate_combined_shape_from_dbpedia(entity_label_pairs, shape_type) 
@@ -262,7 +231,9 @@ def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, datas
             with open(output_filepath, "w", encoding="utf-8") as f:
                 f.write(final_shape.strip())
 
-            print(f"✅ Saved SHACL shape for question {original_id} to {output_filepath}")
+            print(f"✅ Saved {shape_type} shape for question {original_id} to {output_filepath}")
+            
+        time.sleep(1.5)  # adjust if needed
 
 
 def main():
@@ -275,12 +246,16 @@ def main():
     parser.add_argument("--existing_shape_path", type=str, required=False, help="Path to an existing shape file for SHACL generation.")
     parser.add_argument("--dataset_type", type=str, choices=["wikidata", "dbpedia", "corporate_graphs"], required=True, help="Type of dataset (wikidata or dbpedia).")
     parser.add_argument("--annotation", type=Utils.str_to_bool, required=False, help="Annotation for the shape file.")
+    parser.add_argument("--sparql_endpoint_url", type=str, required=False, help="SPARQL endpoint URL for DBpedia or Wikidata.")
+    parser.add_argument("--baseline_run", type=Utils.str_to_bool, default=False, help="Run baseline SPARQL queries.")
     
     args = parser.parse_args()
     is_local_graph = args.is_local_graph
     
     print(f"✅ is_local_graph: {is_local_graph}")
-    
+    if args.baseline_run:
+        print("⚠️ Baseline run is enabled. No shape generation will occur.")
+        return
     if is_local_graph:
         if not args.local_graph_location:
             print("❌ Error: --local_graph_location is required when --is_local_graph is True.")
@@ -289,7 +264,7 @@ def main():
         generate_shape_from_local_graph(args.local_graph_location, args.shape_output_path, args.shape_type, args.existing_shape_path)
     else:
         print(f"✅ Generating shape using sparql endpoint {args.target_json_file} and generated shapes.")
-        generate_shape_from_endpoint(args.target_json_file, args.shape_output_path, args.shape_type, args.dataset_type, args.annotation)
+        generate_shape_from_endpoint(args.target_json_file, args.shape_output_path, args.shape_type, args.dataset_type, args.annotation, args.sparql_endpoint_url)
 
 if __name__ == "__main__":
     main()

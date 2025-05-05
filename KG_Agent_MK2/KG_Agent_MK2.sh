@@ -27,12 +27,12 @@ TEMP_OUTPUT_DIR="$LOG_DIR/misc/temp"
 mkdir -p "$LOG_DIR/misc/meta"
 mkdir -p "$TEMP_OUTPUT_DIR"
 
-exec > >(tee -a "$LOG_DIR/job.out") 2> >(tee -a "$LOG_DIR/job.err" >&2)
+exec > >(tee -a "$LOG_DIR/6_job.out") 2> >(tee -a "$LOG_DIR/6_job.err" >&2)
 
 # Extended Logging for `track_files.py`
 python "track_files.py" \
   --root-dir "./" --output "$LOG_DIR/misc/meta" \
-  > "$LOG_DIR/track_files.log" 2> "$LOG_DIR/track_files.err"
+  > "$LOG_DIR/5_track_files.log" 2> "$LOG_DIR/5_track_files.err"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: File tracking failed. Check logs: $LOG_DIR/track_files.err" | tee -a "$LOG_DIR/track_files.log"
@@ -60,6 +60,8 @@ echo "SPARQL_ENDPOINT_URL                   = $SPARQL_ENDPOINT_URL"
 echo "EXISTING_SHAPE_PATH                   = $EXISTING_SHAPE_PATH"
 echo "SHAPE_TYPE                            = $SHAPE_TYPE"
 echo "DATASET_TYPE                          = $DATASET_TYPE"
+echo "ANNOTATION                            = $ANNOTATION"
+echo "BASELINE_RUN                          = $BASELINE_RUN"
 echo ""  # Blank line for separation
 
 set -x  # Enable debugging
@@ -78,7 +80,8 @@ python ./extract_entity_list.py \
   --dataset_type $DATASET_TYPE \
   --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
   --local_graph_location $LOCAL_GRAPH_LOCATION \
-  > "$LOG_DIR/extract_entity_list.out" 2> "$LOG_DIR/extract_entity_list.err"
+  --baseline_run $BASELINE_RUN \
+  > "$LOG_DIR/1_extract_entity_list.out" 2> "$LOG_DIR/1_extract_entity_list.err"
 echo ""  # Blank line for separation
 
 python generate_shape.py \
@@ -90,11 +93,13 @@ python generate_shape.py \
   --existing_shape_path $EXISTING_SHAPE_PATH \
   --dataset_type $DATASET_TYPE \
   --annotation $ANNOTATION \
-  > "$LOG_DIR/generate_shape.out" 2> "$LOG_DIR/generate_shape.err"
+  --sparql_endpoint_url $SPARQL_ENDPOINT_URL \
+  --baseline_run $BASELINE_RUN \
+  > "$LOG_DIR/2_generate_shape.out" 2> "$LOG_DIR/2_generate_shape.err"
 echo ""  # Blank line for separation
 
   # Generate SPARQL with LLM
-  python call_llm_api.py \
+python call_llm_api.py \
   --json_path $TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json \
   --system_prompt_path $SYSTEM_PROMPT_SPARQL_GENERATION \
   --shape_path $TEMP_OUTPUT_DIR/shapes \
@@ -109,7 +114,9 @@ echo ""  # Blank line for separation
   --local_graph_path $LOCAL_GRAPH_LOCATION \
   --shape_type $SHAPE_TYPE \
   --dataset_type $DATASET_TYPE \
-  > "$LOG_DIR/call_llm_api.out" 2> "$LOG_DIR/call_llm_api.err"
+  --baseline_run $BASELINE_RUN \
+  --system_prompt_path_baseline_run $SYSTEM_PROMPT_SPARQL_GENERATION_BASELINE_RUN \
+  > "$LOG_DIR/3_call_llm_api.out" 2> "$LOG_DIR/3_call_llm_api.err"
 echo ""  # Blank line for separation
 
 python verify_sparql.py \
@@ -118,4 +125,4 @@ python verify_sparql.py \
   --json_path "$TEMP_OUTPUT_DIR/extracted_nlq_sparql_with_entities.json" \
   --is_local_graph $IS_LOCAL_GRAPH \
   --local_graph_location $LOCAL_GRAPH_LOCATION \
-  > "$LOG_DIR/verify_sparql.out" 2> "$LOG_DIR/verify_sparql.err"
+  > "$LOG_DIR/4_verify_sparql.out" 2> "$LOG_DIR/4_verify_sparql.err"

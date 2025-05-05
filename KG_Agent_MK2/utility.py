@@ -1,7 +1,8 @@
 import os
-import logging
 import requests
 from rdflib import Graph
+from typing import Union
+import time
 
 class Utils:
     @staticmethod
@@ -37,13 +38,16 @@ class Utils:
             return ""
 
     @staticmethod
-    def query_sparql_endpoint(sparql_query: str, endpoint_url: str) -> list:
+    def query_sparql_endpoint(sparql_query: str, endpoint_url: str, max_retries: int = 5, backoff_factor: float = 1.5) -> Union[list, dict]:
         """
         Executes a SPARQL query against a remote endpoint and returns the result values.
+        Implements retry logic in case of 502/503/504 errors.
 
         Args:
             sparql_query: The SPARQL query string.
             endpoint_url: The URL of the SPARQL endpoint.
+            max_retries: Maximum number of retry attempts.
+            backoff_factor: Exponential backoff factor in seconds.
 
         Returns:
             A list of result values (as strings), or a dictionary with {"error": "..."}.
@@ -56,23 +60,45 @@ class Utils:
             "format": "json"
         }
 
-        try:
-            response = requests.get(endpoint_url, headers=headers, params=data)
-            response.raise_for_status()
-            json_response = response.json()
+        for attempt in range(1, max_retries + 1):
+            try:
+                response = requests.get(endpoint_url, headers=headers, params=data, timeout=20)
+                response.raise_for_status()
+                json_response = response.json()
 
-            vars_ = json_response.get("head", {}).get("vars", [])
-            bindings = json_response.get("results", {}).get("bindings", [])
+                vars_ = json_response.get("head", {}).get("vars", [])
+                bindings = json_response.get("results", {}).get("bindings", [])
 
-            return [
-                binding[var]["value"]
-                for var in vars_
-                for binding in bindings
-                if var in binding and "value" in binding[var]
-            ]
+                return [
+                    binding[var]["value"]
+                    for var in vars_
+                    for binding in bindings
+                    if var in binding and "value" in binding[var]
+                ]
 
-        except requests.exceptions.RequestException as e:
-            return {"error": str(e)} 
+            except requests.exceptions.HTTPError as http_err:
+                # Retry on transient errors
+                if response.status_code in [502, 503, 504]:
+                    if attempt < max_retries:
+                        sleep_time = backoff_factor ** attempt
+                        print(f"[Retry {attempt}/{max_retries}] HTTP {response.status_code}: Retrying in {sleep_time:.1f}s...")
+                        time.sleep(sleep_time)
+                        continue
+                    elif response.status_code == 400:
+                        return {
+                            "error": "Bad Request (400)",
+                            "message": str(http_err),
+                            "query": sparql_query,
+                            "endpoint": endpoint_url
+                        }                    
+                else:
+                    return {"error": f"HTTPError: {http_err}"}
+
+            except requests.exceptions.RequestException as e:
+                # Handle other types of network-related errors
+                return {"error": f"RequestException: {e}"}
+
+        return {"error": "Failed to retrieve response after multiple attempts."}
 
     @staticmethod
     def guess_rdf_format(file_path: str) -> str:

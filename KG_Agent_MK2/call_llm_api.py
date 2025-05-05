@@ -16,13 +16,6 @@ def read_file(file_path):
         sys.stderr.write(f"WARNING: Could not read file {file_path}: {e}\n")
         return ""
 
-def construct_prompt(system_prompt, nlq, shape_data, shape_type, dataset_type):
-    """Constructs a structured prompt ensuring the model outputs only SPARQL."""
-    
-    system_prompt = system_prompt.replace("{nlq}", nlq).replace("{ont}", dataset_type).replace("{shp_typ}", shape_type).replace("{shp_dat}", shape_data)
-    
-    return system_prompt
-
 def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider):
     """Calls OpenAI's GPT model via the ChatGPT API or DeepSeek API."""
     
@@ -46,8 +39,8 @@ def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
         sys.exit(1)
 
 
-def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, model, max_tokens, temperature,
-                            llm_provider, is_local_graph, max_retries, sparql_endpoint_url, local_graph_path, shape_type, dataset_type):
+def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, model, max_tokens, initial_temperature,
+                            llm_provider, is_local_graph, max_retries, sparql_endpoint_url, local_graph_path, shape_type, dataset_type, baseline_run, system_prompt_path_baseline_run):
     """Iterates over JSON questions and shape files to generate SPARQL queries, ensuring only one LLM call per question."""
 
     # Load the JSON file with questions
@@ -56,10 +49,12 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
 
     print(f"🔍 Debug: Starting to process {len(data)} questions.")
 
+    if baseline_run:
+        system_prompt_path = system_prompt_path_baseline_run
     # Read system prompt
     system_prompt = read_file(system_prompt_path)
 
-    if is_local_graph:
+    if is_local_graph and not baseline_run:
         local_shape_file_path = os.path.join(shape_dir, f"local_graph_shape.{shape_type}")
         if not os.path.exists(local_shape_file_path):
             raise FileNotFoundError(f"❌ ERROR: Local graph shape file not found: {local_shape_file_path}")
@@ -75,15 +70,19 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
 
         print(f"\n🔎 Processing question ID {question_id}")
         print(f"   ↳ Question: {repr(question)}")
-        print(f"   ↳ Resolved entities: {repr(entry.get('endpoint_entities_resolved'))}")
+        print(f"   ↳ Baseline SPARQL query: {repr(entry.get('baseline_sparql_query'))}")
+        if not baseline_run:
+            print(f"   ↳ Resolved entities: {repr(entry.get('endpoint_entities_resolved'))}")
+        else:
+            print(f"   ↳ Resolved entities: ⚠️ \"baseline_run:\" {baseline_run}")
 
         if not question:
             print(f"⚠️ Skipping question ID {question_id} due to missing question text.")
             continue
 
-        if is_local_graph:
+        if is_local_graph and not baseline_run:
             merged_shape_data = local_shape_data
-        else:
+        elif not is_local_graph and not baseline_run:
             entity_dict = entry.get("endpoint_entities_resolved", {})
             if not isinstance(entity_dict, dict) or not entity_dict:
                 print(f"⚠️ Skipping question ID {question_id} due to missing or invalid entity_dict.")
@@ -96,25 +95,43 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
 
             merged_shape_data = read_file(shape_file_path)
 
-        # Retry loop
-        # Retry loop with detailed logging
         retries = 0
         final_query = None
         result = None
+        temperature = initial_temperature
         previous_response = None
         attempts_log = []  # Change from dictionary to list
 
         print(f"🔄 Constructing SPARQL with retry limit = {max_retries}")
 
         while retries <= max_retries:
-            if previous_response:
+            if previous_response and not baseline_run:
                 full_prompt = (
-                    construct_prompt(system_prompt, question, merged_shape_data, shape_type, dataset_type) +
-                    f"\n\n### Previous attempt (failed):\n{previous_response}\n\n### Revised SPARQL Query:\n```sparql"
+                    system_prompt.replace("{nlq}", question)
+                    .replace("{ont}", dataset_type)
+                    .replace("{shp_typ}", shape_type)
+                    .replace("{shp_dat}", merged_shape_data)
+                    + f"\n\n### Previous attempt (failed):\n{previous_response}\n\n### Revised SPARQL Query:\n```sparql"
                 )
-            else:
-                full_prompt = construct_prompt(system_prompt, question, merged_shape_data, shape_type, dataset_type)
-
+            elif previous_response and baseline_run:
+                full_prompt = (
+                    system_prompt.replace("{nlq}", question)
+                    .replace("{ont}", dataset_type)
+                    + f"\n\n### Previous attempt (failed):\n{previous_response}\n\n### Revised SPARQL Query:\n```sparql"
+                )
+                
+            elif not previous_response and not baseline_run:
+                full_prompt = (system_prompt.replace("{nlq}", question)
+                    .replace("{ont}", dataset_type)
+                    .replace("{shp_typ}", shape_type)
+                    .replace("{shp_dat}", merged_shape_data)
+                )
+            elif not previous_response and baseline_run:
+                full_prompt = (system_prompt.replace("{nlq}", question)
+                    .replace("{ont}", dataset_type)
+                )
+            temperature = round(min(initial_temperature + 0.1 * retries, 2), 2)  # capped at 2.0
+            print(f"🔄 Attempt {retries + 1}/{max_retries + 1} with temperature: {temperature}")
             response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
 
             if not response:
@@ -129,25 +146,23 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
             
             if is_local_graph:
                 llm_generated_result = Utils.query_local_graph(final_query, local_graph_path)
-                # baseline_result = Utils.query_local_graph(entry.get("baseline_sparql_query"), local_graph_path)
-                # print(f"Local graph query result: {llm_generated_result}")
+
             else:
                 llm_generated_result = Utils.query_sparql_endpoint(final_query, sparql_endpoint_url)
-                # baseline_result = Utils.query_sparql_endpoint(entry.get("baseline_sparql_query"), sparql_endpoint_url)
-                # print(f"Remote SPARQL endpoint query result: {llm_generated_result}")
 
-            # Truncate results if they exceed 1000 and mark as failed
-            if isinstance(llm_generated_result, list) and len(llm_generated_result) > 1000:
-                print(f"⚠️ Result exceeds 1000 entries. Truncating and marking as failed.")
+            # Truncate results if they exceed 10000 and mark as failed
+            if isinstance(llm_generated_result, list) and len(llm_generated_result) > 10000:
+                print(f"⚠️ Result exceeds 10000 entries. Truncating and marking as failed.")
                 llm_generated_result = []
                 failed = True
-                failure_reason = "Result exceeded 1000 entries (truncated)"
+                failure_reason = "Result exceeded 10000 entries (truncated)"
             else:
                 failed = Utils.is_faulty_result(llm_generated_result)
                 failure_reason = "Faulty result" if failed else None
 
             attempts_log.append({
                 "attempt": retries + 1,
+                "temperature": temperature,
                 "query": final_query,
                 "result": llm_generated_result,
                 "failed": str(failed),
@@ -166,10 +181,7 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
                 retries += 1
                 time.sleep(1)
 
-        # Save all attempts
         entry["LLM_generated_sparql_query"] = attempts_log
-        # entry["LLM_generated_sparql_query_response"] = llm_generated_result
-        # entry["baseline_sparql_query_response"] = baseline_result
         entry["sparql_comparison_result"] = {
             "is_correct": "",
             "llm_failed_attempts": retries
@@ -197,9 +209,11 @@ def main():
     parser.add_argument("--local_graph_path", type=str)
     parser.add_argument("--shape_type", type=str)
     parser.add_argument("--dataset_type", type=str, default="default", help="Type of dataset to process.")
+    parser.add_argument("--baseline_run", type=Utils.str_to_bool, default=False, help="Run baseline SPARQL queries.")
+    parser.add_argument("--system_prompt_path_baseline_run", type=str, default="system_prompt_baseline_run.txt", help="Path to the system prompt for baseline run.")
 
     args = parser.parse_args()
-
+    print(f"⚠️ baseline_run: {args.baseline_run}")
     if args.is_local_graph and not args.local_graph_path:
         parser.error("--local_graph_path is required when --is_local_graph is True.")
     if not args.is_local_graph and not args.sparql_endpoint_url:
@@ -212,14 +226,16 @@ def main():
         api_key=args.api_key,
         model=args.model,
         max_tokens=args.max_tokens,
-        temperature=args.temperature,
+        initial_temperature=args.temperature,
         llm_provider=args.llm_provider,
         is_local_graph=args.is_local_graph,
         max_retries=args.max_retries,
         sparql_endpoint_url=args.sparql_endpoint_url,
         local_graph_path=args.local_graph_path,
         shape_type=args.shape_type,
-        dataset_type=args.dataset_type
+        dataset_type=args.dataset_type,
+        baseline_run=args.baseline_run,
+        system_prompt_path_baseline_run=args.system_prompt_path_baseline_run
     )
     print("🔍 Debug: process_json_and_shapes executed successfully.")
 

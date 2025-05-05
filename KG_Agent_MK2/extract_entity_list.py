@@ -119,7 +119,7 @@ def get_dbpedia_entities(entity_names):
 
 
 
-def transform_json(benchmark_dataset, output_file, api_key, num_questions, model, llm_provider, is_local_graph, local_graph_location, sparql_endpoint_url, system_prompt_path, max_tokens, temperature, dataset_type):
+def transform_json(benchmark_dataset, output_file, api_key, num_questions, model, llm_provider, is_local_graph, local_graph_location, sparql_endpoint_url, system_prompt_path, max_tokens, temperature, dataset_type, baseline_run):
     """
     Transforms the input JSON structure into a simplified list of question-answer pairs,
     including extracted entity IDs from SPARQL, LLM, and Wikidata SPARQL endpoint,
@@ -168,41 +168,53 @@ def transform_json(benchmark_dataset, output_file, api_key, num_questions, model
         # Get the SPARQL query
         sparql_query = entry["query"]["sparql"]
 
-        # Extract multiple entities from NLQ using LLM
+        # Default values
+        llm_extracted_entities = "No entity extraction"
+        endpoint_entities_resolved = "No entity resolving"
+
+        # Determine response based on graph type and run mode
         if is_local_graph:
-            transformed_data.append({
-                "baseline_id": original_id,
-                "baseline_question_text": question_text,
-                "baseline_sparql_query_response": Utils.query_local_graph(sparql_query, local_graph_location),
-                "baseline_sparql_query": sparql_query,
-                "llm_extracted_entity_names": "Local Graph, no entity extraction needed",
-                "endpoint_entities_resolved": "Local Graph, no entity resolving needed"
-            })
+            sparql_response = Utils.query_local_graph(sparql_query, local_graph_location)
+            if baseline_run:
+                llm_extracted_entities = "Baseline run, no entity extraction needed"
+                endpoint_entities_resolved = "Baseline run, no entity resolving needed"
+            else:
+                llm_extracted_entities = "Local Graph, no entity extraction needed"
+                endpoint_entities_resolved = "Local Graph, no entity resolving needed"
         else:
-            llm_extracted_entities = extract_entities_with_llm(question_text, api_key, model, llm_provider, system_prompt_path, max_tokens, temperature, dataset_type)
+            sparql_response = Utils.query_sparql_endpoint(sparql_query, sparql_endpoint_url)
+            if not baseline_run:
+                llm_extracted_entities = extract_entities_with_llm(
+                    question_text, api_key, model, llm_provider, system_prompt_path,
+                    max_tokens, temperature, dataset_type
+                )
 
-            if dataset_type == "wikidata": 
-                # Query Wikidata to get entity IDs for all extracted names
-                endpoint_entities_resolved = get_wikidata_entities(llm_extracted_entities)
-            elif dataset_type == "dbpedia":
-                # Query DBpedia to get entity IDs for all extracted names
-                endpoint_entities_resolved = get_dbpedia_entities(llm_extracted_entities)
-                
-            transformed_data.append({
-                "baseline_id": original_id,
-                "baseline_question_text": question_text,
-                "baseline_sparql_query": sparql_query,
-                "baseline_sparql_query_response": Utils.query_sparql_endpoint(sparql_query, sparql_endpoint_url),
-                "llm_extracted_entity_names": llm_extracted_entities,
-                "endpoint_entities_resolved": endpoint_entities_resolved
-            })
+                if dataset_type == "wikidata":
+                    endpoint_entities_resolved = get_wikidata_entities(llm_extracted_entities)
+                elif dataset_type == "dbpedia":
+                    endpoint_entities_resolved = get_dbpedia_entities(llm_extracted_entities)
+            else:
+                llm_extracted_entities = "Baseline run, no entity extraction needed"
+                endpoint_entities_resolved = "Baseline run, no entity resolving needed"
 
+        # Append the transformed entry
+        transformed_data.append({
+            "baseline_id": original_id,
+            "baseline_question_text": question_text,
+            "baseline_sparql_query": sparql_query,
+            "baseline_sparql_query_response": sparql_response,
+            "llm_extracted_entity_names": llm_extracted_entities,
+            "endpoint_entities_resolved": endpoint_entities_resolved
+        })
+
+        # Logging
         print(f"✅ Processed ID {original_id}")
         print(f"baseline_question_text {question_text}")
         print(f"baseline_sparql_query {sparql_query}")
         print(f"llm_extracted_entity_names {llm_extracted_entities}")
         print(f"endpoint_entities_resolved {endpoint_entities_resolved}")
         print("-----------------------------------------------------")
+
 
     # Save to output JSON file
     with open(output_file, "w", encoding="utf-8") as file:
@@ -225,9 +237,11 @@ def main():
     parser.add_argument("--dataset_type", type=str, default="default", help="Type of dataset to process.")
     parser.add_argument("--local_graph_location", type=str, help="Path to the local RDF graph file (e.g., .ttl, .rdf).")
     parser.add_argument("--sparql_endpoint_url", type=str, help="SPARQL endpoint URL (ignored if --is_local_graph is used).")
+    parser.add_argument("--baseline_run", type=Utils.str_to_bool, default=False, help="Set True or False.")
 
 
     args = parser.parse_args()
+    print(f"⚠️ baseline_run: {args.baseline_run}")
     print(f"✅ is_local_graph: {args.is_local_graph}")
 
     if args.num_questions in (None, 0):
@@ -240,7 +254,7 @@ def main():
     print(f"📌 Using num_questions: {'ALL' if num_questions is None else num_questions}")
 
     # Use the validated variable here
-    transform_json(args.benchmark_dataset, args.output_file, args.api_key, num_questions, args.model, args.llm_provider, args.is_local_graph, args.local_graph_location, args.sparql_endpoint_url, args.system_prompt_path, args.max_tokens, args.temperature, args.dataset_type)
+    transform_json(args.benchmark_dataset, args.output_file, args.api_key, num_questions, args.model, args.llm_provider, args.is_local_graph, args.local_graph_location, args.sparql_endpoint_url, args.system_prompt_path, args.max_tokens, args.temperature, args.dataset_type, args.baseline_run)
 
 if __name__ == "__main__":
     main()

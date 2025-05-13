@@ -38,7 +38,7 @@ class Utils:
             return ""
 
     @staticmethod
-    def query_sparql_endpoint(sparql_query: str, endpoint_url: str, max_retries: int = 5, backoff_factor: float = 1.5) -> Union[list, dict]:
+    def query_sparql_endpoint(sparql_query: str, endpoint_url: str, max_retries: int = 15, backoff_factor: float = 1.5) -> Union[list, dict]:
         """
         Executes a SPARQL query against a remote endpoint and returns the result values.
         Implements retry logic in case of 502/503/504 errors.
@@ -144,13 +144,21 @@ class Utils:
         
     @staticmethod
     def is_faulty_result(result):
+        # Case 1: SPARQL or API error structure
         if isinstance(result, dict) and "error" in result:
             return True
-        if not result:
-            return True
-        if all(str(r).strip() == "0" for r in result):
-            return True
+
+        # Case 2: Result is None, empty list, or empty dict
+        if result is None or (isinstance(result, (list, dict)) and not result):
+            return False
+
+        # Case 3: All-zero or meaningless values
+        if isinstance(result, list) and all(str(r).strip() in {"0", "0.0", "", "null", "None"} for r in result):
+            return False
+
+        # Everything else is assumed valid
         return False
+
     
     @staticmethod
     def resolve_llm_provider(llm_provider: str) -> str:

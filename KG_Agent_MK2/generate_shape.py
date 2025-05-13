@@ -232,8 +232,9 @@ def generate_shape_from_endpoint(json_file, shape_output_path, shape_type, datas
                 f.write(final_shape.strip())
 
             print(f"✅ Saved {shape_type} shape for question {original_id} to {output_filepath}")
-            
-        time.sleep(1.5)  # adjust if needed
+        
+        if dataset_type == "wikidata":    
+            time.sleep(15)  # adjust if needed
 
 
 def main():

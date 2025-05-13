@@ -32,12 +32,11 @@ def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
             temperature=temperature
         )
 
-        return completion.choices[0].message.content.strip()
+        return completion
     
     except Exception as e:
         sys.stderr.write(f"❌ ERROR: API call to ChatGPT failed: {e}\n")
         sys.exit(1)
-
 
 def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, model, max_tokens, initial_temperature,
                             llm_provider, is_local_graph, max_retries, sparql_endpoint_url, local_graph_path, shape_type, dataset_type, baseline_run, system_prompt_path_baseline_run):
@@ -96,8 +95,10 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
             merged_shape_data = read_file(shape_file_path)
 
         retries = 0
+        prompt_tokens_by_question = 0
+        completion_tokens_by_question = 0
+        total_tokens_by_question = 0
         final_query = None
-        result = None
         temperature = initial_temperature
         previous_response = None
         attempts_log = []  # Change from dictionary to list
@@ -132,7 +133,9 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
                 )
             temperature = round(min(initial_temperature + 0.1 * retries, 2), 2)  # capped at 2.0
             print(f"🔄 Attempt {retries + 1}/{max_retries + 1} with temperature: {temperature}")
-            response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
+            full_response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
+
+            response = full_response.choices[0].message.content.strip()
 
             if not response:
                 retries += 1
@@ -160,13 +163,24 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
                 failed = Utils.is_faulty_result(llm_generated_result)
                 failure_reason = "Faulty result" if failed else None
 
+            prompt_tokens_by_retry = full_response.usage.prompt_tokens
+            completion_tokens_by_retry = full_response.usage.completion_tokens
+            total_tokens_by_retry = full_response.usage.total_tokens
+            
+            prompt_tokens_by_question += prompt_tokens_by_retry
+            completion_tokens_by_question += completion_tokens_by_retry
+            total_tokens_by_question += total_tokens_by_retry
+            
             attempts_log.append({
                 "attempt": retries + 1,
                 "temperature": temperature,
                 "query": final_query,
                 "result": llm_generated_result,
                 "failed": str(failed),
-                "reason": failure_reason if failure_reason else "None"
+                "reason": failure_reason if failure_reason else "None",
+                "prompt_tokens_by_retry": prompt_tokens_by_retry,
+                "completion_tokens_by_retry": completion_tokens_by_retry,
+                "total_tokens_by_retry": total_tokens_by_retry,
             })
 
             if failure_reason:
@@ -177,14 +191,17 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
                 break
             else:
                 print(f"⚠️ Faulty result. Retrying... ({retries + 1}/{max_retries})")
-                previous_response = f"Query: {final_query}\nResult: {result}"
+                previous_response = f"Query: {final_query}\nResult: {llm_generated_result}"
                 retries += 1
                 time.sleep(1)
 
         entry["LLM_generated_sparql_query"] = attempts_log
         entry["sparql_comparison_result"] = {
             "is_correct": "",
-            "llm_failed_attempts": retries
+            "llm_failed_attempts": retries,
+            "prompt_tokens_by_question": prompt_tokens_by_question,
+            "completion_tokens_by_question": completion_tokens_by_question,
+            "total_tokens_by_question": total_tokens_by_question,
         }
 
     with open(json_path, "w", encoding="utf-8") as file:

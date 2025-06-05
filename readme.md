@@ -10,158 +10,186 @@ The pipeline consists of multiple Python scripts, each responsible for a specifi
 *System architecture showing the complete pipeline flow*
 ---
 
-## **Pipeline Overview**
+## Key Features
 
-### **1️⃣ Extract Entities from NLQs (`extract_entity_list.py`)**
-**Goal:** Extract named entities from natural language questions.  
-**Inputs:**  
-- `--benchmark_dataset` → JSON file containing NLQs  
-- `--api_key` → API key for LLM provider  
-- `--num_questions` → Number of questions to process  
-- `--model` → LLM model for entity extraction  
-- `--llm_provider` → LLM API provider  
+- **Automated Entity Extraction**: Identifies relevant entities from natural language questions
+- **Dynamic Shape Generation**: Creates SHACL/ShEx constraints using the Shexer library
+- **LLM-Powered Query Generation**: Generates SPARQL queries with shape-informed prompting
+- **Result Verification**: Validates generated queries and computes accuracy metrics
+- **Multi-dataset Support**: Works with Wikidata, DBpedia, and local knowledge graphs
+- **Reproducible Experiments**: Structured logging and environment management
 
-**Output:**  
-- Extracted entities are stored in `extracted_nlq_sparql_with_entities.json`
+## System Requirements
 
----
+### Minimum Requirements
+- Ubuntu 22.04 or similar Linux distribution
+- 2 vCPUs
+- 4GB RAM
+- 80GB storage
 
-### **2️⃣ Generate Shape Constraints (`generate_shape.py`)**
-**Goal:** Generate **ShEx shapes** (Shape Expressions) for the extracted entities to define constraints for SPARQL queries.  
-**Inputs:**  
-- `--shape_output_path` → Directory for saving shapes  
-- `--target_json_file` → JSON file containing extracted entities  
+### Recommended (for large-scale experiments)
+- High-performance computing environment
+- Multi-core CPU (24+ cores recommended)
+- 512GB+ RAM
+- Rocky Linux 8 or similar
 
-**Output:**  
-- Generated ShEx shapes in the specified output path.
+## Usage
 
----
+### Basic Usage
 
-### **3️⃣ Generate SPARQL Queries (`call_llm_api.py`)**
-**Goal:** Generate SPARQL queries using an LLM.  
-**Inputs:**  
-- `--model` → LLM model for SPARQL generation  
-- `--api_key` → API key for LLM provider  
-- `--json_path` → JSON file with extracted entities  
-- `--system_prompt_path` → System prompt for the LLM  
-- `--shape_path` → Path to ShEx shape constraints  
-- `--output_dir` → Directory for storing LLM-generated SPARQL queries  
+Run the complete pipeline using the orchestrator script:
 
-**Output:**  
-- Generated SPARQL queries are saved in `llm_responses/`
-
----
-
-### **4️⃣ Execute SPARQL Queries (`call_sparql_endpoint.py`)**
-**Goal:** Send both **baseline and LLM-generated** SPARQL queries to **Wikidata** and retrieve results.  
-**Inputs:**  
-- `--sparql_endpoint_url` → URL of the SPARQL endpoint  
-- `--json_path` → JSON file containing generated SPARQL queries  
-
-**Output:**  
-- The results are appended to `extracted_nlq_sparql_with_entities.json`
-
----
-
-### **5️⃣ Verify SPARQL Query Accuracy (`verify_sparql.py`)**
-**Goal:** Compare the LLM-generated SPARQL queries with the baseline to measure correctness.  
-**Inputs:**  
-- `--json_path` → JSON file with SPARQL query results  
-
-**Output:**  
-- **Metrics** (Precision, Recall, F1-score) are added to the JSON file.
-
----
-
-### **6️⃣ Process and Summarize Results (`process_results.py`)**
-**Goal:** Aggregate results and generate a summary report.  
-**Inputs:**  
-- `--json_path` → JSON file with verification results  
-- `--output_dir` → File to save the summary  
-
-**Output:**  
-- A text report (`processed.txt`) summarizing:
-  - Total queries processed  
-  - Correct/incorrect queries  
-  - Invalid queries  
-  - Precision, Recall, and F1-score  
-
----
-
-## **1️⃣ Create & Activate a Virtual Environment**
-
-### **On Linux/macOS:**
-```sh
-python3 -m venv KG_Agent_MK2_venv
-source KG_Agent_MK2_venv/bin/activate
+```bash
+./KG_Agent_MK2.sh
 ```
 
-### **On Windows (PowerShell):**
-```powershell
-python -m venv KG_Agent_MK2_venv
-KG_Agent_MK2_venv\Scripts\activate
+The script automatically:
+- Sources environment variables from `.env`
+- Activates the Python virtual environment
+- Creates indexed log directories with timestamps
+- Executes all pipeline stages sequentially
+- Generates comprehensive logs for each component
+- Copies results to `Experiment_Results/` for analysis
+
+### Environment Configuration
+
+The pipeline reads configuration from a `.env` file with these key variables:
+
+```bash
+# LLM Configuration
+LLM_PROVIDER_SPARQL_GENERATION=openai
+LLM_PROVIDER_ENTITY_EXTRACTION=openai
+MODEL_ENTITY_EXTRACTION=gpt-4o-mini
+MODEL_SPARQL_GENERATION=gpt-4o-mini
+API_KEY=your_api_key_here
+
+# Dataset Configuration
+BENCHMARK_DATASET=path/to/dataset.json
+NUM_QUESTIONS=50  # 0 for all questions
+DATASET_TYPE=wikidata
+IS_LOCAL_GRAPH=false
+
+# SPARQL Endpoint
+SPARQL_ENDPOINT_URL=https://query.wikidata.org/sparql
+
+# Shape Configuration
+SHAPE_TYPE=shex
+ANNOTATION=true
+BASELINE_RUN=false
+
+# Retry Configuration
+MAX_CONSECUTIVE_RETRIES=3
 ```
 
----
+### Output Structure
 
-## **2️⃣ Install Dependencies**
-Once the virtual environment is activated, install the required Python packages:
+Each run creates a timestamped directory structure:
 
-```sh
-pip install -r requirements.txt
+```
+logs/DD-MM-YYYY/KG_Agent_MK2_X/
+├── 1_extract_entity_list.out/.err
+├── 2_generate_shape.out/.err
+├── 3_call_llm_api.out/.err
+├── 4_verify_sparql.out/.err
+├── 5_track_files.log/.err
+├── 6_job.out/.err
+├── 7_convert_summaries_to_csv.out/.err
+├── misc/
+│   ├── meta/         # File tracking metadata
+│   └── temp/         # Intermediate JSON files and shapes
+└── Experiment_Results/  # Final results (copied when NUM_QUESTIONS=50)
 ```
 
----
+### Pipeline Components
 
-## **3️⃣ Run the Pipeline**
-Execute the **automated shell script** to run the full pipeline:
+The pipeline consists of four sequential stages orchestrated by `KG_Agent_MK2.sh`:
 
-```sh
-bash KG_Agent_MK2.sh
+#### 1. Entity Extraction (`extract_entity_list.py`)
+![Entity Extraction Flow](https://github.com/Branchenprimus/Master-Thesis-Tex/blob/main/images/artifact/extract_entity_list.drawio-1.png)
+
+Extracts relevant entities from natural language questions using LLM prompting.
+
+**Key Parameters:**
+- `--benchmark_dataset`: Input JSON file with natural language questions
+- `--model`: LLM model for entity extraction (e.g., deepseek-chat, gpt-4o-mini)
+- `--api_key`: API key for LLM provider
+- `--num_questions`: Number of questions to process (0 = all)
+- `--baseline_run`: Skip entity extraction for baseline comparison
+
+#### 2. Shape Generation (`generate_shape.py`)
+![Shape Generation Flow](https://github.com/Branchenprimus/Master-Thesis-Tex/blob/main/images/artifact/generate_shape.drawio-1.png)
+
+Generates SHACL or ShEx shape constraints for extracted entities using the Shexer library.
+
+**Key Parameters:**
+- `--shape_output_path`: Directory for saving generated shapes
+- `--target_json_file`: JSON file containing extracted entities
+- `--shape_type`: SHACL or ShEx format
+- `--existing_shape_path`: Use pre-existing shapes (optional)
+- `--annotation`: Include shape annotations
+
+#### 3. SPARQL Query Generation (`call_llm_api.py`)
+![Query Generation Flow](https://github.com/Branchenprimus/Master-Thesis-Tex/blob/main/images/artifact/call_llm_api.drawio-1.png)
+
+Creates SPARQL queries using shape-informed prompting with retry mechanisms for validation.
+
+**Key Parameters:**
+- `--json_path`: Input file with entities and shapes
+- `--system_prompt_path`: System prompt template for query generation
+- `--shape_path`: Directory containing shape constraints
+- `--max_retries`: Maximum retry attempts for failed queries
+- `--sparql_endpoint_url`: SPARQL endpoint for query validation
+
+#### 4. Result Verification (`verify_sparql.py`)
+![Result Verification Flow](https://github.com/Branchenprimus/Master-Thesis-Tex/blob/main/images/artifact/verify_sparql.drawio-1.png)
+
+Validates generated queries against gold standard answers and computes evaluation metrics.
+
+**Key Parameters:**
+- `--json_path`: File containing generated SPARQL queries
+- `--log_dir`: Directory for experiment logs and results
+- `--run_index`: Unique identifier for this experimental run
+
+**Output:** CSV file with F1-score, precision, recall, and execution metrics
+
+## Input Data Format
+
+The pipeline expects input data in QALD-compatible JSON format:
+
+```json
+{
+  "questions": [
+    {
+      "id": "1",
+      "question": [
+        {
+          "language": "en",
+          "string": "What is the capital of France?"
+        }
+      ],
+      "query": {
+        "sparql": "SELECT ?capital WHERE { wd:Q142 wdt:P36 ?capital }"
+      },
+      "answers": [
+        {
+          "head": {"vars": ["capital"]},
+          "results": {
+            "bindings": [
+              {"capital": {"type": "uri", "value": "http://www.wikidata.org/entity/Q90"}}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
 ```
 
-### **This script sequentially:**
-✅ Extracts named entities from NLQs.  
-✅ Generates shape constraints for SPARQL queries.  
-✅ Generates SPARQL queries using an LLM.  
-✅ Executes SPARQL queries on Wikidata.  
-✅ Verifies query accuracy and correctness.  
-✅ Processes and summarizes the results.  
+## Output
 
----
+The pipeline generates several output files:
 
-## **5️⃣ View the Results**
-Once execution completes, check the outputs:
-
-### **Final processed results:**
-```sh
-test/output/processed.txt
-```
-
-### **SPARQL query validation results:**
-```sh
-test/output/extracted_nlq_sparql_with_entities.json
-```
-
-### **Log files for debugging:**
-```sh
-logs/
-```
-
----
-
-## **6️⃣ How to Reinstall or Update the Pipeline**
-If you need to update the pipeline:
-
-```sh
-git pull origin main
-pip install --upgrade -r requirements.txt
-```
-
-🚀 **Now your KG Agent Pipeline is ready to run!** 🎯
-## **Results and Evaluation**
-- The **final processed results** are saved in `processed.txt`.
-- **SPARQL query correctness** is validated using **Precision, Recall, and F1-score**.
-- Any **invalid queries or discrepancies** are flagged in the report.
-
-🚀 **This pipeline automates knowledge graph querying using LLMs and validates results against baseline queries.** 🚀
+- **entities.json**: Extracted entities with their identifiers
+- **shapes/**: Directory containing generated shape constraints
+- **queries.json**: Generated SPARQL queries with metadata
+- **results.csv**: Final evaluation metrics and performance data

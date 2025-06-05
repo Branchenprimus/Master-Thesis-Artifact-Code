@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/verify_sparql.py", line 101, in <module>
-    verify_sparql_results(args.input_json, args.output_json)
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/verify_sparql.py", line 38, in verify_sparql_results
-    with open(output_json, "r", encoding="utf-8") as file:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'logs/25-02-2025/KG_Agent_MK2_23/misc/temp/extracted_nlq_sparql_with_entities.json'

@@ -1,9 +1,0 @@
-Successfully copied system_prompt.txt to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/system_prompt.txt
-Successfully copied track_files.py to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/track_files.py
-Successfully copied user_prompt.txt to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/user_prompt.txt
-Successfully copied .env to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/.env
-Successfully copied call_llm_api.py to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/call_llm_api.py
-Successfully copied sparql_verifier.py to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/sparql_verifier.py
-Successfully copied KG_Agent_MK1.sh to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/KG_Agent_MK1.sh
-Successfully copied gpu_graph.py to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/gpu_graph.py
-Successfully copied extract_shapes.py to /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/14-02-2025/KG_Agent_MK1_10992150/misc/meta/extract_shapes.py

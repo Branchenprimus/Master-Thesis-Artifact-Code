@@ -1,7 +1,0 @@
-+ echo 'Starting file tracking...'
-+ tee -a logs/18-02-2025/KG_Agent_MK2_5/track_files.log
-+ python track_files.py --root-dir ./ --output logs/18-02-2025/KG_Agent_MK2_5/misc/meta
-+ '[' 0 -ne 0 ']'
-+ echo 'File tracking completed successfully!'
-+ tee -a logs/18-02-2025/KG_Agent_MK2_5/track_files.log
-+ python generate_shape.py --shexer_params_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/logs/17-02-2025/KG_Agent_MK2_8/misc/temp/shexer_params --shape_output_dir /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/logs/17-02-2025/KG_Agent_MK2_8/misc/temp

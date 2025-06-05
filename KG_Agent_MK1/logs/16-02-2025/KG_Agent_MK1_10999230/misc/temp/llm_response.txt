@@ -1,7 +1,0 @@
- 
-
-
-SELECT (COUNT(DISTINCT ?s) AS ?count)
-WHERE {
-  ?s a owl:Ontology .
-}  ```

@@ -1,9 +1,0 @@
-+ python track_files.py --root-dir ./ --output logs/26-02-2025/KG_Agent_MK2_19/misc/meta
-+ '[' 0 -ne 0 ']'
-+ echo 'File tracking completed successfully!'
-+ tee -a logs/26-02-2025/KG_Agent_MK2_19/track_files.log
-+ python ./extract_entity_list.py --input_file /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/qald_9_plus_test_wikidata_short.json --output_file logs/26-02-2025/KG_Agent_MK2_19/misc/temp/extracted_nlq_sparql_with_entities.json --api_key sk-0be8bdc1a4794cf5a2b06b3fc072a946 --num_questions 10 --model deepseek-chat --llm_switch deepseek
-+ python generate_shape.py --shape_output_path logs/26-02-2025/KG_Agent_MK2_19/misc/temp/shapes --target_json_file logs/26-02-2025/KG_Agent_MK2_19/misc/temp/extracted_nlq_sparql_with_entities.json
-+ python call_llm_api.py --model deepseek-chat --api_key sk-0be8bdc1a4794cf5a2b06b3fc072a946 --json_path logs/26-02-2025/KG_Agent_MK2_19/misc/temp/extracted_nlq_sparql_with_entities.json --system_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/system_prompt.txt --shape_path logs/26-02-2025/KG_Agent_MK2_19/misc/temp/shapes --output_dir logs/26-02-2025/KG_Agent_MK2_19/misc/temp/llm_responses --llm_switch deepseek
-+ python call_sparql_endpoint.py --sparql_endpoint_url https://query.wikidata.org/sparql --json_path logs/26-02-2025/KG_Agent_MK2_19/misc/temp/extracted_nlq_sparql_with_entities.json
-+ python verify_sparql.py --json_path logs/26-02-2025/KG_Agent_MK2_19/misc/temp/extracted_nlq_sparql_with_entities.json

@@ -1,4 +1,0 @@
-✅ SPARQL query successfully extracted and validated.
-📂 Loading local RDF graph from: /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-vocab.ttl
-🔍 Executing query on local RDF graph
-❌ ERROR: Failed to execute SPARQL query on local RDF graph: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}, found 'The'  (at char 23), (line:3, col:1)

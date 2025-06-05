@@ -1,215 +1,0 @@
-Starting file tracking...
-File tracking completed successfully!
-Waiting for server & model initialization...
- Retrying... [1/100] | Elapsed: 00:01 Retrying... [2/100] | Elapsed: 00:02 Retrying... [3/100] | Elapsed: 00:03 Retrying... [4/100] | Elapsed: 00:04 Retrying... [5/100] | Elapsed: 00:05ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
-ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
-ggml_cuda_init: found 4 CUDA devices:
-  Device 0: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-  Device 1: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-  Device 2: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-  Device 3: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-warn: LLAMA_ARG_HOST environment variable is set, but will be overwritten by command line argument --host
-build: 4667 (d2fe216f) with cc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0 for x86_64-linux-gnu
-system info: n_threads = 48, n_threads_batch = 48, total_threads = 96
-
-system_info: n_threads = 48 (n_threads_batch = 48) / 96 | CUDA : ARCHS = 520,610,700,750 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | LLAMAFILE = 1 | OPENMP = 1 | AARCH64_REPACK = 1 | 
-
-main: HTTP server is listening, hostname: localhost, port: 8000, http threads: 95
-main: loading model
-srv    load_model: loading model '/p/project1/hai_kg-rag-thesis/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf'
-llama_model_load_from_file_impl: using device CUDA0 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
-llama_model_load_from_file_impl: using device CUDA1 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
-llama_model_load_from_file_impl: using device CUDA2 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
-llama_model_load_from_file_impl: using device CUDA3 (NVIDIA A100-SXM4-40GB) - 40020 MiB free
- Retrying... [6/100] | Elapsed: 00:06llama_model_loader: additional 4 GGUFs metadata loaded.
-llama_model_loader: loaded meta data with 46 key-value pairs and 1025 tensors from /p/project1/hai_kg-rag-thesis/models/unsloth/DeepSeek-V3-GGUF/DeepSeek-V3-Q2_K_XS/DeepSeek-V3-Q2_K_XS-00001-of-00005.gguf (version GGUF V3 (latest))
-llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
-llama_model_loader: - kv   0:                       general.architecture str              = deepseek2
-llama_model_loader: - kv   1:                               general.type str              = model
-llama_model_loader: - kv   2:                               general.name str              = DeepSeek V3 BF16
-llama_model_loader: - kv   3:                         general.size_label str              = 256x20B
-llama_model_loader: - kv   4:                      deepseek2.block_count u32              = 61
-llama_model_loader: - kv   5:                   deepseek2.context_length u32              = 163840
-llama_model_loader: - kv   6:                 deepseek2.embedding_length u32              = 7168
-llama_model_loader: - kv   7:              deepseek2.feed_forward_length u32              = 18432
-llama_model_loader: - kv   8:             deepseek2.attention.head_count u32              = 128
-llama_model_loader: - kv   9:          deepseek2.attention.head_count_kv u32              = 128
-llama_model_loader: - kv  10:                   deepseek2.rope.freq_base f32              = 10000.000000
-llama_model_loader: - kv  11: deepseek2.attention.layer_norm_rms_epsilon f32              = 0.000001
-llama_model_loader: - kv  12:                deepseek2.expert_used_count u32              = 8
-llama_model_loader: - kv  13:                          general.file_type u32              = 10
-llama_model_loader: - kv  14:        deepseek2.leading_dense_block_count u32              = 3
-llama_model_loader: - kv  15:                       deepseek2.vocab_size u32              = 129280
-llama_model_loader: - kv  16:            deepseek2.attention.q_lora_rank u32              = 1536
-llama_model_loader: - kv  17:           deepseek2.attention.kv_lora_rank u32              = 512
-llama_model_loader: - kv  18:             deepseek2.attention.key_length u32              = 192
-llama_model_loader: - kv  19:           deepseek2.attention.value_length u32              = 128
-llama_model_loader: - kv  20:       deepseek2.expert_feed_forward_length u32              = 2048
-llama_model_loader: - kv  21:                     deepseek2.expert_count u32              = 256
-llama_model_loader: - kv  22:              deepseek2.expert_shared_count u32              = 1
-llama_model_loader: - kv  23:             deepseek2.expert_weights_scale f32              = 2.500000
-llama_model_loader: - kv  24:              deepseek2.expert_weights_norm bool             = true
-llama_model_loader: - kv  25:               deepseek2.expert_gating_func u32              = 2
-llama_model_loader: - kv  26:             deepseek2.rope.dimension_count u32              = 64
-llama_model_loader: - kv  27:                deepseek2.rope.scaling.type str              = yarn
-llama_model_loader: - kv  28:              deepseek2.rope.scaling.factor f32              = 40.000000
-llama_model_loader: - kv  29: deepseek2.rope.scaling.original_context_length u32              = 4096
-llama_model_loader: - kv  30: deepseek2.rope.scaling.yarn_log_multiplier f32              = 0.100000
-llama_model_loader: - kv  31:                       tokenizer.ggml.model str              = gpt2
-llama_model_loader: - kv  32:                         tokenizer.ggml.pre str              = deepseek-v3
-llama_model_loader: - kv  33:                      tokenizer.ggml.tokens arr[str,129280]  = ["<｜begin▁of▁sentence｜>", "<�...
-llama_model_loader: - kv  34:                  tokenizer.ggml.token_type arr[i32,129280]  = [3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
-llama_model_loader: - kv  35:                      tokenizer.ggml.merges arr[str,127741]  = ["Ġ t", "Ġ a", "i n", "Ġ Ġ", "h e...
-llama_model_loader: - kv  36:                tokenizer.ggml.bos_token_id u32              = 0
-llama_model_loader: - kv  37:                tokenizer.ggml.eos_token_id u32              = 1
-llama_model_loader: - kv  38:            tokenizer.ggml.padding_token_id u32              = 1
-llama_model_loader: - kv  39:               tokenizer.ggml.add_bos_token bool             = true
-llama_model_loader: - kv  40:               tokenizer.ggml.add_eos_token bool             = false
-llama_model_loader: - kv  41:                    tokenizer.chat_template str              = {% if not add_generation_prompt is de...
-llama_model_loader: - kv  42:               general.quantization_version u32              = 2
-llama_model_loader: - kv  43:                                   split.no u16              = 0
-llama_model_loader: - kv  44:                                split.count u16              = 5
-llama_model_loader: - kv  45:                        split.tensors.count i32              = 1025
-llama_model_loader: - type  f32:  361 tensors
-llama_model_loader: - type q2_K:  662 tensors
-llama_model_loader: - type q4_K:    1 tensors
-llama_model_loader: - type q6_K:    1 tensors
-print_info: file format = GGUF V3 (latest)
-print_info: file type   = Q2_K - Medium
-print_info: file size   = 206.05 GiB (2.64 BPW) 
-load: special_eos_id is not in special_eog_ids - the tokenizer config may be incorrect
-load: special tokens cache size = 818
-load: token to piece cache size = 0.8223 MB
-print_info: arch             = deepseek2
-print_info: vocab_only       = 0
-print_info: n_ctx_train      = 163840
-print_info: n_embd           = 7168
-print_info: n_layer          = 61
-print_info: n_head           = 128
-print_info: n_head_kv        = 128
-print_info: n_rot            = 64
-print_info: n_swa            = 0
-print_info: n_embd_head_k    = 192
-print_info: n_embd_head_v    = 128
-print_info: n_gqa            = 1
-print_info: n_embd_k_gqa     = 24576
-print_info: n_embd_v_gqa     = 16384
-print_info: f_norm_eps       = 0.0e+00
-print_info: f_norm_rms_eps   = 1.0e-06
-print_info: f_clamp_kqv      = 0.0e+00
-print_info: f_max_alibi_bias = 0.0e+00
-print_info: f_logit_scale    = 0.0e+00
-print_info: n_ff             = 18432
-print_info: n_expert         = 256
-print_info: n_expert_used    = 8
-print_info: causal attn      = 1
-print_info: pooling type     = 0
-print_info: rope type        = 0
-print_info: rope scaling     = yarn
-print_info: freq_base_train  = 10000.0
-print_info: freq_scale_train = 0.025
-print_info: n_ctx_orig_yarn  = 4096
-print_info: rope_finetuned   = unknown
-print_info: ssm_d_conv       = 0
-print_info: ssm_d_inner      = 0
-print_info: ssm_d_state      = 0
-print_info: ssm_dt_rank      = 0
-print_info: ssm_dt_b_c_rms   = 0
-print_info: model type       = 671B
-print_info: model params     = 671.03 B
-print_info: general.name     = DeepSeek V3 BF16
-print_info: n_layer_dense_lead   = 3
-print_info: n_lora_q             = 1536
-print_info: n_lora_kv            = 512
-print_info: n_ff_exp             = 2048
-print_info: n_expert_shared      = 1
-print_info: expert_weights_scale = 2.5
-print_info: expert_weights_norm  = 1
-print_info: expert_gating_func   = sigmoid
-print_info: rope_yarn_log_mul    = 0.1000
-print_info: vocab type       = BPE
-print_info: n_vocab          = 129280
-print_info: n_merges         = 127741
-print_info: BOS token        = 0 '<｜begin▁of▁sentence｜>'
-print_info: EOS token        = 1 '<｜end▁of▁sentence｜>'
-print_info: EOT token        = 1 '<｜end▁of▁sentence｜>'
-print_info: PAD token        = 1 '<｜end▁of▁sentence｜>'
-print_info: LF token         = 201 'Ċ'
-print_info: FIM PRE token    = 128801 '<｜fim▁begin｜>'
-print_info: FIM SUF token    = 128800 '<｜fim▁hole｜>'
-print_info: FIM MID token    = 128802 '<｜fim▁end｜>'
-print_info: EOG token        = 1 '<｜end▁of▁sentence｜>'
-print_info: max token length = 256
-load_tensors: loading model tensors, this can take a while... (mmap = true)
- Retrying... [7/100] | Elapsed: 00:07 Retrying... [8/100] | Elapsed: 00:08load_tensors: offloading 35 repeating layers to GPU
-load_tensors: offloaded 35/62 layers to GPU
-load_tensors:        CUDA0 model buffer size = 32466.55 MiB
-load_tensors:        CUDA1 model buffer size = 32466.55 MiB
-load_tensors:        CUDA2 model buffer size = 32466.55 MiB
-load_tensors:        CUDA3 model buffer size = 28859.16 MiB
-load_tensors:   CPU_Mapped model buffer size = 42690.54 MiB
-load_tensors:   CPU_Mapped model buffer size = 42049.55 MiB
-....... Retrying... [9/100] | Elapsed: 00:09........ Retrying... [10/100] | Elapsed: 00:10....... Retrying... [11/100] | Elapsed: 00:11.... Retrying... [12/100] | Elapsed: 00:12..... Retrying... [13/100] | Elapsed: 00:13...... Retrying... [14/100] | Elapsed: 00:14..... Retrying... [15/100] | Elapsed: 00:15..... Retrying... [16/100] | Elapsed: 00:16.... Retrying... [17/100] | Elapsed: 00:17......... Retrying... [18/100] | Elapsed: 00:18.................. Retrying... [19/100] | Elapsed: 00:19.................. Retrying... [20/100] | Elapsed: 00:20... Retrying... [21/100] | Elapsed: 00:21.
- Retrying... [22/100] | Elapsed: 00:22llama_init_from_model: n_seq_max     = 4
-llama_init_from_model: n_ctx         = 4096
-llama_init_from_model: n_ctx_per_seq = 1024
-llama_init_from_model: n_batch       = 2048
-llama_init_from_model: n_ubatch      = 512
-llama_init_from_model: flash_attn    = 0
-llama_init_from_model: freq_base     = 1000000.0
-llama_init_from_model: freq_scale    = 0.025
-llama_init_from_model: n_ctx_per_seq (1024) < n_ctx_train (163840) -- the full capacity of the model will not be utilized
-llama_kv_cache_init: kv_size = 4096, offload = 1, type_k = 'q5_0', type_v = 'f16', n_layer = 61, can_shift = 0
-llama_kv_cache_init:      CUDA0 KV buffer size =  1746.00 MiB
-llama_kv_cache_init:      CUDA1 KV buffer size =  1746.00 MiB
-llama_kv_cache_init:      CUDA2 KV buffer size =  1746.00 MiB
-llama_kv_cache_init:      CUDA3 KV buffer size =  1552.00 MiB
-llama_kv_cache_init:        CPU KV buffer size =  5044.00 MiB
-llama_init_from_model: KV self size  = 11834.00 MiB, K (q5_0): 4026.00 MiB, V (f16): 7808.00 MiB
-llama_init_from_model:        CPU  output buffer size =     1.97 MiB
-llama_init_from_model:      CUDA0 compute buffer size =  1362.00 MiB
-llama_init_from_model:      CUDA1 compute buffer size =  1186.00 MiB
-llama_init_from_model:      CUDA2 compute buffer size =  1186.00 MiB
-llama_init_from_model:      CUDA3 compute buffer size =  1186.00 MiB
-llama_init_from_model:  CUDA_Host compute buffer size =    88.01 MiB
-llama_init_from_model: graph nodes  = 5025
-llama_init_from_model: graph splits = 486 (with bs=512), 6 (with bs=1)
-common_init_from_params: KV cache shifting is not supported for this model, disabling KV cache shifting
-common_init_from_params: setting dry_penalty_last_n to ctx_size = 4096
-common_init_from_params: warming up the model with an empty run - please wait ... (--no-warmup to disable)
- Retrying... [23/100] | Elapsed: 00:23 Retrying... [24/100] | Elapsed: 00:24 Retrying... [25/100] | Elapsed: 00:25srv          init: initializing slots, n_slots = 4
-slot         init: id  0 | task -1 | new slot n_ctx_slot = 1024
-slot         init: id  1 | task -1 | new slot n_ctx_slot = 1024
-slot         init: id  2 | task -1 | new slot n_ctx_slot = 1024
-slot         init: id  3 | task -1 | new slot n_ctx_slot = 1024
-main: model loaded
-main: chat template, chat_template: {% if not add_generation_prompt is defined %}{% set add_generation_prompt = false %}{% endif %}{% set ns = namespace(is_first=false, is_tool=false, is_output_first=true, system_prompt='', is_first_sp=true) %}{%- for message in messages %}{%- if message['role'] == 'system' %}{%- if ns.is_first_sp %}{% set ns.system_prompt = ns.system_prompt + message['content'] %}{% set ns.is_first_sp = false %}{%- else %}{% set ns.system_prompt = ns.system_prompt + '
-
-' + message['content'] %}{%- endif %}{%- endif %}{%- endfor %}{{bos_token}}{{ns.system_prompt}}{%- for message in messages %}{%- if message['role'] == 'user' %}{%- set ns.is_tool = false -%}{{'<｜User｜>' + message['content']}}{%- endif %}{%- if message['role'] == 'assistant' and message['content'] is none %}{%- set ns.is_tool = false -%}{%- for tool in message['tool_calls']%}{%- if not ns.is_first %}{{'<｜Assistant｜><｜tool▁calls▁begin｜><｜tool▁call▁begin｜>' + tool['type'] + '<｜tool▁sep｜>' + tool['function']['name'] + '
-' + '```json' + '
-' + tool['function']['arguments'] + '
-' + '```' + '<｜tool▁call▁end｜>'}}{%- set ns.is_first = true -%}{%- else %}{{'
-' + '<｜tool▁call▁begin｜>' + tool['type'] + '<｜tool▁sep｜>' + tool['function']['name'] + '
-' + '```json' + '
-' + tool['function']['arguments'] + '
-' + '```' + '<｜tool▁call▁end｜>'}}{{'<｜tool▁calls▁end｜><｜end▁of▁sentence｜>'}}{%- endif %}{%- endfor %}{%- endif %}{%- if message['role'] == 'assistant' and message['content'] is not none %}{%- if ns.is_tool %}{{'<｜tool▁outputs▁end｜>' + message['content'] + '<｜end▁of▁sentence｜>'}}{%- set ns.is_tool = false -%}{%- else %}{{'<｜Assistant｜>' + message['content'] + '<｜end▁of▁sentence｜>'}}{%- endif %}{%- endif %}{%- if message['role'] == 'tool' %}{%- set ns.is_tool = true -%}{%- if ns.is_output_first %}{{'<｜tool▁outputs▁begin｜><｜tool▁output▁begin｜>' + message['content'] + '<｜tool▁output▁end｜>'}}{%- set ns.is_output_first = false %}{%- else %}{{'
-<｜tool▁output▁begin｜>' + message['content'] + '<｜tool▁output▁end｜>'}}{%- endif %}{%- endif %}{%- endfor -%}{% if ns.is_tool %}{{'<｜tool▁outputs▁end｜>'}}{% endif %}{% if add_generation_prompt and not ns.is_tool %}{{'<｜Assistant｜>'}}{% endif %}, example_format: 'You are a helpful assistant
-
-<｜User｜>Hello<｜Assistant｜>Hi there<｜end▁of▁sentence｜><｜User｜>How are you?<｜Assistant｜>'
-main: server is listening on http://localhost:8000 - starting the main loop
-srv  update_slots: all slots are idle
- Retrying... [26/100] | Elapsed: 00:26 Retrying... [27/100] | Elapsed: 00:27 Retrying... [28/100] | Elapsed: 00:28 Retrying... [29/100] | Elapsed: 00:29 Retrying... [30/100] | Elapsed: 00:30 Retrying... [31/100] | Elapsed: 00:31 Retrying... [32/100] | Elapsed: 00:32 Retrying... [33/100] | Elapsed: 00:33 Retrying... [34/100] | Elapsed: 00:34 Retrying... [35/100] | Elapsed: 00:35 Retrying... [36/100] | Elapsed: 00:36 Retrying... [37/100] | Elapsed: 00:37 Retrying... [38/100] | Elapsed: 00:38 Retrying... [39/100] | Elapsed: 00:39 Retrying... [40/100] | Elapsed: 00:40 Retrying... [41/100] | Elapsed: 00:41 Retrying... [42/100] | Elapsed: 00:42 Retrying... [43/100] | Elapsed: 00:43 Retrying... [44/100] | Elapsed: 00:44 Retrying... [45/100] | Elapsed: 00:45 Retrying... [46/100] | Elapsed: 00:46 Retrying... [47/100] | Elapsed: 00:47 Retrying... [48/100] | Elapsed: 00:48 Retrying... [49/100] | Elapsed: 00:49 Retrying... [50/100] | Elapsed: 00:50 Retrying... [51/100] | Elapsed: 00:51 Retrying... [52/100] | Elapsed: 00:52 Retrying... [53/100] | Elapsed: 00:53 Retrying... [54/100] | Elapsed: 00:54 Retrying... [55/100] | Elapsed: 00:55 Retrying... [56/100] | Elapsed: 00:56 Retrying... [57/100] | Elapsed: 00:57 Retrying... [58/100] | Elapsed: 00:58 Retrying... [59/100] | Elapsed: 00:59 Retrying... [60/100] | Elapsed: 01:00 Retrying... [61/100] | Elapsed: 01:01 Retrying... [62/100] | Elapsed: 01:02 Retrying... [63/100] | Elapsed: 01:03 Retrying... [64/100] | Elapsed: 01:04 Retrying... [65/100] | Elapsed: 01:05 Retrying... [66/100] | Elapsed: 01:06 Retrying... [67/100] | Elapsed: 01:07 Retrying... [68/100] | Elapsed: 01:08 Retrying... [69/100] | Elapsed: 01:09 Retrying... [70/100] | Elapsed: 01:10 Retrying... [71/100] | Elapsed: 01:11 Retrying... [72/100] | Elapsed: 01:12 Retrying... [73/100] | Elapsed: 01:13 Retrying... [74/100] | Elapsed: 01:14 Retrying... [75/100] | Elapsed: 01:15 Retrying... [76/100] | Elapsed: 01:16 Retrying... [77/100] | Elapsed: 01:17 Retrying... [78/100] | Elapsed: 01:18 Retrying... [79/100] | Elapsed: 01:19 Retrying... [80/100] | Elapsed: 01:20 Retrying... [81/100] | Elapsed: 01:21 Retrying... [82/100] | Elapsed: 01:22 Retrying... [83/100] | Elapsed: 01:23 Retrying... [84/100] | Elapsed: 01:24 Retrying... [85/100] | Elapsed: 01:25 Retrying... [86/100] | Elapsed: 01:26 Retrying... [87/100] | Elapsed: 01:27 Retrying... [88/100] | Elapsed: 01:28 Retrying... [89/100] | Elapsed: 01:29 Retrying... [90/100] | Elapsed: 01:30 Retrying... [91/100] | Elapsed: 01:31 Retrying... [92/100] | Elapsed: 01:32 Retrying... [93/100] | Elapsed: 01:33 Retrying... [94/100] | Elapsed: 01:34 Retrying... [95/100] | Elapsed: 01:35 Retrying... [96/100] | Elapsed: 01:36 Retrying... [97/100] | Elapsed: 01:37 Retrying... [98/100] | Elapsed: 01:38 Retrying... [99/100] | Elapsed: 01:39 Retrying... [100/100] | Elapsed: 01:40Calling LLM API...
-slot launch_slot_: id  0 | task 0 | processing task
-slot update_slots: id  0 | task 0 | new prompt, n_ctx_slot = 1024, n_keep = 0, n_prompt_tokens = 9
-slot update_slots: id  0 | task 0 | kv cache rm [0, end)
-slot update_slots: id  0 | task 0 | prompt processing progress, n_past = 9, n_tokens = 9, progress = 1.000000
-slot update_slots: id  0 | task 0 | prompt done, n_past = 9, n_tokens = 9
-slot      release: id  0 | task 0 | stop processing: n_past = 264, truncated = 0
-slot print_timing: id  0 | task 0 | 
-prompt eval time =    2164.14 ms /     9 tokens (  240.46 ms per token,     4.16 tokens per second)
-       eval time =   72691.09 ms /   256 tokens (  283.95 ms per token,     3.52 tokens per second)
-      total time =   74855.23 ms /   265 tokens
-srv  update_slots: all slots are idle
-LLM API call completed successfully!
-Generating GPU usage graph...
-GPU usage visualization saved at: /p/project1/hai_kg-rag-thesis/scripts/Apptainer_parallel/logs/10-02-2025/deepseek_job_10966054/misc/gpu_usage.png

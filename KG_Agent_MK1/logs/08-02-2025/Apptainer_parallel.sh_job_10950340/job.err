@@ -1,9 +1,0 @@
-FATAL:   "llama-server": executable file not found in $PATH
-FATAL:   "llama-server": executable file not found in $PATH
-FATAL:   "llama-server": executable file not found in $PATH
-FATAL:   "llama-server": executable file not found in $PATH
-FATAL:   "llama-server": executable file not found in $PATH
-FATAL:   "llama-server": executable file not found in $PATH
-FATAL:   "llama-server": executable file not found in $PATH
-FATAL:   "llama-server": executable file not found in $PATH
-srun: error: jwb0067: tasks 0-7: Exited with exit code 255

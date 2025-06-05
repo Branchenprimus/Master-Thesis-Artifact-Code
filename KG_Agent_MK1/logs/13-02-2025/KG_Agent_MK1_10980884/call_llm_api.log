@@ -1,3 +1,0 @@
-Calling LLM API...
-ERROR: LLM API returned an error: ❌ ERROR: API call failed: 400 Client Error: Bad Request for url: http://localhost:8000/v1/completions
-LLM API call completed successfully!

@@ -1,6 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?timeZone WHERE {
-  wd:Q23337 wdt:P421 ?timeZone .
-}

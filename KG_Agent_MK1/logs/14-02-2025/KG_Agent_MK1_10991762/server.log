@@ -1,9 +1,0 @@
-ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no
-ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
-ggml_cuda_init: found 4 CUDA devices:
-  Device 0: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-  Device 1: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-  Device 2: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-  Device 3: NVIDIA A100-SXM4-40GB, compute capability 8.0, VMM: yes
-warn: LLAMA_ARG_HOST environment variable is set, but will be overwritten by command line argument --host
-error: invalid argument: 1

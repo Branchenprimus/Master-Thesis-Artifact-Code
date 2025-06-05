@@ -1,6 +1,0 @@
-WARNING: passwd file doesn't exist in container, not updating
-WARNING: group file doesn't exist in container, not updating
-WARNING: Skipping mount /tmp [tmp]: /tmp doesn't exist in container
-WARNING: Skipping mount /var/tmp [tmp]: /var/tmp doesn't exist in container
-FATAL:   stat /app/llama-server: no such file or directory
-ERROR: LLaMA server did not start in time!

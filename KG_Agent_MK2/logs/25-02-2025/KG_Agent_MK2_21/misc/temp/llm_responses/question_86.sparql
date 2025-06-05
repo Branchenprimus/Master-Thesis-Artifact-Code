@@ -1,7 +1,0 @@
-SELECT ?mountain ?mountainLabel WHERE {
-  ?mountain wdt:P610 wd:Q183.
-  ?mountain rdfs:label ?mountainLabel.
-  FILTER(LANG(?mountainLabel) = "en")
-}
-ORDER BY DESC(?mountain)
-LIMIT 1

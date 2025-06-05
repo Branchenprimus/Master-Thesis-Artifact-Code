@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/sparql_verifier.py", line 9, in <module>
-    from SPARQLWrapper import SPARQLWrapper, JSON
-ModuleNotFoundError: No module named 'SPARQLWrapper'

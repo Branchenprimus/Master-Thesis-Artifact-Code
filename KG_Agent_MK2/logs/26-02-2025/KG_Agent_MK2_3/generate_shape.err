@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/generate_shape.py", line 122, in <module>
-    main()
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/generate_shape.py", line 119, in main
-    process_json(args.target_json_file, args.shape_output_path)
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/generate_shape.py", line 59, in process_json
-    with open(json_file, "r", encoding="utf-8") as file:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'logs/26-02-2025/KG_Agent_MK2_3/misc/temp/extracted_nlq_sparql_with_entities.json'

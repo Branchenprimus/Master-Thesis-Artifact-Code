@@ -1,7 +1,0 @@
-+ echo 'Starting file tracking...'
-+ tee -a logs/17-02-2025/KG_Agent_MK2_1/track_files.log
-+ python track_files.py --root-dir ./ --output logs/17-02-2025/KG_Agent_MK2_1/misc/meta
-+ '[' 0 -ne 0 ']'
-+ echo 'File tracking completed successfully!'
-+ tee -a logs/17-02-2025/KG_Agent_MK2_1/track_files.log
-+ python generate_shexer_params.py --model gpt-4o-mini --openai_api_key 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 --user_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/user_prompt.txt --system_prompt_path /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/prompts/generate_shexer_params_system_prompt.txt --shexer_params_path logs/17-02-2025/KG_Agent_MK2_1/misc/temp/shexer_params

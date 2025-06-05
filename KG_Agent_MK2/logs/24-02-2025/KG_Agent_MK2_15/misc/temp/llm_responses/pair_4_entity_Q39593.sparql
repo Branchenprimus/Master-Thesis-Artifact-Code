@@ -1,7 +1,0 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?state WHERE {
-  wd:Q39593 wdt:P39 ?position .
-  ?position wdt:P937 ?state .
-}

@@ -1,7 +1,0 @@
-PREFIX ex: <http://example.org/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-
-SELECT ?president WHERE {
-  wd:Q8740 wdt:P710 ?president .
-}

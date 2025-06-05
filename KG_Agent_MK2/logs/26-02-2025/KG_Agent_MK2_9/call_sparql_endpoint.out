@@ -1,9 +1,0 @@
-sparql_folder: logs/26-02-2025/KG_Agent_MK2_9/misc/temp/llm_responses
-sparql_endpoint_url: https://query.wikidata.org/sparql
-ttl_file: None
-json_output: logs/26-02-2025/KG_Agent_MK2_9/misc/temp/extracted_nlq_sparql_with_entities.json
-sparql_file: logs/26-02-2025/KG_Agent_MK2_9/misc/temp/llm_responses/question_99.sparql
-⚠️ No SPARQL file found for question ID 99, skipping.
-sparql_file: logs/26-02-2025/KG_Agent_MK2_9/misc/temp/llm_responses/question_98.sparql
-⚠️ No SPARQL file found for question ID 98, skipping.
-✅ Updated JSON file saved to: logs/26-02-2025/KG_Agent_MK2_9/misc/temp/extracted_nlq_sparql_with_entities.json

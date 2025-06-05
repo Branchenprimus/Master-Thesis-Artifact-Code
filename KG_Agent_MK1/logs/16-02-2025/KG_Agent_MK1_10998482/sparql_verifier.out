@@ -1,8 +1,0 @@
-sparql_endpoint_url: local
-response_file: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/16-02-2025/KG_Agent_MK1_10998482/misc/temp/llm_response.txt
-ttl_file: /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl
-output_dir: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/16-02-2025/KG_Agent_MK1_10998482/misc/temp
-✅ SPARQL query successfully extracted and validated.
-📂 Loading local RDF graph from: /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl
-🔍 Executing query on local RDF graph
-✅ SPARQL results saved to: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/16-02-2025/KG_Agent_MK1_10998482/misc/temp/SPARQL_response.csv

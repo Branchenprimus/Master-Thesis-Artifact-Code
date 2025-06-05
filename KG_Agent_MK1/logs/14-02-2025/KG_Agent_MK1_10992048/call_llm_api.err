@@ -1,1 +1,0 @@
-❌ ERROR: API call failed: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x14d28cbdc610>: Failed to establish a new connection: [Errno 111] Connection refused'))

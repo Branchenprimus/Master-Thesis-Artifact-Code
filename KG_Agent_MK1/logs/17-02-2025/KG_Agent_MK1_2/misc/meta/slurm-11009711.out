@@ -1,6 +1,0 @@
-LOG_DIR: logs/17-02-2025/KG_Agent_MK1_2
-TEMP_OUTPUT_DIR: logs/17-02-2025/KG_Agent_MK1_2/misc/temp
-+ echo 'Starting file tracking...'
-+ tee -a logs/17-02-2025/KG_Agent_MK1_2/track_files.log
-Starting file tracking...
-+ python track_files.py --root-dir ./ --output logs/17-02-2025/KG_Agent_MK1_2/misc/meta

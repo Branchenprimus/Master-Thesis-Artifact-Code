@@ -1,1 +1,0 @@
-Error calling LLM API: 503 Server Error: Service Unavailable for url: http://localhost:8000/v1/completions

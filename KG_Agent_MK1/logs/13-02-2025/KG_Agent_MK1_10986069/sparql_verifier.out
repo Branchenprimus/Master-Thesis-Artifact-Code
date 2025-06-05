@@ -1,8 +1,0 @@
-sparql_endpoint_url: local
-response_file: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/13-02-2025/KG_Agent_MK1_10986069/misc/temp/llm_response.txt
-ttl_file: /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl
-output_dir: /p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK1/logs/13-02-2025/KG_Agent_MK1_10986069/misc/temp
-✅ SPARQL query successfully extracted and validated.
-📂 Loading local RDF graph from: /p/project1/hai_kg-rag-thesis/challenge_text2sparql/source/corporate_graphs/prod-inst.ttl
-🔍 Executing query on local RDF graph
-❌ ERROR: Failed to execute SPARQL query on local RDF graph: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}, found '`'  (at char 0), (line:1, col:1)

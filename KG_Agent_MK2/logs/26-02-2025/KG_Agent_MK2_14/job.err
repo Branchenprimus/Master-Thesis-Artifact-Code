@@ -1,7 +1,0 @@
-+ python track_files.py --root-dir ./ --output logs/26-02-2025/KG_Agent_MK2_14/misc/meta
-+ '[' 0 -ne 0 ']'
-+ echo 'File tracking completed successfully!'
-+ tee -a logs/26-02-2025/KG_Agent_MK2_14/track_files.log
-+ python ./extract_entity_list.py --input_file /p/project1/hai_kg-rag-thesis/benchmark/QLAD_Benchmark/QALD_9_plus/data/qald_9_plus_test_wikidata_short.json --output_file logs/26-02-2025/KG_Agent_MK2_14/misc/temp/extracted_nlq_sparql_with_entities.json --api_key sk-0be8bdc1a4794cf5a2b06b3fc072a946 --num_questions 2 --model deepseek-chat --llm_switch deepseek
-./KG_Agent_MK2.sh: line 73: unexpected EOF while looking for matching `"'
-./KG_Agent_MK2.sh: line 74: syntax error: unexpected end of file

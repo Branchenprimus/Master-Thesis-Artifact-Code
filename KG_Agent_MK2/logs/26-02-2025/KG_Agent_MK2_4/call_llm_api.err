@@ -1,4 +1,0 @@
-  File "/p/project1/hai_kg-rag-thesis/scripts/KG_Agent_MK2/call_llm_api.py", line 43
-    completion = client.chat.completions.create(
-    ^
-IndentationError: expected an indented block after 'try' statement on line 42

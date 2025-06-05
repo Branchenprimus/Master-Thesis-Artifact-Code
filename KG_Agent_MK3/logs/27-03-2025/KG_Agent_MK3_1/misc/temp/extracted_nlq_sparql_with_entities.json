@@ -1,9 +1,0 @@
-[
-    {
-        "id": 4,
-        "question_text": "is the number of creatures speaking both abyssal and aklo languages greater than infernal and terran?",
-        "sparql_query": "SELECT (if(?n_creatures_1>?n_creatures_2, 'True', 'False') as ?res) WHERE {  {SELECT (COUNT(?creatures_1) as ?n_creatures_1) WHERE { ?creatures_1 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AbyssalL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#AkloL>}} {SELECT (COUNT(?creatures_2) as ?n_creatures_2) WHERE { ?creatures_2 <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#InfernalL>; <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#hasLanguages> <http://www.semanticweb.org/annab/ontologies/2022/3/ontology#TerranL>}} }",
-        "llm_extracted_entity_names": "Local Graph, no entity extraction needed",
-        "endpoint_entities_resolved": "Local Graph, no entity resolving needed"
-    }
-]

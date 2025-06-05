@@ -1,3 +1,0 @@
-Verifying and executing SPARQL query...
-ERROR: SPARQL verification failed. Check logs: logs/16-02-2025/KG_Agent_MK1_10999236/sparql_verifier.err
-SPARQL verification and execution completed successfully!

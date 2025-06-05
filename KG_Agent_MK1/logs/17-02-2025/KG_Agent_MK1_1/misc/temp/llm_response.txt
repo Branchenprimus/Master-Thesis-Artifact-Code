@@ -1,5 +1,0 @@
-```sparql
-SELECT (COUNT(?ontology) AS ?ontologyCount) WHERE {
-  ?ontology rdf:type void:Dataset .
-}
-```

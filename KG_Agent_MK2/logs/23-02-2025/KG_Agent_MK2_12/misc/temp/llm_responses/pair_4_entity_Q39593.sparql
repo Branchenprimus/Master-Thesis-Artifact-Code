@@ -1,9 +1,0 @@
-```sparql
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-SELECT ?state WHERE {
-  wd:wd:Q12345 wdt:P39 wd:wd:Q13218629 .  # Replace Q12345 with Butch Otter's entity ID
-  wd:wd:Q13218629 wdt:P768 ?state .
-}
-```

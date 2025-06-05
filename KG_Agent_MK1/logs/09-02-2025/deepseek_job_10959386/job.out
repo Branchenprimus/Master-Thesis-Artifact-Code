@@ -1,4 +1,0 @@
-Server PID: 31741
-FATAL:   While checking container encryption: could not open image /p/project1/hai_kg-rag-thesis/llama-server: failed to retrieve path for /p/project1/hai_kg-rag-thesis/llama-server: lstat /p/project1/hai_kg-rag-thesis/llama-server: no such file or directory
-Waiting for LLM server to start on port ...
-ERROR: LLM server did not start after  seconds.

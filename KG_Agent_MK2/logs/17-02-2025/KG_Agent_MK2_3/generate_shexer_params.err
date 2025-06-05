@@ -1,7 +1,0 @@
-ERROR:root:OpenAI API error: 2 validation errors for ShexerConfig
-source
-  Field required [type=missing, input_value={'target_classes': ['dbo:...ples': True, 'depth': 1}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.10/v/missing
-examples
-  Input should be 'SHAPE_EXAMPLES', 'CONSTRAINT_EXAMPLES' or 'ALL_EXAMPLES' [type=enum, input_value=True, input_type=bool]
-    For further information visit https://errors.pydantic.dev/2.10/v/enum

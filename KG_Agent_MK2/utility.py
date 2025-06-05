@@ -173,5 +173,7 @@ class Utils:
             return "https://api.anthropic.com/v1/"
         elif llm_provider == "groq":
             return "https://api.groq.com/openai/v1"
+        elif llm_provider == "google":
+            return "https://generativelanguage.googleapis.com/v1beta/openai/"
         else:
             raise ValueError(f"Unsupported LLM provider: {llm_provider}")

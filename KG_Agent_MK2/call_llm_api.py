@@ -22,16 +22,27 @@ def call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
     client = OpenAI(api_key=api_key, base_url=Utils.resolve_llm_provider(llm_provider))
     
     try:
-        completion = client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": "You are a SPARQL expert. Only output valid SPARQL queries."},
-                {"role": "user", "content": full_prompt}
-            ],
-            max_tokens=max_tokens,
-            temperature=temperature
-        )
-
+        if llm_provider == "google":
+            completion = client.chat.completions.create(
+                model=model,
+                reasoning_effort="medium",
+                messages=[
+                    {"role": "system", "content": "You are a SPARQL expert. Only output valid SPARQL queries."},
+                    {"role": "user", "content": full_prompt}
+                ],
+                max_tokens=max_tokens,
+                temperature=temperature
+            )
+        else:
+            completion = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": "You are a SPARQL expert. Only output valid SPARQL queries."},
+                    {"role": "user", "content": full_prompt}
+                ],
+                max_tokens=max_tokens,
+                temperature=temperature
+            )
         return completion
     
     except Exception as e:
@@ -135,7 +146,12 @@ def process_json_and_shapes(json_path, shape_dir, system_prompt_path, api_key, m
             print(f"🔄 Attempt {retries + 1}/{max_retries + 1} with temperature: {temperature}")
             full_response = call_llm(full_prompt, max_tokens, temperature, api_key, model, llm_provider)
 
-            response = full_response.choices[0].message.content.strip()
+            message_content = full_response.choices[0].message.content
+
+            if message_content is not None:
+                response = message_content.strip()
+            else:
+                print(f"LLM response has no content (None). Check the API call or model behavior. \n full_response: {full_response}\nmessage_content: {message_content}")
 
             if not response:
                 retries += 1

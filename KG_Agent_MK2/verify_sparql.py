@@ -70,15 +70,15 @@ def count_total_tokens(data):
         "avg_retries_per_question": avg_retries_per_question
     }
 
-def compute_effort_normalized_accuracy(execution_accuracy, token_summary, total_questions):
+def compute_effort_normalized_accuracy(f1_score, token_summary, total_questions):
     avg_retries = token_summary["avg_retries_per_question"]
     avg_tokens = token_summary["total_tokens"] / total_questions if total_questions else 0
 
     ena = (
-        execution_accuracy / ((1 + avg_retries) * math.log10(1 + avg_tokens))
+        f1_score / ((1 + avg_retries) * math.log10(1 + avg_tokens))
         if avg_tokens > 0 else 0
     )
-    return ena
+    return ena * 100
 
 def process_json(json_path, sparql_endpoint_url, is_local_graph, local_graph_location, num_questions, max_retries, log_dir, llm_provider_sparql_generation, llm_provider_entity_extraction, model_entity_extraction, model_sparql_generation, benchmark_dataset, shape_type, dataset_type, annotation, baseline_run, run_index):
     """Processes the JSON file, compares SPARQL query results, and appends the comparison results to the JSON file."""
@@ -151,7 +151,11 @@ def process_json(json_path, sparql_endpoint_url, is_local_graph, local_graph_loc
     # Count token usage
     token_summary = count_total_tokens(data)
 
-    ena_score = compute_effort_normalized_accuracy(execution_accuracy, token_summary, len(data))
+    ena_score = compute_effort_normalized_accuracy(f1_score, token_summary, len(data))
+    
+    if baseline_run:
+        shape_type = "None"
+        annotation = "None"
 
     # Save everything to a summary.txt file
     summary_path = json_path.replace(".json", "_summary.txt")

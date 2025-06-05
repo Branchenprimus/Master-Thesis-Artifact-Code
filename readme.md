@@ -1,12 +1,16 @@
-### **README.md - KG Agent Pipeline**
+# SPARQL Query Generation Pipeline
 
-## **Project Overview**
-The **KG Agent** project is designed to extract structured knowledge from natural language queries (NLQs) and generate SPARQL queries to interact with **Wikidata**. The pipeline uses **large language models (LLMs)** to extract relevant entities, generate SPARQL queries, and verify their correctness.
+A research pipeline that uses Large Language Models (LLMs) to automatically generate SPARQL queries from natural language questions, enhanced with shape-informed prompting for improved accuracy.
 
+## Overview
+
+The pipeline consists of multiple Python scripts, each responsible for a specific task in the **query generation and validation process**. The pipeline evaluates whether providing shape constraints (SHACL/ShEx) to LLMs improves their ability to generate accurate SPARQL queries from natural language questions. The system processes knowledge graph question-answering (KGQA) datasets and measures performance using standard evaluation metrics.
+
+![System Architecture](https://github.com/Branchenprimus/Master-Thesis-Tex/blob/fdfb511a4787798b7109bc31796edcc7292213c1/images/artifact/architecture_diagram_small.drawio.pdf)
+*System architecture showing the complete pipeline flow*
 ---
 
 ## **Pipeline Overview**
-The pipeline consists of multiple Python scripts, each responsible for a specific task in the **query generation and validation process**.
 
 ### **1️⃣ Extract Entities from NLQs (`extract_entity_list.py`)**
 **Goal:** Extract named entities from natural language questions.  

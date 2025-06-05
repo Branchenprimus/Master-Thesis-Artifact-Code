@@ -6,7 +6,7 @@ A research pipeline that uses Large Language Models (LLMs) to automatically gene
 
 The pipeline consists of multiple Python scripts, each responsible for a specific task in the **query generation and validation process**. The pipeline evaluates whether providing shape constraints (SHACL/ShEx) to LLMs improves their ability to generate accurate SPARQL queries from natural language questions. The system processes knowledge graph question-answering (KGQA) datasets and measures performance using standard evaluation metrics.
 
-![System Architecture](https://github.com/Branchenprimus/Master-Thesis-Tex/blob/fdfb511a4787798b7109bc31796edcc7292213c1/images/artifact/architecture_diagram_small.drawio.pdf)
+![Artifact Architecture](https://github.com/Branchenprimus/Master-Thesis-Tex/blob/main/images/artifact/architecture_diagram_small.drawio-1.png)
 *System architecture showing the complete pipeline flow*
 ---
 
